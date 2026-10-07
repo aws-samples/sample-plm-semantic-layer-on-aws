@@ -37,7 +37,9 @@ public record NativeTable(String name, String keyColumn, ReleasabilityFilter fil
                 .map(ManagedType::getJavaType)
                 .filter(type -> AnnotationCatalogue.tableName(type).equals(table))
                 .findFirst()
-                .map(type -> new NativeTable(table, AnnotationCatalogue.keyColumn(type), ReleasabilityFilter.of(type), projection(type)));
+                // The name placed in the SQL is the entity's own, never the request string that matched it.
+                .map(type -> new NativeTable(AnnotationCatalogue.tableName(type), AnnotationCatalogue.keyColumn(type),
+                        ReleasabilityFilter.of(type), projection(type)));
     }
 
     private static String projection(Class<?> type) {
