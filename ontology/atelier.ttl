@@ -1,0 +1,1193 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Atelier product-structure ontology.
+#
+# A small OWL 2 QL vocabulary for the cross-PLM interface check. Its concepts
+# follow the product-structure part of ISO 10303-242 (STEP AP242): a Part is a
+# product (AP242 product / product_definition), an InterfaceFeature is a located
+# feature of that part (AP242 shape_aspect carrying a placement) that the two
+# sides of a joint must agree on, an Interface is the joint between two sibling
+# parts (an AP242 shape_aspect_relationship between their shape aspects, not an
+# assembly_component_usage, which is parent to child), and matesWith is the
+# mating relationship between two shape aspects. Positions
+# and other measured values are QUDT quantity values so that each value carries
+# its own unit. A Product is what the parts are assembled into (the AP242
+# product at the top of the structure); which product a part belongs to, the
+# product's name and the coordinate frame of its CAD live in the Atelier core
+# database, as does the export-control tag of a part, which is inherited by the
+# part's features and CAD file; where the CAD file is, and who builds the part
+# for its owner, live in the file-index graph of the link store.
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://example.com/atelier/ontology> a owl:Ontology ;
+  owl:versionInfo "2.3.0" ;
+  rdfs:label "Atelier product structure and interfaces" ;
+  rdfs:comment "Products, their parts, interface features (plugs, fasteners, hydraulic couplings) and cross-PLM interfaces, with measured values as QUDT quantity values in the product's coordinate frame (atelier:frame, stated per product; z up in every frame)." ;
+  rdfs:seeAlso <http://qudt.org/schema/qudt/> .
+
+# Classes
+
+atelier:Product a owl:Class ;
+  rdfs:label "Product" ;
+  rdfs:comment "A product the PLMs' parts are assembled into, such as a flying machine: the AP242 product at the top of the structure. Atelier's own structure, held in the Atelier core database with its display name (atelier:label) and the coordinate frame of its CAD and feature positions (atelier:frame). IRI https://example.com/atelier/product/{key}." .
+
+atelier:Part a owl:Class ;
+  rdfs:label "Part" ;
+  rdfs:comment "A physical part owned by one site PLM, such as a wing spar or a mast segment. Corresponds to an AP242 product with its product_definition; the CAD model is referenced by atelier:cadFile and the product it belongs to by atelier:partOf. Its export-control tag (atelier:jurisdiction, atelier:releasableTo, atelier:taggedBy, atelier:taggedAt), held in the Atelier core database, is inherited by its features and CAD file." .
+
+atelier:InterfaceFeature a owl:Class ;
+  rdfs:label "Interface feature" ;
+  rdfs:comment "Anything two parts must agree on at an interface: a located feature of a part (AP242 shape_aspect with a placement) that mates with a feature of the same class on the other part. Every feature has an identifier, an owner, a part, a position on each axis and, when mated, a matesWith link." .
+
+atelier:Plug a owl:Class ;
+  rdfs:subClassOf atelier:InterfaceFeature ;
+  rdfs:label "Plug" ;
+  rdfs:comment "An electrical connector located on a part: an interface feature with a connector type and a pin count. IRI path .../{plm}/plug/{id}." .
+
+atelier:Fastener a owl:Class ;
+  rdfs:subClassOf atelier:InterfaceFeature ;
+  rdfs:label "Fastener" ;
+  rdfs:comment "A fastener group (bolts or rivets of one pattern) located on a part: an interface feature with a standard, a diameter, a count and a grip length. IRI path .../{plm}/fastener/{id}." .
+
+atelier:HydraulicCoupling a owl:Class ;
+  rdfs:subClassOf atelier:InterfaceFeature ;
+  rdfs:label "Hydraulic coupling" ;
+  rdfs:comment "A hydraulic line coupling located on a part: an interface feature with a coupling standard, a dash size, a pressure rating and a fluid. IRI path .../{plm}/coupling/{id}." .
+
+atelier:Interface a owl:Class ;
+  rdfs:label "Interface" ;
+  rdfs:comment "The joint between two sibling parts, usually owned by different PLMs. Corresponds to an AP242 shape_aspect_relationship between the two parts' shape aspects (not an assembly_component_usage, which relates a parent assembly to its child); it declares the features that must mate across the joint and the positional tolerance they must meet." .
+
+atelier:BomLine a owl:Class ;
+  rdfs:label "Bill-of-materials line" ;
+  rdfs:comment "One line of a site's bill of materials: the parent item (atelier:parent) uses atelier:quantity of the child item (atelier:child), both items of the same PLM. Corresponds to an AP242 next_assembly_usage_occurrence with its quantity, the parent to child relation that an atelier:Interface is not. A line is reified because the relation carries a quantity; atelier:assembles is its shortcut. Each PLM stores its lines in its own idiom (a parent column on the part row, a link table, a JSON document on the parent, indented rows) and every idiom reads as this one relation. IRI https://example.com/atelier/{plm}/bomline/{parent}/{child}." .
+
+atelier:Occurrence a owl:Class ;
+  rdfs:label "Occurrence" ;
+  rdfs:comment "One use of a line's child, placed. A translation (atelier:translationX, Y, Z, lengths in the site's unit) then a rotation in degrees about the fixed x, y and z axes of the product frame, in that order (atelier:rotationX, Y, Z): a point p of the child's CAD geometry lands at Rz Ry Rx p + t. A placement is relative to the child as its CAD file draws it: the CAD file sits at the reference occurrence, index 1, the identity. A line has as many occurrences as its quantity, or none, when the child is used once where its CAD file draws it. Occurrences compose down the tree, the parent's after the child's. Corresponds to the transformation of an AP242 next_assembly_usage_occurrence. IRI https://example.com/atelier/{plm}/occurrence/{parent}/{child}/{index}." .
+
+atelier:ExternalReference a owl:Class ;
+  rdfs:label "External reference" ;
+  rdfs:comment "A part's use of a part held by another site. The site never copies the remote part: it names it by URN, urn:plm:<site>:part:<local id>, with the revision it expects, and only the layer, which sees both ends, can tell whether the URN resolves to a part and whether that part's revision still holds. IRI https://example.com/atelier/{plm}/ref/{id}." .
+
+qudt:QuantityValue a owl:Class ;
+  rdfs:label "Quantity value" ;
+  rdfs:comment "QUDT quantity value: a numeric value together with its unit. Used for each axis of a feature position, for fastener diameters and grip lengths, and for pressure ratings." ;
+  rdfs:isDefinedBy <http://qudt.org/schema/qudt/> .
+
+# Properties from the PLM virtual graphs: parts
+
+atelier:identifier a owl:DatatypeProperty ;
+  rdfs:label "identifier" ;
+  rdfs:comment "The native key of a resource in its owning PLM, as stored there (not percent-encoded)." ;
+  rdfs:range xsd:string .
+
+atelier:label a owl:DatatypeProperty ;
+  rdfs:label "label" ;
+  rdfs:comment "Human-readable name of a part, an interface or a supplier, in the language of its owner." ;
+  rdfs:range xsd:string .
+
+atelier:cadFile a owl:DatatypeProperty ;
+  rdfs:label "CAD file" ;
+  rdfs:comment "Key of the STEP AP242 model of the part, of the form cad/<file>.stp, stated in the file-index graph of the link store (one value per part). The file itself is served only through a presigned URL issued for a viewer allowed to see the part." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:sourceFileRef a owl:DatatypeProperty ;
+  rdfs:label "source file reference" ;
+  rdfs:comment "The owning PLM's own reference to the part's CAD model, as stored in its native file column. Informational: where the CAD file is comes from atelier:cadFile in the file index, never from this value." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:revision a owl:DatatypeProperty ;
+  rdfs:label "revision" ;
+  rdfs:comment "Revision in the owning PLM's own form. The German PLM writes 01, 02, the French A, B, the Spanish 1, 2, the British P1, P2, C1; compared as text, never converted." ;
+  rdfs:domain atelier:Part .
+
+atelier:lifecycleLabel a owl:DatatypeProperty ;
+  rdfs:label "lifecycle label" ;
+  rdfs:comment "Lifecycle state in the owning PLM's word. Freigegeben, Publié, Liberado and Released are one state: its canonical state is the concept of the atelier:Lifecycle scheme that carries the word as a skos:altLabel." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:mass a owl:ObjectProperty ;
+  rdfs:label "mass" ;
+  rdfs:comment "Mass as stored by the PLM. A quantity value in kilograms, or pounds in the British PLM; node IRI <part IRI>/mass." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:material a owl:DatatypeProperty ;
+  rdfs:label "material" ;
+  rdfs:comment "Material in the owning PLM's language." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:partType a owl:DatatypeProperty ;
+  rdfs:label "part type" ;
+  rdfs:comment "PART, ASSEMBLY, SOFTWARE or DOCUMENT. Only a PART has geometry: an ASSEMBLY (a site kit or a sub-assembly of a site's bill of materials) is the parent of its lines, and SOFTWARE and DOCUMENT items have no CAD file either." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:builtBy a owl:DatatypeProperty ;
+  rdfs:label "built by" ;
+  rdfs:comment "Name of the supplier that builds the part for the PLM that owns and integrates it (there is no supplier PLM). Atelier-owned file-index metadata stated in the file-index graph of the link store, never read from the PLM tables; a part without it is built by its owner." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:ownedBy a owl:DatatypeProperty ;
+  rdfs:label "owned by" ;
+  rdfs:comment "Code of the PLM that is the source of truth for the resource: FR, DE, UK or ES." ;
+  rdfs:range xsd:string .
+
+# The export-control tag: one row of the Atelier core database's part_tag table per part, written by
+# the owning PLM when it publishes the part and exposed by the ontop-core virtual graph.
+
+atelier:jurisdiction a owl:DatatypeProperty ;
+  rdfs:label "export-control jurisdiction" ;
+  rdfs:comment "Export-control regime the part falls under, from its tag in the Atelier core database: EU-DUAL-USE, EXPORT-LICENCE, US-EAR, NATIONAL-FR, NATIONAL-DE, NATIONAL-UK, NATIONAL-ES or NONE. Informative; visibility is decided by atelier:releasableTo." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:releasableTo a owl:DatatypeProperty ;
+  rdfs:label "releasable to" ;
+  rdfs:comment "Single token, from the part's tag in the Atelier core database, naming who may see the part, its features and its CAD file: ALL, EU, FR, DE, UK, ES or LICENSED. A viewer profile sees the part iff this token is in the profile's releasable list; the query service pushes that test into the core query and asks the PLMs only about the parts that pass it." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:taggedBy a owl:DatatypeProperty ;
+  rdfs:label "tagged by" ;
+  rdfs:comment "Code of the PLM (FR, DE, UK or ES) that wrote the part's export-control tag when it published the part. A part without this value has no tag: it is visible to the export-control officer only and is reported as untagged, a finding against the owning PLM." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:taggedAt a owl:DatatypeProperty ;
+  rdfs:label "tagged at" ;
+  rdfs:comment "When the owning PLM wrote the part's export-control tag, as an xsd:dateTime." ;
+  rdfs:domain atelier:Part .
+
+# The product structure: one row of the Atelier core database's product table per product and one row
+# of product_part per part and product, exposed by the ontop-core virtual graph.
+
+atelier:partOf a owl:ObjectProperty ;
+  rdfs:label "part of" ;
+  rdfs:comment "The product a part belongs to, from the Atelier core database; a part may belong to several products. An answer scoped to one product asks the PLMs only about the parts that belong to it, as the export-control filter asks only about the parts the viewer may see." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range atelier:Product .
+
+atelier:ofProduct a owl:ObjectProperty ;
+  rdfs:label "of product" ;
+  rdfs:comment "The product an interface belongs to. Interface ids are unique within a product, so an interface is identified by its product and its id; its IRI carries both." ;
+  rdfs:domain atelier:Interface ;
+  rdfs:range atelier:Product .
+
+atelier:frame a owl:DatatypeProperty ;
+  rdfs:label "coordinate frame" ;
+  rdfs:comment "The coordinate frame the product's CAD and feature positions are expressed in, as the viewer shows it." ;
+  rdfs:domain atelier:Product ;
+  rdfs:range xsd:string .
+
+atelier:massLimit a owl:ObjectProperty ;
+  rdfs:label "mass limit" ;
+  rdfs:comment "The most the product may weigh, a quantity value in kilograms. Held by the Atelier core database; node IRI <product IRI>/mass-limit. No PLM holds the product, so only the semantic layer can compare it with the mass of every site's parts (ateliersh:MassLimitShape)." ;
+  rdfs:domain atelier:Product ;
+  rdfs:range qudt:QuantityValue .
+
+# Properties from the PLM virtual graphs: bill-of-materials lines. No PLM holds a whole product:
+# each holds its own slice under a site kit, and the product root exists only in the semantic layer.
+
+atelier:parent a owl:ObjectProperty ;
+  rdfs:label "parent" ;
+  rdfs:comment "The item a bill-of-materials line belongs to: an assembly, a site kit or a part with items of its own." ;
+  rdfs:domain atelier:BomLine ;
+  rdfs:range atelier:Part .
+
+atelier:child a owl:ObjectProperty ;
+  rdfs:label "child" ;
+  rdfs:comment "The item a bill-of-materials line uses, an item of the parent's PLM; an item of another site is an external reference, never a line." ;
+  rdfs:domain atelier:BomLine ;
+  rdfs:range atelier:Part .
+
+atelier:quantity a owl:DatatypeProperty ;
+  rdfs:label "quantity" ;
+  rdfs:comment "Number of units: of the child one parent uses (a bill-of-materials line, all occurrences together, in the child's unit of issue) or of the remote part (an external reference)." ;
+  rdfs:range xsd:decimal .
+
+atelier:ofLine a owl:ObjectProperty ;
+  rdfs:label "of line" ;
+  rdfs:comment "The line used." ;
+  rdfs:domain atelier:Occurrence ;
+  rdfs:range atelier:BomLine .
+
+atelier:index a owl:DatatypeProperty ;
+  rdfs:label "index" ;
+  rdfs:comment "Number on the line, from 1. Occurrence 1 is the reference occurrence, where the child's CAD file draws it." ;
+  rdfs:domain atelier:Occurrence ;
+  rdfs:range xsd:integer .
+
+atelier:translationX a owl:ObjectProperty ;
+  rdfs:label "translation x" ;
+  rdfs:comment "Along x, from the position drawn. A quantity value in millimetres, or inches in the British PLM; node IRI <occurrence IRI>/translation/x." ;
+  rdfs:domain atelier:Occurrence ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:translationY a owl:ObjectProperty ;
+  rdfs:label "translation y" ;
+  rdfs:comment "Along y, from the position drawn. Node IRI <occurrence IRI>/translation/y." ;
+  rdfs:domain atelier:Occurrence ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:translationZ a owl:ObjectProperty ;
+  rdfs:label "translation z" ;
+  rdfs:comment "Along z, from the position drawn. Node IRI <occurrence IRI>/translation/z." ;
+  rdfs:domain atelier:Occurrence ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:rotationX a owl:DatatypeProperty ;
+  rdfs:label "rotation x" ;
+  rdfs:comment "Degrees about x, first." ;
+  rdfs:domain atelier:Occurrence ;
+  rdfs:range xsd:decimal .
+
+atelier:rotationY a owl:DatatypeProperty ;
+  rdfs:label "rotation y" ;
+  rdfs:comment "Degrees about y, second." ;
+  rdfs:domain atelier:Occurrence ;
+  rdfs:range xsd:decimal .
+
+atelier:rotationZ a owl:DatatypeProperty ;
+  rdfs:label "rotation z" ;
+  rdfs:comment "Degrees about z, third." ;
+  rdfs:domain atelier:Occurrence ;
+  rdfs:range xsd:decimal .
+
+atelier:assembles a owl:ObjectProperty ;
+  rdfs:label "assembles" ;
+  rdfs:comment "Parent assembles child: the shortcut of a bill-of-materials line (?line atelier:parent ?parent ; atelier:child ?child), derived by the query service, which states it for the lines the viewer may see." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range atelier:Part .
+
+atelier:contains a owl:ObjectProperty ;
+  rdfs:label "contains" ;
+  rdfs:comment "The item contains the other at any depth of its own site's bill of materials, and every item contains itself: the site-local reflexive transitive closure of atelier:BomLine (parent to child), never crossing to another site, which an external reference does. Each PLM keeps it in its database, as a closure table its triggers maintain from its own idiom, so a request names an assembly and the site returns the assembly's tree by an index lookup; the query service follows the external references out of that tree to the other sites. Both ends are atelier:Part items; the property declares no domain or range because Ontop would then read every closure row as a part, and every request for parts would also scan the closure table." .
+
+atelier:occurrences a owl:DatatypeProperty ;
+  rdfs:label "occurrences" ;
+  rdfs:comment "How many times the item occurs in its product. The quantities multiplied down the bill-of-materials lines from its site kit, summed over every path; derived by the query service from the lines the viewer may see; SPARQL cannot multiply along a path of any length, so the product-level shapes read this value." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:decimal .
+
+# Properties from the PLM virtual graphs: external references. A reference is resolved by the shapes, not
+# stored: the URN's site segment names the PLM and its local id the part, the British native form UK/nnnn
+# being the part key UK-nnnn.
+
+atelier:fromPart a owl:ObjectProperty ;
+  rdfs:label "from part" ;
+  rdfs:comment "The local part that makes the reference." ;
+  rdfs:domain atelier:ExternalReference ;
+  rdfs:range atelier:Part .
+
+atelier:remoteUrn a owl:DatatypeProperty ;
+  rdfs:label "remote URN" ;
+  rdfs:comment "The remote part's key exactly as stored, urn:plm:<site>:part:<local id> when well formed." ;
+  rdfs:domain atelier:ExternalReference ;
+  rdfs:range xsd:string .
+
+atelier:expectedRevision a owl:DatatypeProperty ;
+  rdfs:label "expected revision" ;
+  rdfs:comment "The remote part's revision the reference expects, compared as text with the target's atelier:revision." ;
+  rdfs:domain atelier:ExternalReference ;
+  rdfs:range xsd:string .
+
+# Properties from the PLM virtual graphs: every interface feature
+
+atelier:onPart a owl:ObjectProperty ;
+  rdfs:label "on part" ;
+  rdfs:comment "The part an interface feature is mounted on (AP242: the shape_aspect's of_shape). The feature inherits the part's export-control classification." ;
+  rdfs:domain atelier:InterfaceFeature ;
+  rdfs:range atelier:Part .
+
+atelier:positionX a owl:ObjectProperty ;
+  rdfs:label "position x" ;
+  rdfs:comment "Position of the feature along the product's x axis (atelier:frame of the product), as a quantity value in the unit stored by the PLM. Node IRI <feature IRI>/position/x." ;
+  rdfs:domain atelier:InterfaceFeature ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:positionY a owl:ObjectProperty ;
+  rdfs:label "position y" ;
+  rdfs:comment "Position of the feature along the product's y axis (atelier:frame of the product), as a quantity value in the unit stored by the PLM. Node IRI <feature IRI>/position/y." ;
+  rdfs:domain atelier:InterfaceFeature ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:positionZ a owl:ObjectProperty ;
+  rdfs:label "position z" ;
+  rdfs:comment "Position of the feature along the product's z axis (up; atelier:frame of the product), as a quantity value in the unit stored by the PLM. Node IRI <feature IRI>/position/z." ;
+  rdfs:domain atelier:InterfaceFeature ;
+  rdfs:range qudt:QuantityValue .
+
+# Properties from the PLM virtual graphs: plugs
+
+atelier:connectorType a owl:DatatypeProperty ;
+  rdfs:label "connector type" ;
+  rdfs:comment "Connector standard or shell designation of the plug. Mated plugs must have the same connector type." ;
+  rdfs:domain atelier:Plug ;
+  rdfs:range xsd:string .
+
+atelier:pinCount a owl:DatatypeProperty ;
+  rdfs:label "pin count" ;
+  rdfs:comment "Number of contacts of the plug. Mated plugs must have the same pin count." ;
+  rdfs:domain atelier:Plug ;
+  rdfs:range xsd:integer .
+
+# Properties from the PLM virtual graphs: fasteners
+
+atelier:fastenerStandard a owl:DatatypeProperty ;
+  rdfs:label "fastener standard" ;
+  rdfs:comment "Standard or part-number family of the fasteners in the group. Mated fastener groups must have the same standard." ;
+  rdfs:domain atelier:Fastener ;
+  rdfs:range xsd:string .
+
+atelier:diameter a owl:ObjectProperty ;
+  rdfs:label "diameter" ;
+  rdfs:comment "Nominal shank diameter of the fasteners, as a quantity value in the unit stored by the PLM (millimetres or inches). Mated groups must agree within 0.05 mm after conversion. Node IRI <feature IRI>/diameter." ;
+  rdfs:domain atelier:Fastener ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:fastenerCount a owl:DatatypeProperty ;
+  rdfs:label "fastener count" ;
+  rdfs:comment "Number of fasteners in the group. Mated groups must have the same count." ;
+  rdfs:domain atelier:Fastener ;
+  rdfs:range xsd:integer .
+
+atelier:gripLength a owl:ObjectProperty ;
+  rdfs:label "grip length" ;
+  rdfs:comment "Grip length of the fasteners, as a quantity value in the unit stored by the PLM (millimetres or inches). Node IRI <feature IRI>/grip." ;
+  rdfs:domain atelier:Fastener ;
+  rdfs:range qudt:QuantityValue .
+
+# Properties from the PLM virtual graphs: hydraulic couplings
+
+atelier:couplingStandard a owl:DatatypeProperty ;
+  rdfs:label "coupling standard" ;
+  rdfs:comment "Standard of the coupling (fitting family). Mated couplings must have the same standard." ;
+  rdfs:domain atelier:HydraulicCoupling ;
+  rdfs:range xsd:string .
+
+atelier:dashSize a owl:DatatypeProperty ;
+  rdfs:label "dash size" ;
+  rdfs:comment "Tube dash size of the coupling (sixteenths of an inch, an integer). Mated couplings must have the same dash size." ;
+  rdfs:domain atelier:HydraulicCoupling ;
+  rdfs:range xsd:integer .
+
+atelier:pressureRating a owl:ObjectProperty ;
+  rdfs:label "pressure rating" ;
+  rdfs:comment "Rated working pressure of the coupling, as a quantity value in the unit stored by the PLM (bar or psi). Mated couplings must agree within 2 % after conversion. Node IRI <feature IRI>/rating." ;
+  rdfs:domain atelier:HydraulicCoupling ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:fluid a owl:DatatypeProperty ;
+  rdfs:label "fluid" ;
+  rdfs:comment "Hydraulic fluid the coupling is specified for. Mated couplings must carry the same fluid." ;
+  rdfs:domain atelier:HydraulicCoupling ;
+  rdfs:range xsd:string .
+
+# QUDT terms used on quantity values
+
+qudt:numericValue a owl:DatatypeProperty ;
+  rdfs:label "numeric value" ;
+  rdfs:comment "QUDT numeric value of a quantity value, as stored by the PLM (xsd:decimal)." ;
+  rdfs:isDefinedBy <http://qudt.org/schema/qudt/> .
+
+qudt:unit a owl:ObjectProperty ;
+  rdfs:label "unit" ;
+  rdfs:comment "QUDT unit of a quantity value, an IRI in http://qudt.org/vocab/unit/. The multipliers the rules convert with are those of ontology/units.ttl." ;
+  rdfs:isDefinedBy <http://qudt.org/schema/qudt/> .
+
+# Properties from the link store
+
+atelier:betweenPart a owl:ObjectProperty ;
+  rdfs:label "between part" ;
+  rdfs:comment "One of the two parts joined by an interface; an interface has exactly two values." ;
+  rdfs:domain atelier:Interface ;
+  rdfs:range atelier:Part .
+
+atelier:declaresFeature a owl:ObjectProperty ;
+  rdfs:label "declares feature" ;
+  rdfs:comment "An interface feature that belongs to the interface and must mate with a feature of the same class on the other part." ;
+  rdfs:domain atelier:Interface ;
+  rdfs:range atelier:InterfaceFeature .
+
+atelier:declaresPlug a owl:ObjectProperty ;
+  rdfs:subPropertyOf atelier:declaresFeature ;
+  rdfs:label "declares plug" ;
+  rdfs:comment "atelier:declaresFeature restricted to plugs. Link stores that still state it are read as declaring the plug as a feature." ;
+  rdfs:domain atelier:Interface ;
+  rdfs:range atelier:Plug .
+
+atelier:matesWith a owl:ObjectProperty , owl:SymmetricProperty ;
+  rdfs:label "mates with" ;
+  rdfs:comment "The feature on the other side of the interface that this feature connects to; both are of the same class. Symmetric; the link store states it in both directions." ;
+  rdfs:domain atelier:InterfaceFeature ;
+  rdfs:range atelier:InterfaceFeature .
+
+atelier:toleranceMm a owl:DatatypeProperty ;
+  rdfs:label "tolerance (mm)" ;
+  rdfs:comment "Largest allowed distance, in millimetres and on each axis separately, between the positions of two mated features of the interface." ;
+  rdfs:domain atelier:Interface ;
+  rdfs:range xsd:decimal .
+
+# Lifecycle: the canonical states of a part, with each PLM's own word as a language-tagged
+# skos:altLabel. A part's canonical state is the concept whose altLabel equals its
+# atelier:lifecycleLabel, so the ontology, not code, carries the mapping of the four vocabularies.
+
+atelier:Lifecycle a skos:ConceptScheme ;
+  rdfs:label "Lifecycle" ;
+  rdfs:comment "Canonical lifecycle states of a part across the PLMs." ;
+  skos:hasTopConcept atelier:Working, atelier:Released, atelier:Blocked, atelier:Superseded .
+
+atelier:Working a skos:Concept ;
+  skos:inScheme atelier:Lifecycle ;
+  skos:prefLabel "WORKING" ;
+  skos:altLabel "In Arbeit"@de, "En cours"@fr, "Borrador"@es, "Draft"@en ;
+  rdfs:comment "Being designed; not released for manufacture." .
+
+atelier:Released a skos:Concept ;
+  skos:inScheme atelier:Lifecycle ;
+  skos:prefLabel "RELEASED" ;
+  skos:altLabel "Freigegeben"@de, "Publié"@fr, "Liberado"@es, "Released"@en ;
+  rdfs:comment "Released for manufacture." .
+
+atelier:Blocked a skos:Concept ;
+  skos:inScheme atelier:Lifecycle ;
+  skos:prefLabel "BLOCKED" ;
+  skos:altLabel "Gesperrt"@de, "Bloqué"@fr, "Bloqueado"@es, "Frozen"@en ;
+  rdfs:comment "Released once, now withheld from manufacture. The British PLM's Frozen is placed here by decision: the word is ambiguous (frozen for change, or frozen for use), and the British workshop uses it to stop a part from being built." .
+
+atelier:Superseded a skos:Concept ;
+  skos:inScheme atelier:Lifecycle ;
+  skos:prefLabel "SUPERSEDED" ;
+  skos:altLabel "Ersetzt"@de, "Remplacé"@fr, "Sustituido"@es, "Superseded"@en ;
+  rdfs:comment "Replaced by a later revision." .
+
+# Terms: the products' glossary, published by the layer in the labels graph of the link store
+# (https://example.com/atelier/graph/labels) with each item's native and English names.
+
+atelier:Terms a skos:ConceptScheme ;
+  rdfs:label "Terms" ;
+  rdfs:comment "The products' glossary: one concept per term (https://example.com/atelier/term/{slug}) with a skos:prefLabel in each of en, de, fr and es, the further words a language writes it with as skos:altLabel, and skos:broader to the term it is a kind of. An item's native name is a skos:prefLabel of its IRI in its site's language, its English name a skos:altLabel in en, so a term in any of the four languages finds the items of every site." .
+
+# Purchased items and suppliers: each site describes the items it buys on its part rows and keeps its own supplier
+# list and supplier offers, in its own tables and words.
+
+atelier:Supplier a owl:Class ;
+  rdfs:label "Supplier" ;
+  rdfs:comment "A supplier in one site's own list. Its name is atelier:label, its town atelier:location. Each site keeps its own list, so a supplier two sites buy from is listed by each. Distinct from atelier:builtBy, the file index's name of the supplier that builds a part. IRI https://example.com/atelier/{plm}/supplier/{key}." .
+
+atelier:SupplierOffer a owl:Class ;
+  rdfs:label "Supplier offer" ;
+  rdfs:comment "A supplier's offer for a part, held by the part's PLM. It carries the supplier's own part number, the lead time and whether the site orders from it first. A part with one offer is single-source. IRI https://example.com/atelier/{plm}/offer/{id}." .
+
+atelier:offersPart a owl:ObjectProperty ;
+  rdfs:label "offers part" ;
+  rdfs:comment "The part offered. It is a part of the PLM that holds the offer." ;
+  rdfs:domain atelier:SupplierOffer ;
+  rdfs:range atelier:Part .
+
+atelier:fromSupplier a owl:ObjectProperty ;
+  rdfs:label "from supplier" ;
+  rdfs:comment "The supplier making the offer. It is in the supplier list of the PLM that holds the offer." ;
+  rdfs:domain atelier:SupplierOffer ;
+  rdfs:range atelier:Supplier .
+
+atelier:supplierPartNumber a owl:DatatypeProperty ;
+  rdfs:label "supplier part number" ;
+  rdfs:comment "The supplier's own number for the item. Two sites buying one item from one supplier may quote the same number." ;
+  rdfs:domain atelier:SupplierOffer ;
+  rdfs:range xsd:string .
+
+atelier:leadTimeDays a owl:DatatypeProperty ;
+  rdfs:label "lead time (days)" ;
+  rdfs:comment "Days from order to delivery. The preferred offers of one part should agree on it." ;
+  rdfs:domain atelier:SupplierOffer ;
+  rdfs:range xsd:integer .
+
+atelier:preferred a owl:DatatypeProperty ;
+  rdfs:label "preferred" ;
+  rdfs:comment "Whether the site orders from this offer first." ;
+  rdfs:domain atelier:SupplierOffer ;
+  rdfs:range xsd:boolean .
+
+atelier:location a owl:DatatypeProperty ;
+  rdfs:label "location" ;
+  rdfs:comment "Town the supplier delivers from, as the site writes it." ;
+  rdfs:domain atelier:Supplier ;
+  rdfs:range xsd:string .
+
+atelier:standard a owl:DatatypeProperty ;
+  rdfs:label "standard" ;
+  rdfs:comment "Standard a purchased item is bought to, as its site writes it. Examples: DIN 912, NF EN ISO 4762, BS EN ISO 4762. The item it designates is the concept of the atelier:FastenerStandard scheme whose skos:prefLabel or skos:altLabel equals it." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:nominalDiameter a owl:ObjectProperty ;
+  rdfs:label "nominal diameter" ;
+  rdfs:comment "Nominal (thread) diameter of a purchased item. A quantity value in the unit its site stores (millimetres, or inches for an item bought from an inch catalogue). Node IRI <part IRI>/nominal-diameter." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:nominalLength a owl:ObjectProperty ;
+  rdfs:label "nominal length" ;
+  rdfs:comment "Nominal length of a purchased item. A quantity value in the unit its site stores; a nut has none. Node IRI <part IRI>/nominal-length." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+# Fastener standards: each concept is a kind of item, carrying as skos:altLabel every designation a site records
+# for it: the national adoptions of an ISO standard and the DIN standard it replaced with the same dimensions. Two
+# purchased parts are one item when their standards resolve to the same concept and their nominal sizes agree after
+# conversion, whatever unit each site states the size in: the ontology, not code, decides which standards designate
+# one kind of item.
+
+atelier:FastenerStandard a skos:ConceptScheme ;
+  rdfs:label "Fastener standards" ;
+  rdfs:comment "Kinds of purchased item and the standards that designate them, across the sites' designations and unit series." ;
+  skos:hasTopConcept atelier:SocketHeadCapScrew .
+
+atelier:SocketHeadCapScrew a skos:Concept ;
+  skos:inScheme atelier:FastenerStandard ;
+  skos:prefLabel "ISO 4762" ;
+  skos:altLabel "DIN 912", "NF EN ISO 4762", "UNE-EN ISO 4762", "BS EN ISO 4762" ;
+  skos:definition "Hexagon socket head cap screw, metric thread." ;
+  skos:scopeNote "DIN 912 is the national standard ISO 4762 replaced, with the same dimensions. A site that buys the screw from an inch catalogue states its size in inches; the standard is the same." .
+
+# Item classes: a purchased item is one of a few classes (fasteners, O-rings, placards, containers, tyres, wheels,
+# brakes), and each class names the attributes that make two items of the class the same item, with the tolerance of
+# each measured one. A fastener's nominal size agrees within 0.1 mm: an inch catalogue writes it to three decimals,
+# which converts up to 0.013 mm away from the metric size. Each site states these attributes on its part rows in its
+# own columns, units and words; the equivalents answer reads the identifying attributes from this scheme, so a new
+# class is a concept with its attributes, not code. A text attribute resolved in a scheme (a material, an adhesive, a
+# compound, a fastener standard) matches when both texts resolve to the same concept; a length written inside such a
+# text (the thickness of a film) is compared with the attribute's tolerance. An O-ring's size may be given by its
+# standard instead of its dimensions: the size concept of atelier:ORingSizes supplies the dimensions the site does not
+# state.
+
+atelier:itemClass a owl:DatatypeProperty ;
+  rdfs:label "item class" ;
+  rdfs:comment "Notation of the item's atelier:ItemClasses concept." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:innerDiameter a owl:ObjectProperty ;
+  rdfs:label "inner diameter" ;
+  rdfs:comment "O-ring inner diameter. A quantity value in the unit its site stores, also stated by a size concept of atelier:ORingSizes. Node IRI <part IRI>/inner-diameter." ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:crossSection a owl:ObjectProperty ;
+  rdfs:label "cross-section" ;
+  rdfs:comment "O-ring cross-section. A quantity value in the unit its site stores, also stated by a size concept of atelier:ORingSizes. Node IRI <part IRI>/cross-section." ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:compound a owl:DatatypeProperty ;
+  rdfs:label "compound" ;
+  rdfs:comment "Seal compound, in atelier:Materials. As its site writes it, with its hardness and qualifiers (EPDM 80 Shore A, phosphate ester resistant)." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:legend a owl:DatatypeProperty ;
+  rdfs:label "legend" ;
+  rdfs:comment "Placard text. A seat-row placard 14ABC is row 14, seats A, B and C; case and spaces are ignored." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:itemWidth a owl:ObjectProperty ;
+  rdfs:label "width" ;
+  rdfs:comment "Placard or wheel width. A quantity value in the unit its site stores. Node IRI <part IRI>/width." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:itemHeight a owl:ObjectProperty ;
+  rdfs:label "height" ;
+  rdfs:comment "Placard or container height. A quantity value in the unit its site stores. Node IRI <part IRI>/height." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:facestock a owl:DatatypeProperty ;
+  rdfs:label "face material" ;
+  rdfs:comment "Placard face material, in atelier:Materials. As its site writes it, with its thickness (polycarbonate film 0.25 mm)." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:adhesive a owl:DatatypeProperty ;
+  rdfs:label "adhesive" ;
+  rdfs:comment "Adhesive, in atelier:Materials. As its site writes it." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:shelfLifeMonths a owl:DatatypeProperty ;
+  rdfs:label "shelf life (months)" ;
+  rdfs:comment "Months in store before use or scrap. An item bought under several part numbers expires on the shelf under each of them." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:integer .
+
+atelier:baseWidth a owl:ObjectProperty ;
+  rdfs:label "base width" ;
+  rdfs:comment "Container base width. A quantity value in the unit its site stores. Node IRI <part IRI>/base-width." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:itemDepth a owl:ObjectProperty ;
+  rdfs:label "depth" ;
+  rdfs:comment "Container depth. A quantity value in the unit its site stores. Node IRI <part IRI>/depth." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:contourWidth a owl:ObjectProperty ;
+  rdfs:label "contour width" ;
+  rdfs:comment "Container width over its contoured wing. A quantity value in the unit its site stores. Node IRI <part IRI>/contour-width." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:shellMaterial a owl:DatatypeProperty ;
+  rdfs:label "shell material" ;
+  rdfs:comment "Container shell material, in atelier:Materials. As its site writes it." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:string .
+
+atelier:outerDiameter a owl:ObjectProperty ;
+  rdfs:label "outer diameter" ;
+  rdfs:comment "Tyre outer diameter. A quantity value in the unit its site stores. Node IRI <part IRI>/outer-diameter." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:sectionWidth a owl:ObjectProperty ;
+  rdfs:label "section width" ;
+  rdfs:comment "Tyre section width. A quantity value in the unit its site stores. Node IRI <part IRI>/section-width." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:rimDiameter a owl:ObjectProperty ;
+  rdfs:label "rim diameter" ;
+  rdfs:comment "Rim diameter of a tyre or a wheel. A quantity value in the unit its site stores. Node IRI <part IRI>/rim-diameter." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:plyRating a owl:DatatypeProperty ;
+  rdfs:label "ply rating" ;
+  rdfs:comment "Tyre ply rating." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:integer .
+
+atelier:heatStackDiameter a owl:ObjectProperty ;
+  rdfs:label "heat stack diameter" ;
+  rdfs:comment "Brake heat stack diameter. A quantity value in the unit its site stores. Node IRI <part IRI>/heat-stack-diameter." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:rotorCount a owl:DatatypeProperty ;
+  rdfs:label "rotors" ;
+  rdfs:comment "Rotors in a brake heat stack." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:integer .
+
+atelier:identifiedBy a owl:AnnotationProperty ;
+  rdfs:label "identified by" ;
+  rdfs:comment "An identifying attribute of an item class: two items of the class are one item when they agree on every one." .
+
+atelier:onAttribute a owl:AnnotationProperty ;
+  rdfs:label "on attribute" ;
+  rdfs:comment "The part property an identifying attribute compares." .
+
+atelier:attributeOrder a owl:AnnotationProperty ;
+  rdfs:label "attribute order" ;
+  rdfs:comment "Position of an identifying attribute in its class, from 1: the order the answer lists the attributes in and sorts the groups by." .
+
+atelier:stagingKey a owl:AnnotationProperty ;
+  rdfs:label "staging key" ;
+  rdfs:comment "Key of the attribute in a product file's extended.purchased.attributes, which data/generate.py writes into the column its site maps to the attribute's property." .
+
+atelier:matchToleranceMm a owl:AnnotationProperty ;
+  rdfs:label "match tolerance (mm)" ;
+  rdfs:comment "Largest difference, in millimetres after unit conversion, between two values of a measured identifying attribute that still agree; on an attribute resolved in a scheme, the tolerance of the length written inside its text." .
+
+atelier:resolvedIn a owl:AnnotationProperty ;
+  rdfs:label "resolved in" ;
+  rdfs:comment "Concept scheme a text attribute resolves in: the text names the concept that carries it as a skos:prefLabel or skos:altLabel, in any language, case, spaces and hyphens ignored." .
+
+atelier:standardScheme a owl:AnnotationProperty ;
+  rdfs:label "standard scheme" ;
+  rdfs:comment "Concept scheme in which an item class's standards designate sizes: the concept a part's atelier:standard resolves to supplies the identifying attributes the part does not state." .
+
+atelier:ItemClasses a skos:ConceptScheme ;
+  rdfs:label "Item classes" ;
+  rdfs:comment "Classes of purchased item and the attributes that identify an item of each, across the sites' columns, units and languages." ;
+  skos:hasTopConcept atelier:FastenerItem, atelier:ORingItem, atelier:PlacardItem, atelier:ContainerItem,
+    atelier:TyreItem, atelier:WheelItem, atelier:BrakeItem .
+
+atelier:FastenerItem a skos:Concept ;
+  skos:inScheme atelier:ItemClasses ;
+  skos:notation "fastener" ;
+  skos:prefLabel "Fastener"@en, "Fixation"@fr, "Befestigungselement"@de, "Elemento de fijación"@es ;
+  skos:definition "A screw, nut, washer or pin bought to a standard: one item when the standards resolve to one kind of item and the nominal sizes agree." ;
+  atelier:identifiedBy atelier:FastenerStandardAttribute, atelier:FastenerDiameterAttribute, atelier:FastenerLengthAttribute .
+
+atelier:FastenerStandardAttribute atelier:onAttribute atelier:standard ; atelier:attributeOrder 1 ;
+  atelier:resolvedIn atelier:FastenerStandard .
+atelier:FastenerDiameterAttribute atelier:onAttribute atelier:nominalDiameter ; atelier:attributeOrder 2 ; atelier:stagingKey "diameter" ;
+  atelier:matchToleranceMm "0.1"^^xsd:decimal .
+atelier:FastenerLengthAttribute atelier:onAttribute atelier:nominalLength ; atelier:attributeOrder 3 ; atelier:stagingKey "length" ;
+  atelier:matchToleranceMm "0.1"^^xsd:decimal .
+
+atelier:ORingItem a skos:Concept ;
+  skos:inScheme atelier:ItemClasses ;
+  skos:notation "o-ring" ;
+  skos:prefLabel "O-ring"@en, "Joint torique"@fr, "O-Ring"@de, "Junta tórica"@es ;
+  skos:definition "An elastomer ring seal: one item when the inner diameter and the cross-section agree, stated or given by the size of a standard, and the compounds are one compound." ;
+  atelier:standardScheme atelier:ORingSizes ;
+  atelier:identifiedBy atelier:ORingInnerDiameterAttribute, atelier:ORingCrossSectionAttribute, atelier:ORingCompoundAttribute .
+
+atelier:ORingInnerDiameterAttribute atelier:onAttribute atelier:innerDiameter ; atelier:attributeOrder 1 ; atelier:stagingKey "innerDiameter" ;
+  atelier:matchToleranceMm "0.01"^^xsd:decimal .
+atelier:ORingCrossSectionAttribute atelier:onAttribute atelier:crossSection ; atelier:attributeOrder 2 ; atelier:stagingKey "crossSection" ;
+  atelier:matchToleranceMm "0.01"^^xsd:decimal .
+atelier:ORingCompoundAttribute atelier:onAttribute atelier:compound ; atelier:attributeOrder 3 ; atelier:stagingKey "compound" ;
+  atelier:resolvedIn atelier:Materials .
+
+atelier:PlacardItem a skos:Concept ;
+  skos:inScheme atelier:ItemClasses ;
+  skos:notation "placard" ;
+  skos:prefLabel "Placard"@en, "Plaquette"@fr, "Schild"@de, "Placa"@es ;
+  skos:definition "A printed self-adhesive sign: one item when the legends are the same, the sizes agree within half a millimetre and the face material, its thickness and the adhesive are the same." ;
+  atelier:identifiedBy atelier:PlacardLegendAttribute, atelier:PlacardWidthAttribute, atelier:PlacardHeightAttribute,
+    atelier:PlacardFacestockAttribute, atelier:PlacardAdhesiveAttribute .
+
+atelier:PlacardLegendAttribute atelier:onAttribute atelier:legend ; atelier:attributeOrder 1 ; atelier:stagingKey "legend" .
+atelier:PlacardWidthAttribute atelier:onAttribute atelier:itemWidth ; atelier:attributeOrder 2 ; atelier:stagingKey "width" ;
+  atelier:matchToleranceMm "0.5"^^xsd:decimal .
+atelier:PlacardHeightAttribute atelier:onAttribute atelier:itemHeight ; atelier:attributeOrder 3 ; atelier:stagingKey "height" ;
+  atelier:matchToleranceMm "0.5"^^xsd:decimal .
+atelier:PlacardFacestockAttribute atelier:onAttribute atelier:facestock ; atelier:attributeOrder 4 ; atelier:stagingKey "material" ;
+  atelier:resolvedIn atelier:Materials ; atelier:matchToleranceMm "0.01"^^xsd:decimal .
+atelier:PlacardAdhesiveAttribute atelier:onAttribute atelier:adhesive ; atelier:attributeOrder 5 ; atelier:stagingKey "adhesive" ;
+  atelier:resolvedIn atelier:Materials .
+
+atelier:ContainerItem a skos:Concept ;
+  skos:inScheme atelier:ItemClasses ;
+  skos:notation "container" ;
+  skos:prefLabel "Container"@en, "Conteneur"@fr, "Container"@de, "Contenedor"@es ;
+  skos:definition "A unit load device: one item when the types resolve to one IATA type, the outer dimensions agree within a millimetre and the shell materials are the same." ;
+  atelier:identifiedBy atelier:ContainerTypeAttribute, atelier:ContainerBaseWidthAttribute, atelier:ContainerDepthAttribute,
+    atelier:ContainerHeightAttribute, atelier:ContainerContourWidthAttribute, atelier:ContainerMaterialAttribute .
+
+atelier:ContainerTypeAttribute atelier:onAttribute atelier:standard ; atelier:attributeOrder 1 ;
+  atelier:resolvedIn atelier:ULDTypes .
+atelier:ContainerBaseWidthAttribute atelier:onAttribute atelier:baseWidth ; atelier:attributeOrder 2 ; atelier:stagingKey "baseWidth" ;
+  atelier:matchToleranceMm "1"^^xsd:decimal .
+atelier:ContainerDepthAttribute atelier:onAttribute atelier:itemDepth ; atelier:attributeOrder 3 ; atelier:stagingKey "depth" ;
+  atelier:matchToleranceMm "1"^^xsd:decimal .
+atelier:ContainerHeightAttribute atelier:onAttribute atelier:itemHeight ; atelier:attributeOrder 4 ; atelier:stagingKey "height" ;
+  atelier:matchToleranceMm "1"^^xsd:decimal .
+atelier:ContainerContourWidthAttribute atelier:onAttribute atelier:contourWidth ; atelier:attributeOrder 5 ; atelier:stagingKey "contourWidth" ;
+  atelier:matchToleranceMm "1"^^xsd:decimal .
+atelier:ContainerMaterialAttribute atelier:onAttribute atelier:shellMaterial ; atelier:attributeOrder 6 ; atelier:stagingKey "material" ;
+  atelier:resolvedIn atelier:Materials .
+
+atelier:TyreItem a skos:Concept ;
+  skos:inScheme atelier:ItemClasses ;
+  skos:notation "tyre" ;
+  skos:prefLabel "Tyre"@en, "Pneu"@fr, "Reifen"@de, "Neumático"@es ;
+  skos:definition "An aircraft tyre: one item when the outer diameter and section width agree within a millimetre, the rim diameter within half a millimetre and the ply ratings are the same." ;
+  atelier:identifiedBy atelier:TyreOuterDiameterAttribute, atelier:TyreSectionWidthAttribute, atelier:TyreRimDiameterAttribute,
+    atelier:TyrePlyRatingAttribute .
+
+atelier:TyreOuterDiameterAttribute atelier:onAttribute atelier:outerDiameter ; atelier:attributeOrder 1 ; atelier:stagingKey "outerDiameter" ;
+  atelier:matchToleranceMm "1"^^xsd:decimal .
+atelier:TyreSectionWidthAttribute atelier:onAttribute atelier:sectionWidth ; atelier:attributeOrder 2 ; atelier:stagingKey "sectionWidth" ;
+  atelier:matchToleranceMm "1"^^xsd:decimal .
+atelier:TyreRimDiameterAttribute atelier:onAttribute atelier:rimDiameter ; atelier:attributeOrder 3 ; atelier:stagingKey "rimDiameter" ;
+  atelier:matchToleranceMm "0.5"^^xsd:decimal .
+atelier:TyrePlyRatingAttribute atelier:onAttribute atelier:plyRating ; atelier:attributeOrder 4 ; atelier:stagingKey "plyRating" .
+
+atelier:WheelItem a skos:Concept ;
+  skos:inScheme atelier:ItemClasses ;
+  skos:notation "wheel" ;
+  skos:prefLabel "Wheel"@en, "Roue"@fr, "Rad"@de, "Rueda"@es ;
+  skos:definition "An aircraft wheel: one item when the rim diameter agrees within half a millimetre and the width within a millimetre." ;
+  atelier:identifiedBy atelier:WheelRimDiameterAttribute, atelier:WheelWidthAttribute .
+
+atelier:WheelRimDiameterAttribute atelier:onAttribute atelier:rimDiameter ; atelier:attributeOrder 1 ; atelier:stagingKey "rimDiameter" ;
+  atelier:matchToleranceMm "0.5"^^xsd:decimal .
+atelier:WheelWidthAttribute atelier:onAttribute atelier:itemWidth ; atelier:attributeOrder 2 ; atelier:stagingKey "width" ;
+  atelier:matchToleranceMm "1"^^xsd:decimal .
+
+atelier:BrakeItem a skos:Concept ;
+  skos:inScheme atelier:ItemClasses ;
+  skos:notation "brake" ;
+  skos:prefLabel "Brake"@en, "Frein"@fr, "Bremse"@de, "Freno"@es ;
+  skos:definition "A multi-disc wheel brake: one item when the heat stack diameter agrees within a millimetre and the rotor counts are the same." ;
+  atelier:identifiedBy atelier:BrakeHeatStackAttribute, atelier:BrakeRotorsAttribute .
+
+atelier:BrakeHeatStackAttribute atelier:onAttribute atelier:heatStackDiameter ; atelier:attributeOrder 1 ; atelier:stagingKey "heatStackDiameter" ;
+  atelier:matchToleranceMm "1"^^xsd:decimal .
+atelier:BrakeRotorsAttribute atelier:onAttribute atelier:rotorCount ; atelier:attributeOrder 2 ; atelier:stagingKey "rotors" .
+
+# Unit load device types: the IATA type code and the industry names a site writes for the same container.
+
+atelier:ULDTypes a skos:ConceptScheme ;
+  rdfs:label "Unit load device types" ;
+  rdfs:comment "IATA unit load device types with the names the sites write for them." ;
+  skos:hasTopConcept atelier:ULDTypeAKH .
+
+atelier:ULDTypeAKH a skos:Concept ; skos:inScheme atelier:ULDTypes ;
+  skos:prefLabel "AKH" ; skos:altLabel "IATA AKH", "LD3-45", "LD3-45W" ;
+  skos:definition "Lower-deck container for single-aisle aircraft, 1562 x 1534 mm base, 1143 mm high, 2438 mm over the contour." .
+
+# O-ring sizes: an AS568 dash size and the ISO 3601-1 size code of the same ring are each a concept with the size's
+# dimensions in millimetres; a site that names the size by its standard states no dimensions of its own.
+
+atelier:ORingSizes a skos:ConceptScheme ;
+  rdfs:label "O-ring sizes" ;
+  rdfs:comment "AS568 dash sizes and ISO 3601-1 size codes, each with its inner diameter and cross-section." ;
+  skos:hasTopConcept atelier:AS568Dash014, atelier:AS568Dash214, atelier:AS568Dash222, atelier:AS568Dash332,
+    atelier:ISO3601Size014A, atelier:ISO3601Size214A, atelier:ISO3601Size222A, atelier:ISO3601Size332A .
+
+atelier:AS568Dash014 a skos:Concept ; skos:inScheme atelier:ORingSizes ;
+  skos:prefLabel "AS568-014" ; skos:altLabel "AS568 014", "AS 568-014" ;
+  skos:exactMatch atelier:ISO3601Size014A ;
+  atelier:innerDiameter atelier:AS568Dash014InnerDiameter ; atelier:crossSection atelier:AS568Dash014CrossSection .
+atelier:AS568Dash014InnerDiameter qudt:numericValue "12.42"^^xsd:decimal ; qudt:unit <http://qudt.org/vocab/unit/MilliM> .
+atelier:AS568Dash014CrossSection qudt:numericValue "1.78"^^xsd:decimal ; qudt:unit <http://qudt.org/vocab/unit/MilliM> .
+
+atelier:AS568Dash214 a skos:Concept ; skos:inScheme atelier:ORingSizes ;
+  skos:prefLabel "AS568-214" ; skos:altLabel "AS568 214", "AS 568-214" ;
+  skos:exactMatch atelier:ISO3601Size214A ;
+  atelier:innerDiameter atelier:AS568Dash214InnerDiameter ; atelier:crossSection atelier:AS568Dash214CrossSection .
+atelier:AS568Dash214InnerDiameter qudt:numericValue "24.99"^^xsd:decimal ; qudt:unit <http://qudt.org/vocab/unit/MilliM> .
+atelier:AS568Dash214CrossSection qudt:numericValue "3.53"^^xsd:decimal ; qudt:unit <http://qudt.org/vocab/unit/MilliM> .
+
+atelier:AS568Dash222 a skos:Concept ; skos:inScheme atelier:ORingSizes ;
+  skos:prefLabel "AS568-222" ; skos:altLabel "AS568 222", "AS 568-222" ;
+  skos:exactMatch atelier:ISO3601Size222A ;
+  atelier:innerDiameter atelier:AS568Dash222InnerDiameter ; atelier:crossSection atelier:AS568Dash222CrossSection .
+atelier:AS568Dash222InnerDiameter qudt:numericValue "37.69"^^xsd:decimal ; qudt:unit <http://qudt.org/vocab/unit/MilliM> .
+atelier:AS568Dash222CrossSection qudt:numericValue "3.53"^^xsd:decimal ; qudt:unit <http://qudt.org/vocab/unit/MilliM> .
+
+atelier:AS568Dash332 a skos:Concept ; skos:inScheme atelier:ORingSizes ;
+  skos:prefLabel "AS568-332" ; skos:altLabel "AS568 332", "AS 568-332" ;
+  skos:exactMatch atelier:ISO3601Size332A ;
+  atelier:innerDiameter atelier:AS568Dash332InnerDiameter ; atelier:crossSection atelier:AS568Dash332CrossSection .
+atelier:AS568Dash332InnerDiameter qudt:numericValue "50.17"^^xsd:decimal ; qudt:unit <http://qudt.org/vocab/unit/MilliM> .
+atelier:AS568Dash332CrossSection qudt:numericValue "5.33"^^xsd:decimal ; qudt:unit <http://qudt.org/vocab/unit/MilliM> .
+
+atelier:ISO3601Size014A a skos:Concept ; skos:inScheme atelier:ORingSizes ;
+  skos:prefLabel "ISO 3601-1 014A" ; skos:altLabel "O-ring ISO 3601-1 - 014A - 12,42 x 1,78 - N" ;
+  atelier:innerDiameter atelier:AS568Dash014InnerDiameter ; atelier:crossSection atelier:AS568Dash014CrossSection .
+
+atelier:ISO3601Size214A a skos:Concept ; skos:inScheme atelier:ORingSizes ;
+  skos:prefLabel "ISO 3601-1 214A" ; skos:altLabel "O-ring ISO 3601-1 - 214A - 24,99 x 3,53 - N" ;
+  atelier:innerDiameter atelier:AS568Dash214InnerDiameter ; atelier:crossSection atelier:AS568Dash214CrossSection .
+
+atelier:ISO3601Size222A a skos:Concept ; skos:inScheme atelier:ORingSizes ;
+  skos:prefLabel "ISO 3601-1 222A" ; skos:altLabel "O-ring ISO 3601-1 - 222A - 37,69 x 3,53 - N" ;
+  atelier:innerDiameter atelier:AS568Dash222InnerDiameter ; atelier:crossSection atelier:AS568Dash222CrossSection .
+
+atelier:ISO3601Size332A a skos:Concept ; skos:inScheme atelier:ORingSizes ;
+  skos:prefLabel "ISO 3601-1 332A" ; skos:altLabel "O-ring ISO 3601-1 - 332A - 50,17 x 5,33 - N" ;
+  atelier:innerDiameter atelier:AS568Dash332InnerDiameter ; atelier:crossSection atelier:AS568Dash332CrossSection .
+
+# Materials: one concept per material, adhesive or compound, with each language's words as labels. A compound carries
+# its hardness and qualifiers in its labels, so EPDM 80 Shore A resistant to phosphate esters is one concept whatever
+# language a site writes it in.
+
+atelier:Materials a skos:ConceptScheme ;
+  rdfs:label "Materials" ;
+  rdfs:comment "Materials, adhesives and elastomer compounds of purchased items, with each site's words for them." ;
+  skos:hasTopConcept atelier:PolycarbonateFilm, atelier:AcrylicPressureSensitiveAdhesive, atelier:EPDM80PhosphateEsterResistant,
+    atelier:EPDM70SteamResistant, atelier:NBR70, atelier:FKM75, atelier:AluminiumAlloy .
+
+atelier:PolycarbonateFilm a skos:Concept ; skos:inScheme atelier:Materials ;
+  skos:prefLabel "polycarbonate film"@en, "film polycarbonate"@fr, "Polycarbonatfolie"@de, "película de policarbonato"@es ;
+  skos:definition "Polycarbonate film a placard is printed on; its thickness is stated with it." .
+
+atelier:AcrylicPressureSensitiveAdhesive a skos:Concept ; skos:inScheme atelier:Materials ;
+  skos:prefLabel "acrylic pressure-sensitive adhesive"@en, "adhésif acrylique"@fr, "Acrylat-Haftklebstoff"@de,
+    "adhesivo acrílico sensible a la presión"@es ;
+  skos:altLabel "acrylic pressure-sensitive"@en, "adhésif acrylique sensible à la pression"@fr, "adhesivo acrílico"@es ;
+  skos:definition "Permanent acrylic pressure-sensitive adhesive." .
+
+atelier:EPDM80PhosphateEsterResistant a skos:Concept ; skos:inScheme atelier:Materials ;
+  skos:prefLabel "EPDM 80 Shore A, phosphate ester resistant"@en, "EPDM 80 Shore A, résistant aux esters phosphates"@fr,
+    "EPDM 80 Shore A, phosphatesterbeständig"@de, "EPDM 80 Shore A, resistente a ésteres fosfato"@es ;
+  skos:definition "EPDM of hardness 80 Shore A for phosphate ester hydraulic fluids." .
+
+atelier:EPDM70SteamResistant a skos:Concept ; skos:inScheme atelier:Materials ;
+  skos:prefLabel "EPDM 70 Shore A, steam resistant"@en, "EPDM 70 Shore A, résistant à la vapeur"@fr,
+    "EPDM 70 Shore A, heißdampfbeständig"@de, "EPDM 70 Shore A, resistente al vapor"@es ;
+  skos:definition "EPDM of hardness 70 Shore A for steam and hot water." .
+
+atelier:NBR70 a skos:Concept ; skos:inScheme atelier:Materials ;
+  skos:prefLabel "NBR 70 Shore A, mineral oil resistant"@en, "NBR 70 Shore A, résistant aux huiles minérales"@fr,
+    "NBR 70 Shore A, mineralölbeständig"@de, "NBR 70 Shore A, resistente a aceites minerales"@es ;
+  skos:definition "Nitrile rubber of hardness 70 Shore A for mineral oil hydraulic fluids." .
+
+atelier:AluminiumAlloy a skos:Concept ; skos:inScheme atelier:Materials ;
+  skos:prefLabel "aluminium alloy"@en, "alliage d'aluminium"@fr, "Aluminiumlegierung"@de, "aleación de aluminio"@es ;
+  skos:definition "Aluminium alloy of a container shell." .
+
+atelier:FKM75 a skos:Concept ; skos:inScheme atelier:Materials ;
+  skos:prefLabel "FKM 75 Shore A"@en, "FKM 75 Shore A"@fr, "FKM 75 Shore A"@de, "FKM 75 Shore A"@es ;
+  skos:definition "Fluoroelastomer of hardness 75 Shore A." .
+
+# The ornithopter's purchased cord and ballast can: two item classes and their materials, data in the vocabulary.
+
+atelier:CordItem a skos:Concept ;
+  skos:inScheme atelier:ItemClasses ; skos:topConceptOf atelier:ItemClasses ;
+  skos:notation "cord" ;
+  skos:prefLabel "Cord"@en, "Cordon"@fr, "Schnur"@de, "Cuerda"@es ;
+  skos:definition "A braided or twisted cord bought by the length: one item when the nominal diameters agree within 0.1 mm and the materials are one material." ;
+  atelier:identifiedBy atelier:CordDiameterAttribute, atelier:CordMaterialAttribute .
+
+atelier:CordDiameterAttribute atelier:onAttribute atelier:nominalDiameter ; atelier:attributeOrder 1 ; atelier:stagingKey "diameter" ;
+  atelier:matchToleranceMm "0.1"^^xsd:decimal .
+atelier:CordMaterialAttribute atelier:onAttribute atelier:material ; atelier:attributeOrder 2 ;
+  atelier:resolvedIn atelier:Materials .
+
+atelier:CanisterItem a skos:Concept ;
+  skos:inScheme atelier:ItemClasses ; skos:topConceptOf atelier:ItemClasses ;
+  skos:notation "canister" ;
+  skos:prefLabel "Canister"@en, "Bidon"@fr, "Kanister"@de, "Bidón"@es ;
+  skos:definition "A rigid liquid container bought to a size: one item when base width, depth and height agree within 1 mm and the shell materials are one material." ;
+  atelier:identifiedBy atelier:CanisterWidthAttribute, atelier:CanisterDepthAttribute, atelier:CanisterHeightAttribute,
+    atelier:CanisterMaterialAttribute .
+
+atelier:CanisterWidthAttribute atelier:onAttribute atelier:baseWidth ; atelier:attributeOrder 1 ; atelier:stagingKey "baseWidth" ;
+  atelier:matchToleranceMm "1"^^xsd:decimal .
+atelier:CanisterDepthAttribute atelier:onAttribute atelier:itemDepth ; atelier:attributeOrder 2 ; atelier:stagingKey "depth" ;
+  atelier:matchToleranceMm "1"^^xsd:decimal .
+atelier:CanisterHeightAttribute atelier:onAttribute atelier:itemHeight ; atelier:attributeOrder 3 ; atelier:stagingKey "height" ;
+  atelier:matchToleranceMm "1"^^xsd:decimal .
+atelier:CanisterMaterialAttribute atelier:onAttribute atelier:shellMaterial ; atelier:attributeOrder 4 ; atelier:stagingKey "material" ;
+  atelier:resolvedIn atelier:Materials .
+
+atelier:RawSilk a skos:Concept ; skos:inScheme atelier:Materials ; skos:topConceptOf atelier:Materials ;
+  skos:prefLabel "raw silk"@en, "soie grège"@fr, "Rohseide"@de, "seda cruda"@es ;
+  skos:definition "Silk as reeled from the cocoon, not degummed." .
+
+atelier:Polyethylene a skos:Concept ; skos:inScheme atelier:Materials ; skos:topConceptOf atelier:Materials ;
+  skos:prefLabel "polyethylene"@en, "polyéthylène"@fr, "Polyethylen"@de, "polietileno"@es ;
+  skos:definition "Polyethylene of a moulded container shell." .
+
+# Function: what drives what. A bill of materials says what contains what; the drives relation says where power or
+# motion goes, from a part to the next, across the sites. No site holds both ends of a joint between two sites, so
+# the relation is the layer's own engineering knowledge, published in the link store as the interfaces are: one
+# atelier:Drive per edge (its driving and driven part, flow kind, the interface joining them when the joint is one,
+# and for a planetary stage the gear held fixed), with the plain atelier:drives triple beside it for navigation.
+
+atelier:Drive a owl:Class ;
+  rdfs:label "Drive" ;
+  rdfs:comment "A functional edge: power or motion passes from atelier:driver to atelier:driven. Published in the link store; IRI https://example.com/atelier/drive/{product}/{n}." .
+
+atelier:drives a owl:ObjectProperty ;
+  rdfs:label "drives" ;
+  rdfs:comment "Power or motion passes from this part to the object part (atelier:drives+ follows a product's function). Stated by the link store beside each atelier:Drive." ;
+  owl:propertyChainAxiom ( [ owl:inverseOf atelier:driver ] atelier:driven ) ;
+  rdfs:domain atelier:Part ;
+  rdfs:range atelier:Part .
+
+atelier:driver a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "driver" ;
+  rdfs:comment "The part a functional edge starts from." ;
+  rdfs:domain atelier:Drive ;
+  rdfs:range atelier:Part .
+
+atelier:driven a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "driven" ;
+  rdfs:comment "The part a functional edge ends at." ;
+  rdfs:domain atelier:Drive ;
+  rdfs:range atelier:Part .
+
+atelier:flow a owl:DatatypeProperty ;
+  rdfs:label "flow" ;
+  rdfs:comment "What the edge carries: mechanical, electrical, hydraulic or steam." ;
+  rdfs:domain atelier:Drive ;
+  rdfs:range xsd:string .
+
+atelier:viaInterface a owl:ObjectProperty ;
+  rdfs:label "via interface" ;
+  rdfs:comment "The interface joining the edge's two parts, when the joint is one. A gear mesh or a shaft carrying a wheel inside one site has none." ;
+  rdfs:domain atelier:Drive ;
+  rdfs:range atelier:Interface .
+
+atelier:reactionPart a owl:ObjectProperty ;
+  rdfs:label "reaction part" ;
+  rdfs:comment "The fixed gear the driving gear also meshes (a planetary ring). The driven sun then turns at sun over ring plus sun, not through the planet's teeth." ;
+  rdfs:domain atelier:Drive ;
+  rdfs:range atelier:Part .
+
+atelier:ratedSpeedRpm a owl:DatatypeProperty ;
+  rdfs:label "rated speed (rpm)" ;
+  rdfs:comment "Speed at the rated operating point, in rpm. A design figure, published in the link store with the functional edges." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:decimal .
+
+atelier:toothCount a owl:DatatypeProperty ;
+  rdfs:label "tooth count" ;
+  rdfs:comment "Teeth of a gear. A stepped cluster of several gears states none." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range xsd:integer .
+
+atelier:gearModule a owl:ObjectProperty ;
+  rdfs:label "gear module" ;
+  rdfs:comment "Gear module (pitch diameter over teeth). A quantity value in millimetres, or inches in the British PLM; node IRI <part IRI>/module." ;
+  rdfs:domain atelier:Part ;
+  rdfs:range qudt:QuantityValue .
+
+# Stations and sections: positions along a product's station axis, published by the layer in the link store with the
+# product's sections. A part's span along the axis is stored by its PLM and computed from its CAD geometry.
+
+atelier:Station a owl:Class ;
+  rdfs:label "Station" ;
+  rdfs:comment "A named position along the product's station axis, such as a wing station. Its id is its skos:notation, its source a dcterms:source; product data the layer publishes in the link store, which no PLM holds. IRI https://example.com/atelier/station/{product}/{id}." .
+
+atelier:Section a owl:Class ;
+  rdfs:label "Section" ;
+  rdfs:comment "A stretch of the product between stations, owned by one site. Two sections that share a station meet at a joint there. IRI https://example.com/atelier/section/{product}/{id}." .
+
+atelier:stationAxis a owl:DatatypeProperty ;
+  rdfs:label "station axis" ;
+  rdfs:comment "x, y or z." ;
+  rdfs:domain atelier:Product ;
+  rdfs:range xsd:string .
+
+atelier:stationsSymmetric a owl:DatatypeProperty ;
+  rdfs:label "stations symmetric" ;
+  rdfs:comment "True when station n is at +n on the right and -n on the left." ;
+  rdfs:domain atelier:Product ;
+  rdfs:range xsd:boolean .
+
+atelier:stationMeasure a owl:DatatypeProperty ;
+  rdfs:label "station measure" ;
+  rdfs:comment "In words." ;
+  rdfs:domain atelier:Product ;
+  rdfs:range xsd:string .
+
+atelier:stationPosition a owl:ObjectProperty ;
+  rdfs:label "station position" ;
+  rdfs:comment "In millimetres along the axis; node IRI <station IRI>/position." ;
+  rdfs:domain atelier:Station ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:stationTolerance a owl:ObjectProperty ;
+  rdfs:label "station tolerance" ;
+  rdfs:comment "Accuracy of the position in millimetres, when read from a drawing or a model; node IRI <station IRI>/tolerance." ;
+  rdfs:domain atelier:Station ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:stationBasis a owl:ObjectProperty ;
+  rdfs:label "station basis" ;
+  rdfs:comment "A concept of atelier:StationBases: printed, measured, joint or inferred." ;
+  rdfs:domain atelier:Station ;
+  rdfs:range skos:Concept .
+
+atelier:sectionOf a owl:ObjectProperty ;
+  rdfs:label "section of" ;
+  rdfs:comment "Its product." ;
+  rdfs:range atelier:Product .
+
+atelier:hasStation a owl:ObjectProperty ;
+  rdfs:label "has station" ;
+  rdfs:comment "A station of the section." ;
+  rdfs:domain atelier:Section ;
+  rdfs:range atelier:Station .
+
+atelier:sectionSide a owl:DatatypeProperty ;
+  rdfs:label "section side" ;
+  rdfs:comment "left, right or both." ;
+  rdfs:domain atelier:Section ;
+  rdfs:range xsd:string .
+
+atelier:sectionPart a owl:ObjectProperty ;
+  rdfs:label "section part" ;
+  rdfs:comment "The part the section is, when one part is the section." ;
+  rdfs:domain atelier:Section ;
+  rdfs:range atelier:Part .
+
+atelier:spanFrom a owl:ObjectProperty ;
+  rdfs:label "span from" ;
+  rdfs:comment "Lowest coordinate of a part or an occurrence along the station axis, in millimetres or inches in the British PLM; node IRI <subject>/span-from. Computed from the CAD geometry, never entered." ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:spanTo a owl:ObjectProperty ;
+  rdfs:label "span to" ;
+  rdfs:comment "Highest coordinate along the station axis; node IRI <subject>/span-to." ;
+  rdfs:range qudt:QuantityValue .
+
+atelier:StationBases a skos:ConceptScheme ;
+  rdfs:label "Station bases" ;
+  rdfs:comment "How a station's position is known." ;
+  skos:hasTopConcept atelier:PrintedStation, atelier:MeasuredStation, atelier:JointStation, atelier:InferredStation .
+
+atelier:PrintedStation a skos:Concept ; skos:inScheme atelier:StationBases ; skos:notation "printed" ;
+  skos:prefLabel "printed"@en ; rdfs:comment "Printed on a drawing or in a manual." .
+
+atelier:MeasuredStation a skos:Concept ; skos:inScheme atelier:StationBases ; skos:notation "measured" ;
+  skos:prefLabel "measured"@en ; rdfs:comment "Measured on the product or a model of it." .
+
+atelier:JointStation a skos:Concept ; skos:inScheme atelier:StationBases ; skos:notation "joint" ;
+  skos:prefLabel "joint"@en ; rdfs:comment "Where two sections or parts are joined." .
+
+atelier:InferredStation a skos:Concept ; skos:inScheme atelier:StationBases ; skos:notation "inferred" ;
+  skos:prefLabel "inferred"@en ; rdfs:comment "Inferred from the geometry or another source; no source prints it." .
+
+# Variants and option effectivity: a variant is one installation slot of a product and the options it can take,
+# published by the layer in the options graph of the link store (https://example.com/atelier/graph/options). The
+# base product is the default configuration: the default option names the base items it is made of, and every other
+# option the items only it adds. A row a site holds only for one option carries the option's code, which the
+# mappings read as atelier:appliesUnderOption; a feature's port is the connection point its host part offers the
+# slot, the same under every option, so two options are compared port by port.
+
+atelier:Variant a owl:Class ;
+  rdfs:label "Variant" ;
+  rdfs:comment "One installation slot of a product and the options it can take (a variant group). IRI https://example.com/atelier/variant/{product}/{group}; its product is atelier:ofProduct." .
+
+atelier:Option a owl:Class ;
+  rdfs:label "Option" ;
+  rdfs:comment "One alternative of a variant: what the slot holds when the option is taken. IRI https://example.com/atelier/option/{option code}, the code the sites store on the rows that exist only under it." .
+
+atelier:optionOf a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "option of" ;
+  rdfs:comment "The variant an option is an alternative of." ;
+  rdfs:domain atelier:Option ;
+  rdfs:range atelier:Variant .
+
+atelier:defaultOption a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:label "default option" ;
+  rdfs:comment "The option the base product is built with: the default configuration of the variant." ;
+  rdfs:domain atelier:Variant ;
+  rdfs:range atelier:Option .
+
+atelier:appliesUnderOption a owl:ObjectProperty ;
+  rdfs:label "applies under option" ;
+  rdfs:comment "An item, feature, interface, bill-of-materials line or functional edge that the product holds only when this option is taken. A default option's items are base items; another option's exist nowhere in the base." ;
+  rdfs:range atelier:Option .
+
+atelier:applicability a owl:DatatypeProperty ;
+  rdfs:label "applicability" ;
+  rdfs:comment "The product model or build an option applies to, and what of it the data does not model, in words." ;
+  rdfs:domain atelier:Option ;
+  rdfs:range xsd:string .
+
+atelier:portNotModelled a owl:DatatypeProperty ;
+  rdfs:label "port not modelled" ;
+  rdfs:comment "A port the host offers under this option that the data does not hold: present, never compared." ;
+  rdfs:domain atelier:Option ;
+  rdfs:range xsd:string .
+
+atelier:port a owl:DatatypeProperty ;
+  rdfs:label "port" ;
+  rdfs:comment "The connection point of its host part a feature serves (a return eye, a bearing, a flange), named the same under every option of the slot; at most one feature of a part per port in a configuration." ;
+  rdfs:domain atelier:InterfaceFeature ;
+  rdfs:range xsd:string .

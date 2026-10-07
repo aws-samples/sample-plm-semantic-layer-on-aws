@@ -1,0 +1,65 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Generated from the JPA entity annotations of plm-uk (package atelier.plm.uk.domain) by atelier.plm.common.r2rml.R2rmlGenerator.
+# Do not edit: change the annotations and regenerate with modules/ontop/scripts/generate-mappings.sh.
+
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix atelier: <https://example.com/atelier/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix map: <https://example.com/atelier/uk/mapping#> .
+
+map:Component a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "component" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/uk/part/{comp_id}" ; rr:class atelier:Part ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:ownedBy ; rr:object "UK" ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:identifier ; rr:objectMap [ rr:column "comp_id" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:label ; rr:objectMap [ rr:column "name" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:cadFile ; rr:objectMap [ rr:column "cad_file" ] ] .
+
+map:Fastener a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "fastener" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/uk/fastener/{fast_ref}" ; rr:class atelier:Fastener ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:ownedBy ; rr:object "UK" ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:identifier ; rr:objectMap [ rr:column "fast_ref" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:onPart ; rr:objectMap [ rr:template "https://example.com/atelier/uk/part/{comp_id}" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:positionX ; rr:objectMap [ rr:template "https://example.com/atelier/uk/fastener/{fast_ref}/position/x" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:positionY ; rr:objectMap [ rr:template "https://example.com/atelier/uk/fastener/{fast_ref}/position/y" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:positionZ ; rr:objectMap [ rr:template "https://example.com/atelier/uk/fastener/{fast_ref}/position/z" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:fastenerStandard ; rr:objectMap [ rr:column "standard" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:diameter ; rr:objectMap [ rr:template "https://example.com/atelier/uk/fastener/{fast_ref}/diameter" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:fastenerCount ; rr:objectMap [ rr:column "qty" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:gripLength ; rr:objectMap [ rr:template "https://example.com/atelier/uk/fastener/{fast_ref}/grip" ] ] .
+
+map:Fastener_positionX a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "fastener" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/uk/fastener/{fast_ref}/position/x" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "pos_x" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{pos_uom}" ] ] .
+
+map:Fastener_positionY a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "fastener" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/uk/fastener/{fast_ref}/position/y" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "pos_y" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{pos_uom}" ] ] .
+
+map:Fastener_positionZ a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "fastener" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/uk/fastener/{fast_ref}/position/z" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "pos_z" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{pos_uom}" ] ] .
+
+map:Fastener_diameter a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "fastener" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/uk/fastener/{fast_ref}/diameter" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "dia" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{dia_uom}" ] ] .
+
+map:Fastener_gripLength a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "fastener" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/uk/fastener/{fast_ref}/grip" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "grip" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{grip_uom}" ] ] .

@@ -1,0 +1,360 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Generated from the JPA entity annotations of plm-es (package atelier.plm.es.domain) by atelier.plm.common.r2rml.R2rmlGenerator.
+# Do not edit: change the annotations and regenerate with modules/ontop/scripts/generate-mappings.sh.
+
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix atelier: <https://example.com/atelier/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix map: <https://example.com/atelier/es/mapping#> .
+
+map:Acoplamiento a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "acoplamiento" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/coupling/{cod_acoplamiento}" ; rr:class atelier:HydraulicCoupling ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:ownedBy ; rr:object "ES" ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:identifier ; rr:objectMap [ rr:column "cod_acoplamiento" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:onPart ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:positionX ; rr:objectMap [ rr:template "https://example.com/atelier/es/coupling/{cod_acoplamiento}/position/x" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:positionY ; rr:objectMap [ rr:template "https://example.com/atelier/es/coupling/{cod_acoplamiento}/position/y" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:positionZ ; rr:objectMap [ rr:template "https://example.com/atelier/es/coupling/{cod_acoplamiento}/position/z" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:couplingStandard ; rr:objectMap [ rr:column "norma" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:dashSize ; rr:objectMap [ rr:column "tamano_dash" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:pressureRating ; rr:objectMap [ rr:template "https://example.com/atelier/es/coupling/{cod_acoplamiento}/rating" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:fluid ; rr:objectMap [ rr:column "fluido" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:port ; rr:objectMap [ rr:column "puerto" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:appliesUnderOption ; rr:objectMap [ rr:template "https://example.com/atelier/option/{opcion}" ] ] .
+
+map:Acoplamiento_positionX a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "acoplamiento" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/coupling/{cod_acoplamiento}/position/x" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "pos_x_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Acoplamiento_positionY a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "acoplamiento" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/coupling/{cod_acoplamiento}/position/y" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "pos_y_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Acoplamiento_positionZ a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "acoplamiento" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/coupling/{cod_acoplamiento}/position/z" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "pos_z_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Acoplamiento_pressureRating a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "acoplamiento" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/coupling/{cod_acoplamiento}/rating" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "presion_bar" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:BAR ] .
+
+map:CierreListaMateriales a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "cierre_lista_materiales" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{ascendiente}" ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:contains ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{descendiente}" ] ] .
+
+map:Conector a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "conector" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/plug/{cod_conector}" ; rr:class atelier:Plug ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:ownedBy ; rr:object "ES" ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:identifier ; rr:objectMap [ rr:column "cod_conector" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:onPart ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:positionX ; rr:objectMap [ rr:template "https://example.com/atelier/es/plug/{cod_conector}/position/x" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:positionY ; rr:objectMap [ rr:template "https://example.com/atelier/es/plug/{cod_conector}/position/y" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:positionZ ; rr:objectMap [ rr:template "https://example.com/atelier/es/plug/{cod_conector}/position/z" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:connectorType ; rr:objectMap [ rr:column "tipo" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:pinCount ; rr:objectMap [ rr:column "num_contactos" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:port ; rr:objectMap [ rr:column "puerto" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:appliesUnderOption ; rr:objectMap [ rr:template "https://example.com/atelier/option/{opcion}" ] ] .
+
+map:Conector_positionX a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "conector" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/plug/{cod_conector}/position/x" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "pos_x_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Conector_positionY a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "conector" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/plug/{cod_conector}/position/y" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "pos_y_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Conector_positionZ a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "conector" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/plug/{cod_conector}/position/z" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "pos_z_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:LineaListaMateriales a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "linea_lista_materiales" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/bomline/{padre}/{referencia}" ; rr:class atelier:BomLine ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:ownedBy ; rr:object "ES" ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:parent ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{padre}" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:child ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{referencia}" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:quantity ; rr:objectMap [ rr:column "cantidad" ; rr:datatype xsd:decimal ] ] .
+
+map:Pieza a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}" ; rr:class atelier:Part ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:ownedBy ; rr:object "ES" ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:identifier ; rr:objectMap [ rr:column "cod_pieza" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:label ; rr:objectMap [ rr:column "denominacion" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:sourceFileRef ; rr:objectMap [ rr:column "fichero_cad" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:revision ; rr:objectMap [ rr:column "revision" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:lifecycleLabel ; rr:objectMap [ rr:column "estado" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:mass ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/mass" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:material ; rr:objectMap [ rr:column "material" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:partType ; rr:objectMap [ rr:column "tipo" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:standard ; rr:objectMap [ rr:column "norma" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:nominalDiameter ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/nominal-diameter" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:nominalLength ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/nominal-length" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:toothCount ; rr:objectMap [ rr:column "numero_dientes" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:gearModule ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/module" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:spanFrom ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/span-from" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:spanTo ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/span-to" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:itemClass ; rr:objectMap [ rr:column "clase_articulo" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:innerDiameter ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/inner-diameter" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:crossSection ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/cross-section" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:compound ; rr:objectMap [ rr:column "compuesto" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:legend ; rr:objectMap [ rr:column "leyenda" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:itemWidth ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/width" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:itemHeight ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/height" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:facestock ; rr:objectMap [ rr:column "soporte" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:adhesive ; rr:objectMap [ rr:column "adhesivo" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:baseWidth ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/base-width" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:itemDepth ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/depth" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:contourWidth ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/contour-width" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:shellMaterial ; rr:objectMap [ rr:column "material_casco" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:outerDiameter ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/outer-diameter" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:sectionWidth ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/section-width" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:rimDiameter ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/rim-diameter" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:plyRating ; rr:objectMap [ rr:column "indice_telas" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:heatStackDiameter ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/heat-stack-diameter" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:rotorCount ; rr:objectMap [ rr:column "numero_rotores" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:shelfLifeMonths ; rr:objectMap [ rr:column "vida_util_meses" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:appliesUnderOption ; rr:objectMap [ rr:template "https://example.com/atelier/option/{opcion}" ] ] .
+
+map:Pieza_mass a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/mass" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "masa_kg" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:KiloGM ] .
+
+map:Pieza_nominalDiameter a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/nominal-diameter" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "diametro_nominal" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:Pieza_nominalLength a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/nominal-length" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "longitud_nominal" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:Pieza_gearModule a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/module" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "modulo_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Pieza_spanFrom a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/span-from" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "tramo_desde_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Pieza_spanTo a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/span-to" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "tramo_hasta_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Pieza_innerDiameter a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/inner-diameter" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "diametro_interior" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:Pieza_crossSection a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/cross-section" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "seccion" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:Pieza_itemWidth a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/width" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "ancho" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:Pieza_itemHeight a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/height" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "alto" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:Pieza_baseWidth a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/base-width" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "ancho_base" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:Pieza_itemDepth a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/depth" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "fondo" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:Pieza_contourWidth a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/contour-width" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "ancho_contorno" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:Pieza_outerDiameter a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/outer-diameter" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "diametro_exterior" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:Pieza_sectionWidth a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/section-width" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "ancho_seccion" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:Pieza_rimDiameter a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/rim-diameter" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "diametro_llanta" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:Pieza_heatStackDiameter a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}/heat-stack-diameter" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "diametro_disipador" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{unidad_medida}" ] ] .
+
+map:PiezaProveedor a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "pieza_proveedor" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/offer/{id}" ; rr:class atelier:SupplierOffer ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:ownedBy ; rr:object "ES" ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:offersPart ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:fromSupplier ; rr:objectMap [ rr:template "https://example.com/atelier/es/supplier/{cod_proveedor}" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:supplierPartNumber ; rr:objectMap [ rr:column "referencia_proveedor" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:leadTimeDays ; rr:objectMap [ rr:column "plazo_dias" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:preferred ; rr:objectMap [ rr:column "preferido" ; rr:datatype xsd:boolean ] ] .
+
+map:PosicionListaMateriales a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "posicion_lista_materiales" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/occurrence/{padre}/{referencia}/{orden}" ; rr:class atelier:Occurrence ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:ownedBy ; rr:object "ES" ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:ofLine ; rr:objectMap [ rr:template "https://example.com/atelier/es/bomline/{padre}/{referencia}" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:index ; rr:objectMap [ rr:column "orden" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:translationX ; rr:objectMap [ rr:template "https://example.com/atelier/es/occurrence/{padre}/{referencia}/{orden}/translation/x" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:translationY ; rr:objectMap [ rr:template "https://example.com/atelier/es/occurrence/{padre}/{referencia}/{orden}/translation/y" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:translationZ ; rr:objectMap [ rr:template "https://example.com/atelier/es/occurrence/{padre}/{referencia}/{orden}/translation/z" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:rotationX ; rr:objectMap [ rr:column "rx_grados" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:rotationY ; rr:objectMap [ rr:column "ry_grados" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:rotationZ ; rr:objectMap [ rr:column "rz_grados" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:spanFrom ; rr:objectMap [ rr:template "https://example.com/atelier/es/occurrence/{padre}/{referencia}/{orden}/span-from" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:spanTo ; rr:objectMap [ rr:template "https://example.com/atelier/es/occurrence/{padre}/{referencia}/{orden}/span-to" ] ] .
+
+map:PosicionListaMateriales_translationX a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "posicion_lista_materiales" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/occurrence/{padre}/{referencia}/{orden}/translation/x" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "x_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:PosicionListaMateriales_translationY a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "posicion_lista_materiales" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/occurrence/{padre}/{referencia}/{orden}/translation/y" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "y_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:PosicionListaMateriales_translationZ a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "posicion_lista_materiales" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/occurrence/{padre}/{referencia}/{orden}/translation/z" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "z_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:PosicionListaMateriales_spanFrom a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "posicion_lista_materiales" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/occurrence/{padre}/{referencia}/{orden}/span-from" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "tramo_desde_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:PosicionListaMateriales_spanTo a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "posicion_lista_materiales" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/occurrence/{padre}/{referencia}/{orden}/span-to" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "tramo_hasta_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Proveedor a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "proveedor" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/supplier/{cod_proveedor}" ; rr:class atelier:Supplier ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:ownedBy ; rr:object "ES" ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:identifier ; rr:objectMap [ rr:column "cod_proveedor" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:label ; rr:objectMap [ rr:column "nombre" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:location ; rr:objectMap [ rr:column "ciudad" ] ] .
+
+map:ReferenciaExterna a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "referencia_externa" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/ref/{id}" ; rr:class atelier:ExternalReference ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:ownedBy ; rr:object "ES" ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:fromPart ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{pieza}" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:remoteUrn ; rr:objectMap [ rr:column "urn" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:quantity ; rr:objectMap [ rr:column "cantidad" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:expectedRevision ; rr:objectMap [ rr:column "revision_esperada" ] ] ;
+  rr:predicateObjectMap [ rr:predicate rdfs:comment ; rr:objectMap [ rr:column "nota" ] ] .
+
+map:Remache a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "remache" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/fastener/{cod_remache}" ; rr:class atelier:Fastener ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:ownedBy ; rr:object "ES" ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:identifier ; rr:objectMap [ rr:column "cod_remache" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:onPart ; rr:objectMap [ rr:template "https://example.com/atelier/es/part/{cod_pieza}" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:positionX ; rr:objectMap [ rr:template "https://example.com/atelier/es/fastener/{cod_remache}/position/x" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:positionY ; rr:objectMap [ rr:template "https://example.com/atelier/es/fastener/{cod_remache}/position/y" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:positionZ ; rr:objectMap [ rr:template "https://example.com/atelier/es/fastener/{cod_remache}/position/z" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:fastenerStandard ; rr:objectMap [ rr:column "norma" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:diameter ; rr:objectMap [ rr:template "https://example.com/atelier/es/fastener/{cod_remache}/diameter" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:fastenerCount ; rr:objectMap [ rr:column "cantidad" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:gripLength ; rr:objectMap [ rr:template "https://example.com/atelier/es/fastener/{cod_remache}/grip" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:port ; rr:objectMap [ rr:column "puerto" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:appliesUnderOption ; rr:objectMap [ rr:template "https://example.com/atelier/option/{opcion}" ] ] .
+
+map:Remache_positionX a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "remache" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/fastener/{cod_remache}/position/x" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "pos_x_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Remache_positionY a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "remache" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/fastener/{cod_remache}/position/y" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "pos_y_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Remache_positionZ a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "remache" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/fastener/{cod_remache}/position/z" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "pos_z_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Remache_diameter a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "remache" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/fastener/{cod_remache}/diameter" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "diametro_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .
+
+map:Remache_gripLength a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "remache" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/es/fastener/{cod_remache}/grip" ; rr:class qudt:QuantityValue ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:numericValue ; rr:objectMap [ rr:column "longitud_apriete_mm" ; rr:datatype xsd:decimal ] ] ;
+  rr:predicateObjectMap [ rr:predicate qudt:unit ; rr:object unit:MilliM ] .

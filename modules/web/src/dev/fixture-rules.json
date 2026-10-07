@@ -1,0 +1,551 @@
+{
+  "rules" : [ {
+    "name" : "cadMissing",
+    "shape" : "https://example.com/atelier/shapes#PartCadShape",
+    "severity" : "Warning",
+    "focus" : "part",
+    "message" : "Every part with geometry (part type PART) carries exactly one atelier:cadFile from the file index.",
+    "description" : "Every part with geometry must have exactly one CAD file in the file index, the shared index of where each part's file is. The site that owns the part releases it, the file index records the file: the layer joins the two and finds the parts released without a file.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:PartCadShape\n        rdf:type         sh:PropertyShape;\n        rdfs:comment     \"Every part with geometry (part type PART) carries exactly one atelier:cadFile from the file index.\";\n        sh:description   \"Every part with geometry must have exactly one CAD file in the file index, the shared index of where each part's file is. The site that owns the part releases it, the file index records the file: the layer joins the two and finds the parts released without a file.\"@en;\n        sh:maxCount      1;\n        sh:message       \"no CAD file published in the file index for this part\";\n        sh:minCount      1;\n        sh:path          atelier:cadFile;\n        sh:severity      sh:Warning;\n        sh:target        [ rdf:type     sh:SPARQLTarget;\n                           sh:prefixes  <https://example.com/atelier/shapes>;\n                           sh:select    \"\"\"\n      SELECT ?this WHERE {\n        ?this a atelier:Part .\n        FILTER NOT EXISTS { ?this atelier:partType ?type FILTER (STR(?type) != \"PART\") }\n      }\"\"\"\n                         ];\n        ateliersh:focus  \"part\";\n        ateliersh:rule   \"cadMissing\" .\n",
+    "sparql" : [ {
+      "role" : "target",
+      "message" : null,
+      "query" : "\n      SELECT ?this WHERE {\n        ?this a atelier:Part .\n        FILTER NOT EXISTS { ?this atelier:partType ?type FILTER (STR(?type) != \"PART\") }\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:Part",
+      "kind" : "class",
+      "definition" : "A physical part owned by one site PLM, such as a wing spar or a mast segment. Corresponds to an AP242 product with its product_definition; the CAD model is referenced by atelier:cadFile and the product it belongs to by atelier:partOf. Its export-control tag (atelier:jurisdiction, atelier:releasableTo, atelier:taggedBy, atelier:taggedAt), held in the Atelier core database, is inherited by its features and CAD file."
+    }, {
+      "term" : "atelier:cadFile",
+      "kind" : "property",
+      "definition" : "Key of the STEP AP242 model of the part, of the form cad/<file>.stp, stated in the file-index graph of the link store (one value per part). The file itself is served only through a presigned URL issued for a viewer allowed to see the part."
+    }, {
+      "term" : "atelier:partType",
+      "kind" : "property",
+      "definition" : "PART, ASSEMBLY, SOFTWARE or DOCUMENT. Only a PART has geometry: an ASSEMBLY (a site kit or a sub-assembly of a site's bill of materials) is the parent of its lines, and SOFTWARE and DOCUMENT items have no CAD file either."
+    } ]
+  }, {
+    "name" : "conflictingLeadTime",
+    "shape" : "https://example.com/atelier/shapes#ConflictingLeadTimeShape",
+    "severity" : "Warning",
+    "focus" : "part",
+    "message" : "The preferred supplier offers of a part agree on the lead time.",
+    "description" : "The preferred supplier offers for one part must agree on the lead time. Offers are kept with the part's site; the layer gathers them with the supplier names of the file index and reports offers that promise different delivery times.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:ConflictingLeadTimeShape\n        rdf:type         sh:NodeShape;\n        rdfs:comment     \"The preferred supplier offers of a part agree on the lead time.\";\n        sh:description   \"The preferred supplier offers for one part must agree on the lead time. Offers are kept with the part's site; the layer gathers them with the supplier names of the file index and reports offers that promise different delivery times.\"@en;\n        sh:severity      sh:Warning;\n        sh:sparql        [ sh:message   \"preferred offers disagree on the lead time: {?shortDays} days from {?shortSupplier}, {?longDays} days from {?longSupplier}\";\n                           sh:prefixes  <https://example.com/atelier/shapes>;\n                           sh:select    \"\"\"\n      SELECT $this ?value ?shortDays ?shortSupplier ?longDays ?longSupplier WHERE {\n        ?short atelier:offersPart $this ; atelier:preferred true ; atelier:leadTimeDays ?shortDays ; atelier:fromSupplier ?s1 .\n        ?value atelier:offersPart $this ; atelier:preferred true ; atelier:leadTimeDays ?longDays ; atelier:fromSupplier ?s2 .\n        FILTER (?shortDays < ?longDays)\n        OPTIONAL { ?s1 atelier:label ?l1 }\n        OPTIONAL { ?s2 atelier:label ?l2 }\n        BIND (COALESCE(?l1, REPLACE(STR(?s1), \"^.*/\", \"\")) AS ?shortSupplier)\n        BIND (COALESCE(?l2, REPLACE(STR(?s2), \"^.*/\", \"\")) AS ?longSupplier)\n      }\"\"\"\n                         ];\n        sh:targetClass   atelier:Part;\n        ateliersh:focus  \"part\";\n        ateliersh:rule   \"conflictingLeadTime\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "preferred offers disagree on the lead time: {?shortDays} days from {?shortSupplier}, {?longDays} days from {?longSupplier}",
+      "query" : "\n      SELECT $this ?value ?shortDays ?shortSupplier ?longDays ?longSupplier WHERE {\n        ?short atelier:offersPart $this ; atelier:preferred true ; atelier:leadTimeDays ?shortDays ; atelier:fromSupplier ?s1 .\n        ?value atelier:offersPart $this ; atelier:preferred true ; atelier:leadTimeDays ?longDays ; atelier:fromSupplier ?s2 .\n        FILTER (?shortDays < ?longDays)\n        OPTIONAL { ?s1 atelier:label ?l1 }\n        OPTIONAL { ?s2 atelier:label ?l2 }\n        BIND (COALESCE(?l1, REPLACE(STR(?s1), \"^.*/\", \"\")) AS ?shortSupplier)\n        BIND (COALESCE(?l2, REPLACE(STR(?s2), \"^.*/\", \"\")) AS ?longSupplier)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:Part",
+      "kind" : "class",
+      "definition" : "A physical part owned by one site PLM, such as a wing spar or a mast segment. Corresponds to an AP242 product with its product_definition; the CAD model is referenced by atelier:cadFile and the product it belongs to by atelier:partOf. Its export-control tag (atelier:jurisdiction, atelier:releasableTo, atelier:taggedBy, atelier:taggedAt), held in the Atelier core database, is inherited by its features and CAD file."
+    }, {
+      "term" : "atelier:fromSupplier",
+      "kind" : "property",
+      "definition" : "The supplier making the offer. It is in the supplier list of the PLM that holds the offer."
+    }, {
+      "term" : "atelier:label",
+      "kind" : "property",
+      "definition" : "Human-readable name of a part, an interface or a supplier, in the language of its owner."
+    }, {
+      "term" : "atelier:leadTimeDays",
+      "kind" : "property",
+      "definition" : "Days from order to delivery. The preferred offers of one part should agree on it."
+    }, {
+      "term" : "atelier:offersPart",
+      "kind" : "property",
+      "definition" : "The part offered. It is a part of the PLM that holds the offer."
+    }, {
+      "term" : "atelier:preferred",
+      "kind" : "property",
+      "definition" : "Whether the site orders from this offer first."
+    } ]
+  }, {
+    "name" : "connector",
+    "shape" : "https://example.com/atelier/shapes#ConnectorShape",
+    "severity" : "Violation",
+    "focus" : "interface",
+    "message" : "Mated plugs have equal atelier:connectorType and atelier:pinCount.",
+    "description" : "Two plugs that mate must be the same connector type with the same number of pins. One site designs each plug, so neither site's system holds both plugs; the layer reads both and compares them.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:ConnectorShape\n        rdf:type             sh:NodeShape;\n        rdfs:comment         \"Mated plugs have equal atelier:connectorType and atelier:pinCount.\";\n        sh:description       \"Two plugs that mate must be the same connector type with the same number of pins. One site designs each plug, so neither site's system holds both plugs; the layer reads both and compares them.\"@en;\n        sh:sparql            [ sh:message   \"{?a} ({?t1}, {?p1} pins) and {?b} ({?t2}, {?p2} pins) are mated but do not match\";\n                               sh:prefixes  <https://example.com/atelier/shapes>;\n                               sh:select    \"\"\"\n      SELECT $this ?value ?a ?b ?t1 ?t2 ?p1 ?p2 WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        $this  atelier:connectorType ?t1 ; atelier:pinCount ?p1 .\n        ?value atelier:connectorType ?t2 ; atelier:pinCount ?p2 .\n        FILTER (?t1 != ?t2 || ?p1 != ?p2)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }\"\"\"\n                             ];\n        sh:targetSubjectsOf  atelier:matesWith;\n        ateliersh:focus      \"interface\";\n        ateliersh:rule       \"connector\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?a} ({?t1}, {?p1} pins) and {?b} ({?t2}, {?p2} pins) are mated but do not match",
+      "query" : "\n      SELECT $this ?value ?a ?b ?t1 ?t2 ?p1 ?p2 WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        $this  atelier:connectorType ?t1 ; atelier:pinCount ?p1 .\n        ?value atelier:connectorType ?t2 ; atelier:pinCount ?p2 .\n        FILTER (?t1 != ?t2 || ?p1 != ?p2)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:connectorType",
+      "kind" : "property",
+      "definition" : "Connector standard or shell designation of the plug. Mated plugs must have the same connector type."
+    }, {
+      "term" : "atelier:matesWith",
+      "kind" : "property",
+      "definition" : "The feature on the other side of the interface that this feature connects to; both are of the same class. Symmetric; the link store states it in both directions."
+    }, {
+      "term" : "atelier:pinCount",
+      "kind" : "property",
+      "definition" : "Number of contacts of the plug. Mated plugs must have the same pin count."
+    } ]
+  }, {
+    "name" : "danglingReference",
+    "shape" : "https://example.com/atelier/shapes#DanglingReferenceShape",
+    "severity" : "Warning",
+    "focus" : "reference",
+    "message" : "An external reference's URN is the urn:plm:<site>:part:<local id> key of an existing part.",
+    "description" : "When a part names a part of another site, the name must be a well-formed part URN that leads to an existing part. The referring site cannot check another site's parts; the layer holds the product memberships of every site and resolves the name.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:DanglingReferenceShape\n        rdf:type            sh:NodeShape;\n        rdfs:comment        \"An external reference's URN is the urn:plm:<site>:part:<local id> key of an existing part.\";\n        sh:description      \"When a part names a part of another site, the name must be a well-formed part URN that leads to an existing part. The referring site cannot check another site's parts; the layer holds the product memberships of every site and resolves the name.\"@en;\n        sh:severity         sh:Warning;\n        sh:sparql           [ sh:message   \"{?id} references {?u}, which resolves to no part of any PLM\";\n                              sh:prefixes  <https://example.com/atelier/shapes>;\n                              sh:select    \"\"\"\n      SELECT $this ?value ?id ?u WHERE {\n        ?value atelier:fromPart $this ; atelier:remoteUrn ?urn .\n        BIND (STR(?urn) AS ?u)\n        BIND (REGEX(?u, \"^urn:plm:(de|fr|es|uk):part:.+$\") AS ?wellFormed)\n        BIND (REPLACE(?u, \"^urn:plm:([a-z]+):part:.*$\", \"$1\") AS ?site)\n        BIND (REPLACE(?u, \"^urn:plm:[a-z]+:part:\", \"\") AS ?local)\n        BIND (IF(?site = \"uk\", REPLACE(?local, \"^UK/\", \"UK-\"), ?local) AS ?key)\n        BIND (IF(?wellFormed, IRI(CONCAT(\"https://example.com/atelier/\", ?site, \"/part/\", ENCODE_FOR_URI(?key))), ?none) AS ?target)\n        FILTER (?wellFormed && NOT EXISTS { ?target atelier:partOf ?anyProduct })\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?id)\n      }\"\"\"\n                            ];\n        sh:sparql           [ sh:message   \"{?id} references {?u}, which is not a urn:plm:<site>:part:<local id> key and resolves to no part\";\n                              sh:prefixes  <https://example.com/atelier/shapes>;\n                              sh:select    \"\"\"\n      SELECT $this ?value ?id ?u WHERE {\n        ?value atelier:fromPart $this ; atelier:remoteUrn ?urn .\n        BIND (STR(?urn) AS ?u)\n        BIND (REGEX(?u, \"^urn:plm:(de|fr|es|uk):part:.+$\") AS ?wellFormed)\n        BIND (REPLACE(?u, \"^urn:plm:([a-z]+):part:.*$\", \"$1\") AS ?site)\n        BIND (REPLACE(?u, \"^urn:plm:[a-z]+:part:\", \"\") AS ?local)\n        BIND (IF(?site = \"uk\", REPLACE(?local, \"^UK/\", \"UK-\"), ?local) AS ?key)\n        BIND (IF(?wellFormed, IRI(CONCAT(\"https://example.com/atelier/\", ?site, \"/part/\", ENCODE_FOR_URI(?key))), ?none) AS ?target)\n        FILTER (!?wellFormed)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?id)\n      }\"\"\"\n                            ];\n        sh:targetObjectsOf  atelier:fromPart;\n        ateliersh:focus     \"reference\";\n        ateliersh:rule      \"danglingReference\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?id} references {?u}, which is not a urn:plm:<site>:part:<local id> key and resolves to no part",
+      "query" : "\n      SELECT $this ?value ?id ?u WHERE {\n        ?value atelier:fromPart $this ; atelier:remoteUrn ?urn .\n        BIND (STR(?urn) AS ?u)\n        BIND (REGEX(?u, \"^urn:plm:(de|fr|es|uk):part:.+$\") AS ?wellFormed)\n        BIND (REPLACE(?u, \"^urn:plm:([a-z]+):part:.*$\", \"$1\") AS ?site)\n        BIND (REPLACE(?u, \"^urn:plm:[a-z]+:part:\", \"\") AS ?local)\n        BIND (IF(?site = \"uk\", REPLACE(?local, \"^UK/\", \"UK-\"), ?local) AS ?key)\n        BIND (IF(?wellFormed, IRI(CONCAT(\"https://example.com/atelier/\", ?site, \"/part/\", ENCODE_FOR_URI(?key))), ?none) AS ?target)\n        FILTER (!?wellFormed)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?id)\n      }"
+    }, {
+      "role" : "constraint",
+      "message" : "{?id} references {?u}, which resolves to no part of any PLM",
+      "query" : "\n      SELECT $this ?value ?id ?u WHERE {\n        ?value atelier:fromPart $this ; atelier:remoteUrn ?urn .\n        BIND (STR(?urn) AS ?u)\n        BIND (REGEX(?u, \"^urn:plm:(de|fr|es|uk):part:.+$\") AS ?wellFormed)\n        BIND (REPLACE(?u, \"^urn:plm:([a-z]+):part:.*$\", \"$1\") AS ?site)\n        BIND (REPLACE(?u, \"^urn:plm:[a-z]+:part:\", \"\") AS ?local)\n        BIND (IF(?site = \"uk\", REPLACE(?local, \"^UK/\", \"UK-\"), ?local) AS ?key)\n        BIND (IF(?wellFormed, IRI(CONCAT(\"https://example.com/atelier/\", ?site, \"/part/\", ENCODE_FOR_URI(?key))), ?none) AS ?target)\n        FILTER (?wellFormed && NOT EXISTS { ?target atelier:partOf ?anyProduct })\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?id)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:fromPart",
+      "kind" : "property",
+      "definition" : "The local part that makes the reference."
+    }, {
+      "term" : "atelier:partOf",
+      "kind" : "property",
+      "definition" : "The product a part belongs to, from the Atelier core database; a part may belong to several products. An answer scoped to one product asks the PLMs only about the parts that belong to it, as the export-control filter asks only about the parts the viewer may see."
+    }, {
+      "term" : "atelier:remoteUrn",
+      "kind" : "property",
+      "definition" : "The remote part's key exactly as stored, urn:plm:<site>:part:<local id> when well formed."
+    } ]
+  }, {
+    "name" : "doubleMate",
+    "shape" : "https://example.com/atelier/shapes#MateCardinalityShape",
+    "severity" : "Violation",
+    "focus" : "interface",
+    "message" : "An interface feature has at most one atelier:matesWith.",
+    "description" : "A feature mates with one feature at most. A second mate published for the same plug is a mistake in the link store that would otherwise pass unnoticed; the layer counts the mates across every site's links.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:MateCardinalityShape\n        rdf:type         sh:PropertyShape;\n        rdfs:comment     \"An interface feature has at most one atelier:matesWith.\";\n        sh:description   \"A feature mates with one feature at most. A second mate published for the same plug is a mistake in the link store that would otherwise pass unnoticed; the layer counts the mates across every site's links.\"@en;\n        sh:maxCount      1;\n        sh:message       \"mates with more than one feature\";\n        sh:path          atelier:matesWith;\n        sh:severity      sh:Violation;\n        sh:targetClass   atelier:InterfaceFeature;\n        ateliersh:focus  \"interface\";\n        ateliersh:rule   \"doubleMate\" .\n",
+    "sparql" : [ ],
+    "terms" : [ {
+      "term" : "atelier:InterfaceFeature",
+      "kind" : "class",
+      "definition" : "Anything two parts must agree on at an interface: a located feature of a part (AP242 shape_aspect with a placement) that mates with a feature of the same class on the other part. Every feature has an identifier, an owner, a part, a position on each axis and, when mated, a matesWith link."
+    }, {
+      "term" : "atelier:matesWith",
+      "kind" : "property",
+      "definition" : "The feature on the other side of the interface that this feature connects to; both are of the same class. Symmetric; the link store states it in both directions."
+    } ]
+  }, {
+    "name" : "fastener",
+    "shape" : "https://example.com/atelier/shapes#FastenerShape",
+    "severity" : "Violation",
+    "focus" : "interface",
+    "message" : "Mated fastener groups have equal atelier:fastenerStandard and atelier:fastenerCount, and atelier:diameter values within 0.05 mm of each other after conversion to millimetres.",
+    "description" : "Two fastener groups that mate must use the same fastener standard and the same number of fasteners, and their diameters must agree within 0.05 mm once both are in millimetres. The sides come from two sites, one may state inches, so only the layer can compare them.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:FastenerShape\n        rdf:type             sh:NodeShape;\n        rdfs:comment         \"Mated fastener groups have equal atelier:fastenerStandard and atelier:fastenerCount, and atelier:diameter values within 0.05 mm of each other after conversion to millimetres.\";\n        sh:description       \"Two fastener groups that mate must use the same fastener standard and the same number of fasteners, and their diameters must agree within 0.05 mm once both are in millimetres. The sides come from two sites, one may state inches, so only the layer can compare them.\"@en;\n        sh:sparql            [ sh:message   \"{?a} and {?b} fastener diameters differ: {?d1} mm vs {?d2} mm\";\n                               sh:prefixes  <https://example.com/atelier/shapes>;\n                               sh:select    \"\"\"\n      SELECT $this ?value ?a ?b ?d1 ?d2 WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        $this  atelier:diameter ?q1 . ?q1 qudt:numericValue ?v1 ; qudt:unit ?u1 . ?u1 qudt:conversionMultiplier ?m1 .\n        ?value atelier:diameter ?q2 . ?q2 qudt:numericValue ?v2 ; qudt:unit ?u2 . ?u2 qudt:conversionMultiplier ?m2 .\n        BIND (?v1 * ?m1 * 1000 AS ?mm1)\n        BIND (?v2 * ?m2 * 1000 AS ?mm2)\n        FILTER (ABS(?mm1 - ?mm2) > 0.05)\n        BIND (ROUND(?mm1 * 1000) / 1000 AS ?d1)\n        BIND (ROUND(?mm2 * 1000) / 1000 AS ?d2)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }\"\"\"\n                             ];\n        sh:sparql            [ sh:message   \"{?a} ({?s1}, {?n1} fasteners) and {?b} ({?s2}, {?n2} fasteners) are mated but do not match\";\n                               sh:prefixes  <https://example.com/atelier/shapes>;\n                               sh:select    \"\"\"\n      SELECT $this ?value ?a ?b ?s1 ?s2 ?n1 ?n2 WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        $this  atelier:fastenerStandard ?s1 ; atelier:fastenerCount ?n1 .\n        ?value atelier:fastenerStandard ?s2 ; atelier:fastenerCount ?n2 .\n        FILTER (?s1 != ?s2 || ?n1 != ?n2)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }\"\"\"\n                             ];\n        sh:targetSubjectsOf  atelier:matesWith;\n        ateliersh:focus      \"interface\";\n        ateliersh:rule       \"fastener\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?a} ({?s1}, {?n1} fasteners) and {?b} ({?s2}, {?n2} fasteners) are mated but do not match",
+      "query" : "\n      SELECT $this ?value ?a ?b ?s1 ?s2 ?n1 ?n2 WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        $this  atelier:fastenerStandard ?s1 ; atelier:fastenerCount ?n1 .\n        ?value atelier:fastenerStandard ?s2 ; atelier:fastenerCount ?n2 .\n        FILTER (?s1 != ?s2 || ?n1 != ?n2)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }"
+    }, {
+      "role" : "constraint",
+      "message" : "{?a} and {?b} fastener diameters differ: {?d1} mm vs {?d2} mm",
+      "query" : "\n      SELECT $this ?value ?a ?b ?d1 ?d2 WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        $this  atelier:diameter ?q1 . ?q1 qudt:numericValue ?v1 ; qudt:unit ?u1 . ?u1 qudt:conversionMultiplier ?m1 .\n        ?value atelier:diameter ?q2 . ?q2 qudt:numericValue ?v2 ; qudt:unit ?u2 . ?u2 qudt:conversionMultiplier ?m2 .\n        BIND (?v1 * ?m1 * 1000 AS ?mm1)\n        BIND (?v2 * ?m2 * 1000 AS ?mm2)\n        FILTER (ABS(?mm1 - ?mm2) > 0.05)\n        BIND (ROUND(?mm1 * 1000) / 1000 AS ?d1)\n        BIND (ROUND(?mm2 * 1000) / 1000 AS ?d2)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:diameter",
+      "kind" : "property",
+      "definition" : "Nominal shank diameter of the fasteners, as a quantity value in the unit stored by the PLM (millimetres or inches). Mated groups must agree within 0.05 mm after conversion. Node IRI <feature IRI>/diameter."
+    }, {
+      "term" : "atelier:fastenerCount",
+      "kind" : "property",
+      "definition" : "Number of fasteners in the group. Mated groups must have the same count."
+    }, {
+      "term" : "atelier:fastenerStandard",
+      "kind" : "property",
+      "definition" : "Standard or part-number family of the fasteners in the group. Mated fastener groups must have the same standard."
+    }, {
+      "term" : "atelier:matesWith",
+      "kind" : "property",
+      "definition" : "The feature on the other side of the interface that this feature connects to; both are of the same class. Symmetric; the link store states it in both directions."
+    } ]
+  }, {
+    "name" : "hydraulic",
+    "shape" : "https://example.com/atelier/shapes#HydraulicShape",
+    "severity" : "Violation",
+    "focus" : "interface",
+    "message" : "Mated hydraulic couplings have equal atelier:couplingStandard, atelier:dashSize and atelier:fluid, and atelier:pressureRating values within 2 % of the larger after conversion.",
+    "description" : "Two hydraulic couplings that mate must share the coupling standard, the dash size and the fluid, and their pressure ratings must agree within 2 percent once both are converted. The sites state pressure in bar or PSI; the layer converts both and compares.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:HydraulicShape\n        rdf:type             sh:NodeShape;\n        rdfs:comment         \"Mated hydraulic couplings have equal atelier:couplingStandard, atelier:dashSize and atelier:fluid, and atelier:pressureRating values within 2 % of the larger after conversion.\";\n        sh:description       \"Two hydraulic couplings that mate must share the coupling standard, the dash size and the fluid, and their pressure ratings must agree within 2 percent once both are converted. The sites state pressure in bar or PSI; the layer converts both and compares.\"@en;\n        sh:sparql            [ sh:message   \"{?a} and {?b} pressure ratings differ by more than 2 %: {?p1} bar vs {?p2} bar\";\n                               sh:prefixes  <https://example.com/atelier/shapes>;\n                               sh:select    \"\"\"\n      SELECT $this ?value ?a ?b ?p1 ?p2 WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        $this  atelier:pressureRating ?q1 . ?q1 qudt:numericValue ?v1 ; qudt:unit ?u1 . ?u1 qudt:conversionMultiplier ?m1 .\n        ?value atelier:pressureRating ?q2 . ?q2 qudt:numericValue ?v2 ; qudt:unit ?u2 . ?u2 qudt:conversionMultiplier ?m2 .\n        BIND (?v1 * ?m1 AS ?pa1)\n        BIND (?v2 * ?m2 AS ?pa2)\n        FILTER (ABS(?pa1 - ?pa2) > 0.02 * IF(?pa1 > ?pa2, ?pa1, ?pa2))\n        BIND (ROUND(?pa1 / 100) / 1000 AS ?p1)\n        BIND (ROUND(?pa2 / 100) / 1000 AS ?p2)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }\"\"\"\n                             ];\n        sh:sparql            [ sh:message   \"{?a} ({?s1}, dash {?d1}, {?f1}) and {?b} ({?s2}, dash {?d2}, {?f2}) are mated but do not match\";\n                               sh:prefixes  <https://example.com/atelier/shapes>;\n                               sh:select    \"\"\"\n      SELECT $this ?value ?a ?b ?s1 ?s2 ?d1 ?d2 ?f1 ?f2 WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        $this  atelier:couplingStandard ?s1 ; atelier:dashSize ?d1 ; atelier:fluid ?f1 .\n        ?value atelier:couplingStandard ?s2 ; atelier:dashSize ?d2 ; atelier:fluid ?f2 .\n        FILTER (?s1 != ?s2 || ?d1 != ?d2 || ?f1 != ?f2)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }\"\"\"\n                             ];\n        sh:targetSubjectsOf  atelier:matesWith;\n        ateliersh:focus      \"interface\";\n        ateliersh:rule       \"hydraulic\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?a} ({?s1}, dash {?d1}, {?f1}) and {?b} ({?s2}, dash {?d2}, {?f2}) are mated but do not match",
+      "query" : "\n      SELECT $this ?value ?a ?b ?s1 ?s2 ?d1 ?d2 ?f1 ?f2 WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        $this  atelier:couplingStandard ?s1 ; atelier:dashSize ?d1 ; atelier:fluid ?f1 .\n        ?value atelier:couplingStandard ?s2 ; atelier:dashSize ?d2 ; atelier:fluid ?f2 .\n        FILTER (?s1 != ?s2 || ?d1 != ?d2 || ?f1 != ?f2)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }"
+    }, {
+      "role" : "constraint",
+      "message" : "{?a} and {?b} pressure ratings differ by more than 2 %: {?p1} bar vs {?p2} bar",
+      "query" : "\n      SELECT $this ?value ?a ?b ?p1 ?p2 WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        $this  atelier:pressureRating ?q1 . ?q1 qudt:numericValue ?v1 ; qudt:unit ?u1 . ?u1 qudt:conversionMultiplier ?m1 .\n        ?value atelier:pressureRating ?q2 . ?q2 qudt:numericValue ?v2 ; qudt:unit ?u2 . ?u2 qudt:conversionMultiplier ?m2 .\n        BIND (?v1 * ?m1 AS ?pa1)\n        BIND (?v2 * ?m2 AS ?pa2)\n        FILTER (ABS(?pa1 - ?pa2) > 0.02 * IF(?pa1 > ?pa2, ?pa1, ?pa2))\n        BIND (ROUND(?pa1 / 100) / 1000 AS ?p1)\n        BIND (ROUND(?pa2 / 100) / 1000 AS ?p2)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:couplingStandard",
+      "kind" : "property",
+      "definition" : "Standard of the coupling (fitting family). Mated couplings must have the same standard."
+    }, {
+      "term" : "atelier:dashSize",
+      "kind" : "property",
+      "definition" : "Tube dash size of the coupling (sixteenths of an inch, an integer). Mated couplings must have the same dash size."
+    }, {
+      "term" : "atelier:fluid",
+      "kind" : "property",
+      "definition" : "Hydraulic fluid the coupling is specified for. Mated couplings must carry the same fluid."
+    }, {
+      "term" : "atelier:matesWith",
+      "kind" : "property",
+      "definition" : "The feature on the other side of the interface that this feature connects to; both are of the same class. Symmetric; the link store states it in both directions."
+    }, {
+      "term" : "atelier:pressureRating",
+      "kind" : "property",
+      "definition" : "Rated working pressure of the coupling, as a quantity value in the unit stored by the PLM (bar or psi). Mated couplings must agree within 2 % after conversion. Node IRI <feature IRI>/rating."
+    } ]
+  }, {
+    "name" : "kind",
+    "shape" : "https://example.com/atelier/shapes#KindShape",
+    "severity" : "Violation",
+    "focus" : "interface",
+    "message" : "Mated features have the same rdf:type.",
+    "description" : "Two features that mate must be the same kind of thing: a plug mates with a plug, a fastener group with a fastener group, a coupling with a coupling. The link store says what mates with what and each site says what its feature is; the layer is where the two statements meet.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:KindShape  rdf:type  sh:NodeShape;\n        rdfs:comment         \"Mated features have the same rdf:type.\";\n        sh:description       \"Two features that mate must be the same kind of thing: a plug mates with a plug, a fastener group with a fastener group, a coupling with a coupling. The link store says what mates with what and each site says what its feature is; the layer is where the two statements meet.\"@en;\n        sh:sparql            [ sh:message   \"{?a} ({?k1}) and {?b} ({?k2}) are mated but are not the same kind of feature\";\n                               sh:prefixes  <https://example.com/atelier/shapes>;\n                               sh:select    \"\"\"\n      SELECT $this ?value ?a ?b ?k1 ?k2 WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        $this a ?c1 . ?value a ?c2 .\n        FILTER NOT EXISTS { ?value a ?c1 }\n        FILTER NOT EXISTS { $this a ?c2 }\n        BIND (REPLACE(STR(?c1), \"^.*#\", \"\") AS ?k1)\n        BIND (REPLACE(STR(?c2), \"^.*#\", \"\") AS ?k2)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }\"\"\"\n                             ];\n        sh:targetSubjectsOf  atelier:matesWith;\n        ateliersh:focus      \"interface\";\n        ateliersh:rule       \"kind\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?a} ({?k1}) and {?b} ({?k2}) are mated but are not the same kind of feature",
+      "query" : "\n      SELECT $this ?value ?a ?b ?k1 ?k2 WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        $this a ?c1 . ?value a ?c2 .\n        FILTER NOT EXISTS { ?value a ?c1 }\n        FILTER NOT EXISTS { $this a ?c2 }\n        BIND (REPLACE(STR(?c1), \"^.*#\", \"\") AS ?k1)\n        BIND (REPLACE(STR(?c2), \"^.*#\", \"\") AS ?k2)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:matesWith",
+      "kind" : "property",
+      "definition" : "The feature on the other side of the interface that this feature connects to; both are of the same class. Symmetric; the link store states it in both directions."
+    } ]
+  }, {
+    "name" : "lifecycleConflict",
+    "shape" : "https://example.com/atelier/shapes#LifecycleConflictShape",
+    "severity" : "Warning",
+    "focus" : "part",
+    "message" : "A RELEASED item depends on no WORKING or BLOCKED item: neither the children of its bill-of-materials lines nor the parts its external references resolve to.",
+    "description" : "A released item must not depend on an item that is still in work or blocked, whether the dependency is in its bill of materials or another site's part it references. Each site names its lifecycle states in its own words; the layer translates them to one shared set of states and follows the dependencies across sites.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:LifecycleConflictShape\n        rdf:type         sh:NodeShape;\n        rdfs:comment     \"A RELEASED item depends on no WORKING or BLOCKED item: neither the children of its bill-of-materials lines nor the parts its external references resolve to.\";\n        sh:description   \"A released item must not depend on an item that is still in work or blocked, whether the dependency is in its bill of materials or another site's part it references. Each site names its lifecycle states in its own words; the layer translates them to one shared set of states and follows the dependencies across sites.\"@en;\n        sh:severity      sh:Warning;\n        sh:sparql        [ sh:message   \"{?plm} {?id} {?name} is {?word} ({?state}) but references {?u}, {?depPlm} {?depId} {?depName}, which is {?depWord} ({?depState})\";\n                           sh:prefixes  <https://example.com/atelier/shapes>;\n                           sh:select    \"\"\"\n      SELECT $this ?value ?plm ?id ?name ?word ?state ?depPlm ?depId ?depName ?depWord ?depState ?u WHERE {\n        $this atelier:label ?name ; atelier:lifecycleLabel ?word .\n        atelier:Released skos:altLabel ?releasedWord ; skos:prefLabel ?state .\n        FILTER (STR(?releasedWord) = STR(?word))\n        ?ref atelier:fromPart $this ; atelier:remoteUrn ?urn .\n        BIND (STR(?urn) AS ?u)\n        BIND (REGEX(?u, \"^urn:plm:(de|fr|es|uk):part:.+$\") AS ?wellFormed)\n        BIND (REPLACE(?u, \"^urn:plm:([a-z]+):part:.*$\", \"$1\") AS ?site)\n        BIND (REPLACE(?u, \"^urn:plm:[a-z]+:part:\", \"\") AS ?local)\n        BIND (IF(?site = \"uk\", REPLACE(?local, \"^UK/\", \"UK-\"), ?local) AS ?key)\n        BIND (IF(?wellFormed, IRI(CONCAT(\"https://example.com/atelier/\", ?site, \"/part/\", ENCODE_FOR_URI(?key))), ?none) AS ?target)\n        FILTER (?wellFormed)\n        BIND (?target AS ?value)\n        ?value atelier:label ?depName ; atelier:lifecycleLabel ?depWord .\n        ?concept skos:inScheme atelier:Lifecycle ; skos:altLabel ?alt ; skos:prefLabel ?depState .\n        FILTER (STR(?alt) = STR(?depWord) && ?concept IN (atelier:Working, atelier:Blocked))\n        BIND (UCASE(REPLACE(STR($this), \"^.*/atelier/([a-z]+)/part/.*$\", \"$1\")) AS ?plm)\n        BIND (UCASE(REPLACE(STR(?value), \"^.*/atelier/([a-z]+)/part/.*$\", \"$1\")) AS ?depPlm)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?id)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?depId)\n      }\"\"\"\n                         ];\n        sh:sparql        [ sh:message   \"{?plm} {?id} {?name} is {?word} ({?state}) but its bill of materials holds {?depPlm} {?depId} {?depName}, which is {?depWord} ({?depState})\";\n                           sh:prefixes  <https://example.com/atelier/shapes>;\n                           sh:select    \"\"\"\n      SELECT $this ?value ?plm ?id ?name ?word ?state ?depPlm ?depId ?depName ?depWord ?depState WHERE {\n        $this atelier:label ?name ; atelier:lifecycleLabel ?word .\n        atelier:Released skos:altLabel ?releasedWord ; skos:prefLabel ?state .\n        FILTER (STR(?releasedWord) = STR(?word))\n        ?line a atelier:BomLine ; atelier:parent $this ; atelier:child ?value .\n        ?value atelier:label ?depName ; atelier:lifecycleLabel ?depWord .\n        ?concept skos:inScheme atelier:Lifecycle ; skos:altLabel ?alt ; skos:prefLabel ?depState .\n        FILTER (STR(?alt) = STR(?depWord) && ?concept IN (atelier:Working, atelier:Blocked))\n        BIND (UCASE(REPLACE(STR($this), \"^.*/atelier/([a-z]+)/part/.*$\", \"$1\")) AS ?plm)\n        BIND (UCASE(REPLACE(STR(?value), \"^.*/atelier/([a-z]+)/part/.*$\", \"$1\")) AS ?depPlm)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?id)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?depId)\n      }\"\"\"\n                         ];\n        sh:targetClass   atelier:Part;\n        ateliersh:focus  \"part\";\n        ateliersh:rule   \"lifecycleConflict\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?plm} {?id} {?name} is {?word} ({?state}) but its bill of materials holds {?depPlm} {?depId} {?depName}, which is {?depWord} ({?depState})",
+      "query" : "\n      SELECT $this ?value ?plm ?id ?name ?word ?state ?depPlm ?depId ?depName ?depWord ?depState WHERE {\n        $this atelier:label ?name ; atelier:lifecycleLabel ?word .\n        atelier:Released skos:altLabel ?releasedWord ; skos:prefLabel ?state .\n        FILTER (STR(?releasedWord) = STR(?word))\n        ?line a atelier:BomLine ; atelier:parent $this ; atelier:child ?value .\n        ?value atelier:label ?depName ; atelier:lifecycleLabel ?depWord .\n        ?concept skos:inScheme atelier:Lifecycle ; skos:altLabel ?alt ; skos:prefLabel ?depState .\n        FILTER (STR(?alt) = STR(?depWord) && ?concept IN (atelier:Working, atelier:Blocked))\n        BIND (UCASE(REPLACE(STR($this), \"^.*/atelier/([a-z]+)/part/.*$\", \"$1\")) AS ?plm)\n        BIND (UCASE(REPLACE(STR(?value), \"^.*/atelier/([a-z]+)/part/.*$\", \"$1\")) AS ?depPlm)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?id)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?depId)\n      }"
+    }, {
+      "role" : "constraint",
+      "message" : "{?plm} {?id} {?name} is {?word} ({?state}) but references {?u}, {?depPlm} {?depId} {?depName}, which is {?depWord} ({?depState})",
+      "query" : "\n      SELECT $this ?value ?plm ?id ?name ?word ?state ?depPlm ?depId ?depName ?depWord ?depState ?u WHERE {\n        $this atelier:label ?name ; atelier:lifecycleLabel ?word .\n        atelier:Released skos:altLabel ?releasedWord ; skos:prefLabel ?state .\n        FILTER (STR(?releasedWord) = STR(?word))\n        ?ref atelier:fromPart $this ; atelier:remoteUrn ?urn .\n        BIND (STR(?urn) AS ?u)\n        BIND (REGEX(?u, \"^urn:plm:(de|fr|es|uk):part:.+$\") AS ?wellFormed)\n        BIND (REPLACE(?u, \"^urn:plm:([a-z]+):part:.*$\", \"$1\") AS ?site)\n        BIND (REPLACE(?u, \"^urn:plm:[a-z]+:part:\", \"\") AS ?local)\n        BIND (IF(?site = \"uk\", REPLACE(?local, \"^UK/\", \"UK-\"), ?local) AS ?key)\n        BIND (IF(?wellFormed, IRI(CONCAT(\"https://example.com/atelier/\", ?site, \"/part/\", ENCODE_FOR_URI(?key))), ?none) AS ?target)\n        FILTER (?wellFormed)\n        BIND (?target AS ?value)\n        ?value atelier:label ?depName ; atelier:lifecycleLabel ?depWord .\n        ?concept skos:inScheme atelier:Lifecycle ; skos:altLabel ?alt ; skos:prefLabel ?depState .\n        FILTER (STR(?alt) = STR(?depWord) && ?concept IN (atelier:Working, atelier:Blocked))\n        BIND (UCASE(REPLACE(STR($this), \"^.*/atelier/([a-z]+)/part/.*$\", \"$1\")) AS ?plm)\n        BIND (UCASE(REPLACE(STR(?value), \"^.*/atelier/([a-z]+)/part/.*$\", \"$1\")) AS ?depPlm)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?id)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?depId)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:Blocked",
+      "kind" : "concept",
+      "definition" : "Released once, now withheld from manufacture. The British PLM's Frozen is placed here by decision: the word is ambiguous (frozen for change, or frozen for use), and the British workshop uses it to stop a part from being built."
+    }, {
+      "term" : "atelier:BomLine",
+      "kind" : "class",
+      "definition" : "One line of a site's bill of materials: the parent item (atelier:parent) uses atelier:quantity of the child item (atelier:child), both items of the same PLM. Corresponds to an AP242 next_assembly_usage_occurrence with its quantity, the parent to child relation that an atelier:Interface is not. A line is reified because the relation carries a quantity; atelier:assembles is its shortcut. Each PLM stores its lines in its own idiom (a parent column on the part row, a link table, a JSON document on the parent, indented rows) and every idiom reads as this one relation. IRI https://example.com/atelier/{plm}/bomline/{parent}/{child}."
+    }, {
+      "term" : "atelier:Lifecycle",
+      "kind" : "other",
+      "definition" : "Canonical lifecycle states of a part across the PLMs."
+    }, {
+      "term" : "atelier:Part",
+      "kind" : "class",
+      "definition" : "A physical part owned by one site PLM, such as a wing spar or a mast segment. Corresponds to an AP242 product with its product_definition; the CAD model is referenced by atelier:cadFile and the product it belongs to by atelier:partOf. Its export-control tag (atelier:jurisdiction, atelier:releasableTo, atelier:taggedBy, atelier:taggedAt), held in the Atelier core database, is inherited by its features and CAD file."
+    }, {
+      "term" : "atelier:Released",
+      "kind" : "concept",
+      "definition" : "Released for manufacture."
+    }, {
+      "term" : "atelier:Working",
+      "kind" : "concept",
+      "definition" : "Being designed; not released for manufacture."
+    }, {
+      "term" : "atelier:child",
+      "kind" : "property",
+      "definition" : "The item a bill-of-materials line uses, an item of the parent's PLM; an item of another site is an external reference, never a line."
+    }, {
+      "term" : "atelier:fromPart",
+      "kind" : "property",
+      "definition" : "The local part that makes the reference."
+    }, {
+      "term" : "atelier:label",
+      "kind" : "property",
+      "definition" : "Human-readable name of a part, an interface or a supplier, in the language of its owner."
+    }, {
+      "term" : "atelier:lifecycleLabel",
+      "kind" : "property",
+      "definition" : "Lifecycle state in the owning PLM's word. Freigegeben, Publié, Liberado and Released are one state: its canonical state is the concept of the atelier:Lifecycle scheme that carries the word as a skos:altLabel."
+    }, {
+      "term" : "atelier:parent",
+      "kind" : "property",
+      "definition" : "The item a bill-of-materials line belongs to: an assembly, a site kit or a part with items of its own."
+    }, {
+      "term" : "atelier:remoteUrn",
+      "kind" : "property",
+      "definition" : "The remote part's key exactly as stored, urn:plm:<site>:part:<local id> when well formed."
+    } ]
+  }, {
+    "name" : "massLimit",
+    "shape" : "https://example.com/atelier/shapes#MassLimitShape",
+    "severity" : "Violation",
+    "focus" : "product",
+    "message" : "The product's items weigh no more than its atelier:massLimit.",
+    "description" : "A product must weigh no more than its mass limit, counting every item of every site as many times as the bills of materials use it. No site holds the whole product; the layer adds up the masses of all sites, converted to kilograms.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:MassLimitShape\n        rdf:type             sh:NodeShape;\n        rdfs:comment         \"The product's items weigh no more than its atelier:massLimit.\";\n        sh:description       \"A product must weigh no more than its mass limit, counting every item of every site as many times as the bills of materials use it. No site holds the whole product; the layer adds up the masses of all sites, converted to kilograms.\"@en;\n        sh:sparql            [ sh:message   \"{?productKey} weighs {?totalShown} kg over every site's parts, more than its limit of {?limitShown} kg\";\n                               sh:prefixes  <https://example.com/atelier/shapes>;\n                               sh:select    \"\"\"\n      SELECT $this ?value ?productKey ?totalShown ?limitShown WHERE {\n        $this atelier:massLimit ?value .\n        ?value qudt:numericValue ?limitN ; qudt:unit/qudt:conversionMultiplier ?limitK .\n        {\n          SELECT ?product (SUM(?occurrences * ?n * ?k) AS ?total) WHERE {\n            ?item atelier:partOf ?product ; atelier:occurrences ?occurrences ; atelier:mass ?q .\n            ?q qudt:numericValue ?n ; qudt:unit/qudt:conversionMultiplier ?k .\n          } GROUP BY ?product\n        }\n        FILTER (?product = $this && ?total > ?limitN * ?limitK)\n        BIND (ROUND(?total * 1000) / 1000 AS ?totalShown)\n        BIND (?limitN * ?limitK + 0.0 AS ?limitShown)\n        BIND (REPLACE(STR($this), \"^.*/\", \"\") AS ?productKey)\n      }\"\"\"\n                             ];\n        sh:targetSubjectsOf  atelier:massLimit;\n        ateliersh:focus      \"product\";\n        ateliersh:rule       \"massLimit\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?productKey} weighs {?totalShown} kg over every site's parts, more than its limit of {?limitShown} kg",
+      "query" : "\n      SELECT $this ?value ?productKey ?totalShown ?limitShown WHERE {\n        $this atelier:massLimit ?value .\n        ?value qudt:numericValue ?limitN ; qudt:unit/qudt:conversionMultiplier ?limitK .\n        {\n          SELECT ?product (SUM(?occurrences * ?n * ?k) AS ?total) WHERE {\n            ?item atelier:partOf ?product ; atelier:occurrences ?occurrences ; atelier:mass ?q .\n            ?q qudt:numericValue ?n ; qudt:unit/qudt:conversionMultiplier ?k .\n          } GROUP BY ?product\n        }\n        FILTER (?product = $this && ?total > ?limitN * ?limitK)\n        BIND (ROUND(?total * 1000) / 1000 AS ?totalShown)\n        BIND (?limitN * ?limitK + 0.0 AS ?limitShown)\n        BIND (REPLACE(STR($this), \"^.*/\", \"\") AS ?productKey)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:mass",
+      "kind" : "property",
+      "definition" : "Mass as stored by the PLM. A quantity value in kilograms, or pounds in the British PLM; node IRI <part IRI>/mass."
+    }, {
+      "term" : "atelier:massLimit",
+      "kind" : "property",
+      "definition" : "The most the product may weigh, a quantity value in kilograms. Held by the Atelier core database; node IRI <product IRI>/mass-limit. No PLM holds the product, so only the semantic layer can compare it with the mass of every site's parts (ateliersh:MassLimitShape)."
+    }, {
+      "term" : "atelier:occurrences",
+      "kind" : "property",
+      "definition" : "How many times the item occurs in its product. The quantities multiplied down the bill-of-materials lines from its site kit, summed over every path; derived by the query service from the lines the viewer may see; SPARQL cannot multiply along a path of any length, so the product-level shapes read this value."
+    }, {
+      "term" : "atelier:partOf",
+      "kind" : "property",
+      "definition" : "The product a part belongs to, from the Atelier core database; a part may belong to several products. An answer scoped to one product asks the PLMs only about the parts that belong to it, as the export-control filter asks only about the parts the viewer may see."
+    } ]
+  }, {
+    "name" : "massScale",
+    "shape" : "https://example.com/atelier/shapes#MassScaleShape",
+    "severity" : "Warning",
+    "focus" : "product",
+    "message" : "No site's median part mass in a product is over 100 times the other sites' median.",
+    "description" : "Within one product, the typical part mass of one site must not be more than 100 times that of the other sites: a site that enters grams in a kilogram column shows up this way. Each site's masses look plausible on their own; only the layer, which sees every site's parts of the product, can compare them.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:MassScaleShape\n        rdf:type         sh:NodeShape;\n        rdfs:comment     \"No site's median part mass in a product is over 100 times the other sites' median.\";\n        sh:description   \"Within one product, the typical part mass of one site must not be more than 100 times that of the other sites: a site that enters grams in a kilogram column shows up this way. Each site's masses look plausible on their own; only the layer, which sees every site's parts of the product, can compare them.\"@en;\n        sh:severity      sh:Warning;\n        sh:sparql        [ sh:message   \"{?site} part masses in {?productKey} are {?factor} times the other sites' (median {?siteShown} kg against {?otherShown} kg): the site stores its masses in another unit than its column states\";\n                           sh:prefixes  <https://example.com/atelier/shapes>;\n                           sh:select    \"\"\"\n      SELECT $this ?value ?site ?productKey ?factor ?siteShown ?otherShown WHERE {\n        { SELECT ?site ?siteMedian (COUNT(*) AS ?k) (SUM(?m) AS ?sum) (MIN(?m) AS ?min) (MAX(?m) AS ?max) WHERE {\n          { SELECT ?site (MIN(?v) AS ?siteMedian) WHERE {\n            { SELECT ?site (COUNT(*) AS ?n) WHERE {\n              ?a atelier:partOf $this ; atelier:ownedBy ?site ; atelier:partType \"PART\" ; atelier:mass ?aQ .\n              ?aQ qudt:numericValue ?aN ; qudt:unit ?u .\n            } GROUP BY ?site }\n            { SELECT ?site ?b ?v (COUNT(*) AS ?atMost) WHERE {\n              ?b atelier:partOf $this ; atelier:ownedBy ?site ; atelier:partType \"PART\" ; atelier:mass ?bQ .\n              ?bQ qudt:numericValue ?bN ; qudt:unit ?u .\n              ?c atelier:partOf $this ; atelier:ownedBy ?site ; atelier:partType \"PART\" ; atelier:mass ?cQ .\n              ?cQ qudt:numericValue ?cN ; qudt:unit ?u .\n              ?u qudt:conversionMultiplier ?toKg .\n              FILTER (?cN <= ?bN)\n              BIND (?bN * ?toKg AS ?v)\n            } GROUP BY ?site ?b ?v }\n            FILTER (?n >= 5 && ?atMost * 2 >= ?n)\n          } GROUP BY ?site }\n          { SELECT ?other (MIN(?v) AS ?m) WHERE {\n            { SELECT ?other (COUNT(*) AS ?n) WHERE {\n              ?a atelier:partOf $this ; atelier:ownedBy ?other ; atelier:partType \"PART\" ; atelier:mass ?aQ .\n              ?aQ qudt:numericValue ?aN ; qudt:unit ?u .\n            } GROUP BY ?other }\n            { SELECT ?other ?b ?v (COUNT(*) AS ?atMost) WHERE {\n              ?b atelier:partOf $this ; atelier:ownedBy ?other ; atelier:partType \"PART\" ; atelier:mass ?bQ .\n              ?bQ qudt:numericValue ?bN ; qudt:unit ?u .\n              ?c atelier:partOf $this ; atelier:ownedBy ?other ; atelier:partType \"PART\" ; atelier:mass ?cQ .\n              ?cQ qudt:numericValue ?cN ; qudt:unit ?u .\n              ?u qudt:conversionMultiplier ?toKg .\n              FILTER (?cN <= ?bN)\n              BIND (?bN * ?toKg AS ?v)\n            } GROUP BY ?other ?b ?v }\n            FILTER (?n >= 5 && ?atMost * 2 >= ?n)\n          } GROUP BY ?other }\n          FILTER (?other != ?site)\n        } GROUP BY ?site ?siteMedian }\n        BIND (IF(?k = 3, ?sum - ?min - ?max, ?min) AS ?otherMedian)\n        FILTER (?otherMedian > 0 && ?siteMedian > 100 * ?otherMedian)\n        ?value atelier:partOf $this ; atelier:ownedBy ?site ; atelier:partType \"PART\" ; atelier:mass ?anyMass .\n        BIND (ROUND(?siteMedian / ?otherMedian) AS ?factor)\n        BIND (ROUND(?siteMedian * 1000) / 1000 AS ?siteShown)\n        BIND (ROUND(?otherMedian * 1000) / 1000 AS ?otherShown)\n        BIND (REPLACE(STR($this), \"^.*/\", \"\") AS ?productKey)\n      }\"\"\"\n                         ];\n        sh:targetClass   atelier:Product;\n        ateliersh:focus  \"product\";\n        ateliersh:rule   \"massScale\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?site} part masses in {?productKey} are {?factor} times the other sites' (median {?siteShown} kg against {?otherShown} kg): the site stores its masses in another unit than its column states",
+      "query" : "\n      SELECT $this ?value ?site ?productKey ?factor ?siteShown ?otherShown WHERE {\n        { SELECT ?site ?siteMedian (COUNT(*) AS ?k) (SUM(?m) AS ?sum) (MIN(?m) AS ?min) (MAX(?m) AS ?max) WHERE {\n          { SELECT ?site (MIN(?v) AS ?siteMedian) WHERE {\n            { SELECT ?site (COUNT(*) AS ?n) WHERE {\n              ?a atelier:partOf $this ; atelier:ownedBy ?site ; atelier:partType \"PART\" ; atelier:mass ?aQ .\n              ?aQ qudt:numericValue ?aN ; qudt:unit ?u .\n            } GROUP BY ?site }\n            { SELECT ?site ?b ?v (COUNT(*) AS ?atMost) WHERE {\n              ?b atelier:partOf $this ; atelier:ownedBy ?site ; atelier:partType \"PART\" ; atelier:mass ?bQ .\n              ?bQ qudt:numericValue ?bN ; qudt:unit ?u .\n              ?c atelier:partOf $this ; atelier:ownedBy ?site ; atelier:partType \"PART\" ; atelier:mass ?cQ .\n              ?cQ qudt:numericValue ?cN ; qudt:unit ?u .\n              ?u qudt:conversionMultiplier ?toKg .\n              FILTER (?cN <= ?bN)\n              BIND (?bN * ?toKg AS ?v)\n            } GROUP BY ?site ?b ?v }\n            FILTER (?n >= 5 && ?atMost * 2 >= ?n)\n          } GROUP BY ?site }\n          { SELECT ?other (MIN(?v) AS ?m) WHERE {\n            { SELECT ?other (COUNT(*) AS ?n) WHERE {\n              ?a atelier:partOf $this ; atelier:ownedBy ?other ; atelier:partType \"PART\" ; atelier:mass ?aQ .\n              ?aQ qudt:numericValue ?aN ; qudt:unit ?u .\n            } GROUP BY ?other }\n            { SELECT ?other ?b ?v (COUNT(*) AS ?atMost) WHERE {\n              ?b atelier:partOf $this ; atelier:ownedBy ?other ; atelier:partType \"PART\" ; atelier:mass ?bQ .\n              ?bQ qudt:numericValue ?bN ; qudt:unit ?u .\n              ?c atelier:partOf $this ; atelier:ownedBy ?other ; atelier:partType \"PART\" ; atelier:mass ?cQ .\n              ?cQ qudt:numericValue ?cN ; qudt:unit ?u .\n              ?u qudt:conversionMultiplier ?toKg .\n              FILTER (?cN <= ?bN)\n              BIND (?bN * ?toKg AS ?v)\n            } GROUP BY ?other ?b ?v }\n            FILTER (?n >= 5 && ?atMost * 2 >= ?n)\n          } GROUP BY ?other }\n          FILTER (?other != ?site)\n        } GROUP BY ?site ?siteMedian }\n        BIND (IF(?k = 3, ?sum - ?min - ?max, ?min) AS ?otherMedian)\n        FILTER (?otherMedian > 0 && ?siteMedian > 100 * ?otherMedian)\n        ?value atelier:partOf $this ; atelier:ownedBy ?site ; atelier:partType \"PART\" ; atelier:mass ?anyMass .\n        BIND (ROUND(?siteMedian / ?otherMedian) AS ?factor)\n        BIND (ROUND(?siteMedian * 1000) / 1000 AS ?siteShown)\n        BIND (ROUND(?otherMedian * 1000) / 1000 AS ?otherShown)\n        BIND (REPLACE(STR($this), \"^.*/\", \"\") AS ?productKey)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:Product",
+      "kind" : "class",
+      "definition" : "A product the PLMs' parts are assembled into, such as a flying machine: the AP242 product at the top of the structure. Atelier's own structure, held in the Atelier core database with its display name (atelier:label) and the coordinate frame of its CAD and feature positions (atelier:frame). IRI https://example.com/atelier/product/{key}."
+    }, {
+      "term" : "atelier:mass",
+      "kind" : "property",
+      "definition" : "Mass as stored by the PLM. A quantity value in kilograms, or pounds in the British PLM; node IRI <part IRI>/mass."
+    }, {
+      "term" : "atelier:ownedBy",
+      "kind" : "property",
+      "definition" : "Code of the PLM that is the source of truth for the resource: FR, DE, UK or ES."
+    }, {
+      "term" : "atelier:partOf",
+      "kind" : "property",
+      "definition" : "The product a part belongs to, from the Atelier core database; a part may belong to several products. An answer scoped to one product asks the PLMs only about the parts that belong to it, as the export-control filter asks only about the parts the viewer may see."
+    }, {
+      "term" : "atelier:partType",
+      "kind" : "property",
+      "definition" : "PART, ASSEMBLY, SOFTWARE or DOCUMENT. Only a PART has geometry: an ASSEMBLY (a site kit or a sub-assembly of a site's bill of materials) is the parent of its lines, and SOFTWARE and DOCUMENT items have no CAD file either."
+    } ]
+  }, {
+    "name" : "meshModule",
+    "shape" : "https://example.com/atelier/shapes#MeshModuleShape",
+    "severity" : "Warning",
+    "focus" : "part",
+    "message" : "Two gears joined by a mechanical atelier:Drive have the same atelier:gearModule, within 0.01 mm after conversion to millimetres.",
+    "description" : "Two gears that mesh must have the same module, the tooth size, or their teeth do not engage. The gears of one train are often designed at different sites, each stating the module in its own unit and words; only the layer, which holds the functional edges between the sites' parts and converts the units, sees that a driver and the gear it drives disagree. The finding is on the driven gear.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:MeshModuleShape\n        rdf:type            sh:NodeShape;\n        rdfs:comment        \"Two gears joined by a mechanical atelier:Drive have the same atelier:gearModule, within 0.01 mm after conversion to millimetres.\";\n        sh:description      \"Two gears that mesh must have the same module, the tooth size, or their teeth do not engage. The gears of one train are often designed at different sites, each stating the module in its own unit and words; only the layer, which holds the functional edges between the sites' parts and converts the units, sees that a driver and the gear it drives disagree. The finding is on the driven gear.\"@en;\n        sh:severity         sh:Warning;\n        sh:sparql           [ sh:message   \"{?plm} {?id} {?name} has module {?mineShown} mm but is driven by {?driverPlm} {?driverId} {?driverName}, module {?theirsShown} mm: meshing gears need one module\";\n                              sh:prefixes  <https://example.com/atelier/shapes>;\n                              sh:select    \"\"\"\n      SELECT $this ?value ?plm ?id ?name ?mineShown ?driverPlm ?driverId ?driverName ?theirsShown WHERE {\n        ?edge a atelier:Drive ; atelier:driven $this ; atelier:driver ?value ; atelier:flow \"mechanical\" .\n        $this atelier:label ?name ; atelier:gearModule ?q1 .\n        ?q1 qudt:numericValue ?v1 ; qudt:unit/qudt:conversionMultiplier ?m1 .\n        ?value atelier:label ?driverName ; atelier:gearModule ?q2 .\n        ?q2 qudt:numericValue ?v2 ; qudt:unit/qudt:conversionMultiplier ?m2 .\n        BIND (?v1 * ?m1 * 1000 AS ?mine)\n        BIND (?v2 * ?m2 * 1000 AS ?theirs)\n        FILTER (ABS(?mine - ?theirs) > 0.01)\n        BIND (ROUND(?mine * 1000) / 1000 AS ?mineShown)\n        BIND (ROUND(?theirs * 1000) / 1000 AS ?theirsShown)\n        BIND (UCASE(REPLACE(STR($this), \"^.*/atelier/([a-z]+)/part/.*$\", \"$1\")) AS ?plm)\n        BIND (UCASE(REPLACE(STR(?value), \"^.*/atelier/([a-z]+)/part/.*$\", \"$1\")) AS ?driverPlm)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?id)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?driverId)\n      }\"\"\"\n                            ];\n        sh:targetObjectsOf  atelier:driven;\n        ateliersh:focus     \"part\";\n        ateliersh:rule      \"meshModule\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?plm} {?id} {?name} has module {?mineShown} mm but is driven by {?driverPlm} {?driverId} {?driverName}, module {?theirsShown} mm: meshing gears need one module",
+      "query" : "\n      SELECT $this ?value ?plm ?id ?name ?mineShown ?driverPlm ?driverId ?driverName ?theirsShown WHERE {\n        ?edge a atelier:Drive ; atelier:driven $this ; atelier:driver ?value ; atelier:flow \"mechanical\" .\n        $this atelier:label ?name ; atelier:gearModule ?q1 .\n        ?q1 qudt:numericValue ?v1 ; qudt:unit/qudt:conversionMultiplier ?m1 .\n        ?value atelier:label ?driverName ; atelier:gearModule ?q2 .\n        ?q2 qudt:numericValue ?v2 ; qudt:unit/qudt:conversionMultiplier ?m2 .\n        BIND (?v1 * ?m1 * 1000 AS ?mine)\n        BIND (?v2 * ?m2 * 1000 AS ?theirs)\n        FILTER (ABS(?mine - ?theirs) > 0.01)\n        BIND (ROUND(?mine * 1000) / 1000 AS ?mineShown)\n        BIND (ROUND(?theirs * 1000) / 1000 AS ?theirsShown)\n        BIND (UCASE(REPLACE(STR($this), \"^.*/atelier/([a-z]+)/part/.*$\", \"$1\")) AS ?plm)\n        BIND (UCASE(REPLACE(STR(?value), \"^.*/atelier/([a-z]+)/part/.*$\", \"$1\")) AS ?driverPlm)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?id)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?driverId)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:Drive",
+      "kind" : "class",
+      "definition" : "A functional edge: power or motion passes from atelier:driver to atelier:driven. Published in the link store; IRI https://example.com/atelier/drive/{product}/{n}."
+    }, {
+      "term" : "atelier:driven",
+      "kind" : "property",
+      "definition" : "The part a functional edge ends at."
+    }, {
+      "term" : "atelier:driver",
+      "kind" : "property",
+      "definition" : "The part a functional edge starts from."
+    }, {
+      "term" : "atelier:flow",
+      "kind" : "property",
+      "definition" : "What the edge carries: mechanical, electrical, hydraulic or steam."
+    }, {
+      "term" : "atelier:gearModule",
+      "kind" : "property",
+      "definition" : "Gear module (pitch diameter over teeth). A quantity value in millimetres, or inches in the British PLM; node IRI <part IRI>/module."
+    }, {
+      "term" : "atelier:label",
+      "kind" : "property",
+      "definition" : "Human-readable name of a part, an interface or a supplier, in the language of its owner."
+    } ]
+  }, {
+    "name" : "orphan",
+    "shape" : "https://example.com/atelier/shapes#OrphanShape",
+    "severity" : "Violation",
+    "focus" : "interface",
+    "message" : "Every feature declared on an interface has at least one atelier:matesWith.",
+    "description" : "Every feature an interface lists must mate with a feature on the other side. A site can publish a plug that no other site has connected; the link store lists the interface's features and only the layer sees that one of them mates with nothing.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:OrphanShape\n        rdf:type            sh:NodeShape;\n        rdfs:comment        \"Every feature declared on an interface has at least one atelier:matesWith.\";\n        sh:description      \"Every feature an interface lists must mate with a feature on the other side. A site can publish a plug that no other site has connected; the link store lists the interface's features and only the layer sees that one of them mates with nothing.\"@en;\n        sh:sparql           [ sh:message   \"{?plm} {?kind} {?id} is declared on interface {?ifId} but mates with no {?kind}\";\n                              sh:prefixes  <https://example.com/atelier/shapes>;\n                              sh:select    \"\"\"\n      SELECT $this ?value ?plm ?kind ?id ?ifId WHERE {\n        ?value atelier:declaresFeature $this .\n        FILTER NOT EXISTS { $this atelier:matesWith ?anyMate }\n        BIND (UCASE(REPLACE(STR($this), \"^.*/atelier/([a-z]+)/[a-z]+/.*$\", \"$1\")) AS ?plm)\n        BIND (REPLACE(STR($this), \"^.*/atelier/[a-z]+/([a-z]+)/.*$\", \"$1\") AS ?kind)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?id)\n        BIND (REPLACE(STR(?value), \"^.*/\", \"\") AS ?ifId)   # the interface id: the last segment of interface/{product}/{id}\n      }\"\"\"\n                            ];\n        sh:targetObjectsOf  atelier:declaresFeature;\n        ateliersh:focus     \"interface\";\n        ateliersh:rule      \"orphan\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?plm} {?kind} {?id} is declared on interface {?ifId} but mates with no {?kind}",
+      "query" : "\n      SELECT $this ?value ?plm ?kind ?id ?ifId WHERE {\n        ?value atelier:declaresFeature $this .\n        FILTER NOT EXISTS { $this atelier:matesWith ?anyMate }\n        BIND (UCASE(REPLACE(STR($this), \"^.*/atelier/([a-z]+)/[a-z]+/.*$\", \"$1\")) AS ?plm)\n        BIND (REPLACE(STR($this), \"^.*/atelier/[a-z]+/([a-z]+)/.*$\", \"$1\") AS ?kind)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?id)\n        BIND (REPLACE(STR(?value), \"^.*/\", \"\") AS ?ifId)   # the interface id: the last segment of interface/{product}/{id}\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:declaresFeature",
+      "kind" : "property",
+      "definition" : "An interface feature that belongs to the interface and must mate with a feature of the same class on the other part."
+    }, {
+      "term" : "atelier:matesWith",
+      "kind" : "property",
+      "definition" : "The feature on the other side of the interface that this feature connects to; both are of the same class. Symmetric; the link store states it in both directions."
+    } ]
+  }, {
+    "name" : "position",
+    "shape" : "https://example.com/atelier/shapes#PositionShape",
+    "severity" : "Violation",
+    "focus" : "interface",
+    "message" : "Mated features coincide within atelier:toleranceMm of their interface on each axis, after conversion to millimetres.",
+    "description" : "Two features that mate, a plug and its socket, a bolt pattern and its holes, must sit at the same place on every axis, within the tolerance the interface allows. The two sides come from different sites, often in different length units, so only the layer, which converts both to millimetres, can see that they do not meet.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:PositionShape\n        rdf:type             sh:NodeShape;\n        rdfs:comment         \"Mated features coincide within atelier:toleranceMm of their interface on each axis, after conversion to millimetres.\";\n        sh:description       \"Two features that mate, a plug and its socket, a bolt pattern and its holes, must sit at the same place on every axis, within the tolerance the interface allows. The two sides come from different sites, often in different length units, so only the layer, which converts both to millimetres, can see that they do not meet.\"@en;\n        sh:sparql            [ sh:message   \"{?a} and {?b} are {?deltaShown} mm apart on {?axis}; tolerance {?tolShown} mm\";\n                               sh:prefixes  <https://example.com/atelier/shapes>;\n                               sh:select    \"\"\"\n      SELECT $this ?path ?value ?a ?b ?axis ?deltaShown ?tolShown WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        ?if atelier:declaresFeature $this , ?value ; atelier:toleranceMm ?tol .\n        VALUES (?path ?axis) { (atelier:positionX \"x\") (atelier:positionY \"y\") (atelier:positionZ \"z\") }\n        $this  ?path ?q1 . ?q1 qudt:numericValue ?v1 ; qudt:unit ?u1 . ?u1 qudt:conversionMultiplier ?m1 .\n        ?value ?path ?q2 . ?q2 qudt:numericValue ?v2 ; qudt:unit ?u2 . ?u2 qudt:conversionMultiplier ?m2 .\n        BIND (ABS(?v1 * ?m1 - ?v2 * ?m2) * 1000 AS ?deltaMm)\n        FILTER (?deltaMm > ?tol)\n        BIND (ROUND(?deltaMm * 1000) / 1000 AS ?deltaShown)\n        BIND (?tol + 0.0 AS ?tolShown)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }\"\"\"\n                             ];\n        sh:targetSubjectsOf  atelier:matesWith;\n        ateliersh:focus      \"interface\";\n        ateliersh:rule       \"position\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?a} and {?b} are {?deltaShown} mm apart on {?axis}; tolerance {?tolShown} mm",
+      "query" : "\n      SELECT $this ?path ?value ?a ?b ?axis ?deltaShown ?tolShown WHERE {\n        $this atelier:matesWith ?value .\n        FILTER (STR($this) < STR(?value))\n        ?if atelier:declaresFeature $this , ?value ; atelier:toleranceMm ?tol .\n        VALUES (?path ?axis) { (atelier:positionX \"x\") (atelier:positionY \"y\") (atelier:positionZ \"z\") }\n        $this  ?path ?q1 . ?q1 qudt:numericValue ?v1 ; qudt:unit ?u1 . ?u1 qudt:conversionMultiplier ?m1 .\n        ?value ?path ?q2 . ?q2 qudt:numericValue ?v2 ; qudt:unit ?u2 . ?u2 qudt:conversionMultiplier ?m2 .\n        BIND (ABS(?v1 * ?m1 - ?v2 * ?m2) * 1000 AS ?deltaMm)\n        FILTER (?deltaMm > ?tol)\n        BIND (ROUND(?deltaMm * 1000) / 1000 AS ?deltaShown)\n        BIND (?tol + 0.0 AS ?tolShown)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?a)\n        BIND (REPLACE(REPLACE(STR(?value), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?b)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:declaresFeature",
+      "kind" : "property",
+      "definition" : "An interface feature that belongs to the interface and must mate with a feature of the same class on the other part."
+    }, {
+      "term" : "atelier:matesWith",
+      "kind" : "property",
+      "definition" : "The feature on the other side of the interface that this feature connects to; both are of the same class. Symmetric; the link store states it in both directions."
+    }, {
+      "term" : "atelier:positionX",
+      "kind" : "property",
+      "definition" : "Position of the feature along the product's x axis (atelier:frame of the product), as a quantity value in the unit stored by the PLM. Node IRI <feature IRI>/position/x."
+    }, {
+      "term" : "atelier:positionY",
+      "kind" : "property",
+      "definition" : "Position of the feature along the product's y axis (atelier:frame of the product), as a quantity value in the unit stored by the PLM. Node IRI <feature IRI>/position/y."
+    }, {
+      "term" : "atelier:positionZ",
+      "kind" : "property",
+      "definition" : "Position of the feature along the product's z axis (up; atelier:frame of the product), as a quantity value in the unit stored by the PLM. Node IRI <feature IRI>/position/z."
+    }, {
+      "term" : "atelier:toleranceMm",
+      "kind" : "property",
+      "definition" : "Largest allowed distance, in millimetres and on each axis separately, between the positions of two mated features of the interface."
+    } ]
+  }, {
+    "name" : "staleRevision",
+    "shape" : "https://example.com/atelier/shapes#StaleRevisionShape",
+    "severity" : "Warning",
+    "focus" : "reference",
+    "message" : "A referenced part the viewer sees is at the expected revision and not SUPERSEDED.",
+    "description" : "When a part names another site's part with the revision it expects, the part it names must be at that revision and not superseded. The expectation lives at one site and the current revision at another; only the layer reads both.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:StaleRevisionShape\n        rdf:type            sh:NodeShape;\n        rdfs:comment        \"A referenced part the viewer sees is at the expected revision and not SUPERSEDED.\";\n        sh:description      \"When a part names another site's part with the revision it expects, the part it names must be at that revision and not superseded. The expectation lives at one site and the current revision at another; only the layer reads both.\"@en;\n        sh:severity         sh:Warning;\n        sh:sparql           [ sh:message   \"{?id} expects revision {?expected} of {?u}, which is at revision {?current} ({?state})\";\n                              sh:prefixes  <https://example.com/atelier/shapes>;\n                              sh:select    \"\"\"\n      SELECT $this ?value ?id ?u ?expected ?current ?state WHERE {\n        ?value atelier:fromPart $this ; atelier:remoteUrn ?urn .\n        OPTIONAL { ?value atelier:expectedRevision ?expectedValue }\n        BIND (STR(?urn) AS ?u)\n        BIND (REGEX(?u, \"^urn:plm:(de|fr|es|uk):part:.+$\") AS ?wellFormed)\n        BIND (REPLACE(?u, \"^urn:plm:([a-z]+):part:.*$\", \"$1\") AS ?site)\n        BIND (REPLACE(?u, \"^urn:plm:[a-z]+:part:\", \"\") AS ?local)\n        BIND (IF(?site = \"uk\", REPLACE(?local, \"^UK/\", \"UK-\"), ?local) AS ?key)\n        BIND (IF(?wellFormed, IRI(CONCAT(\"https://example.com/atelier/\", ?site, \"/part/\", ENCODE_FOR_URI(?key))), ?none) AS ?target)\n        FILTER (?wellFormed)\n        ?target atelier:label ?targetName .\n        OPTIONAL { ?target atelier:revision ?currentValue }\n        OPTIONAL {\n          ?target atelier:lifecycleLabel ?word .\n          ?concept skos:inScheme atelier:Lifecycle ; skos:altLabel ?alt ; skos:prefLabel ?stateLabel .\n          FILTER (STR(?alt) = STR(?word))\n        }\n        BIND (COALESCE(STR(?expectedValue), \"none\") AS ?expected)\n        BIND (COALESCE(STR(?currentValue), \"none\") AS ?current)\n        BIND (COALESCE(STR(?stateLabel), \"no lifecycle state\") AS ?state)\n        FILTER ((BOUND(?expectedValue) && BOUND(?currentValue) && STR(?currentValue) != STR(?expectedValue))\n                || (BOUND(?concept) && ?concept = atelier:Superseded))\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?id)\n      }\"\"\"\n                            ];\n        sh:targetObjectsOf  atelier:fromPart;\n        ateliersh:focus     \"reference\";\n        ateliersh:rule      \"staleRevision\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?id} expects revision {?expected} of {?u}, which is at revision {?current} ({?state})",
+      "query" : "\n      SELECT $this ?value ?id ?u ?expected ?current ?state WHERE {\n        ?value atelier:fromPart $this ; atelier:remoteUrn ?urn .\n        OPTIONAL { ?value atelier:expectedRevision ?expectedValue }\n        BIND (STR(?urn) AS ?u)\n        BIND (REGEX(?u, \"^urn:plm:(de|fr|es|uk):part:.+$\") AS ?wellFormed)\n        BIND (REPLACE(?u, \"^urn:plm:([a-z]+):part:.*$\", \"$1\") AS ?site)\n        BIND (REPLACE(?u, \"^urn:plm:[a-z]+:part:\", \"\") AS ?local)\n        BIND (IF(?site = \"uk\", REPLACE(?local, \"^UK/\", \"UK-\"), ?local) AS ?key)\n        BIND (IF(?wellFormed, IRI(CONCAT(\"https://example.com/atelier/\", ?site, \"/part/\", ENCODE_FOR_URI(?key))), ?none) AS ?target)\n        FILTER (?wellFormed)\n        ?target atelier:label ?targetName .\n        OPTIONAL { ?target atelier:revision ?currentValue }\n        OPTIONAL {\n          ?target atelier:lifecycleLabel ?word .\n          ?concept skos:inScheme atelier:Lifecycle ; skos:altLabel ?alt ; skos:prefLabel ?stateLabel .\n          FILTER (STR(?alt) = STR(?word))\n        }\n        BIND (COALESCE(STR(?expectedValue), \"none\") AS ?expected)\n        BIND (COALESCE(STR(?currentValue), \"none\") AS ?current)\n        BIND (COALESCE(STR(?stateLabel), \"no lifecycle state\") AS ?state)\n        FILTER ((BOUND(?expectedValue) && BOUND(?currentValue) && STR(?currentValue) != STR(?expectedValue))\n                || (BOUND(?concept) && ?concept = atelier:Superseded))\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/part/\", \"\"), \"%20\", \" \") AS ?id)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:Lifecycle",
+      "kind" : "other",
+      "definition" : "Canonical lifecycle states of a part across the PLMs."
+    }, {
+      "term" : "atelier:Superseded",
+      "kind" : "concept",
+      "definition" : "Replaced by a later revision."
+    }, {
+      "term" : "atelier:expectedRevision",
+      "kind" : "property",
+      "definition" : "The remote part's revision the reference expects, compared as text with the target's atelier:revision."
+    }, {
+      "term" : "atelier:fromPart",
+      "kind" : "property",
+      "definition" : "The local part that makes the reference."
+    }, {
+      "term" : "atelier:label",
+      "kind" : "property",
+      "definition" : "Human-readable name of a part, an interface or a supplier, in the language of its owner."
+    }, {
+      "term" : "atelier:lifecycleLabel",
+      "kind" : "property",
+      "definition" : "Lifecycle state in the owning PLM's word. Freigegeben, Publié, Liberado and Released are one state: its canonical state is the concept of the atelier:Lifecycle scheme that carries the word as a skos:altLabel."
+    }, {
+      "term" : "atelier:remoteUrn",
+      "kind" : "property",
+      "definition" : "The remote part's key exactly as stored, urn:plm:<site>:part:<local id> when well formed."
+    }, {
+      "term" : "atelier:revision",
+      "kind" : "property",
+      "definition" : "Revision in the owning PLM's own form. The German PLM writes 01, 02, the French A, B, the Spanish 1, 2, the British P1, P2, C1; compared as text, never converted."
+    } ]
+  }, {
+    "name" : "unit",
+    "shape" : "https://example.com/atelier/shapes#UnitShape",
+    "severity" : "Violation",
+    "focus" : "interface",
+    "message" : "Every quantity value of an interface feature carries a unit with a known conversion multiplier.",
+    "description" : "Every measured value on a plug, fastener group or coupling, its position, diameter, grip length or pressure rating, must say which unit it is in, and the unit must be one the layer knows how to convert. Each site stores its own units (millimetres, inches, bar, PSI); only the layer, which compares the sites with each other, needs every value in a unit it can convert.",
+    "turtle" : "PREFIX atelier:   <https://example.com/atelier/ontology#>\nPREFIX ateliersh: <https://example.com/atelier/shapes#>\nPREFIX qudt:      <http://qudt.org/schema/qudt/>\nPREFIX rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX sh:        <http://www.w3.org/ns/shacl#>\nPREFIX skos:      <http://www.w3.org/2004/02/skos/core#>\nPREFIX unit:      <http://qudt.org/vocab/unit/>\nPREFIX xsd:       <http://www.w3.org/2001/XMLSchema#>\n\nateliersh:UnitShape  rdf:type  sh:NodeShape;\n        rdfs:comment     \"Every quantity value of an interface feature carries a unit with a known conversion multiplier.\";\n        sh:description   \"Every measured value on a plug, fastener group or coupling, its position, diameter, grip length or pressure rating, must say which unit it is in, and the unit must be one the layer knows how to convert. Each site stores its own units (millimetres, inches, bar, PSI); only the layer, which compares the sites with each other, needs every value in a unit it can convert.\"@en;\n        sh:sparql        [ sh:message   \"{?plm} {?kind} {?id} states its {?what} in unit {?unitName}, which has no known conversion multiplier\";\n                           sh:prefixes  <https://example.com/atelier/shapes>;\n                           sh:select    \"\"\"\n      SELECT $this ?path ?value ?plm ?kind ?id ?what ?unitName WHERE {\n        VALUES (?path ?what) {\n          (atelier:positionX \"x position\") (atelier:positionY \"y position\") (atelier:positionZ \"z position\")\n          (atelier:diameter \"diameter\") (atelier:gripLength \"grip length\") (atelier:pressureRating \"pressure rating\")\n        }\n        $this ?path ?value .\n        ?value qudt:unit ?unit .\n        FILTER NOT EXISTS { ?unit qudt:conversionMultiplier ?anyMultiplier }\n        BIND (UCASE(REPLACE(STR($this), \"^.*/atelier/([a-z]+)/[a-z]+/.*$\", \"$1\")) AS ?plm)\n        BIND (REPLACE(STR($this), \"^.*/atelier/[a-z]+/([a-z]+)/.*$\", \"$1\") AS ?kind)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?id)\n        BIND (REPLACE(STR(?unit), \"^.*/\", \"\") AS ?unitName)\n      }\"\"\"\n                         ];\n        sh:sparql        [ sh:message   \"{?plm} {?kind} {?id} has no unit on its {?what} (stored value {?raw}), so it cannot be converted\";\n                           sh:prefixes  <https://example.com/atelier/shapes>;\n                           sh:select    \"\"\"\n      SELECT $this ?path ?value ?plm ?kind ?id ?what ?raw WHERE {\n        VALUES (?path ?what) {\n          (atelier:positionX \"x position\") (atelier:positionY \"y position\") (atelier:positionZ \"z position\")\n          (atelier:diameter \"diameter\") (atelier:gripLength \"grip length\") (atelier:pressureRating \"pressure rating\")\n        }\n        $this ?path ?value .\n        OPTIONAL { ?value qudt:numericValue ?raw }\n        FILTER NOT EXISTS { ?value qudt:unit ?anyUnit }\n        BIND (UCASE(REPLACE(STR($this), \"^.*/atelier/([a-z]+)/[a-z]+/.*$\", \"$1\")) AS ?plm)\n        BIND (REPLACE(STR($this), \"^.*/atelier/[a-z]+/([a-z]+)/.*$\", \"$1\") AS ?kind)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?id)\n      }\"\"\"\n                         ];\n        sh:targetClass   atelier:InterfaceFeature;\n        ateliersh:focus  \"interface\";\n        ateliersh:rule   \"unit\" .\n",
+    "sparql" : [ {
+      "role" : "constraint",
+      "message" : "{?plm} {?kind} {?id} has no unit on its {?what} (stored value {?raw}), so it cannot be converted",
+      "query" : "\n      SELECT $this ?path ?value ?plm ?kind ?id ?what ?raw WHERE {\n        VALUES (?path ?what) {\n          (atelier:positionX \"x position\") (atelier:positionY \"y position\") (atelier:positionZ \"z position\")\n          (atelier:diameter \"diameter\") (atelier:gripLength \"grip length\") (atelier:pressureRating \"pressure rating\")\n        }\n        $this ?path ?value .\n        OPTIONAL { ?value qudt:numericValue ?raw }\n        FILTER NOT EXISTS { ?value qudt:unit ?anyUnit }\n        BIND (UCASE(REPLACE(STR($this), \"^.*/atelier/([a-z]+)/[a-z]+/.*$\", \"$1\")) AS ?plm)\n        BIND (REPLACE(STR($this), \"^.*/atelier/[a-z]+/([a-z]+)/.*$\", \"$1\") AS ?kind)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?id)\n      }"
+    }, {
+      "role" : "constraint",
+      "message" : "{?plm} {?kind} {?id} states its {?what} in unit {?unitName}, which has no known conversion multiplier",
+      "query" : "\n      SELECT $this ?path ?value ?plm ?kind ?id ?what ?unitName WHERE {\n        VALUES (?path ?what) {\n          (atelier:positionX \"x position\") (atelier:positionY \"y position\") (atelier:positionZ \"z position\")\n          (atelier:diameter \"diameter\") (atelier:gripLength \"grip length\") (atelier:pressureRating \"pressure rating\")\n        }\n        $this ?path ?value .\n        ?value qudt:unit ?unit .\n        FILTER NOT EXISTS { ?unit qudt:conversionMultiplier ?anyMultiplier }\n        BIND (UCASE(REPLACE(STR($this), \"^.*/atelier/([a-z]+)/[a-z]+/.*$\", \"$1\")) AS ?plm)\n        BIND (REPLACE(STR($this), \"^.*/atelier/[a-z]+/([a-z]+)/.*$\", \"$1\") AS ?kind)\n        BIND (REPLACE(REPLACE(STR($this), \"^.*/atelier/[a-z]+/[a-z]+/\", \"\"), \"%20\", \" \") AS ?id)\n        BIND (REPLACE(STR(?unit), \"^.*/\", \"\") AS ?unitName)\n      }"
+    } ],
+    "terms" : [ {
+      "term" : "atelier:InterfaceFeature",
+      "kind" : "class",
+      "definition" : "Anything two parts must agree on at an interface: a located feature of a part (AP242 shape_aspect with a placement) that mates with a feature of the same class on the other part. Every feature has an identifier, an owner, a part, a position on each axis and, when mated, a matesWith link."
+    }, {
+      "term" : "atelier:diameter",
+      "kind" : "property",
+      "definition" : "Nominal shank diameter of the fasteners, as a quantity value in the unit stored by the PLM (millimetres or inches). Mated groups must agree within 0.05 mm after conversion. Node IRI <feature IRI>/diameter."
+    }, {
+      "term" : "atelier:gripLength",
+      "kind" : "property",
+      "definition" : "Grip length of the fasteners, as a quantity value in the unit stored by the PLM (millimetres or inches). Node IRI <feature IRI>/grip."
+    }, {
+      "term" : "atelier:positionX",
+      "kind" : "property",
+      "definition" : "Position of the feature along the product's x axis (atelier:frame of the product), as a quantity value in the unit stored by the PLM. Node IRI <feature IRI>/position/x."
+    }, {
+      "term" : "atelier:positionY",
+      "kind" : "property",
+      "definition" : "Position of the feature along the product's y axis (atelier:frame of the product), as a quantity value in the unit stored by the PLM. Node IRI <feature IRI>/position/y."
+    }, {
+      "term" : "atelier:positionZ",
+      "kind" : "property",
+      "definition" : "Position of the feature along the product's z axis (up; atelier:frame of the product), as a quantity value in the unit stored by the PLM. Node IRI <feature IRI>/position/z."
+    }, {
+      "term" : "atelier:pressureRating",
+      "kind" : "property",
+      "definition" : "Rated working pressure of the coupling, as a quantity value in the unit stored by the PLM (bar or psi). Mated couplings must agree within 2 % after conversion. Node IRI <feature IRI>/rating."
+    } ]
+  } ]
+}

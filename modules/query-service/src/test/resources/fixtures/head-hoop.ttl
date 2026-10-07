@@ -1,0 +1,33 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Add-on to neighbourhood.ttl: an FR head hoop (tail command) in the state the released file index
+# ships FR-ORN-CERC-001 in. Its PLM describes it and the Atelier core tags it (here NATIONAL-FR, releasable
+# to FR), but the file index holds no atelier:cadFile for it. IF-45 mates it with the control post; the
+# plugs coincide, so the interface passes.
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ifo:  <https://example.com/atelier/interface/ornithopter/> .
+@prefix frp:  <https://example.com/atelier/fr/plug/> .
+@prefix frpt: <https://example.com/atelier/fr/part/> .
+
+frpt:fr-head-hoop a atelier:Part ; atelier:label "Head hoop (tail command)" ; atelier:sourceFileRef "CAO/fr-head-hoop.CATPart" ;
+  atelier:jurisdiction "NATIONAL-FR" ; atelier:releasableTo "FR" ; atelier:taggedBy "FR" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+
+ifo:IF-45 a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/ornithopter> ; atelier:label "Control post / head hoop" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart frpt:fr-control-post , frpt:fr-head-hoop ; atelier:declaresFeature frp:J45 , frp:P45 .
+
+frp:J45 atelier:matesWith frp:P45 . frp:P45 atelier:matesWith frp:J45 .
+
+frp:J45 a atelier:Plug ; atelier:onPart frpt:fr-control-post ; atelier:connectorType "EN3645" ; atelier:pinCount 55 ;
+  atelier:positionX frp:J45\/position\/x ; atelier:positionY frp:J45\/position\/y ; atelier:positionZ frp:J45\/position\/z .
+frp:J45\/position\/x a qudt:QuantityValue ; qudt:numericValue 1660.000 ; qudt:unit unit:MilliM .
+frp:J45\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+frp:J45\/position\/z a qudt:QuantityValue ; qudt:numericValue 986.000 ; qudt:unit unit:MilliM .
+frp:P45 a atelier:Plug ; atelier:onPart frpt:fr-head-hoop ; atelier:connectorType "EN3645" ; atelier:pinCount 55 ;
+  atelier:positionX frp:P45\/position\/x ; atelier:positionY frp:P45\/position\/y ; atelier:positionZ frp:P45\/position\/z .
+frp:P45\/position\/x a qudt:QuantityValue ; qudt:numericValue 1660.000 ; qudt:unit unit:MilliM .
+frp:P45\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+frp:P45\/position\/z a qudt:QuantityValue ; qudt:numericValue 986.000 ; qudt:unit unit:MilliM .

@@ -1,0 +1,923 @@
+{
+   "metadata" : {
+      "dbmsProductName" : "PostgreSQL",
+      "dbmsVersion" : "16.15 (Debian 16.15-1.pgdg13+2)",
+      "driverName" : "PostgreSQL JDBC Driver",
+      "driverVersion" : "42.7.13",
+      "idFactoryType" : "POSTGRESQL",
+      "quotationString" : "\""
+   },
+   "relations" : [
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"ascendant\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"descendant\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"profondeur\""
+            }
+         ],
+         "name" : [
+            "\"nomenclature_fermeture\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"nomenclature_fermeture\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"ascendant\"",
+                  "\"descendant\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "nomenclature_fermeture_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : false,
+               "name" : "\"id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"piece\""
+            },
+            {
+               "datatype" : "varchar(160)",
+               "isNullable" : false,
+               "name" : "\"urn\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"quantite\""
+            },
+            {
+               "datatype" : "varchar(8)",
+               "isNullable" : true,
+               "name" : "\"indice_attendu\""
+            },
+            {
+               "datatype" : "varchar(400)",
+               "isNullable" : true,
+               "name" : "\"note\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"piece\""
+                  ],
+                  "relation" : [
+                     "\"reference_externe\""
+                  ]
+               },
+               "name" : "reference_externe_piece_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"ref_piece\""
+                  ],
+                  "relation" : [
+                     "\"piece\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"reference_externe\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"reference_externe\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "reference_externe_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"code_fournisseur\""
+            },
+            {
+               "datatype" : "varchar(255)",
+               "isNullable" : false,
+               "name" : "\"raison_sociale\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"ville\""
+            }
+         ],
+         "name" : [
+            "\"fournisseur\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"fournisseur\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"code_fournisseur\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "fournisseur_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"parent\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"enfant\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"rang\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"x_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"y_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"z_mm\""
+            },
+            {
+               "datatype" : "numeric(9, 4)",
+               "isNullable" : false,
+               "name" : "\"rx_deg\""
+            },
+            {
+               "datatype" : "numeric(9, 4)",
+               "isNullable" : false,
+               "name" : "\"ry_deg\""
+            },
+            {
+               "datatype" : "numeric(9, 4)",
+               "isNullable" : false,
+               "name" : "\"rz_deg\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"travee_debut_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"travee_fin_mm\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"parent\"",
+                     "\"enfant\""
+                  ],
+                  "relation" : [
+                     "\"nomenclature_position\""
+                  ]
+               },
+               "name" : "nomenclature_position_parent_enfant_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"parent\"",
+                     "\"enfant\""
+                  ],
+                  "relation" : [
+                     "\"nomenclature\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"nomenclature_position\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"nomenclature_position\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"parent\"",
+                  "\"enfant\"",
+                  "\"rang\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "nomenclature_position_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"ref_raccord\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"ref_piece\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_x_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_y_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_z_mm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"norme\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"taille_dash\""
+            },
+            {
+               "datatype" : "numeric(10, 3)",
+               "isNullable" : true,
+               "name" : "\"pression_bar\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"fluide\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"point_raccordement\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"variante\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"ref_piece\""
+                  ],
+                  "relation" : [
+                     "\"raccord_hydraulique\""
+                  ]
+               },
+               "name" : "raccord_hydraulique_ref_piece_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"ref_piece\""
+                  ],
+                  "relation" : [
+                     "\"piece\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"raccord_hydraulique\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"raccord_hydraulique\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"ref_raccord\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "raccord_hydraulique_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"parent\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"enfant\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"quantite\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"repere\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"enfant\""
+                  ],
+                  "relation" : [
+                     "\"nomenclature\""
+                  ]
+               },
+               "name" : "nomenclature_enfant_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"ref_piece\""
+                  ],
+                  "relation" : [
+                     "\"piece\""
+                  ]
+               }
+            },
+            {
+               "from" : {
+                  "columns" : [
+                     "\"parent\""
+                  ],
+                  "relation" : [
+                     "\"nomenclature\""
+                  ]
+               },
+               "name" : "nomenclature_parent_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"ref_piece\""
+                  ],
+                  "relation" : [
+                     "\"piece\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"nomenclature\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"nomenclature\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"parent\"",
+                  "\"enfant\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "nomenclature_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"ref_piece\""
+            },
+            {
+               "datatype" : "varchar(255)",
+               "isNullable" : false,
+               "name" : "\"designation\""
+            },
+            {
+               "datatype" : "varchar(512)",
+               "isNullable" : true,
+               "name" : "\"fichier_cao\""
+            },
+            {
+               "datatype" : "varchar(8)",
+               "isNullable" : true,
+               "name" : "\"indice\""
+            },
+            {
+               "datatype" : "varchar(32)",
+               "isNullable" : true,
+               "name" : "\"etat\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"masse_kg\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"matiere\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : false,
+               "name" : "\"type_piece\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"norme\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"diametre_nominal_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"longueur_nominale_mm\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"nombre_dents\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"module_mm\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"classe_article\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"diametre_interieur_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"section_mm\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"melange\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"legende\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"largeur_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"hauteur_mm\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"support\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"adhesif\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"largeur_base_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"profondeur_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"largeur_contour_mm\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"materiau_coque\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"diametre_exterieur_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"largeur_section_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"diametre_jante_mm\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"indice_plis\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"diametre_empilage_mm\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"nombre_rotors\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"duree_stockage_mois\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"variante\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"travee_debut_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"travee_fin_mm\""
+            }
+         ],
+         "name" : [
+            "\"piece\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"piece\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"ref_piece\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "piece_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"ref_fixation\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"ref_piece\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_x_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_y_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_z_mm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"norme\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"diametre_mm\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"nombre\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"longueur_serrage_mm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"point_raccordement\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"variante\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"ref_piece\""
+                  ],
+                  "relation" : [
+                     "\"fixation\""
+                  ]
+               },
+               "name" : "fixation_ref_piece_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"ref_piece\""
+                  ],
+                  "relation" : [
+                     "\"piece\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"fixation\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"fixation\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"ref_fixation\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "fixation_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"ref_piece\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"code_fournisseur\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"reference_fournisseur\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"delai_jours\""
+            },
+            {
+               "datatype" : "bool",
+               "isNullable" : false,
+               "name" : "\"prefere\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"code_fournisseur\""
+                  ],
+                  "relation" : [
+                     "\"article_fournisseur\""
+                  ]
+               },
+               "name" : "article_fournisseur_code_fournisseur_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"code_fournisseur\""
+                  ],
+                  "relation" : [
+                     "\"fournisseur\""
+                  ]
+               }
+            },
+            {
+               "from" : {
+                  "columns" : [
+                     "\"ref_piece\""
+                  ],
+                  "relation" : [
+                     "\"article_fournisseur\""
+                  ]
+               },
+               "name" : "article_fournisseur_ref_piece_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"ref_piece\""
+                  ],
+                  "relation" : [
+                     "\"piece\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"article_fournisseur\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"article_fournisseur\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "article_fournisseur_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"id_connecteur\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"ref_piece\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_x_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_y_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_z_mm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"type_connecteur\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"nb_broches\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"point_raccordement\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"variante\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"ref_piece\""
+                  ],
+                  "relation" : [
+                     "\"connecteur\""
+                  ]
+               },
+               "name" : "connecteur_ref_piece_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"ref_piece\""
+                  ],
+                  "relation" : [
+                     "\"piece\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"connecteur\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"connecteur\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"id_connecteur\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "connecteur_pkey"
+            }
+         ]
+      }
+   ]
+}

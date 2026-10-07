@@ -1,0 +1,26 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+/* The subtree breadcrumb: a strip under the top bar, present only while a subtree root is set. */
+.app.has-subtree { grid-template-rows: var(--bar-h) auto 1fr; }
+.subtree-bar {
+  display: flex; align-items: center; gap: 12px; min-width: 0;
+  padding: 5px 14px 5px 16px; background: var(--film); border-bottom: 1px solid var(--rule); font-size: 13px;
+}
+.subtree-crumbs { display: flex; align-items: center; gap: 6px; min-width: 0; margin: 0; padding: 0; list-style: none; }
+.subtree-crumbs li { display: flex; align-items: baseline; gap: 6px; min-width: 0; white-space: nowrap; }
+.subtree-crumbs li + li::before { content: '\203A'; color: var(--quiet); }
+.subtree-crumb { background: none; border: 0; padding: 0; cursor: pointer; color: var(--focus); text-decoration: underline; }
+.subtree-name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+.subtree-note { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
+.subtree-bar .btn { margin-left: auto; flex-shrink: 0; }
+
+/* The row action that roots every screen at an assembly. */
+.bom-item { display: flex; align-items: center; gap: 8px; min-width: 0; height: 100%; }
+.bom-item .bom-name { flex: 1 1 auto; }
+.bom-open { flex-shrink: 0; padding: 2px 6px; font-size: 11px; opacity: 0.6; }
+.bom-row:hover .bom-open, .bom-open:focus-visible { opacity: 1; }
+
+/* Context parts in the viewer legend: drawn faded, outside the subtree on screen. */
+.legend-item.is-context { font-weight: 500; color: var(--ink-2); }
+.swatch-context { background: var(--redact); opacity: 0.35; }

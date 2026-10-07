@@ -1,0 +1,307 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Federated neighbourhood of eight interfaces of an ornithopter demonstrator, in the shape the interface CONSTRUCT produces.
+#   IF-01  FR J11 / DE P11 plugs coincide; the FR control post is releasable to FR only  -> pass, hidden from non-FR viewers
+#   IF-02  DE J21 / FR P21: 4.3 mm apart on x                                            -> position
+#   IF-03  FR J31 / DE P31: 55 vs 37 pins                                                -> connector
+#   IF-04  DE RF-4 / ES CC-4 fasteners: 6.35 mm vs 7.94 mm; HY-4 / HZ-4 couplings match  -> fastener
+#   IF-05  FR J51 (mm) / UK HC 51 (inches) plugs, RF-5 / FS 5 fasteners (mm vs inches),
+#          HY-5 / HYD 5 couplings (bar vs psi): all coincide after conversion             -> pass
+#   IF-06  UK HC 61 positions carry no unit; HY-6 350 bar vs HYD 6 3000 psi                -> unit, hydraulic
+#   IF-07  DE P71 has no mate; the DE tail trim drive is EXPORT-LICENCE, releasable to
+#          licensed recipients only                                                       -> orphan, hidden from EU viewers
+#   IF-08  ES J82 / ES P82 plugs coincide; the ES tail plane has no tag                   -> pass, hidden from all but the export officer
+# Parts carry their PLM description (label, sourceFileRef), their file-index CAD file and, except
+# the untagged tail plane, their Atelier core tag (jurisdiction, releasableTo, taggedBy, taggedAt).
+# The control post alone is supplier-built: the file index carries its atelier:builtBy.
+# Three Atelier core products. The ornithopter holds every part; the wings hold the mid cross beam, the
+# left wing root fitting and the left wing actuator (the wings state no frame); the tail holds the tail
+# boom, the tail trim drive and the tail plane (a hidden and an untagged part). Each interface belongs
+# to one product (atelier:ofProduct, and the product segment of its IRI): IF-01 to IF-04 to the
+# ornithopter, IF-05 and IF-06 to the wings, IF-07 and IF-08 to the tail. Scoping to the ornithopter
+# therefore lists its own four interfaces and the parts they name.
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ifo:  <https://example.com/atelier/interface/ornithopter/> .
+@prefix ifw:  <https://example.com/atelier/interface/wings/> .
+@prefix ift:  <https://example.com/atelier/interface/tail/> .
+@prefix frp:  <https://example.com/atelier/fr/plug/> .
+@prefix dep:  <https://example.com/atelier/de/plug/> .
+@prefix ukp:  <https://example.com/atelier/uk/plug/> .
+@prefix esp:  <https://example.com/atelier/es/plug/> .
+@prefix frf:  <https://example.com/atelier/fr/fastener/> .
+@prefix def:  <https://example.com/atelier/de/fastener/> .
+@prefix esf:  <https://example.com/atelier/es/fastener/> .
+@prefix frc:  <https://example.com/atelier/fr/coupling/> .
+@prefix dec:  <https://example.com/atelier/de/coupling/> .
+@prefix esc:  <https://example.com/atelier/es/coupling/> .
+@prefix frpt: <https://example.com/atelier/fr/part/> .
+@prefix dept: <https://example.com/atelier/de/part/> .
+@prefix ukpt: <https://example.com/atelier/uk/part/> .
+@prefix espt: <https://example.com/atelier/es/part/> .
+
+frpt:fr-control-post a atelier:Part ; atelier:label "Control post" ; atelier:sourceFileRef "CAO/fr-control-post.CATPart" ;
+  atelier:cadFile "cad/ornithopter/fr-control-post.stp" ; atelier:builtBy "Ateliers du Clos Lucé, Amboise" ;
+  atelier:jurisdiction "NATIONAL-FR" ; atelier:releasableTo "FR" ; atelier:taggedBy "FR" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+frpt:fr-cross-beam-mid a atelier:Part ; atelier:label "Mid cross beam (wing root)" ; atelier:sourceFileRef "CAO/fr-cross-beam-mid.CATPart" ;
+  atelier:cadFile "cad/ornithopter/fr-cross-beam-mid.stp" ;
+  atelier:jurisdiction "EU-DUAL-USE" ; atelier:releasableTo "EU" ; atelier:taggedBy "FR" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+dept:de-right-root-fitting a atelier:Part ; atelier:label "Right wing root fitting" ; atelier:sourceFileRef "CAD/de-right-root-fitting.prt" ;
+  atelier:cadFile "cad/ornithopter/de-right-root-fitting.stp" ;
+  atelier:jurisdiction "EU-DUAL-USE" ; atelier:releasableTo "EU" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+dept:de-right-inner-spar a atelier:Part ; atelier:label "Right inner wing spar" ; atelier:sourceFileRef "CAD/de-right-inner-spar.prt" ;
+  atelier:cadFile "cad/ornithopter/de-right-inner-spar.stp" ;
+  atelier:jurisdiction "EU-DUAL-USE" ; atelier:releasableTo "EU" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+dept:de-tail-drive a atelier:Part ; atelier:label "Tail trim hydraulic drive" ; atelier:sourceFileRef "CAD/de-tail-drive.prt" ;
+  atelier:cadFile "cad/ornithopter/de-tail-drive.stp" ;
+  atelier:jurisdiction "EXPORT-LICENCE" ; atelier:releasableTo "LICENSED" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+ukpt:uk-left-root-fitting a atelier:Part ; atelier:label "Left wing root fitting" ; atelier:sourceFileRef "CAD\\uk-left-root-fitting.sldprt" ;
+  atelier:cadFile "cad/ornithopter/uk-left-root-fitting.stp" ;
+  atelier:jurisdiction "EU-DUAL-USE" ; atelier:releasableTo "EU" ; atelier:taggedBy "UK" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+ukpt:uk-left-wing-actuator a atelier:Part ; atelier:label "Left wing hydraulic actuator" ; atelier:sourceFileRef "CAD\\uk-left-wing-actuator.sldprt" ;
+  atelier:cadFile "cad/ornithopter/uk-left-wing-actuator.stp" ;
+  atelier:jurisdiction "EU-DUAL-USE" ; atelier:releasableTo "EU" ; atelier:taggedBy "UK" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+espt:es-tail-boom a atelier:Part ; atelier:label "Tail boom" ; atelier:sourceFileRef "CAD/es-tail-boom.sldprt" ;
+  atelier:cadFile "cad/ornithopter/es-tail-boom.stp" ;
+  atelier:jurisdiction "EU-DUAL-USE" ; atelier:releasableTo "EU" ; atelier:taggedBy "ES" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+espt:es-tail-plane a atelier:Part ; atelier:label "Tail plane" ; atelier:sourceFileRef "CAD/es-tail-plane.sldprt" ;
+  atelier:cadFile "cad/ornithopter/es-tail-plane.stp" .
+
+<https://example.com/atelier/product/ornithopter> a atelier:Product ; atelier:label "Ornithopter ground demonstrator (Paris Manuscript B, f. 74v)" ;
+  atelier:frame "x aft from the frame nose, y to the pilot's right, z up with z = 0 on the keel beam axis; mm" .
+<https://example.com/atelier/product/wings> a atelier:Product ; atelier:label "Wings" .
+<https://example.com/atelier/product/tail> a atelier:Product ; atelier:label "Tail unit" ; atelier:frame "x aft from the frame nose, y to the pilot's right, z up with z = 0 on the keel beam axis; mm" .
+frpt:fr-control-post atelier:partOf <https://example.com/atelier/product/ornithopter> .
+frpt:fr-cross-beam-mid atelier:partOf <https://example.com/atelier/product/ornithopter> , <https://example.com/atelier/product/wings> .
+dept:de-right-root-fitting atelier:partOf <https://example.com/atelier/product/ornithopter> .
+dept:de-right-inner-spar atelier:partOf <https://example.com/atelier/product/ornithopter> .
+dept:de-tail-drive atelier:partOf <https://example.com/atelier/product/ornithopter> , <https://example.com/atelier/product/tail> .
+ukpt:uk-left-root-fitting atelier:partOf <https://example.com/atelier/product/ornithopter> , <https://example.com/atelier/product/wings> .
+ukpt:uk-left-wing-actuator atelier:partOf <https://example.com/atelier/product/ornithopter> , <https://example.com/atelier/product/wings> .
+espt:es-tail-boom atelier:partOf <https://example.com/atelier/product/ornithopter> , <https://example.com/atelier/product/tail> .
+espt:es-tail-plane atelier:partOf <https://example.com/atelier/product/ornithopter> , <https://example.com/atelier/product/tail> .
+
+ifo:IF-01 a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/ornithopter> ; atelier:label "Control post / right wing root fitting" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart frpt:fr-control-post , dept:de-right-root-fitting ; atelier:declaresFeature frp:J11 , dep:P11 .
+ifo:IF-02 a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/ornithopter> ; atelier:label "Right wing root fitting / mid cross beam" ; atelier:toleranceMm "2"^^xsd:decimal ;
+  atelier:betweenPart dept:de-right-root-fitting , frpt:fr-cross-beam-mid ; atelier:declaresFeature dep:J21 , frp:P21 .
+ifo:IF-03 a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/ornithopter> ; atelier:label "Mid cross beam / right inner spar" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart frpt:fr-cross-beam-mid , dept:de-right-inner-spar ; atelier:declaresFeature frp:J31 , dep:P31 .
+ifo:IF-04 a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/ornithopter> ; atelier:label "Right inner spar / tail boom" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart dept:de-right-inner-spar , espt:es-tail-boom ; atelier:declaresFeature def:RF-4 , esf:CC-4 , dec:HY-4 , esc:HZ-4 .
+ifw:IF-05 a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/wings> ; atelier:label "Mid cross beam / left wing root fitting" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart frpt:fr-cross-beam-mid , ukpt:uk-left-root-fitting ;
+  atelier:declaresFeature frp:J51 , <https://example.com/atelier/uk/plug/HC%2051> , frf:RF-5 , <https://example.com/atelier/uk/fastener/FS%205> ,
+                      frc:HY-5 , <https://example.com/atelier/uk/coupling/HYD%205> .
+ifw:IF-06 a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/wings> ; atelier:label "Mid cross beam / left wing actuator" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart frpt:fr-cross-beam-mid , ukpt:uk-left-wing-actuator ;
+  atelier:declaresFeature frp:J61 , <https://example.com/atelier/uk/plug/HC%2061> , frc:HY-6 , <https://example.com/atelier/uk/coupling/HYD%206> .
+ift:IF-07 a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/tail> ; atelier:label "Tail boom / tail trim drive" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart espt:es-tail-boom , dept:de-tail-drive ; atelier:declaresFeature esp:J72 , dep:P71 , dep:P72 .
+ift:IF-08 a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/tail> ; atelier:label "Tail boom / tail plane" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart espt:es-tail-boom , espt:es-tail-plane ; atelier:declaresFeature esp:J82 , esp:P82 .
+
+frp:J11 atelier:matesWith dep:P11 . dep:P11 atelier:matesWith frp:J11 .
+dep:J21 atelier:matesWith frp:P21 . frp:P21 atelier:matesWith dep:J21 .
+frp:J31 atelier:matesWith dep:P31 . dep:P31 atelier:matesWith frp:J31 .
+def:RF-4 atelier:matesWith esf:CC-4 . esf:CC-4 atelier:matesWith def:RF-4 .
+dec:HY-4 atelier:matesWith esc:HZ-4 . esc:HZ-4 atelier:matesWith dec:HY-4 .
+frp:J51 atelier:matesWith <https://example.com/atelier/uk/plug/HC%2051> .
+<https://example.com/atelier/uk/plug/HC%2051> atelier:matesWith frp:J51 .
+frf:RF-5 atelier:matesWith <https://example.com/atelier/uk/fastener/FS%205> .
+<https://example.com/atelier/uk/fastener/FS%205> atelier:matesWith frf:RF-5 .
+frc:HY-5 atelier:matesWith <https://example.com/atelier/uk/coupling/HYD%205> .
+<https://example.com/atelier/uk/coupling/HYD%205> atelier:matesWith frc:HY-5 .
+frp:J61 atelier:matesWith <https://example.com/atelier/uk/plug/HC%2061> .
+<https://example.com/atelier/uk/plug/HC%2061> atelier:matesWith frp:J61 .
+frc:HY-6 atelier:matesWith <https://example.com/atelier/uk/coupling/HYD%206> .
+<https://example.com/atelier/uk/coupling/HYD%206> atelier:matesWith frc:HY-6 .
+esp:J72 atelier:matesWith dep:P72 . dep:P72 atelier:matesWith esp:J72 .
+esp:J82 atelier:matesWith esp:P82 . esp:P82 atelier:matesWith esp:J82 .
+
+# IF-08 plugs (both ES; the tail plane is untagged)
+esp:J82 a atelier:Plug ; atelier:onPart espt:es-tail-boom ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX esp:J82\/position\/x ; atelier:positionY esp:J82\/position\/y ; atelier:positionZ esp:J82\/position\/z .
+esp:J82\/position\/x a qudt:QuantityValue ; qudt:numericValue 34000.000 ; qudt:unit unit:MilliM .
+esp:J82\/position\/y a qudt:QuantityValue ; qudt:numericValue 1000.000 ; qudt:unit unit:MilliM .
+esp:J82\/position\/z a qudt:QuantityValue ; qudt:numericValue 500.000 ; qudt:unit unit:MilliM .
+esp:P82 a atelier:Plug ; atelier:onPart espt:es-tail-plane ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX esp:P82\/position\/x ; atelier:positionY esp:P82\/position\/y ; atelier:positionZ esp:P82\/position\/z .
+esp:P82\/position\/x a qudt:QuantityValue ; qudt:numericValue 34000.000 ; qudt:unit unit:MilliM .
+esp:P82\/position\/y a qudt:QuantityValue ; qudt:numericValue 1000.000 ; qudt:unit unit:MilliM .
+esp:P82\/position\/z a qudt:QuantityValue ; qudt:numericValue 500.000 ; qudt:unit unit:MilliM .
+
+# IF-01 plugs
+frp:J11 a atelier:Plug ; atelier:onPart frpt:fr-control-post ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX frp:J11\/position\/x ; atelier:positionY frp:J11\/position\/y ; atelier:positionZ frp:J11\/position\/z .
+frp:J11\/position\/x a qudt:QuantityValue ; qudt:numericValue 6000.000 ; qudt:unit unit:MilliM .
+frp:J11\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+frp:J11\/position\/z a qudt:QuantityValue ; qudt:numericValue 1500.000 ; qudt:unit unit:MilliM .
+dep:P11 a atelier:Plug ; atelier:onPart dept:de-right-root-fitting ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX dep:P11\/position\/x ; atelier:positionY dep:P11\/position\/y ; atelier:positionZ dep:P11\/position\/z .
+dep:P11\/position\/x a qudt:QuantityValue ; qudt:numericValue 6000.000 ; qudt:unit unit:MilliM .
+dep:P11\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+dep:P11\/position\/z a qudt:QuantityValue ; qudt:numericValue 1500.000 ; qudt:unit unit:MilliM .
+
+# IF-05 plugs
+frp:J51 a atelier:Plug ; atelier:onPart frpt:fr-cross-beam-mid ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX frp:J51\/position\/x ; atelier:positionY frp:J51\/position\/y ; atelier:positionZ frp:J51\/position\/z .
+frp:J51\/position\/x a qudt:QuantityValue ; qudt:numericValue 15450.000 ; qudt:unit unit:MilliM .
+frp:J51\/position\/y a qudt:QuantityValue ; qudt:numericValue 1500.000 ; qudt:unit unit:MilliM .
+frp:J51\/position\/z a qudt:QuantityValue ; qudt:numericValue -1200.000 ; qudt:unit unit:MilliM .
+
+<https://example.com/atelier/uk/plug/HC%2051> a atelier:Plug ; atelier:onPart ukpt:uk-left-root-fitting ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX <https://example.com/atelier/uk/plug/HC%2051/position/x> ;
+  atelier:positionY <https://example.com/atelier/uk/plug/HC%2051/position/y> ;
+  atelier:positionZ <https://example.com/atelier/uk/plug/HC%2051/position/z> .
+<https://example.com/atelier/uk/plug/HC%2051/position/x> a qudt:QuantityValue ; qudt:numericValue 608.2677 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/plug/HC%2051/position/y> a qudt:QuantityValue ; qudt:numericValue 59.0551 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/plug/HC%2051/position/z> a qudt:QuantityValue ; qudt:numericValue -47.2441 ; qudt:unit unit:IN .
+
+# IF-05 fasteners: FR in millimetres, UK in inches (0.25 in = 6.35 mm, 0.5 in = 12.7 mm)
+frf:RF-5 a atelier:Fastener ; atelier:onPart frpt:fr-cross-beam-mid ; atelier:fastenerStandard "EN6115" ; atelier:fastenerCount 24 ;
+  atelier:diameter frf:RF-5\/diameter ; atelier:gripLength frf:RF-5\/grip ;
+  atelier:positionX frf:RF-5\/position\/x ; atelier:positionY frf:RF-5\/position\/y ; atelier:positionZ frf:RF-5\/position\/z .
+frf:RF-5\/diameter a qudt:QuantityValue ; qudt:numericValue 6.350 ; qudt:unit unit:MilliM .
+frf:RF-5\/grip a qudt:QuantityValue ; qudt:numericValue 12.700 ; qudt:unit unit:MilliM .
+frf:RF-5\/position\/x a qudt:QuantityValue ; qudt:numericValue 15450.000 ; qudt:unit unit:MilliM .
+frf:RF-5\/position\/y a qudt:QuantityValue ; qudt:numericValue 1500.000 ; qudt:unit unit:MilliM .
+frf:RF-5\/position\/z a qudt:QuantityValue ; qudt:numericValue -1500.000 ; qudt:unit unit:MilliM .
+
+<https://example.com/atelier/uk/fastener/FS%205> a atelier:Fastener ; atelier:onPart ukpt:uk-left-root-fitting ; atelier:fastenerStandard "EN6115" ; atelier:fastenerCount 24 ;
+  atelier:diameter <https://example.com/atelier/uk/fastener/FS%205/diameter> ; atelier:gripLength <https://example.com/atelier/uk/fastener/FS%205/grip> ;
+  atelier:positionX <https://example.com/atelier/uk/fastener/FS%205/position/x> ;
+  atelier:positionY <https://example.com/atelier/uk/fastener/FS%205/position/y> ;
+  atelier:positionZ <https://example.com/atelier/uk/fastener/FS%205/position/z> .
+<https://example.com/atelier/uk/fastener/FS%205/diameter> a qudt:QuantityValue ; qudt:numericValue 0.2500 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/FS%205/grip> a qudt:QuantityValue ; qudt:numericValue 0.5000 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/FS%205/position/x> a qudt:QuantityValue ; qudt:numericValue 608.2677 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/FS%205/position/y> a qudt:QuantityValue ; qudt:numericValue 59.0551 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/FS%205/position/z> a qudt:QuantityValue ; qudt:numericValue -59.0551 ; qudt:unit unit:IN .
+
+# IF-05 couplings: FR in bar, UK in psi (5076.32 psi = 350.00 bar)
+frc:HY-5 a atelier:HydraulicCoupling ; atelier:onPart frpt:fr-cross-beam-mid ; atelier:couplingStandard "AS4395" ; atelier:dashSize 8 ; atelier:fluid "HM 32 mineral oil" ;
+  atelier:pressureRating frc:HY-5\/rating ;
+  atelier:positionX frc:HY-5\/position\/x ; atelier:positionY frc:HY-5\/position\/y ; atelier:positionZ frc:HY-5\/position\/z .
+frc:HY-5\/rating a qudt:QuantityValue ; qudt:numericValue 350.000 ; qudt:unit unit:BAR .
+frc:HY-5\/position\/x a qudt:QuantityValue ; qudt:numericValue 15450.000 ; qudt:unit unit:MilliM .
+frc:HY-5\/position\/y a qudt:QuantityValue ; qudt:numericValue 1500.000 ; qudt:unit unit:MilliM .
+frc:HY-5\/position\/z a qudt:QuantityValue ; qudt:numericValue -1800.000 ; qudt:unit unit:MilliM .
+
+<https://example.com/atelier/uk/coupling/HYD%205> a atelier:HydraulicCoupling ; atelier:onPart ukpt:uk-left-root-fitting ; atelier:couplingStandard "AS4395" ; atelier:dashSize 8 ; atelier:fluid "HM 32 mineral oil" ;
+  atelier:pressureRating <https://example.com/atelier/uk/coupling/HYD%205/rating> ;
+  atelier:positionX <https://example.com/atelier/uk/coupling/HYD%205/position/x> ;
+  atelier:positionY <https://example.com/atelier/uk/coupling/HYD%205/position/y> ;
+  atelier:positionZ <https://example.com/atelier/uk/coupling/HYD%205/position/z> .
+<https://example.com/atelier/uk/coupling/HYD%205/rating> a qudt:QuantityValue ; qudt:numericValue 5076.32 ; qudt:unit unit:PSI .
+<https://example.com/atelier/uk/coupling/HYD%205/position/x> a qudt:QuantityValue ; qudt:numericValue 608.2677 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/coupling/HYD%205/position/y> a qudt:QuantityValue ; qudt:numericValue 59.0551 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/coupling/HYD%205/position/z> a qudt:QuantityValue ; qudt:numericValue -70.8661 ; qudt:unit unit:IN .
+
+# IF-02 plugs
+dep:J21 a atelier:Plug ; atelier:onPart dept:de-right-root-fitting ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX dep:J21\/position\/x ; atelier:positionY dep:J21\/position\/y ; atelier:positionZ dep:J21\/position\/z .
+dep:J21\/position\/x a qudt:QuantityValue ; qudt:numericValue 13000.000 ; qudt:unit unit:MilliM .
+dep:J21\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+dep:J21\/position\/z a qudt:QuantityValue ; qudt:numericValue 1500.000 ; qudt:unit unit:MilliM .
+frp:P21 a atelier:Plug ; atelier:onPart frpt:fr-cross-beam-mid ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX frp:P21\/position\/x ; atelier:positionY frp:P21\/position\/y ; atelier:positionZ frp:P21\/position\/z .
+frp:P21\/position\/x a qudt:QuantityValue ; qudt:numericValue 13004.300 ; qudt:unit unit:MilliM .
+frp:P21\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+frp:P21\/position\/z a qudt:QuantityValue ; qudt:numericValue 1500.000 ; qudt:unit unit:MilliM .
+
+# IF-03 plugs
+frp:J31 a atelier:Plug ; atelier:onPart frpt:fr-cross-beam-mid ; atelier:connectorType "EN3645" ; atelier:pinCount 55 ;
+  atelier:positionX frp:J31\/position\/x ; atelier:positionY frp:J31\/position\/y ; atelier:positionZ frp:J31\/position\/z .
+frp:J31\/position\/x a qudt:QuantityValue ; qudt:numericValue 20000.000 ; qudt:unit unit:MilliM .
+frp:J31\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+frp:J31\/position\/z a qudt:QuantityValue ; qudt:numericValue 1500.000 ; qudt:unit unit:MilliM .
+dep:P31 a atelier:Plug ; atelier:onPart dept:de-right-inner-spar ; atelier:connectorType "EN3645" ; atelier:pinCount 37 ;
+  atelier:positionX dep:P31\/position\/x ; atelier:positionY dep:P31\/position\/y ; atelier:positionZ dep:P31\/position\/z .
+dep:P31\/position\/x a qudt:QuantityValue ; qudt:numericValue 20000.000 ; qudt:unit unit:MilliM .
+dep:P31\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+dep:P31\/position\/z a qudt:QuantityValue ; qudt:numericValue 1500.000 ; qudt:unit unit:MilliM .
+
+# IF-04 fasteners (DE 6.35 mm vs ES 7.94 mm) and couplings (match)
+def:RF-4 a atelier:Fastener ; atelier:onPart dept:de-right-inner-spar ; atelier:fastenerStandard "EN6115" ; atelier:fastenerCount 24 ;
+  atelier:diameter def:RF-4\/diameter ; atelier:gripLength def:RF-4\/grip ;
+  atelier:positionX def:RF-4\/position\/x ; atelier:positionY def:RF-4\/position\/y ; atelier:positionZ def:RF-4\/position\/z .
+def:RF-4\/diameter a qudt:QuantityValue ; qudt:numericValue 6.350 ; qudt:unit unit:MilliM .
+def:RF-4\/grip a qudt:QuantityValue ; qudt:numericValue 12.700 ; qudt:unit unit:MilliM .
+def:RF-4\/position\/x a qudt:QuantityValue ; qudt:numericValue 30000.000 ; qudt:unit unit:MilliM .
+def:RF-4\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+def:RF-4\/position\/z a qudt:QuantityValue ; qudt:numericValue 1200.000 ; qudt:unit unit:MilliM .
+esf:CC-4 a atelier:Fastener ; atelier:onPart espt:es-tail-boom ; atelier:fastenerStandard "EN6115" ; atelier:fastenerCount 24 ;
+  atelier:diameter esf:CC-4\/diameter ; atelier:gripLength esf:CC-4\/grip ;
+  atelier:positionX esf:CC-4\/position\/x ; atelier:positionY esf:CC-4\/position\/y ; atelier:positionZ esf:CC-4\/position\/z .
+esf:CC-4\/diameter a qudt:QuantityValue ; qudt:numericValue 7.940 ; qudt:unit unit:MilliM .
+esf:CC-4\/grip a qudt:QuantityValue ; qudt:numericValue 12.700 ; qudt:unit unit:MilliM .
+esf:CC-4\/position\/x a qudt:QuantityValue ; qudt:numericValue 30000.000 ; qudt:unit unit:MilliM .
+esf:CC-4\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+esf:CC-4\/position\/z a qudt:QuantityValue ; qudt:numericValue 1200.000 ; qudt:unit unit:MilliM .
+
+dec:HY-4 a atelier:HydraulicCoupling ; atelier:onPart dept:de-right-inner-spar ; atelier:couplingStandard "AS4395" ; atelier:dashSize 8 ; atelier:fluid "HM 32 mineral oil" ;
+  atelier:pressureRating dec:HY-4\/rating ;
+  atelier:positionX dec:HY-4\/position\/x ; atelier:positionY dec:HY-4\/position\/y ; atelier:positionZ dec:HY-4\/position\/z .
+dec:HY-4\/rating a qudt:QuantityValue ; qudt:numericValue 350.000 ; qudt:unit unit:BAR .
+dec:HY-4\/position\/x a qudt:QuantityValue ; qudt:numericValue 30000.000 ; qudt:unit unit:MilliM .
+dec:HY-4\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+dec:HY-4\/position\/z a qudt:QuantityValue ; qudt:numericValue 900.000 ; qudt:unit unit:MilliM .
+esc:HZ-4 a atelier:HydraulicCoupling ; atelier:onPart espt:es-tail-boom ; atelier:couplingStandard "AS4395" ; atelier:dashSize 8 ; atelier:fluid "HM 32 mineral oil" ;
+  atelier:pressureRating esc:HZ-4\/rating ;
+  atelier:positionX esc:HZ-4\/position\/x ; atelier:positionY esc:HZ-4\/position\/y ; atelier:positionZ esc:HZ-4\/position\/z .
+esc:HZ-4\/rating a qudt:QuantityValue ; qudt:numericValue 350.000 ; qudt:unit unit:BAR .
+esc:HZ-4\/position\/x a qudt:QuantityValue ; qudt:numericValue 30000.000 ; qudt:unit unit:MilliM .
+esc:HZ-4\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+esc:HZ-4\/position\/z a qudt:QuantityValue ; qudt:numericValue 900.000 ; qudt:unit unit:MilliM .
+
+# IF-07 plugs
+esp:J72 a atelier:Plug ; atelier:onPart espt:es-tail-boom ; atelier:connectorType "EN3645" ; atelier:pinCount 37 ;
+  atelier:positionX esp:J72\/position\/x ; atelier:positionY esp:J72\/position\/y ; atelier:positionZ esp:J72\/position\/z .
+esp:J72\/position\/x a qudt:QuantityValue ; qudt:numericValue 32450.000 ; qudt:unit unit:MilliM .
+esp:J72\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+esp:J72\/position\/z a qudt:QuantityValue ; qudt:numericValue 1500.000 ; qudt:unit unit:MilliM .
+dep:P72 a atelier:Plug ; atelier:onPart dept:de-tail-drive ; atelier:connectorType "EN3645" ; atelier:pinCount 37 ;
+  atelier:positionX dep:P72\/position\/x ; atelier:positionY dep:P72\/position\/y ; atelier:positionZ dep:P72\/position\/z .
+dep:P72\/position\/x a qudt:QuantityValue ; qudt:numericValue 32450.000 ; qudt:unit unit:MilliM .
+dep:P72\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+dep:P72\/position\/z a qudt:QuantityValue ; qudt:numericValue 1500.000 ; qudt:unit unit:MilliM .
+dep:P71 a atelier:Plug ; atelier:onPart dept:de-tail-drive ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX dep:P71\/position\/x ; atelier:positionY dep:P71\/position\/y ; atelier:positionZ dep:P71\/position\/z .
+dep:P71\/position\/x a qudt:QuantityValue ; qudt:numericValue 31450.000 ; qudt:unit unit:MilliM .
+dep:P71\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+dep:P71\/position\/z a qudt:QuantityValue ; qudt:numericValue 1500.000 ; qudt:unit unit:MilliM .
+
+# IF-06 plugs (UK positions without unit) and couplings (350 bar vs 3000 psi = 206.8 bar)
+frp:J61 a atelier:Plug ; atelier:onPart frpt:fr-cross-beam-mid ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX frp:J61\/position\/x ; atelier:positionY frp:J61\/position\/y ; atelier:positionZ frp:J61\/position\/z .
+frp:J61\/position\/x a qudt:QuantityValue ; qudt:numericValue 15450.000 ; qudt:unit unit:MilliM .
+frp:J61\/position\/y a qudt:QuantityValue ; qudt:numericValue -1500.000 ; qudt:unit unit:MilliM .
+frp:J61\/position\/z a qudt:QuantityValue ; qudt:numericValue -1200.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/uk/plug/HC%2061> a atelier:Plug ; atelier:onPart ukpt:uk-left-wing-actuator ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX <https://example.com/atelier/uk/plug/HC%2061/position/x> ;
+  atelier:positionY <https://example.com/atelier/uk/plug/HC%2061/position/y> ;
+  atelier:positionZ <https://example.com/atelier/uk/plug/HC%2061/position/z> .
+<https://example.com/atelier/uk/plug/HC%2061/position/x> a qudt:QuantityValue ; qudt:numericValue 608.2677 .
+<https://example.com/atelier/uk/plug/HC%2061/position/y> a qudt:QuantityValue ; qudt:numericValue -59.0551 .
+<https://example.com/atelier/uk/plug/HC%2061/position/z> a qudt:QuantityValue ; qudt:numericValue -47.2441 .
+
+frc:HY-6 a atelier:HydraulicCoupling ; atelier:onPart frpt:fr-cross-beam-mid ; atelier:couplingStandard "AS4395" ; atelier:dashSize 8 ; atelier:fluid "HM 32 mineral oil" ;
+  atelier:pressureRating frc:HY-6\/rating ;
+  atelier:positionX frc:HY-6\/position\/x ; atelier:positionY frc:HY-6\/position\/y ; atelier:positionZ frc:HY-6\/position\/z .
+frc:HY-6\/rating a qudt:QuantityValue ; qudt:numericValue 350.000 ; qudt:unit unit:BAR .
+frc:HY-6\/position\/x a qudt:QuantityValue ; qudt:numericValue 15450.000 ; qudt:unit unit:MilliM .
+frc:HY-6\/position\/y a qudt:QuantityValue ; qudt:numericValue -1500.000 ; qudt:unit unit:MilliM .
+frc:HY-6\/position\/z a qudt:QuantityValue ; qudt:numericValue -1800.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/uk/coupling/HYD%206> a atelier:HydraulicCoupling ; atelier:onPart ukpt:uk-left-wing-actuator ; atelier:couplingStandard "AS4395" ; atelier:dashSize 8 ; atelier:fluid "HM 32 mineral oil" ;
+  atelier:pressureRating <https://example.com/atelier/uk/coupling/HYD%206/rating> ;
+  atelier:positionX <https://example.com/atelier/uk/coupling/HYD%206/position/x> ;
+  atelier:positionY <https://example.com/atelier/uk/coupling/HYD%206/position/y> ;
+  atelier:positionZ <https://example.com/atelier/uk/coupling/HYD%206/position/z> .
+<https://example.com/atelier/uk/coupling/HYD%206/rating> a qudt:QuantityValue ; qudt:numericValue 3000.00 ; qudt:unit unit:PSI .
+<https://example.com/atelier/uk/coupling/HYD%206/position/x> a qudt:QuantityValue ; qudt:numericValue 608.2677 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/coupling/HYD%206/position/y> a qudt:QuantityValue ; qudt:numericValue -59.0551 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/coupling/HYD%206/position/z> a qudt:QuantityValue ; qudt:numericValue -70.8661 ; qudt:unit unit:IN .

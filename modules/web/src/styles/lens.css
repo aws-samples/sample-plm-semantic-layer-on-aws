@@ -1,0 +1,26 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+/* The lens strip over the 3D view: quiet selects in the register of the changes strip; a set filter takes the ink. */
+.lens {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
+  padding: 6px 12px; background: #fff; border-bottom: 1px solid var(--rule); font-size: 12.5px;
+}
+.lens .eyebrow { white-space: nowrap; }
+.lens-field { display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
+.lens-label { font: 500 11.5px/1 var(--font-display); letter-spacing: 0.06em; text-transform: uppercase; color: var(--quiet); white-space: nowrap; }
+.lens-select {
+  appearance: none; -webkit-appearance: none; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%23687682' stroke-width='1.5'/></svg>") no-repeat right 7px center;
+  color: var(--ink-2); border: 1px solid var(--rule); border-radius: 2px; padding: 2px 22px 2px 7px; cursor: pointer;
+  font: 500 12.5px/1.2 var(--font-body);
+}
+.lens-select:hover { border-color: var(--ink-2); }
+.lens-select:disabled { color: var(--quiet); background-color: var(--paper); cursor: default; }
+.lens-select:disabled:hover { border-color: var(--rule); }
+.lens-field.is-set .lens-label { color: var(--ink); }
+.lens-field.is-set .lens-select { color: var(--ink); border-color: var(--ink); font-weight: 600; }
+.lens-released[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.lens-count { margin-left: auto; color: var(--quiet); white-space: nowrap; }
+.lens-count b { color: var(--ink); font-weight: 600; }
+.lens-clear { background: none; border: 0; padding: 0; cursor: pointer; color: var(--focus); text-decoration: underline; font-size: 12.5px; }

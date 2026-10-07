@@ -1,0 +1,54 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+:root {
+  --ink: #15202a;
+  --ink-2: #394855;
+  --quiet: #687682;
+  --rule: #cdd4d9;
+  --rule-2: #e2e7ea;
+  --paper: #f7f8f8;
+  --film: #e4e9ec;
+  --pass: #12a15e;
+  --pass-bg: #e3f4ea;
+  --fail: #e0322a;
+  --fail-bg: #fde9e7;
+  --flag: #b86e00;
+  --flag-bg: #fff3dc;
+  --focus: #1d5fd1;
+  /* Redaction: the drafting hatch for what the profile may not see, neutral, never a verdict. */
+  --redact: #8b959e;
+  --redact-bg: #eef1f3;
+  --hatch: repeating-linear-gradient(135deg, var(--redact-bg) 0 3px, var(--rule) 3px 4px);
+
+  --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Barlow', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  --panel-w: 368px;
+  --bar-h: 42px;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  font: 14px/1.4 var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.mono { font-family: var(--font-mono); font-size: 0.86em; letter-spacing: -0.01em; }
+.quiet { color: var(--quiet); }
+.eyebrow {
+  font: 600 11.5px/1 var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--quiet);
+  margin: 0;
+}
+.swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.2); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

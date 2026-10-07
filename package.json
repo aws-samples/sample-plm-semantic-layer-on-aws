@@ -1,0 +1,31 @@
+{
+  "name": "plm-semantic-layer-sample",
+  "private": true,
+  "version": "0.1.0",
+  "description": "PLM semantic layer sample: four site PLMs, ontology rules that catch misaligned electrical plugs between parts",
+  "workspaces": [
+    "modules/web",
+    "infra"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck -w modules/web -w infra",
+    "build": "npm run build -w modules/web",
+    "synth": "npm run synth -w infra",
+    "guardrails": "bash scripts/check-guardrails.sh infra/cdk.out",
+    "verify": "bash scripts/verify.sh",
+    "smoke": "node tests/smoke.mjs",
+    "deploy": "bash infra/scripts/deploy.sh"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "@types/node": "20.19.43",
+    "esbuild": "0.25.12",
+    "eslint": "9.39.5",
+    "typescript": "5.5.4",
+    "typescript-eslint": "8.71.0"
+  }
+}

@@ -1,0 +1,130 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+.viewer {
+  position: relative; flex: 1; min-height: 0; overflow: hidden; container: viewer / inline-size;
+  background:
+    radial-gradient(ellipse at 45% 40%, #f2f5f6 0%, var(--film) 70%),
+    var(--film);
+}
+.viewer-host { position: absolute; inset: 0; }
+.viewer-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.viewer-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.viewer-overlay .plug { pointer-events: all; cursor: pointer; }
+.plug-tag {
+  font: 600 11px var(--font-mono); fill: var(--ink);
+  paint-order: stroke; stroke: #fff; stroke-width: 3.5px; stroke-linejoin: round;
+}
+.plug-leader { fill: none; stroke: var(--ink); stroke-width: 1; }
+/* The part under the pointer, named like a drafting label. */
+.part-tag text {
+  font: 600 12px var(--font-body); fill: var(--ink);
+  paint-order: stroke; stroke: #fff; stroke-width: 3.5px; stroke-linejoin: round;
+}
+.part-tag .part-tag-sub { font-weight: 500; font-size: 11px; fill: var(--ink-2); }
+.callout circle, .callout path { fill: none; stroke: var(--ink); stroke-width: 1.25; stroke-dasharray: 5 3; }
+.callout path { stroke-dasharray: none; }
+.callout text { font: 600 16px var(--font-display); fill: var(--ink); }
+
+.legend {
+  position: absolute; left: 12px; top: 10px; display: flex; flex-direction: column; gap: 5px; max-width: min(720px, 74%);
+  font-size: 12px; background: rgb(247 248 248 / 0.86); padding: 7px 10px; border-radius: 3px; border: 1px solid var(--rule-2);
+}
+.legend-group { display: flex; flex-wrap: wrap; gap: 3px 12px; align-items: center; }
+.legend-item { display: inline-flex; align-items: center; font-weight: 600; gap: 0; }
+.legend-count { font-weight: 400; color: var(--quiet); margin-left: 5px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.25px var(--ink); }
+.dot.is-pass { background: var(--pass); }
+.dot.is-fail { background: var(--fail); }
+.legend-group + .legend-group .legend-item { font-weight: 500; }
+.legend .kind-glyph { margin-right: 4px; }
+.legend-item.is-redacted { font-weight: 500; color: var(--ink-2); }
+/* Part numbers and their occurrences in the scene: one STEP file per part number, drawn at each occurrence. */
+.legend-item.is-total { font-weight: 500; color: var(--ink-2); }
+.swatch-hatched { background: var(--hatch); }
+.legend-item.is-unpublished { font-weight: 500; color: var(--flag); }
+/* Phantom: a part the file index names no file for is outlined, never filled, as a part not yet drawn. */
+.swatch-phantom { background: transparent; box-shadow: none; border: 1.5px dashed var(--flag); }
+/* The unpublished line opens the data-quality findings in the results panel. */
+.legend-link { background: none; border: 0; padding: 0; cursor: pointer; }
+.legend-link:hover { text-decoration: underline dotted; text-underline-offset: 2px; }
+/* What is real and what is placed: the manual gives the geometry, the interface content is illustrative. */
+.legend-note { margin: 1px 0 0; font: 400 11px/1.3 var(--font-body); color: var(--quiet); }
+
+.viewer-tools { position: absolute; right: 12px; top: 10px; }
+.tool {
+  background: #fff; border: 1px solid var(--ink-2); padding: 5px 10px; border-radius: 3px; cursor: pointer;
+  font: 600 12px/1 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase;
+}
+.tool:hover { background: var(--rule-2); }
+/* Bottom left, stacked: what the agent shows, the selected part, then the loading status. */
+.viewer-foot {
+  position: absolute; left: 12px; bottom: 12px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+  max-width: calc(100% - 390px); pointer-events: none;
+}
+.viewer-foot > * { pointer-events: auto; }
+/* A narrow viewer (the Ask panel open) gives the foot its whole width, or half of it beside the detail view, and the
+   caption a line of its own under the eyebrow and the way back. */
+@container viewer (width < 760px) {
+  .viewer-foot { max-width: calc(100% - 24px); }
+  .viewer:has(.loupe) .viewer-foot { max-width: calc(50% - 26px); }
+  .viewer .loupe { width: min(340px, calc(50% - 20px)); }
+  .view-note { flex-wrap: wrap; row-gap: 3px; }
+  .view-note-clear { margin-left: auto; }
+  .view-note-text { order: 1; flex-basis: 100%; }
+}
+.viewer-status {
+  font-size: 12.5px; background: #fff; padding: 6px 10px;
+  border: 1px solid var(--rule); border-radius: 3px;
+}
+.viewer-status.is-error { border-color: var(--fail); color: var(--fail); max-width: 60%; }
+
+.loupe {
+  position: absolute; right: 14px; bottom: 14px; width: 340px; height: 250px;
+  border: 1.5px solid var(--ink); border-radius: 2px; pointer-events: none;
+  box-shadow: 0 0 0 4px rgb(255 255 255 / 0.7), 0 10px 30px rgb(21 32 42 / 0.18);
+}
+.loupe-title {
+  position: absolute; left: -1.5px; right: -1.5px; top: -24px; height: 24px; display: flex; align-items: center; gap: 8px;
+  background: var(--ink); color: #fff; padding: 0 8px 0 0; font-size: 12px;
+}
+.loupe-letter { background: #fff; color: var(--ink); font: 600 15px/24px var(--font-display); width: 24px; text-align: center; border: 1.5px solid var(--ink); }
+.dim-line, .dim-ext { stroke: var(--ink); stroke-width: 1.25; fill: none; }
+.dim-ext { stroke-width: 0.9; }
+.dim-value { font: 600 26px var(--font-display); fill: var(--fail); text-anchor: middle; paint-order: stroke; stroke: #f3f5f6; stroke-width: 4px; }
+.dim-axis { font: 500 12px var(--font-display); letter-spacing: 0.08em; fill: var(--ink); text-anchor: middle; text-transform: uppercase; }
+.tol-zone { fill: url(#hatch); stroke: var(--pass); stroke-width: 1; stroke-dasharray: 3 2; }
+.tol-text { font: 600 11px var(--font-display); letter-spacing: 0.06em; fill: #0b7a45; text-transform: uppercase; }
+.scale-bar path { stroke: var(--ink); fill: none; stroke-width: 1.25; }
+.scale-bar text { font: 500 11px var(--font-mono); fill: var(--ink); }
+
+/* The agent's view over the 3D scene: the caption it gave, how many parts, and the way back. */
+.view-note {
+  display: flex; align-items: baseline; gap: 10px; max-width: 100%;
+  background: #fff; border: 1px solid var(--rule); border-left: 3px solid var(--ink); border-radius: 2px;
+  padding: 6px 10px; font-size: 12.5px; box-shadow: 0 6px 18px rgb(21 32 42 / 0.1);
+}
+.view-note .eyebrow { flex-shrink: 0; }
+/* A long caption keeps two lines; the full text is its title. */
+.view-note-text {
+  min-width: 0; color: var(--ink); line-height: 1.35;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
+}
+.view-note-clear, .view-selected-clear {
+  flex-shrink: 0; background: none; border: 0; padding: 0; cursor: pointer; color: var(--ink-2);
+  font: 600 11px/1 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+.view-note-clear:hover, .view-selected-clear:hover { color: var(--ink); }
+/* The part the person clicked: outlined in ink in the scene, named here. */
+.view-selected {
+  display: inline-flex; align-items: baseline; gap: 7px; max-width: 100%;
+  background: var(--ink); color: #fff; border-radius: 2px; padding: 5px 6px 5px 10px; font-size: 12.5px;
+}
+.view-selected .eyebrow { color: #9fb0bd; }
+.view-selected-plm { font: 600 11px/1 var(--font-display); letter-spacing: 0.08em; }
+.view-selected-name { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.view-selected .mono { font-size: 11.5px; color: #d5dee5; white-space: nowrap; }
+.view-selected-occurrence { font-size: 11.5px; color: #d5dee5; white-space: nowrap; }
+.view-selected-clear { color: #fff; font-size: 15px; text-decoration: none; padding: 0 4px; letter-spacing: 0; }
+.view-selected-clear:hover { color: #fff; opacity: 0.75; }

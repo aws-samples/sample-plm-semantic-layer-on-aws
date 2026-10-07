@@ -1,0 +1,54 @@
+{
+  "_comment": "The tables and columns of each site's GET /{plm}/catalogue that the preview tests name, as the services report them.",
+  "de": { "plm": "DE", "entities": [
+    { "entity": "Bauteil", "table": "bauteil", "ontologyClass": "atelier:Part", "columns": [
+      { "field": "teilNr", "column": "teil_nr", "javaType": "String", "ontologyTerm": "atelier:identifier" },
+      { "field": "revision", "column": "revision", "javaType": "String", "ontologyTerm": "atelier:revision", "pattern": "\\d{2}" },
+      { "field": "status", "column": "status", "javaType": "String", "ontologyTerm": "atelier:lifecycleLabel",
+        "accepts": ["In Arbeit", "Freigegeben", "Gesperrt", "Ersetzt"] },
+      { "field": "masseKg", "column": "masse_kg", "javaType": "BigDecimal", "unit": "KiloGM", "ontologyTerm": "atelier:mass" } ] },
+    { "entity": "Stecker", "table": "stecker", "ontologyClass": "atelier:Plug", "columns": [
+      { "field": "steckerId", "column": "stecker_id", "javaType": "String", "ontologyTerm": "atelier:identifier" },
+      { "field": "teilNr", "column": "teil_nr", "javaType": "String", "ontologyTerm": "atelier:onPart" },
+      { "field": "posXMm", "column": "pos_x_mm", "javaType": "BigDecimal", "unit": "MilliM", "ontologyTerm": "atelier:positionX" },
+      { "field": "typ", "column": "typ", "javaType": "String", "ontologyTerm": "atelier:connectorType" },
+      { "field": "polzahl", "column": "polzahl", "javaType": "Integer", "ontologyTerm": "atelier:pinCount" } ] },
+    { "entity": "Befestiger", "table": "befestiger", "ontologyClass": "atelier:Fastener", "columns": [
+      { "field": "befestigerId", "column": "befestiger_id", "javaType": "String", "ontologyTerm": "atelier:identifier" },
+      { "field": "posXMm", "column": "pos_x_mm", "javaType": "BigDecimal", "unit": "MilliM", "ontologyTerm": "atelier:positionX" },
+      { "field": "durchmesserMm", "column": "durchmesser_mm", "javaType": "BigDecimal", "unit": "MilliM", "ontologyTerm": "atelier:diameter" } ] },
+    { "entity": "ExternerVerweis", "table": "externer_verweis", "ontologyClass": "atelier:ExternalReference", "columns": [
+      { "field": "id", "column": "id", "javaType": "String" },
+      { "field": "urn", "column": "urn", "javaType": "String", "ontologyTerm": "atelier:remoteUrn", "pattern": "urn:plm:(de|fr|es|uk):part:.+" },
+      { "field": "erwarteteRevision", "column": "erwartete_revision", "javaType": "String", "ontologyTerm": "atelier:expectedRevision",
+        "pattern": "\\d{1,2}|[A-Z]|[PC]\\d+" } ] },
+    { "entity": "Lieferantenteil", "table": "lieferantenteil", "ontologyClass": "atelier:SupplierOffer", "columns": [
+      { "field": "id", "column": "id", "javaType": "Integer" },
+      { "field": "lieferzeitTage", "column": "lieferzeit_tage", "javaType": "Integer", "ontologyTerm": "atelier:leadTimeDays" },
+      { "field": "bevorzugt", "column": "bevorzugt", "javaType": "Boolean", "ontologyTerm": "atelier:preferred" } ] } ] },
+  "uk": { "plm": "UK", "entities": [
+    { "entity": "HarnessConnector", "table": "harness_connector", "ontologyClass": "atelier:Plug", "columns": [
+      { "field": "connRef", "column": "conn_ref", "javaType": "String", "ontologyTerm": "atelier:identifier" },
+      { "field": "posX", "column": "pos_x", "javaType": "BigDecimal", "unitColumn": "pos_uom", "ontologyTerm": "atelier:positionX" },
+      { "field": "posUom", "column": "pos_uom", "javaType": "String", "accepts": ["IN"] } ] },
+    { "entity": "Component", "table": "component", "ontologyClass": "atelier:Part", "columns": [
+      { "field": "revision", "column": "revision", "javaType": "String", "ontologyTerm": "atelier:revision", "pattern": "[PC]\\d+" },
+      { "field": "lifecycle", "column": "lifecycle", "javaType": "String", "ontologyTerm": "atelier:lifecycleLabel",
+        "accepts": ["Draft", "Released", "Frozen", "Superseded"] } ] } ] },
+  "fr": { "plm": "FR", "entities": [
+    { "entity": "Piece", "table": "piece", "ontologyClass": "atelier:Part", "columns": [
+      { "field": "indice", "column": "indice", "javaType": "String", "ontologyTerm": "atelier:revision", "pattern": "[A-Z]" },
+      { "field": "etat", "column": "etat", "javaType": "String", "ontologyTerm": "atelier:lifecycleLabel",
+        "accepts": ["En cours", "Publié", "Bloqué", "Remplacé"] } ] },
+    { "entity": "Connecteur", "table": "connecteur", "ontologyClass": "atelier:Plug", "columns": [
+      { "field": "nbBroches", "column": "nb_broches", "javaType": "Integer", "ontologyTerm": "atelier:pinCount" } ] },
+    { "entity": "ReferenceExterne", "table": "reference_externe", "ontologyClass": "atelier:ExternalReference", "columns": [
+      { "field": "urn", "column": "urn", "javaType": "String", "ontologyTerm": "atelier:remoteUrn", "pattern": "urn:plm:(de|fr|es|uk):part:.+" },
+      { "field": "indiceAttendu", "column": "indice_attendu", "javaType": "String", "ontologyTerm": "atelier:expectedRevision",
+        "pattern": "\\d{1,2}|[A-Z]|[PC]\\d+" } ] } ] },
+  "es": { "plm": "ES", "entities": [
+    { "entity": "Pieza", "table": "pieza", "ontologyClass": "atelier:Part", "columns": [
+      { "field": "revision", "column": "revision", "javaType": "Integer", "ontologyTerm": "atelier:revision" },
+      { "field": "estado", "column": "estado", "javaType": "String", "ontologyTerm": "atelier:lifecycleLabel",
+        "accepts": ["Borrador", "Liberado", "Bloqueado", "Sustituido"] } ] } ] }
+}

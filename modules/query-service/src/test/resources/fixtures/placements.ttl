@@ -1,0 +1,123 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Line placements of the drivetrain (bom.ttl) for the placements tests, in the shape the placements CONSTRUCT produces:
+# each occurrence with its line, index, translations (quantity values in the site's unit) and rotations in degrees.
+#   DE  de-gearbox > de-stage: 2, the second 100 mm up and turned 90 degrees about z; de-stage > de-gear: 3, 10 mm apart
+#       along x; de-stage > de-bolt-kit (4) and de-kit > de-gearbox carry none
+#   FR  fr-kit > fr-panel: 2; fr-cover-set (FR only) > fr-panel: 4 and > fr-hinge (FR only): 2
+#   UK  uk-kit > uk-motor: 2, the second 10 in along x and turned 180 degrees about z
+#   ES  es-frame > es-bracket: 2, the second turned 90 degrees about x
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+
+<https://example.com/atelier/de/occurrence/de-gearbox/de-stage/1> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/de/bomline/de-gearbox/de-stage> ; atelier:index 1 ;
+  atelier:translationX <https://example.com/atelier/de/occurrence/de-gearbox/de-stage/1/translation/x> ; atelier:translationY <https://example.com/atelier/de/occurrence/de-gearbox/de-stage/1/translation/y> ; atelier:translationZ <https://example.com/atelier/de/occurrence/de-gearbox/de-stage/1/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/de/occurrence/de-gearbox/de-stage/1/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-gearbox/de-stage/1/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-gearbox/de-stage/1/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-gearbox/de-stage/2> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/de/bomline/de-gearbox/de-stage> ; atelier:index 2 ;
+  atelier:translationX <https://example.com/atelier/de/occurrence/de-gearbox/de-stage/2/translation/x> ; atelier:translationY <https://example.com/atelier/de/occurrence/de-gearbox/de-stage/2/translation/y> ; atelier:translationZ <https://example.com/atelier/de/occurrence/de-gearbox/de-stage/2/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 90.0 .
+<https://example.com/atelier/de/occurrence/de-gearbox/de-stage/2/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-gearbox/de-stage/2/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-gearbox/de-stage/2/translation/z> a qudt:QuantityValue ; qudt:numericValue 100.0 ; qudt:unit unit:MilliM .
+
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/1> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/de/bomline/de-stage/de-gear> ; atelier:index 1 ;
+  atelier:translationX <https://example.com/atelier/de/occurrence/de-stage/de-gear/1/translation/x> ; atelier:translationY <https://example.com/atelier/de/occurrence/de-stage/de-gear/1/translation/y> ; atelier:translationZ <https://example.com/atelier/de/occurrence/de-stage/de-gear/1/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/1/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/1/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/1/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/2> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/de/bomline/de-stage/de-gear> ; atelier:index 2 ;
+  atelier:translationX <https://example.com/atelier/de/occurrence/de-stage/de-gear/2/translation/x> ; atelier:translationY <https://example.com/atelier/de/occurrence/de-stage/de-gear/2/translation/y> ; atelier:translationZ <https://example.com/atelier/de/occurrence/de-stage/de-gear/2/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/2/translation/x> a qudt:QuantityValue ; qudt:numericValue 10.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/2/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/2/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/3> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/de/bomline/de-stage/de-gear> ; atelier:index 3 ;
+  atelier:translationX <https://example.com/atelier/de/occurrence/de-stage/de-gear/3/translation/x> ; atelier:translationY <https://example.com/atelier/de/occurrence/de-stage/de-gear/3/translation/y> ; atelier:translationZ <https://example.com/atelier/de/occurrence/de-stage/de-gear/3/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/3/translation/x> a qudt:QuantityValue ; qudt:numericValue 20.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/3/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/3/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/1> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/fr/bomline/fr-kit/fr-panel> ; atelier:index 1 ;
+  atelier:translationX <https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/1/translation/x> ; atelier:translationY <https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/1/translation/y> ; atelier:translationZ <https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/1/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/1/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/1/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/1/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/2> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/fr/bomline/fr-kit/fr-panel> ; atelier:index 2 ;
+  atelier:translationX <https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/2/translation/x> ; atelier:translationY <https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/2/translation/y> ; atelier:translationZ <https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/2/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/2/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/2/translation/y> a qudt:QuantityValue ; qudt:numericValue 500.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/2/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/1> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/fr/bomline/fr-cover-set/fr-panel> ; atelier:index 1 ;
+  atelier:translationX <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/1/translation/x> ; atelier:translationY <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/1/translation/y> ; atelier:translationZ <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/1/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/1/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/1/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/1/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/2> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/fr/bomline/fr-cover-set/fr-panel> ; atelier:index 2 ;
+  atelier:translationX <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/2/translation/x> ; atelier:translationY <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/2/translation/y> ; atelier:translationZ <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/2/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/2/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/2/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/2/translation/z> a qudt:QuantityValue ; qudt:numericValue 50.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/3> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/fr/bomline/fr-cover-set/fr-panel> ; atelier:index 3 ;
+  atelier:translationX <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/3/translation/x> ; atelier:translationY <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/3/translation/y> ; atelier:translationZ <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/3/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/3/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/3/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/3/translation/z> a qudt:QuantityValue ; qudt:numericValue 100.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/4> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/fr/bomline/fr-cover-set/fr-panel> ; atelier:index 4 ;
+  atelier:translationX <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/4/translation/x> ; atelier:translationY <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/4/translation/y> ; atelier:translationZ <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/4/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/4/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/4/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/4/translation/z> a qudt:QuantityValue ; qudt:numericValue 150.0 ; qudt:unit unit:MilliM .
+
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/1> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/fr/bomline/fr-cover-set/fr-hinge> ; atelier:index 1 ;
+  atelier:translationX <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/1/translation/x> ; atelier:translationY <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/1/translation/y> ; atelier:translationZ <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/1/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/1/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/1/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/1/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/2> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/fr/bomline/fr-cover-set/fr-hinge> ; atelier:index 2 ;
+  atelier:translationX <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/2/translation/x> ; atelier:translationY <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/2/translation/y> ; atelier:translationZ <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/2/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/2/translation/x> a qudt:QuantityValue ; qudt:numericValue 5.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/2/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/2/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/1> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/uk/bomline/uk-kit/uk-motor> ; atelier:index 1 ;
+  atelier:translationX <https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/1/translation/x> ; atelier:translationY <https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/1/translation/y> ; atelier:translationZ <https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/1/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/1/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/1/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/1/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/2> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/uk/bomline/uk-kit/uk-motor> ; atelier:index 2 ;
+  atelier:translationX <https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/2/translation/x> ; atelier:translationY <https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/2/translation/y> ; atelier:translationZ <https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/2/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 180.0 .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/2/translation/x> a qudt:QuantityValue ; qudt:numericValue 10.0 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/2/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/2/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:IN .
+
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/1> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/es/bomline/es-frame/es-bracket> ; atelier:index 1 ;
+  atelier:translationX <https://example.com/atelier/es/occurrence/es-frame/es-bracket/1/translation/x> ; atelier:translationY <https://example.com/atelier/es/occurrence/es-frame/es-bracket/1/translation/y> ; atelier:translationZ <https://example.com/atelier/es/occurrence/es-frame/es-bracket/1/translation/z> ;
+  atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/1/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/1/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/1/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/2> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/es/bomline/es-frame/es-bracket> ; atelier:index 2 ;
+  atelier:translationX <https://example.com/atelier/es/occurrence/es-frame/es-bracket/2/translation/x> ; atelier:translationY <https://example.com/atelier/es/occurrence/es-frame/es-bracket/2/translation/y> ; atelier:translationZ <https://example.com/atelier/es/occurrence/es-frame/es-bracket/2/translation/z> ;
+  atelier:rotationX 90.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/2/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/2/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/2/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .

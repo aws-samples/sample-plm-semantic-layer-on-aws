@@ -1,0 +1,4 @@
+# Finding fingerprints gitleaks skips (commit:path:rule:line). The history of this repository holds a
+# unit test that signs a URL with an obviously fake access key pair; the current tree names it
+# EXAMPLEKEY0000000000 and "example-secret-key-not-a-real-credential". No credential was ever committed.
+5649e0bf806d8be6b06f26e0f24b34255f789001:modules/query-service/src/test/java/atelier/query/CadUrlsTest.java:aws-access-token:40

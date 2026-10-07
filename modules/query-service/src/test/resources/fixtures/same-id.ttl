@@ -1,0 +1,37 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Add-on to neighbourhood.ttl: the wings' IF-02, an interface with the id of the ornithopter's IF-02 in
+# another product. It joins the mid cross beam and the left wing root fitting, parts of both the wings
+# and the ornithopter, with the coinciding plugs FR J22 (mm) and UK HC 22 (inches): it passes where the
+# ornithopter's IF-02 fails on position.
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ifw:  <https://example.com/atelier/interface/wings/> .
+@prefix frp:  <https://example.com/atelier/fr/plug/> .
+@prefix frpt: <https://example.com/atelier/fr/part/> .
+@prefix ukpt: <https://example.com/atelier/uk/part/> .
+
+ifw:IF-02 a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/wings> ;
+  atelier:label "Mid cross beam / left wing root fitting (sensor loom)" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart frpt:fr-cross-beam-mid , ukpt:uk-left-root-fitting ;
+  atelier:declaresFeature frp:J22 , <https://example.com/atelier/uk/plug/HC%2022> .
+
+frp:J22 atelier:matesWith <https://example.com/atelier/uk/plug/HC%2022> .
+<https://example.com/atelier/uk/plug/HC%2022> atelier:matesWith frp:J22 .
+
+frp:J22 a atelier:Plug ; atelier:onPart frpt:fr-cross-beam-mid ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX frp:J22\/position\/x ; atelier:positionY frp:J22\/position\/y ; atelier:positionZ frp:J22\/position\/z .
+frp:J22\/position\/x a qudt:QuantityValue ; qudt:numericValue 15450.000 ; qudt:unit unit:MilliM .
+frp:J22\/position\/y a qudt:QuantityValue ; qudt:numericValue 1800.000 ; qudt:unit unit:MilliM .
+frp:J22\/position\/z a qudt:QuantityValue ; qudt:numericValue -1200.000 ; qudt:unit unit:MilliM .
+
+<https://example.com/atelier/uk/plug/HC%2022> a atelier:Plug ; atelier:onPart ukpt:uk-left-root-fitting ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX <https://example.com/atelier/uk/plug/HC%2022/position/x> ;
+  atelier:positionY <https://example.com/atelier/uk/plug/HC%2022/position/y> ;
+  atelier:positionZ <https://example.com/atelier/uk/plug/HC%2022/position/z> .
+<https://example.com/atelier/uk/plug/HC%2022/position/x> a qudt:QuantityValue ; qudt:numericValue 608.2677 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/plug/HC%2022/position/y> a qudt:QuantityValue ; qudt:numericValue 70.8661 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/plug/HC%2022/position/z> a qudt:QuantityValue ; qudt:numericValue -47.2441 ; qudt:unit unit:IN .

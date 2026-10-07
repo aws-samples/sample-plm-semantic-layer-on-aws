@@ -1,0 +1,77 @@
+{
+  "interfaces": [
+    {
+      "id": "IF-01",
+      "label": "Left wing root carrier / left wing root fitting (hinge pin, harness root connector)",
+      "parts": [
+        {
+          "plm": "FR",
+          "id": "FR-ORN-EMPL-L-001"
+        },
+        {
+          "plm": "UK",
+          "id": "ROOT-6180-L"
+        }
+      ],
+      "status": "pass",
+      "rulesFailing": []
+    },
+    {
+      "id": "IF-02",
+      "label": "Hydraulic power pack / left wing actuator (pressure and return couplings, position sensor)",
+      "parts": [
+        {
+          "plm": "FR",
+          "id": "FR-ORN-GHYD-001"
+        },
+        {
+          "plm": "UK",
+          "id": "ACTR-6190-L"
+        }
+      ],
+      "status": "fail",
+      "rulesFailing": [
+        "hydraulic"
+      ]
+    }
+  ],
+  "provenance": {
+    "calls": [
+      {
+        "endpoint": "ontop-core",
+        "kind": "virtual",
+        "ms": 38
+      },
+      {
+        "endpoint": "ontop-fr",
+        "kind": "virtual",
+        "ms": 61
+      },
+      {
+        "endpoint": "ontop-uk",
+        "kind": "virtual",
+        "ms": 57
+      },
+      {
+        "endpoint": "neptune",
+        "kind": "graph",
+        "ms": 44
+      }
+    ]
+  },
+  "sparql": "PREFIX atelier: <https://atelier.example/ontology#>\nSELECT ?interface ?label ?status WHERE { ?interface a atelier:Interface ; rdfs:label ?label ; atelier:status ?status } LIMIT 200",
+  "timings": {
+    "totalMs": 212,
+    "federationMs": 200,
+    "validationMs": 12
+  },
+  "policy": {
+    "profile": "engineer",
+    "releasable": [
+      "FR",
+      "EU"
+    ],
+    "filter": "FILTER(?releasableTo IN (\"FR\", \"EU\"))",
+    "untagged": []
+  }
+}

@@ -1,0 +1,42 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Lifecycle words added to bom.ttl and references.ttl for the lifecycle tests, each site in its own vocabulary, with
+# the parts, references and lines they need, in the shape the parts, reference and line CONSTRUCTs produce.
+#   drivetrain  de-gearbox (Freigegeben) holds de-stage (In Arbeit): WORKING over a line
+#               uk-kit (Released) holds uk-motor (Frozen): BLOCKED over a line, in the British word
+#               fr-kit (Publié) holds fr-cover-set (En cours, releasable to FR only): hidden from de-engineer
+#               fr-panel (Publié) references UK/4102 (Draft): WORKING across sites
+#               de-housing (Freigegeben) references fr-cover-set (En cours, FR only): hidden from de-engineer
+#               de-gear (Freigegeben) references es-frame (Sustituido) and UK/4101 (Released): no conflict
+#   wings       fr-cross-beam-mid (Publié, on IF-05) holds fr-beam-insert (En cours): WORKING in a neighbourhood
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix frpt: <https://example.com/atelier/fr/part/> .
+@prefix dept: <https://example.com/atelier/de/part/> .
+@prefix ukpt: <https://example.com/atelier/uk/part/> .
+@prefix prod: <https://example.com/atelier/product/> .
+
+dept:de-gearbox atelier:lifecycleLabel "Freigegeben" .
+dept:de-stage atelier:lifecycleLabel "In Arbeit" .
+ukpt:uk-kit atelier:lifecycleLabel "Released" .
+ukpt:uk-motor atelier:lifecycleLabel "Frozen" .
+frpt:fr-kit atelier:lifecycleLabel "Publié" .
+frpt:fr-cover-set atelier:lifecycleLabel "En cours" .
+frpt:fr-panel atelier:lifecycleLabel "Publié" .
+frpt:fr-cross-beam-mid atelier:lifecycleLabel "Publié" .
+
+ukpt:UK-4102 a atelier:Part ; atelier:label "Pitch controller" ; atelier:partType "PART" ; atelier:revision "P1" ; atelier:lifecycleLabel "Draft" ;
+  atelier:cadFile "cad/drivetrain/UK-4102.stp" ; atelier:partOf prod:drivetrain ;
+  atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "UK" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+frpt:fr-beam-insert a atelier:Part ; atelier:label "Insert de longeron" ; atelier:partType "PART" ; atelier:lifecycleLabel "En cours" ;
+  atelier:cadFile "cad/ornithopter/fr-beam-insert.stp" ; atelier:partOf prod:ornithopter , prod:wings ;
+  atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "FR" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+
+<https://example.com/atelier/fr/ref/XR-0006> a atelier:ExternalReference ; atelier:fromPart frpt:fr-panel ;
+  atelier:remoteUrn "urn:plm:uk:part:UK/4102" ; atelier:quantity 1.0 ; atelier:expectedRevision "P1" ; rdfs:comment "panel on the controller" .
+<https://example.com/atelier/de/ref/XR-0003> a atelier:ExternalReference ; atelier:fromPart dept:de-housing ;
+  atelier:remoteUrn "urn:plm:fr:part:fr-cover-set" ; atelier:quantity 1.0 ; rdfs:comment "housing under the cover set" .
+<https://example.com/atelier/fr/bomline/fr-cross-beam-mid/fr-beam-insert> a atelier:BomLine ;
+  atelier:parent frpt:fr-cross-beam-mid ; atelier:child frpt:fr-beam-insert ; atelier:quantity 2.0 .

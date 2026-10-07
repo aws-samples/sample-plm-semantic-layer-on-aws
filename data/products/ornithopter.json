@@ -1,0 +1,7071 @@
+{
+ "product": {
+  "key": "ornithopter",
+  "name": "Ornithopter ground demonstrator (Paris Manuscript B, f. 74v)"
+ },
+ "frame": "x aft from the frame nose, y to the pilot's right, z up with z = 0 on the keel beam axis; mm, the frame of modules/cad/ornithopter.py. Span 11.0 m (wing tips at y +/-5500), frame x 0 to 3600 with the tail plane to 4900, skid underside at z -580, control post top at 1090.",
+ "parts": [
+  {
+   "id": "FR-ORN-KEEL-001",
+   "plm": "FR",
+   "name": "Poutre de quille",
+   "cadFile": "cad/ornithopter/fr-keel-beam.stp",
+   "cadPart": "fr-keel-beam",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Keel beam",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 5.054,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-ORN-LAT-L-001",
+   "plm": "FR",
+   "name": "Longeron latéral gauche",
+   "cadFile": "cad/ornithopter/fr-side-rail-left.stp",
+   "cadPart": "fr-side-rail-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Left side rail",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 2.808,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-ORN-LAT-R-001",
+   "plm": "FR",
+   "name": "Longeron latéral droit",
+   "cadFile": "cad/ornithopter/fr-side-rail-right.stp",
+   "cadPart": "fr-side-rail-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right side rail",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 2.808,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-ORN-TRAV-AV-001",
+   "plm": "FR",
+   "name": "Traverse avant (paliers de manivelle)",
+   "cadFile": "cad/ornithopter/fr-cross-beam-fwd.stp",
+   "cadPart": "fr-cross-beam-fwd",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Front cross member (crank bearings)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 1.092,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-ORN-TRAV-MIL-001",
+   "plm": "FR",
+   "name": "Traverse médiane (emplanture des ailes)",
+   "cadFile": "cad/ornithopter/fr-cross-beam-mid.stp",
+   "cadPart": "fr-cross-beam-mid",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Middle cross member (wing roots)",
+    "revision": "B",
+    "lifecycle": "Publié",
+    "mass": 1.092,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-ORN-TRAV-AR-001",
+   "plm": "FR",
+   "name": "Traverse arrière (poste des pédales)",
+   "cadFile": "cad/ornithopter/fr-cross-beam-aft.stp",
+   "cadPart": "fr-cross-beam-aft",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Rear cross member (pedal station)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 1.092,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-ORN-BERC-001",
+   "plm": "FR",
+   "name": "Berceau du pilote",
+   "cadFile": "cad/ornithopter/fr-pilot-cradle.stp",
+   "cadPart": "fr-pilot-cradle",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Pilot cradle",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 8.123,
+    "massUnit": "kg",
+    "material": "composite verre-époxy"
+   }
+  },
+  {
+   "id": "FR-ORN-CERC-001",
+   "plm": "FR",
+   "name": "Cercle de tête (commande de la queue)",
+   "cadFile": "cad/ornithopter/fr-head-hoop.stp",
+   "cadPart": "fr-head-hoop",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "cadPending": true,
+   "extended": {
+    "nameEn": "Head hoop (tail control)",
+    "revision": "A",
+    "lifecycle": "En cours",
+    "mass": 0.899,
+    "massUnit": "kg",
+    "material": "frêne cintré"
+   }
+  },
+  {
+   "id": "FR-ORN-PAT-L-001",
+   "plm": "FR",
+   "name": "Patin d'atterrissage gauche",
+   "cadFile": "cad/ornithopter/fr-skid-left.stp",
+   "cadPart": "fr-skid-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Left landing skid",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 7.441,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-ORN-PAT-R-001",
+   "plm": "FR",
+   "name": "Patin d'atterrissage droit",
+   "cadFile": "cad/ornithopter/fr-skid-right.stp",
+   "cadPart": "fr-skid-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right landing skid",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 7.441,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-ORN-PCMD-001",
+   "plm": "FR",
+   "name": "Poteau de commande",
+   "cadFile": "cad/ornithopter/fr-control-post.stp",
+   "cadPart": "fr-control-post",
+   "classification": {
+    "jurisdiction": "NATIONAL-FR",
+    "releasableTo": "FR"
+   },
+   "extended": {
+    "nameEn": "Control post",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 3.245,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-ORN-NACI-001",
+   "plm": "FR",
+   "name": "Nacelle d'instrumentation (acquisition de données)",
+   "cadFile": "cad/ornithopter/fr-instrumentation-pod.stp",
+   "cadPart": "fr-instrumentation-pod",
+   "classification": {
+    "jurisdiction": "NATIONAL-FR",
+    "releasableTo": "FR"
+   },
+   "extended": {
+    "nameEn": "Instrumentation pod (data acquisition)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 3.741,
+    "massUnit": "kg",
+    "material": "composite verre-époxy"
+   }
+  },
+  {
+   "id": "FR-ORN-GHYD-001",
+   "plm": "FR",
+   "name": "Groupe hydraulique (démonstrateur au sol)",
+   "cadFile": "cad/ornithopter/fr-hydraulic-power-pack.stp",
+   "cadPart": "fr-hydraulic-power-pack",
+   "classification": {
+    "jurisdiction": "EU-DUAL-USE",
+    "releasableTo": "EU"
+   },
+   "extended": {
+    "nameEn": "Hydraulic power unit (ground demonstrator)",
+    "revision": "B",
+    "lifecycle": "Publié",
+    "mass": 38.43,
+    "massUnit": "kg",
+    "material": "acier, aluminium"
+   }
+  },
+  {
+   "id": "FR-ORN-EMPL-L-001",
+   "plm": "FR",
+   "name": "Ferrure d'emplanture gauche et axe",
+   "cadFile": "cad/ornithopter/fr-wing-root-carrier-left.stp",
+   "cadPart": "fr-wing-root-carrier-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Left wing root fitting and pin",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 4.592,
+    "massUnit": "kg",
+    "material": "acier"
+   }
+  },
+  {
+   "id": "FR-ORN-EMPL-R-001",
+   "plm": "FR",
+   "name": "Ferrure d'emplanture droite et axe",
+   "cadFile": "cad/ornithopter/fr-wing-root-carrier-right.stp",
+   "cadPart": "fr-wing-root-carrier-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right wing root fitting and pin",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 4.592,
+    "massUnit": "kg",
+    "material": "acier"
+   }
+  },
+  {
+   "id": "SPAR-6110-L",
+   "plm": "UK",
+   "name": "Left inner wing spar",
+   "cadFile": "cad/ornithopter/uk-left-inner-spar.stp",
+   "cadPart": "uk-left-inner-spar",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 8.503,
+    "massUnit": "lb",
+    "material": "spruce"
+   }
+  },
+  {
+   "id": "SPAR-6120-L",
+   "plm": "UK",
+   "name": "Left outer wing spar (finger)",
+   "cadFile": "cad/ornithopter/uk-left-outer-spar.stp",
+   "cadPart": "uk-left-outer-spar",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 4.237,
+    "massUnit": "lb",
+    "material": "spruce"
+   }
+  },
+  {
+   "id": "KNKL-6130-L",
+   "plm": "UK",
+   "name": "Left knuckle hinge",
+   "cadFile": "cad/ornithopter/uk-left-knuckle-hinge.stp",
+   "cadPart": "uk-left-knuckle-hinge",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "supplier": "Forja del Tajo, Toledo",
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 7.714,
+    "massUnit": "lb",
+    "material": "aluminium alloy 6061"
+   }
+  },
+  {
+   "id": "RIBS-6140-L",
+   "plm": "UK",
+   "name": "Left inner ribs (3 canes)",
+   "cadFile": "cad/ornithopter/uk-left-ribs-inner.stp",
+   "cadPart": "uk-left-ribs-inner",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 4.663,
+    "massUnit": "lb",
+    "material": "bamboo cane"
+   }
+  },
+  {
+   "id": "RIBS-6150-L",
+   "plm": "UK",
+   "name": "Left outer ribs (3 canes)",
+   "cadFile": "cad/ornithopter/uk-left-ribs-outer.stp",
+   "cadPart": "uk-left-ribs-outer",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 2.351,
+    "massUnit": "lb",
+    "material": "bamboo cane"
+   }
+  },
+  {
+   "id": "LINN-6160-L",
+   "plm": "UK",
+   "name": "Left inner linen panel",
+   "cadFile": "cad/ornithopter/uk-left-linen-inner.stp",
+   "cadPart": "uk-left-linen-inner",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 5.071,
+    "massUnit": "lb",
+    "material": "linen"
+   }
+  },
+  {
+   "id": "LINN-6170-L",
+   "plm": "UK",
+   "name": "Left outer linen panel",
+   "cadFile": "cad/ornithopter/uk-left-linen-outer.stp",
+   "cadPart": "uk-left-linen-outer",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 3.208,
+    "massUnit": "lb",
+    "material": "linen"
+   }
+  },
+  {
+   "id": "ROOT-6180-L",
+   "plm": "UK",
+   "name": "Left wing root fitting",
+   "cadFile": "cad/ornithopter/uk-left-root-fitting.stp",
+   "cadPart": "uk-left-root-fitting",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "supplier": "Forja del Tajo, Toledo",
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 8.972,
+    "massUnit": "lb",
+    "material": "steel"
+   }
+  },
+  {
+   "id": "ACTR-6190-L",
+   "plm": "UK",
+   "name": "Left wing hydraulic actuator",
+   "cadFile": "cad/ornithopter/uk-left-wing-actuator.stp",
+   "cadPart": "uk-left-wing-actuator",
+   "classification": {
+    "jurisdiction": "EU-DUAL-USE",
+    "releasableTo": "EU"
+   },
+   "supplier": "Sheaf Hydraulik Works, Sheffield",
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 31.11,
+    "massUnit": "lb",
+    "material": "steel, chromed piston rod"
+   }
+  },
+  {
+   "id": "HARN-6200-L",
+   "plm": "UK",
+   "name": "Left wing sensor harness",
+   "cadFile": "cad/ornithopter/uk-left-sensor-harness.stp",
+   "cadPart": "uk-left-sensor-harness",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "P2",
+    "lifecycle": "Draft",
+    "mass": 3.131,
+    "massUnit": "lb",
+    "material": "copper wire, PVC sheath"
+   }
+  },
+  {
+   "id": "HOLM-R-61010",
+   "plm": "DE",
+   "name": "Rechter innerer Flügelholm",
+   "cadFile": "cad/ornithopter/de-right-inner-spar.stp",
+   "cadPart": "de-right-inner-spar",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right inner wing spar",
+    "revision": "02",
+    "lifecycle": "Freigegeben",
+    "mass": 3.857,
+    "massUnit": "kg",
+    "material": "Fichte"
+   }
+  },
+  {
+   "id": "HOLM-R-61020",
+   "plm": "DE",
+   "name": "Rechter äußerer Flügelholm (Finger)",
+   "cadFile": "cad/ornithopter/de-right-outer-spar.stp",
+   "cadPart": "de-right-outer-spar",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right outer wing spar (finger)",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 1.922,
+    "massUnit": "kg",
+    "material": "Fichte"
+   }
+  },
+  {
+   "id": "GELK-R-61030",
+   "plm": "DE",
+   "name": "Rechtes Knickgelenk",
+   "cadFile": "cad/ornithopter/de-right-knuckle-hinge.stp",
+   "cadPart": "de-right-knuckle-hinge",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "supplier": "Forja del Tajo, Toledo",
+   "extended": {
+    "nameEn": "Right knuckle hinge",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 3.499,
+    "massUnit": "kg",
+    "material": "Aluminium EN AW-6082"
+   }
+  },
+  {
+   "id": "RIPP-R-61040",
+   "plm": "DE",
+   "name": "Rechte innere Rippen (3 Rohrstäbe)",
+   "cadFile": "cad/ornithopter/de-right-ribs-inner.stp",
+   "cadPart": "de-right-ribs-inner",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right inner ribs (3 canes)",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 2.115,
+    "massUnit": "kg",
+    "material": "Bambusrohr"
+   }
+  },
+  {
+   "id": "RIPP-R-61050",
+   "plm": "DE",
+   "name": "Rechte äußere Rippen (3 Rohrstäbe)",
+   "cadFile": "cad/ornithopter/de-right-ribs-outer.stp",
+   "cadPart": "de-right-ribs-outer",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right outer ribs (3 canes)",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 1.067,
+    "massUnit": "kg",
+    "material": "Bambusrohr"
+   }
+  },
+  {
+   "id": "LEIN-R-61060",
+   "plm": "DE",
+   "name": "Rechte innere Leinenbespannung",
+   "cadFile": "cad/ornithopter/de-right-linen-inner.stp",
+   "cadPart": "de-right-linen-inner",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right inner linen panel",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 2.3,
+    "massUnit": "kg",
+    "material": "Leinen"
+   }
+  },
+  {
+   "id": "LEIN-R-61070",
+   "plm": "DE",
+   "name": "Rechte äußere Leinenbespannung",
+   "cadFile": "cad/ornithopter/de-right-linen-outer.stp",
+   "cadPart": "de-right-linen-outer",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right outer linen panel",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 1.455,
+    "massUnit": "kg",
+    "material": "Leinen"
+   }
+  },
+  {
+   "id": "WURZ-R-61080",
+   "plm": "DE",
+   "name": "Rechter Flügelwurzelbeschlag",
+   "cadFile": "cad/ornithopter/de-right-root-fitting.stp",
+   "cadPart": "de-right-root-fitting",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "supplier": "Forja del Tajo, Toledo",
+   "extended": {
+    "nameEn": "Right wing root fitting",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 4.069,
+    "massUnit": "kg",
+    "material": "Stahl S235"
+   }
+  },
+  {
+   "id": "AKTR-R-61090",
+   "plm": "DE",
+   "name": "Rechter Flügel-Hydraulikzylinder",
+   "cadFile": "cad/ornithopter/de-right-wing-actuator.stp",
+   "cadPart": "de-right-wing-actuator",
+   "classification": {
+    "jurisdiction": "EU-DUAL-USE",
+    "releasableTo": "EU"
+   },
+   "supplier": "Sheaf Hydraulik Works, Sheffield",
+   "extended": {
+    "nameEn": "Right wing hydraulic actuator",
+    "revision": "02",
+    "lifecycle": "Freigegeben",
+    "mass": 14.11,
+    "massUnit": "kg",
+    "material": "Stahl, verchromte Kolbenstange"
+   }
+  },
+  {
+   "id": "KABL-R-61100",
+   "plm": "DE",
+   "name": "Rechter Flügel-Sensorkabelbaum",
+   "cadFile": "cad/ornithopter/de-right-sensor-harness.stp",
+   "cadPart": "de-right-sensor-harness",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right wing sensor harness",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 1.42,
+    "massUnit": "kg",
+    "material": "Kupferlitze, PVC-Mantel"
+   }
+  },
+  {
+   "id": "MANV-6011",
+   "plm": "ES",
+   "name": "Eje de manivela",
+   "cadFile": "cad/ornithopter/es-crank-shaft.stp",
+   "cadPart": "es-crank-shaft",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Crank shaft",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 4.454,
+    "massUnit": "kg",
+    "material": "acero forjado",
+    "interpretationNote": "Authored: a sub-part of the crank assembly MANV-6010, whose mass divides by volume."
+   }
+  },
+  {
+   "id": "MANV-L-6012",
+   "plm": "ES",
+   "name": "Brazo y empuñadura izquierdos",
+   "cadFile": "cad/ornithopter/es-crank-arm-left.stp",
+   "cadPart": "es-crank-arm-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Left crank arm and handle",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 1.023,
+    "massUnit": "kg",
+    "material": "acero forjado",
+    "interpretationNote": "Authored: a sub-part of the crank assembly MANV-6010, whose mass divides by volume."
+   }
+  },
+  {
+   "id": "MANV-R-6013",
+   "plm": "ES",
+   "name": "Brazo y empuñadura derechos",
+   "cadFile": "cad/ornithopter/es-crank-arm-right.stp",
+   "cadPart": "es-crank-arm-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right crank arm and handle",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 1.023,
+    "massUnit": "kg",
+    "material": "acero forjado",
+    "interpretationNote": "Authored: a sub-part of the crank assembly MANV-6010, whose mass divides by volume."
+   }
+  },
+  {
+   "id": "MANV-L-6014",
+   "plm": "ES",
+   "name": "Soporte de cojinete izquierdo",
+   "cadFile": "cad/ornithopter/es-crank-post-left.stp",
+   "cadPart": "es-crank-post-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Left crank bearing post",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 7.089,
+    "massUnit": "kg",
+    "material": "acero forjado",
+    "interpretationNote": "Authored: a sub-part of the crank assembly MANV-6010, whose mass divides by volume."
+   }
+  },
+  {
+   "id": "MANV-R-6015",
+   "plm": "ES",
+   "name": "Soporte de cojinete derecho",
+   "cadFile": "cad/ornithopter/es-crank-post-right.stp",
+   "cadPart": "es-crank-post-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right crank bearing post",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 7.089,
+    "massUnit": "kg",
+    "material": "acero forjado",
+    "interpretationNote": "Authored: a sub-part of the crank assembly MANV-6010, whose mass divides by volume."
+   }
+  },
+  {
+   "id": "TAMB-6020",
+   "plm": "ES",
+   "name": "Tambor del molinete",
+   "cadFile": "cad/ornithopter/es-windlass-drum.stp",
+   "cadPart": "es-windlass-drum",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Windlass drum",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 11.926,
+    "massUnit": "kg",
+    "material": "roble",
+    "interpretationNote": "Authored: the drum on its own axle 240 mm aft of the crank, the centre distance of the gear stage, with two journal posts tied to the crank shaft's bearing posts."
+   }
+  },
+  {
+   "id": "PEDL-6030",
+   "plm": "ES",
+   "name": "Estribos y eje pivote",
+   "cadFile": "cad/ornithopter/es-pedal-set.stp",
+   "cadPart": "es-pedal-set",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Stirrups and pivot shaft",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 8.541,
+    "massUnit": "kg",
+    "material": "acero forjado"
+   }
+  },
+  {
+   "id": "CPED-6040",
+   "plm": "ES",
+   "name": "Cuerdas de pedal al tambor",
+   "cadFile": "cad/ornithopter/es-pedal-cables.stp",
+   "cadPart": "es-pedal-cables",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Pedal cords to the drum",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 0.817,
+    "massUnit": "kg",
+    "material": "seda cruda",
+    "partType": "PURCHASED",
+    "purchased": {
+     "class": "cord",
+     "attributes": {
+      "diameter": "10"
+     },
+     "shelfLifeMonths": 36
+    }
+   }
+  },
+  {
+   "id": "POLE-L-6050",
+   "plm": "ES",
+   "name": "Polea izquierda",
+   "cadFile": "cad/ornithopter/es-pulley-block-left.stp",
+   "cadPart": "es-pulley-block-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Left pulley",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 3.363,
+    "massUnit": "kg",
+    "material": "fundición de bronce"
+   }
+  },
+  {
+   "id": "POLE-R-6060",
+   "plm": "ES",
+   "name": "Polea derecha",
+   "cadFile": "cad/ornithopter/es-pulley-block-right.stp",
+   "cadPart": "es-pulley-block-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right pulley",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 3.363,
+    "massUnit": "kg",
+    "material": "fundición de bronce"
+   }
+  },
+  {
+   "id": "CABL-L-6070",
+   "plm": "ES",
+   "name": "Cuerda de accionamiento del ala izquierda",
+   "cadFile": "cad/ornithopter/es-wing-drive-cable-left.stp",
+   "cadPart": "es-wing-drive-cable-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Left wing drive cord",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 1.111,
+    "massUnit": "kg",
+    "material": "cuerda de cáñamo"
+   }
+  },
+  {
+   "id": "CABL-R-6080",
+   "plm": "ES",
+   "name": "Cuerda de accionamiento del ala derecha",
+   "cadFile": "cad/ornithopter/es-wing-drive-cable-right.stp",
+   "cadPart": "es-wing-drive-cable-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right wing drive cord",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 1.111,
+    "massUnit": "kg",
+    "material": "cuerda de cáñamo"
+   }
+  },
+  {
+   "id": "BOTA-6090",
+   "plm": "ES",
+   "name": "Botalón de cola",
+   "cadFile": "cad/ornithopter/es-tail-boom.stp",
+   "cadPart": "es-tail-boom",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Tail boom",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 2.387,
+    "massUnit": "kg",
+    "material": "pino"
+   }
+  },
+  {
+   "id": "PCOL-6100",
+   "plm": "ES",
+   "name": "Plano de cola (lino sobre larguero transversal)",
+   "cadFile": "cad/ornithopter/es-tail-plane.stp",
+   "cadPart": "es-tail-plane",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Tail plane (linen over a cross spar)",
+    "revision": 2,
+    "lifecycle": "Liberado",
+    "mass": 1.418,
+    "massUnit": "kg",
+    "material": "lino sobre larguero de pino"
+   }
+  },
+  {
+   "id": "CCOL-6110",
+   "plm": "ES",
+   "name": "Cuerda de mando de cola desde el cerco de cabeza",
+   "cadFile": "cad/ornithopter/es-tail-control-cable.stp",
+   "cadPart": "es-tail-control-cable",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Tail control cord from the head hoop",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 0.305,
+    "massUnit": "kg",
+    "material": "cuerda de cáñamo"
+   }
+  },
+  {
+   "id": "SERV-6120",
+   "plm": "ES",
+   "name": "Servo de compensación de cola",
+   "cadFile": "cad/ornithopter/es-tail-servo.stp",
+   "cadPart": "es-tail-servo",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Tail trim servo",
+    "revision": 1,
+    "lifecycle": "Borrador",
+    "mass": 1.555,
+    "massUnit": "kg",
+    "material": "fundición de aluminio"
+   }
+  },
+  {
+   "id": "LINT-6015",
+   "plm": "ES",
+   "name": "Linterna del manubrio (8 husillos)",
+   "cadFile": "cad/ornithopter/es-lantern-pinion.stp",
+   "cadPart": "es-lantern-pinion",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Crank lantern pinion (8 staves)",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 0.548,
+    "massUnit": "kg",
+    "material": "roble, husillos de acero",
+    "gear": {
+     "teeth": 8,
+     "module": "12"
+    },
+    "interpretationNote": "Authored: lantern pinion of 8 staves, module 12 mm, pitch radius 48 mm; Ms B 77r for wheels and pinions."
+   }
+  },
+  {
+   "id": "FR-ORN-ROUE-001",
+   "plm": "FR",
+   "name": "Rouet du treuil (32 chevilles)",
+   "cadFile": "cad/ornithopter/fr-peg-wheel.stp",
+   "cadPart": "fr-peg-wheel",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Windlass peg wheel (32 pegs)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 2.458,
+    "massUnit": "kg",
+    "material": "chêne, chevilles de frêne",
+    "gear": {
+     "teeth": 32,
+     "module": "12.700"
+    },
+    "interpretationNote": "Authored: peg wheel of 32 pegs drawn at module 12 mm (pitch radius 192 mm); the record states 12.7 mm."
+   }
+  },
+  {
+   "id": "CRET-L-6075",
+   "plm": "ES",
+   "name": "Cuerda de retorno izquierda",
+   "cadFile": "cad/ornithopter/es-return-cord-left.stp",
+   "cadPart": "es-return-cord-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Left return cord",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 0.223,
+    "massUnit": "kg",
+    "material": "cuerda de cáñamo",
+    "interpretationNote": "Paris Manuscript B, f. 74v: the wings raised by pulling the feet back. Authored: the cord's path, diameter and eyes."
+   }
+  },
+  {
+   "id": "CRET-R-6085",
+   "plm": "ES",
+   "name": "Cuerda de retorno derecha",
+   "cadFile": "cad/ornithopter/es-return-cord-right.stp",
+   "cadPart": "es-return-cord-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right return cord",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 0.223,
+    "massUnit": "kg",
+    "material": "cuerda de cáñamo",
+    "interpretationNote": "Paris Manuscript B, f. 74v: the wings raised by pulling the feet back. Authored: the cord's path, diameter and eyes."
+   }
+  },
+  {
+   "id": "ACCS-6250-L",
+   "plm": "UK",
+   "name": "Left actuator access flap, WS 1500",
+   "cadFile": "cad/ornithopter/uk-left-access-ws1500.stp",
+   "cadPart": "uk-left-access-ws1500",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 0.325,
+    "massUnit": "lb",
+    "material": "linen on an ash frame, copper grease line",
+    "interpretationNote": "Authored, a rig item in no source: a laced linen access flap at WS 1500 with a remote grease fitting piped to the actuator rod end; flap, line, station and pressure authored."
+   }
+  },
+  {
+   "id": "ACCS-6260-L",
+   "plm": "UK",
+   "name": "Left cord shackle access flap, WS 3600",
+   "cadFile": "cad/ornithopter/uk-left-access-ws3600.stp",
+   "cadPart": "uk-left-access-ws3600",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 0.296,
+    "massUnit": "lb",
+    "material": "linen on an ash frame, copper grease line",
+    "interpretationNote": "Authored, a rig item in no source: a laced linen access flap at WS 3600 with a remote grease fitting piped to the drive cord shackle; flap, line, station and pressure authored."
+   }
+  },
+  {
+   "id": "KLAP-R-61120",
+   "plm": "DE",
+   "name": "Wartungsklappe Stellzylinder rechts, WS 1500",
+   "cadFile": "cad/ornithopter/de-right-access-ws1500.stp",
+   "cadPart": "de-right-access-ws1500",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right actuator access flap, WS 1500",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 0.147,
+    "massUnit": "kg",
+    "material": "Leinen auf Eschenrahmen, Kupferschmierleitung",
+    "interpretationNote": "Authored, a rig item in no source: a laced linen access flap at WS 1500 with a remote grease fitting piped to the actuator rod end; flap, line, station and pressure authored."
+   }
+  },
+  {
+   "id": "KLAP-R-61130",
+   "plm": "DE",
+   "name": "Wartungsklappe Seilschäkel rechts, WS 3600",
+   "cadFile": "cad/ornithopter/de-right-access-ws3600.stp",
+   "cadPart": "de-right-access-ws3600",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right cord shackle access flap, WS 3600",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 0.134,
+    "massUnit": "kg",
+    "material": "Leinen auf Eschenrahmen, Kupferschmierleitung",
+    "interpretationNote": "Authored, a rig item in no source: a laced linen access flap at WS 3600 with a remote grease fitting piped to the drive cord shackle; flap, line, station and pressure authored."
+   }
+  },
+  {
+   "id": "FR-ORN-SOUT-001",
+   "plm": "FR",
+   "name": "Soute à lest",
+   "cadFile": "cad/ornithopter/fr-stowage-bay.stp",
+   "cadPart": "fr-stowage-bay",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Ballast stowage bay",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 3.393,
+    "massUnit": "kg",
+    "material": "frêne",
+    "interpretationNote": "Authored, a rig item in no source: the stowage bay for the rig's movable ballast cans, aft of the pilot cradle. Walls 15 mm on the keel."
+   }
+  },
+  {
+   "id": "FR-ORN-PLAN-001",
+   "plm": "FR",
+   "name": "Plancher de soute",
+   "cadFile": "cad/ornithopter/fr-stowage-floor.stp",
+   "cadPart": "fr-stowage-floor",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Stowage bay floor panel",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 0.939,
+    "massUnit": "kg",
+    "material": "contreplaqué de peuplier",
+    "interpretationNote": "Authored, a rig item in no source: the stowage bay for the rig's movable ballast cans, aft of the pilot cradle. A 12 mm floor panel on the keel inside the walls."
+   }
+  },
+  {
+   "id": "FORR-6140",
+   "plm": "ES",
+   "name": "Forro de cuero de la bodega de lastre",
+   "cadFile": "cad/ornithopter/es-bay-liner.stp",
+   "cadPart": "es-bay-liner",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Ballast bay leather liner",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 1.258,
+    "massUnit": "kg",
+    "material": "cuero curtido",
+    "interpretationNote": "Authored, a rig item in no source: the stowage bay for the rig's movable ballast cans, aft of the pilot cradle. A 3 mm tanned leather liner; leather after the Codex on the Flight of Birds f. 7."
+   }
+  },
+  {
+   "id": "FR-ORN-BALL-001",
+   "plm": "FR",
+   "name": "Réservoir de lest à eau (centrage)",
+   "cadFile": "cad/ornithopter/fr-ballast-tank.stp",
+   "cadPart": "fr-ballast-tank",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Ballast water tank (centre of gravity trim)",
+    "revision": "B",
+    "lifecycle": "Publié",
+    "mass": 4.741,
+    "massUnit": "kg",
+    "material": "polyéthylène, pompe de transfert",
+    "interpretationNote": "Authored, a modern rig item in no source: a 49 l tank under the keel whose pump moves water to the trim bottle on the tail boom to trim the centre of gravity; mass dry, a 6 mm wall. Ms B 74v for the trial over a lake, the Codex on the Flight of Birds f. 5 for the pilot balancing as in a boat."
+   }
+  },
+  {
+   "id": "FR-ORN-PSRV-001",
+   "plm": "FR",
+   "name": "Panneau de servitudes sol (eau, vidange, azote, freins, 24 V)",
+   "cadFile": "cad/ornithopter/fr-ground-service-panel.stp",
+   "cadPart": "fr-ground-service-panel",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Ground service panel (water, drain, nitrogen, brakes, 24 V)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 0.588,
+    "massUnit": "kg",
+    "material": "aluminium",
+    "interpretationNote": "Authored, a modern rig item in no source: the water fill and drain couplings of the ballast tank, and the brake line and nitrogen hose to the left wheel set; mass of a 2 mm enclosure and 2 mm hose walls."
+   }
+  },
+  {
+   "id": "DEPO-6130",
+   "plm": "ES",
+   "name": "Depósito de lastre de cola y su línea",
+   "cadFile": "cad/ornithopter/es-tail-trim-bottle.stp",
+   "cadPart": "es-tail-trim-bottle",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Tail trim water bottle and line",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 0.862,
+    "massUnit": "kg",
+    "material": "polietileno",
+    "interpretationNote": "Authored, a modern rig item in no source: a bottle under the tail boom and its line from the ballast tank; mass dry, a 4 mm bottle wall and a 2 mm line wall."
+   }
+  },
+  {
+   "id": "FR-ORN-SANG-001",
+   "plm": "FR",
+   "name": "Harnais du pilote",
+   "cadFile": "cad/ornithopter/fr-pilot-harness.stp",
+   "cadPart": "fr-pilot-harness",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Pilot harness",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 0.674,
+    "massUnit": "kg",
+    "material": "cuir tanné",
+    "interpretationNote": "Authored, in no source: two straps holding the pilot to the cradle, their sizes and positions; tanned leather after the Codex on the Flight of Birds f. 7 and the leather of the Museo Leonardiano model of Ms B 74v."
+   }
+  },
+  {
+   "id": "WHEL-6220",
+   "plm": "UK",
+   "name": "Ground handling wheel, 260 x 85",
+   "cadFile": "cad/ornithopter/uk-ground-wheel.stp",
+   "cadPart": "uk-ground-wheel",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 14.476,
+    "massUnit": "lb",
+    "material": "aluminium alloy",
+    "interpretationNote": "Authored, a rig item in no source: the ground handling gear the rig is rolled out on to its test stand; rim, hub and axle stub."
+   }
+  },
+  {
+   "id": "TYRE-6230",
+   "plm": "UK",
+   "name": "Tyre 260 x 85, pneumatic",
+   "cadFile": "cad/ornithopter/uk-ground-tyre.stp",
+   "cadPart": "uk-ground-tyre",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 1.799,
+    "massUnit": "lb",
+    "material": "rubber",
+    "interpretationNote": "Authored, a rig item in no source: the ground handling gear the rig is rolled out on to its test stand; the life-limited item, inflated with nitrogen.",
+    "partType": "PURCHASED",
+    "purchased": {
+     "class": "tyre",
+     "standard": "260 x 85",
+     "attributes": {
+      "outerDiameter": "10.2362",
+      "sectionWidth": "3.3465",
+      "rimDiameter": "7.4803",
+      "plyRating": "4"
+     },
+     "shelfLifeMonths": 60
+    }
+   }
+  },
+  {
+   "id": "BRAK-6240",
+   "plm": "UK",
+   "name": "Wheel brake, hydraulic drum",
+   "cadFile": "cad/ornithopter/uk-wheel-brake.stp",
+   "cadPart": "uk-wheel-brake",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 3.67,
+    "massUnit": "lb",
+    "material": "steel",
+    "interpretationNote": "Authored, a rig item in no source: the ground handling gear the rig is rolled out on to its test stand; a drum on the wheel's inboard face."
+   }
+  },
+  {
+   "id": "LACE-6165-L",
+   "plm": "UK",
+   "name": "Left wing lacing cord, raw silk",
+   "cadFile": "cad/ornithopter/uk-left-lacing-cord.stp",
+   "cadPart": "uk-left-lacing-cord",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 1.084,
+    "massUnit": "lb",
+    "material": "raw silk",
+    "partType": "PURCHASED",
+    "purchased": {
+     "class": "cord",
+     "attributes": {
+      "diameter": "0.394"
+     },
+     "shelfLifeMonths": 36
+    },
+    "interpretationNote": "Raw silk after the Codex on the Flight of Birds f. 7. Authored: the 10 mm cord lacing the linen to the ribs along the spar's aft face, its shelf life."
+   }
+  },
+  {
+   "id": "SCHN-R-61065",
+   "plm": "DE",
+   "name": "Schnur aus Rohseide, rechter Flügel",
+   "cadFile": "cad/ornithopter/de-right-lacing-cord.stp",
+   "cadPart": "de-right-lacing-cord",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right wing lacing cord, raw silk",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 0.492,
+    "massUnit": "kg",
+    "material": "Rohseide",
+    "partType": "PURCHASED",
+    "purchased": {
+     "class": "cord",
+     "attributes": {
+      "diameter": "10"
+     },
+     "shelfLifeMonths": 36
+    },
+    "interpretationNote": "Raw silk after the Codex on the Flight of Birds f. 7. Authored: the 10 mm cord lacing the linen to the ribs along the spar's aft face, its shelf life."
+   }
+  },
+  {
+   "id": "FR-ORN-BIDN-001",
+   "plm": "FR",
+   "name": "Bidon de lest 5 L",
+   "cadFile": "cad/ornithopter/fr-ballast-can.stp",
+   "cadPart": "fr-ballast-can",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Ballast can, 5 l",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 0.416,
+    "massUnit": "kg",
+    "material": "polyéthylène",
+    "partType": "PURCHASED",
+    "purchased": {
+     "class": "canister",
+     "attributes": {
+      "baseWidth": "190",
+      "depth": "120",
+      "height": "280",
+      "material": "polyéthylène"
+     }
+    },
+    "interpretationNote": "Authored, a rig item in no source: a 5 l polyethylene ballast can, a movable trim weight of the rig, in the stowage bay; mass dry, a 2 mm wall."
+   }
+  },
+  {
+   "id": "KANI-61140",
+   "plm": "DE",
+   "name": "Ballastkanister 5 l",
+   "cadFile": "cad/ornithopter/de-ballast-can.stp",
+   "cadPart": "de-ballast-can",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Ballast can, 5 l",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 0.416,
+    "massUnit": "kg",
+    "material": "Polyethylen",
+    "partType": "PURCHASED",
+    "purchased": {
+     "class": "canister",
+     "attributes": {
+      "baseWidth": "190",
+      "depth": "120",
+      "height": "280",
+      "material": "Polyethylen"
+     }
+    },
+    "interpretationNote": "Authored, a rig item in no source: a 5 l polyethylene ballast can, a movable trim weight of the rig, in the stowage bay; mass dry, a 2 mm wall."
+   }
+  },
+  {
+   "id": "CAN-6270",
+   "plm": "UK",
+   "name": "Ballast can, 5 l",
+   "cadFile": "cad/ornithopter/uk-ballast-can.stp",
+   "cadPart": "uk-ballast-can",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 0.918,
+    "massUnit": "lb",
+    "material": "polyethylene",
+    "partType": "PURCHASED",
+    "purchased": {
+     "class": "canister",
+     "attributes": {
+      "baseWidth": "7.480",
+      "depth": "4.724",
+      "height": "11.024",
+      "material": "polyethylene"
+     }
+    },
+    "interpretationNote": "Authored, a rig item in no source: a 5 l polyethylene ballast can, a movable trim weight of the rig, in the stowage bay; mass dry, a 2 mm wall."
+   }
+  },
+  {
+   "id": "RSCH-R-61045",
+   "plm": "DE",
+   "name": "Rippenschuh",
+   "cadFile": "cad/ornithopter/de-right-rib-shoe.stp",
+   "cadPart": "de-right-rib-shoe",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Right rib shoe",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 0.281,
+    "massUnit": "kg",
+    "material": "Esche",
+    "interpretationNote": "Authored: the socket seating a cane rib on the spar's aft face, drawn at WS 1200 and placed at the six rib stations."
+   }
+  },
+  {
+   "id": "SHOE-6145-L",
+   "plm": "UK",
+   "name": "Left rib shoe",
+   "cadFile": "cad/ornithopter/uk-left-rib-shoe.stp",
+   "cadPart": "uk-left-rib-shoe",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 0.619,
+    "massUnit": "lb",
+    "material": "ash",
+    "interpretationNote": "Authored: the socket seating a cane rib on the spar's aft face, drawn at WS 1200 and placed at the six rib stations."
+   }
+  }
+ ],
+ "interfaces": [
+  {
+   "id": "IF-01",
+   "label": "Left wing root carrier / left wing root fitting (hinge pin, harness root connector)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-EMPL-L-001",
+    "ROOT-6180-L"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-ORN-EMPL-L-001-J01",
+      "part": "FR-ORN-EMPL-L-001",
+      "position": {
+       "x": "1900.000",
+       "y": "-640.000",
+       "z": "300.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "D38999",
+      "pinCount": 37
+     },
+     {
+      "id": "PL 6180-01",
+      "part": "ROOT-6180-L",
+      "position": {
+       "x": "74.8031",
+       "y": "-25.1969",
+       "z": "11.8110"
+      },
+      "unit": "IN",
+      "connectorType": "D38999",
+      "pinCount": 37
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-EMPL-L-001-F01",
+      "part": "FR-ORN-EMPL-L-001",
+      "position": {
+       "x": "1900.000",
+       "y": "-640.000",
+       "z": "250.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "40.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "260.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "HL 6180-01",
+      "part": "ROOT-6180-L",
+      "position": {
+       "x": "74.8031",
+       "y": "-25.1969",
+       "z": "9.8425"
+      },
+      "unit": "IN",
+      "standard": "ISO 2341",
+      "diameter": "1.5748",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "10.2362",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-02",
+   "label": "Hydraulic power pack / left wing actuator (pressure and return couplings, position sensor)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-GHYD-001",
+    "ACTR-6190-L"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-ORN-GHYD-001-J01",
+      "part": "FR-ORN-GHYD-001",
+      "position": {
+       "x": "2300.000",
+       "y": "-440.000",
+       "z": "-120.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     },
+     {
+      "id": "PL 6190-01",
+      "part": "ACTR-6190-L",
+      "position": {
+       "x": "90.5512",
+       "y": "-17.3228",
+       "z": "-4.7244"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     }
+    ]
+   ],
+   "couplings": [
+    [
+     {
+      "id": "FR-ORN-GHYD-001-H01",
+      "part": "FR-ORN-GHYD-001",
+      "position": {
+       "x": "2300.000",
+       "y": "-480.000",
+       "z": "-100.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 8,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     },
+     {
+      "id": "HC 6190-01",
+      "part": "ACTR-6190-L",
+      "position": {
+       "x": "90.5512",
+       "y": "-18.8976",
+       "z": "-3.9370"
+      },
+      "unit": "IN",
+      "standard": "ISO 8434-1",
+      "dashSize": 8,
+      "rating": "5000.0000",
+      "ratingUnit": "PSI",
+      "fluid": "HM 32 mineral oil"
+     }
+    ],
+    [
+     {
+      "id": "FR-ORN-GHYD-001-H02",
+      "part": "FR-ORN-GHYD-001",
+      "position": {
+       "x": "2300.000",
+       "y": "-480.000",
+       "z": "-140.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 8,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     },
+     {
+      "id": "HC 6190-02",
+      "part": "ACTR-6190-L",
+      "position": {
+       "x": "90.5512",
+       "y": "-18.8976",
+       "z": "-5.5118"
+      },
+      "unit": "IN",
+      "standard": "ISO 8434-1",
+      "dashSize": 8,
+      "rating": "3000.0000",
+      "ratingUnit": "PSI",
+      "fluid": "HM 32 mineral oil"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-03",
+   "label": "Instrumentation pod / left wing sensor harness (strain-gauge loom connectors)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-NACI-001",
+    "HARN-6200-L"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-ORN-NACI-001-J01",
+      "part": "FR-ORN-NACI-001",
+      "position": {
+       "x": "475.000",
+       "y": "-125.000",
+       "z": "950.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "EN4165",
+      "pinCount": 22
+     },
+     {
+      "id": "PL 6200-01",
+      "part": "HARN-6200-L",
+      "position": {
+       "x": "18.7008",
+       "y": "-4.9213",
+       "z": "37.4016"
+      },
+      "unit": "IN",
+      "connectorType": "EN3645",
+      "pinCount": 22
+     }
+    ],
+    [
+     {
+      "id": "FR-ORN-NACI-001-J02",
+      "part": "FR-ORN-NACI-001",
+      "position": {
+       "x": "475.000",
+       "y": "-105.000",
+       "z": "950.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 8
+     },
+     {
+      "id": "PL 6200-02",
+      "part": "HARN-6200-L",
+      "position": {
+       "x": "18.7008",
+       "y": "-4.1339",
+       "z": "37.4016"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 8
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-04",
+   "label": "Left wing drive cord / left outer spar (thimble and shackle)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CABL-L-6070",
+    "SPAR-6120-L"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CABL-L-6070-R01",
+      "part": "CABL-L-6070",
+      "position": {
+       "x": "2028.000",
+       "y": "-3600.000",
+       "z": "749.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "16.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "HL 6120-01",
+      "part": "SPAR-6120-L",
+      "position": {
+       "x": "79.8425",
+       "y": "-141.7323",
+       "z": "29.4882"
+      },
+      "unit": "IN",
+      "standard": "DIN 82101",
+      "diameter": "0.3150",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "0.6299",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-05",
+   "label": "Left wing root fitting / left inner spar (spar root bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "ROOT-6180-L",
+    "SPAR-6110-L"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 6180-02",
+      "part": "ROOT-6180-L",
+      "position": {
+       "x": "74.8031",
+       "y": "-27.5591",
+       "z": "9.4488"
+      },
+      "unit": null,
+      "standard": "ISO 4014",
+      "diameter": "0.3937",
+      "diameterUnit": "IN",
+      "count": 4,
+      "gripLength": "4.7244",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "HL 6110-01",
+      "part": "SPAR-6110-L",
+      "position": {
+       "x": "74.8031",
+       "y": "-27.5591",
+       "z": "9.4488"
+      },
+      "unit": "IN",
+      "standard": "ISO 4014",
+      "diameter": "0.3937",
+      "diameterUnit": "IN",
+      "count": 4,
+      "gripLength": "4.7244",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-06",
+   "label": "Left inner spar / left knuckle hinge (inner cheek plate bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "SPAR-6110-L",
+    "KNKL-6130-L"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 6110-02",
+      "part": "SPAR-6110-L",
+      "position": {
+       "x": "68.8976",
+       "y": "-118.1102",
+       "z": "22.1654"
+      },
+      "unit": "IN",
+      "standard": "ISO 4014",
+      "diameter": "0.4724",
+      "diameterUnit": "IN",
+      "count": 6,
+      "gripLength": "5.5118",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "HL 6130-01",
+      "part": "KNKL-6130-L",
+      "position": {
+       "x": "68.8976",
+       "y": "-118.1102",
+       "z": "22.1654"
+      },
+      "unit": "IN",
+      "standard": "ISO 4014",
+      "diameter": "0.4724",
+      "diameterUnit": "IN",
+      "count": 6,
+      "gripLength": "5.5118",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-07",
+   "label": "Left knuckle hinge / left outer spar (outer cheek plate bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "KNKL-6130-L",
+    "SPAR-6120-L"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 6130-02",
+      "part": "KNKL-6130-L",
+      "position": {
+       "x": "80.7087",
+       "y": "-118.1102",
+       "z": "22.1654"
+      },
+      "unit": "IN",
+      "standard": "ISO 4014",
+      "diameter": "0.4724",
+      "diameterUnit": "IN",
+      "count": 6,
+      "gripLength": "4.7244",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "HL 6120-02",
+      "part": "SPAR-6120-L",
+      "position": {
+       "x": "80.7087",
+       "y": "-118.1102",
+       "z": "22.1654"
+      },
+      "unit": "IN",
+      "standard": "ISO 4014",
+      "diameter": "0.4724",
+      "diameterUnit": "IN",
+      "count": 6,
+      "gripLength": "4.7244",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-08",
+   "label": "Left inner spar / left inner ribs (rib sockets on the spar aft face)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "SPAR-6110-L",
+    "RIBS-6140-L"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 6110-03",
+      "part": "SPAR-6110-L",
+      "position": {
+       "x": "76.7717",
+       "y": "-70.8661",
+       "z": "15.5512"
+      },
+      "unit": "IN",
+      "standard": "ISO 4017",
+      "diameter": "0.3150",
+      "diameterUnit": "IN",
+      "count": 6,
+      "gripLength": "2.3622",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "HL 6140-01",
+      "part": "RIBS-6140-L",
+      "position": {
+       "x": "76.7717",
+       "y": "-70.8661",
+       "z": "15.5512"
+      },
+      "unit": "IN",
+      "standard": "ISO 4017",
+      "diameter": "0.3150",
+      "diameterUnit": "IN",
+      "count": 6,
+      "gripLength": "2.3622",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-09",
+   "label": "Left outer spar / left outer ribs (rib sockets on the finger aft face)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "SPAR-6120-L",
+    "RIBS-6150-L"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 6120-03",
+      "part": "SPAR-6120-L",
+      "position": {
+       "x": "85.9843",
+       "y": "-161.4173",
+       "z": "29.8031"
+      },
+      "unit": "IN",
+      "standard": "ISO 4017",
+      "diameter": "0.3150",
+      "diameterUnit": "IN",
+      "count": 6,
+      "gripLength": "1.9685",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "HL 6150-01",
+      "part": "RIBS-6150-L",
+      "position": {
+       "x": "85.9843",
+       "y": "-161.4173",
+       "z": "29.8031"
+      },
+      "unit": "IN",
+      "standard": "ISO 4017",
+      "diameter": "0.3150",
+      "diameterUnit": "IN",
+      "count": 6,
+      "gripLength": "1.9685",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-10",
+   "label": "Left inner ribs / left inner linen panel (lacing eyelets)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "RIBS-6140-L",
+    "LINN-6160-L"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 6140-02",
+      "part": "RIBS-6140-L",
+      "position": {
+       "x": "117.4409",
+       "y": "-70.8661",
+       "z": "25.2756"
+      },
+      "unit": "IN",
+      "standard": "DIN 7332",
+      "diameter": "0.2362",
+      "diameterUnit": "IN",
+      "count": 36,
+      "gripLength": "0.1575",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "HL 6160-01",
+      "part": "LINN-6160-L",
+      "position": {
+       "x": "117.4409",
+       "y": "-70.8661",
+       "z": "25.2756"
+      },
+      "unit": "IN",
+      "standard": "DIN 7332",
+      "diameter": "0.2362",
+      "diameterUnit": "IN",
+      "count": 36,
+      "gripLength": "0.1575",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-11",
+   "label": "Left outer ribs / left outer linen panel (lacing eyelets)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "RIBS-6150-L",
+    "LINN-6170-L"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 6150-02",
+      "part": "RIBS-6150-L",
+      "position": {
+       "x": "109.0551",
+       "y": "-161.4173",
+       "z": "35.3543"
+      },
+      "unit": "IN",
+      "standard": "DIN 7332",
+      "diameter": "0.2362",
+      "diameterUnit": "IN",
+      "count": 30,
+      "gripLength": "0.1575",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "HL 6170-01",
+      "part": "LINN-6170-L",
+      "position": {
+       "x": "109.0551",
+       "y": "-161.4173",
+       "z": "35.3543"
+      },
+      "unit": "IN",
+      "standard": "DIN 7332",
+      "diameter": "0.2362",
+      "diameterUnit": "IN",
+      "count": 30,
+      "gripLength": "0.1575",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-12",
+   "label": "Left wing actuator / left inner spar (rod-end clevis, sensor pigtail)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "ACTR-6190-L",
+    "SPAR-6110-L"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "PL 6190-02",
+      "part": "ACTR-6190-L",
+      "position": {
+       "x": "74.8031",
+       "y": "-59.0551",
+       "z": "12.5984"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     },
+     {
+      "id": "PL 6110-01",
+      "part": "SPAR-6110-L",
+      "position": {
+       "x": "74.8031",
+       "y": "-59.0551",
+       "z": "12.5984"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 6190-01",
+      "part": "ACTR-6190-L",
+      "position": {
+       "x": "74.8031",
+       "y": "-59.0551",
+       "z": "11.1024"
+      },
+      "unit": "IN",
+      "standard": "ISO 2341",
+      "diameter": "0.6299",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "4.3307",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "HL 6110-04",
+      "part": "SPAR-6110-L",
+      "position": {
+       "x": "74.8031",
+       "y": "-59.0551",
+       "z": "11.1024"
+      },
+      "unit": "IN",
+      "standard": "ISO 2341",
+      "diameter": "0.6299",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "4.3307",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-13",
+   "label": "Right wing root carrier / right wing root fitting (hinge pin, harness root connector)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-EMPL-R-001",
+    "WURZ-R-61080"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-ORN-EMPL-R-001-J01",
+      "part": "FR-ORN-EMPL-R-001",
+      "position": {
+       "x": "1900.000",
+       "y": "640.000",
+       "z": "300.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "D38999",
+      "pinCount": 37
+     },
+     {
+      "id": "WURZ-R-61080-X01",
+      "part": "WURZ-R-61080",
+      "position": {
+       "x": "1900.000",
+       "y": "644.300",
+       "z": "300.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "D38999",
+      "pinCount": 37
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-EMPL-R-001-F01",
+      "part": "FR-ORN-EMPL-R-001",
+      "position": {
+       "x": "1900.000",
+       "y": "640.000",
+       "z": "250.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "40.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "260.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "WURZ-R-61080-B01",
+      "part": "WURZ-R-61080",
+      "position": {
+       "x": "1900.000",
+       "y": "640.000",
+       "z": "250.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "40.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "260.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-14",
+   "label": "Hydraulic power pack / right wing actuator (pressure and return couplings, position sensor)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-GHYD-001",
+    "AKTR-R-61090"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-ORN-GHYD-001-J02",
+      "part": "FR-ORN-GHYD-001",
+      "position": {
+       "x": "2300.000",
+       "y": "440.000",
+       "z": "-120.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     },
+     {
+      "id": "AKTR-R-61090-X01",
+      "part": "AKTR-R-61090",
+      "position": {
+       "x": "2300.000",
+       "y": "440.000",
+       "z": "-120.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     }
+    ]
+   ],
+   "couplings": [
+    [
+     {
+      "id": "FR-ORN-GHYD-001-H03",
+      "part": "FR-ORN-GHYD-001",
+      "position": {
+       "x": "2300.000",
+       "y": "480.000",
+       "z": "-100.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 8,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     },
+     {
+      "id": "AKTR-R-61090-K01",
+      "part": "AKTR-R-61090",
+      "position": {
+       "x": "2300.000",
+       "y": "480.000",
+       "z": "-100.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 8,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     }
+    ],
+    [
+     {
+      "id": "FR-ORN-GHYD-001-H04",
+      "part": "FR-ORN-GHYD-001",
+      "position": {
+       "x": "2300.000",
+       "y": "480.000",
+       "z": "-140.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 8,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     },
+     {
+      "id": "AKTR-R-61090-K02",
+      "part": "AKTR-R-61090",
+      "position": {
+       "x": "2300.000",
+       "y": "480.000",
+       "z": "-140.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 8,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-15",
+   "label": "Instrumentation pod / right wing sensor harness (strain-gauge loom connectors)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-NACI-001",
+    "KABL-R-61100"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-ORN-NACI-001-J03",
+      "part": "FR-ORN-NACI-001",
+      "position": {
+       "x": "475.000",
+       "y": "125.000",
+       "z": "950.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "EN4165",
+      "pinCount": 22
+     },
+     {
+      "id": "KABL-R-61100-X01",
+      "part": "KABL-R-61100",
+      "position": {
+       "x": "475.000",
+       "y": "125.000",
+       "z": "950.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "EN4165",
+      "pinCount": 22
+     }
+    ],
+    [
+     {
+      "id": "FR-ORN-NACI-001-J04",
+      "part": "FR-ORN-NACI-001",
+      "position": {
+       "x": "475.000",
+       "y": "105.000",
+       "z": "950.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 8
+     },
+     {
+      "id": "KABL-R-61100-X02",
+      "part": "KABL-R-61100",
+      "position": {
+       "x": "475.000",
+       "y": "105.000",
+       "z": "950.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 8
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-16",
+   "label": "Right wing drive cord / right outer spar (thimble and shackle)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CABL-R-6080",
+    "HOLM-R-61020"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CABL-R-6080-R01",
+      "part": "CABL-R-6080",
+      "position": {
+       "x": "2028.000",
+       "y": "3600.000",
+       "z": "749.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "16.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "HOLM-R-61020-B01",
+      "part": "HOLM-R-61020",
+      "position": {
+       "x": "2028.000",
+       "y": "3600.000",
+       "z": "749.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "16.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-17",
+   "label": "Right wing root fitting / right inner spar (spar root bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "WURZ-R-61080",
+    "HOLM-R-61010"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "WURZ-R-61080-B02",
+      "part": "WURZ-R-61080",
+      "position": {
+       "x": "1900.000",
+       "y": "700.000",
+       "z": "240.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "120.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "HOLM-R-61010-B01",
+      "part": "HOLM-R-61010",
+      "position": {
+       "x": "1900.000",
+       "y": "700.000",
+       "z": "240.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "120.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-18",
+   "label": "Right inner spar / right knuckle hinge (inner cheek plate bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "HOLM-R-61010",
+    "GELK-R-61030"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HOLM-R-61010-B02",
+      "part": "HOLM-R-61010",
+      "position": {
+       "x": "1750.000",
+       "y": "3000.000",
+       "z": "563.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "140.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "GELK-R-61030-B01",
+      "part": "GELK-R-61030",
+      "position": {
+       "x": "1750.000",
+       "y": "3000.000",
+       "z": "563.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "140.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-19",
+   "label": "Right knuckle hinge / right outer spar (outer cheek plate bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "GELK-R-61030",
+    "HOLM-R-61020"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "GELK-R-61030-B02",
+      "part": "GELK-R-61030",
+      "position": {
+       "x": "2050.000",
+       "y": "3000.000",
+       "z": "563.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "120.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "HOLM-R-61020-B02",
+      "part": "HOLM-R-61020",
+      "position": {
+       "x": "2050.000",
+       "y": "3000.000",
+       "z": "563.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "120.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-20",
+   "label": "Right inner spar / right inner ribs (rib sockets on the spar aft face)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "HOLM-R-61010",
+    "RIPP-R-61040"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HOLM-R-61010-B03",
+      "part": "HOLM-R-61010",
+      "position": {
+       "x": "1950.000",
+       "y": "1800.000",
+       "z": "395.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "RIPP-R-61040-B01",
+      "part": "RIPP-R-61040",
+      "position": {
+       "x": "1950.000",
+       "y": "1800.000",
+       "z": "395.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-21",
+   "label": "Right outer spar / right outer ribs (rib sockets on the finger aft face)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "HOLM-R-61020",
+    "RIPP-R-61050"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HOLM-R-61020-B03",
+      "part": "HOLM-R-61020",
+      "position": {
+       "x": "2184.000",
+       "y": "4100.000",
+       "z": "757.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "50.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "RIPP-R-61050-B01",
+      "part": "RIPP-R-61050",
+      "position": {
+       "x": "2184.000",
+       "y": "4100.000",
+       "z": "757.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "50.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-22",
+   "label": "Right inner ribs / right inner linen panel (lacing eyelets)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "RIPP-R-61040",
+    "LEIN-R-61060"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "RIPP-R-61040-B02",
+      "part": "RIPP-R-61040",
+      "position": {
+       "x": "2983.000",
+       "y": "1800.000",
+       "z": "642.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 7332",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 36,
+      "gripLength": "4.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "LEIN-R-61060-B01",
+      "part": "LEIN-R-61060",
+      "position": {
+       "x": "2983.000",
+       "y": "1800.000",
+       "z": "642.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 7332",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 36,
+      "gripLength": "4.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-23",
+   "label": "Right outer ribs / right outer linen panel (lacing eyelets)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "RIPP-R-61050",
+    "LEIN-R-61070"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "RIPP-R-61050-B02",
+      "part": "RIPP-R-61050",
+      "position": {
+       "x": "2770.000",
+       "y": "4100.000",
+       "z": "898.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 7332",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 30,
+      "gripLength": "4.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "LEIN-R-61070-B01",
+      "part": "LEIN-R-61070",
+      "position": {
+       "x": "2770.000",
+       "y": "4100.000",
+       "z": "898.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 7332",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 30,
+      "gripLength": "4.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-24",
+   "label": "Right wing actuator / right inner spar (rod-end clevis, sensor pigtail)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "AKTR-R-61090",
+    "HOLM-R-61010"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "AKTR-R-61090-X02",
+      "part": "AKTR-R-61090",
+      "position": {
+       "x": "1900.000",
+       "y": "1500.000",
+       "z": "320.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     },
+     {
+      "id": "HOLM-R-61010-X01",
+      "part": "HOLM-R-61010",
+      "position": {
+       "x": "1900.000",
+       "y": "1500.000",
+       "z": "320.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "AKTR-R-61090-B01",
+      "part": "AKTR-R-61090",
+      "position": {
+       "x": "1900.000",
+       "y": "1500.000",
+       "z": "282.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "110.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "HOLM-R-61010-B04",
+      "part": "HOLM-R-61010",
+      "position": {
+       "x": "1900.000",
+       "y": "1500.000",
+       "z": "282.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "110.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-25",
+   "label": "Forward cross beam / hand crank shaft (bearing post bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-TRAV-AV-001",
+    "MANV-L-6014"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-TRAV-AV-001-F01",
+      "part": "FR-ORN-TRAV-AV-001",
+      "position": {
+       "x": "900.000",
+       "y": "-460.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "MANV-6010-R01",
+      "part": "MANV-L-6014",
+      "position": {
+       "x": "900.000",
+       "y": "-460.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-26",
+   "label": "Aft cross beam / pedal set (pivot shaft brackets)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-TRAV-AR-001",
+    "PEDL-6030"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-TRAV-AR-001-F01",
+      "part": "FR-ORN-TRAV-AR-001",
+      "position": {
+       "x": "3300.000",
+       "y": "400.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "PEDL-6030-R01",
+      "part": "PEDL-6030",
+      "position": {
+       "x": "3300.000",
+       "y": "400.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-27",
+   "label": "Middle cross beam / left pulley block (post foot bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-TRAV-MIL-001",
+    "POLE-L-6050"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-TRAV-MIL-001-F01",
+      "part": "FR-ORN-TRAV-MIL-001",
+      "position": {
+       "x": "1900.000",
+       "y": "-560.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "POLE-L-6050-R01",
+      "part": "POLE-L-6050",
+      "position": {
+       "x": "1900.000",
+       "y": "-560.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-28",
+   "label": "Middle cross beam / right pulley block (post foot bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-TRAV-MIL-001",
+    "POLE-R-6060"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-TRAV-MIL-001-F02",
+      "part": "FR-ORN-TRAV-MIL-001",
+      "position": {
+       "x": "1900.000",
+       "y": "560.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "POLE-R-6060-R01",
+      "part": "POLE-R-6060",
+      "position": {
+       "x": "1900.000",
+       "y": "560.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-29",
+   "label": "Keel beam / tail boom (boom socket, servo harness pass-through)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-KEEL-001",
+    "BOTA-6090"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-ORN-KEEL-001-J01",
+      "part": "FR-ORN-KEEL-001",
+      "position": {
+       "x": "3600.000",
+       "y": "40.000",
+       "z": "40.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     },
+     {
+      "id": "BOTA-6090-C01",
+      "part": "BOTA-6090",
+      "position": {
+       "x": "3600.000",
+       "y": "40.000",
+       "z": "40.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-KEEL-001-F01",
+      "part": "FR-ORN-KEEL-001",
+      "position": {
+       "x": "3600.000",
+       "y": "0.000",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "120.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "BOTA-6090-R01",
+      "part": "BOTA-6090",
+      "position": {
+       "x": "3600.000",
+       "y": "0.000",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "120.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-30",
+   "label": "Control post / tail trim servo (command and feedback plugs)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-PCMD-001",
+    "SERV-6120"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-ORN-PCMD-001-J01",
+      "part": "FR-ORN-PCMD-001",
+      "position": {
+       "x": "3620.000",
+       "y": "110.000",
+       "z": "140.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     },
+     {
+      "id": "SERV-6120-C01",
+      "part": "SERV-6120",
+      "position": {
+       "x": "3620.000",
+       "y": "110.000",
+       "z": "140.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     }
+    ]
+   ],
+   "unmatedPlugs": [
+    {
+     "id": "SERV-6120-C03",
+     "part": "SERV-6120",
+     "position": {
+      "x": "3620.000",
+      "y": "95.000",
+      "z": "140.000"
+     },
+     "unit": "MilliM",
+     "connectorType": "M12-A",
+     "pinCount": 4
+    }
+   ]
+  },
+  {
+   "id": "IF-31",
+   "label": "Head hoop / tail control cord (cord eye on the hoop)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-CERC-001",
+    "CCOL-6110"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-CERC-001-F01",
+      "part": "FR-ORN-CERC-001",
+      "position": {
+       "x": "450.000",
+       "y": "0.000",
+       "z": "130.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "CCOL-6110-R01",
+      "part": "CCOL-6110",
+      "position": {
+       "x": "450.000",
+       "y": "0.000",
+       "z": "130.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-32",
+   "label": "Right crank bearing post / windlass drum journal post (tie bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "MANV-R-6015",
+    "TAMB-6020"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "MANV-6010-R02",
+      "part": "MANV-R-6015",
+      "position": {
+       "x": "1025.000",
+       "y": "460.000",
+       "z": "300.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "TAMB-6020-R01",
+      "part": "TAMB-6020",
+      "position": {
+       "x": "1025.000",
+       "y": "460.000",
+       "z": "300.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-33",
+   "label": "Windlass drum / left wing drive cord (cord anchor)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "TAMB-6020",
+    "CABL-L-6070"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "TAMB-6020-R02",
+      "part": "TAMB-6020",
+      "position": {
+       "x": "1140.000",
+       "y": "-150.000",
+       "z": "570.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "CABL-L-6070-R02",
+      "part": "CABL-L-6070",
+      "position": {
+       "x": "1140.000",
+       "y": "-150.000",
+       "z": "570.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-34",
+   "label": "Windlass drum / right wing drive cord (cord anchor)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "TAMB-6020",
+    "CABL-R-6080"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "TAMB-6020-R03",
+      "part": "TAMB-6020",
+      "position": {
+       "x": "1140.000",
+       "y": "150.000",
+       "z": "570.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "CABL-R-6080-R02",
+      "part": "CABL-R-6080",
+      "position": {
+       "x": "1140.000",
+       "y": "150.000",
+       "z": "570.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-35",
+   "label": "Pedal set / pedal cords (cord eyes on the stirrups)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "PEDL-6030",
+    "CPED-6040"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "PEDL-6030-R02",
+      "part": "PEDL-6030",
+      "position": {
+       "x": "3350.000",
+       "y": "300.000",
+       "z": "150.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "5.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "10.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "CPED-6040-R01",
+      "part": "CPED-6040",
+      "position": {
+       "x": "3350.000",
+       "y": "300.000",
+       "z": "150.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "5.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "10.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-36",
+   "label": "Pedal cords / windlass drum (anchor on the drum underside)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CPED-6040",
+    "TAMB-6020"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CPED-6040-R02",
+      "part": "CPED-6040",
+      "position": {
+       "x": "1140.000",
+       "y": "150.000",
+       "z": "330.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "5.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "10.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "TAMB-6020-R04",
+      "part": "TAMB-6020",
+      "position": {
+       "x": "1140.000",
+       "y": "150.000",
+       "z": "330.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "5.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "10.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-37",
+   "label": "Tail boom / tail plane (cross spar clamp)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "BOTA-6090",
+    "PCOL-6100"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "BOTA-6090-R02",
+      "part": "BOTA-6090",
+      "position": {
+       "x": "4250.000",
+       "y": "0.000",
+       "z": "100.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "PCOL-6100-R01",
+      "part": "PCOL-6100",
+      "position": {
+       "x": "4250.000",
+       "y": "0.000",
+       "z": "100.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-38",
+   "label": "Tail boom / tail trim servo (bracket, power plug)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "BOTA-6090",
+    "SERV-6120"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "BOTA-6090-C02",
+      "part": "BOTA-6090",
+      "position": {
+       "x": "3700.000",
+       "y": "50.000",
+       "z": "170.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "SERV-6120-C02",
+      "part": "SERV-6120",
+      "position": {
+       "x": "3700.000",
+       "y": "50.000",
+       "z": "170.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "BOTA-6090-R03",
+      "part": "BOTA-6090",
+      "position": {
+       "x": "3700.000",
+       "y": "50.000",
+       "z": "140.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "SERV-6120-R01",
+      "part": "SERV-6120",
+      "position": {
+       "x": "3700.000",
+       "y": "50.000",
+       "z": "140.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-39",
+   "label": "Tail control cord / tail plane (cord eye on the leading edge)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CCOL-6110",
+    "PCOL-6100"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CCOL-6110-R02",
+      "part": "CCOL-6110",
+      "position": {
+       "x": "3700.000",
+       "y": "0.000",
+       "z": "110.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "PCOL-6100-R02",
+      "part": "PCOL-6100",
+      "position": {
+       "x": "3700.000",
+       "y": "0.000",
+       "z": "110.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-40",
+   "label": "Keel beam / middle cross beam (half-lap joint bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-KEEL-001",
+    "FR-ORN-TRAV-MIL-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-KEEL-001-F02",
+      "part": "FR-ORN-KEEL-001",
+      "position": {
+       "x": "1900.000",
+       "y": "0.000",
+       "z": "60.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "120.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-TRAV-MIL-001-F03",
+      "part": "FR-ORN-TRAV-MIL-001",
+      "position": {
+       "x": "1900.000",
+       "y": "0.000",
+       "z": "60.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "120.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-41",
+   "label": "Left side rail / left landing skid (strut bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-LAT-L-001",
+    "FR-ORN-PAT-L-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-LAT-L-001-F01",
+      "part": "FR-ORN-LAT-L-001",
+      "position": {
+       "x": "800.000",
+       "y": "-500.000",
+       "z": "-50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-PAT-L-001-F01",
+      "part": "FR-ORN-PAT-L-001",
+      "position": {
+       "x": "800.000",
+       "y": "-500.000",
+       "z": "-50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-42",
+   "label": "Right side rail / right landing skid (strut bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-LAT-R-001",
+    "FR-ORN-PAT-R-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-LAT-R-001-F01",
+      "part": "FR-ORN-LAT-R-001",
+      "position": {
+       "x": "800.000",
+       "y": "500.000",
+       "z": "-50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-PAT-R-001-F01",
+      "part": "FR-ORN-PAT-R-001",
+      "position": {
+       "x": "800.000",
+       "y": "500.000",
+       "z": "-50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-43",
+   "label": "Keel beam / control post (foot plate)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-KEEL-001",
+    "FR-ORN-PCMD-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-KEEL-001-F03",
+      "part": "FR-ORN-KEEL-001",
+      "position": {
+       "x": "300.000",
+       "y": "0.000",
+       "z": "60.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "120.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-PCMD-001-F01",
+      "part": "FR-ORN-PCMD-001",
+      "position": {
+       "x": "300.000",
+       "y": "0.000",
+       "z": "60.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "120.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-44",
+   "label": "Control post / instrumentation pod (cradle, power and bus plug)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-PCMD-001",
+    "FR-ORN-NACI-001"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-ORN-PCMD-001-J02",
+      "part": "FR-ORN-PCMD-001",
+      "position": {
+       "x": "300.000",
+       "y": "60.000",
+       "z": "950.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     },
+     {
+      "id": "FR-ORN-NACI-001-J05",
+      "part": "FR-ORN-NACI-001",
+      "position": {
+       "x": "300.000",
+       "y": "60.000",
+       "z": "950.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-PCMD-001-F02",
+      "part": "FR-ORN-PCMD-001",
+      "position": {
+       "x": "300.000",
+       "y": "0.000",
+       "z": "950.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-NACI-001-F01",
+      "part": "FR-ORN-NACI-001",
+      "position": {
+       "x": "300.000",
+       "y": "0.000",
+       "z": "950.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-45",
+   "label": "Keel beam / hydraulic power pack (straps, pump motor power plug)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-KEEL-001",
+    "FR-ORN-GHYD-001"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-ORN-KEEL-001-J02",
+      "part": "FR-ORN-KEEL-001",
+      "position": {
+       "x": "2600.000",
+       "y": "60.000",
+       "z": "-60.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 6
+     },
+     {
+      "id": "FR-ORN-GHYD-001-J03",
+      "part": "FR-ORN-GHYD-001",
+      "position": {
+       "x": "2600.000",
+       "y": "60.000",
+       "z": "-60.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 6
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-KEEL-001-F04",
+      "part": "FR-ORN-KEEL-001",
+      "position": {
+       "x": "2600.000",
+       "y": "0.000",
+       "z": "-60.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "120.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-GHYD-001-F01",
+      "part": "FR-ORN-GHYD-001",
+      "position": {
+       "x": "2600.000",
+       "y": "0.000",
+       "z": "-60.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "120.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-46",
+   "label": "Pilot cradle / left side rail (cradle screws)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-BERC-001",
+    "FR-ORN-LAT-L-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-BERC-001-F01",
+      "part": "FR-ORN-BERC-001",
+      "position": {
+       "x": "1750.000",
+       "y": "-250.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 571",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-LAT-L-001-F02",
+      "part": "FR-ORN-LAT-L-001",
+      "position": {
+       "x": "1750.000",
+       "y": "-250.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 571",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-47",
+   "label": "Forward cross beam / head hoop (stem clamp)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-TRAV-AV-001",
+    "FR-ORN-CERC-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-TRAV-AV-001-F02",
+      "part": "FR-ORN-TRAV-AV-001",
+      "position": {
+       "x": "600.000",
+       "y": "0.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "90.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-CERC-001-F02",
+      "part": "FR-ORN-CERC-001",
+      "position": {
+       "x": "600.000",
+       "y": "0.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "90.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-161",
+   "label": "Crank shaft / left crank bearing post (bearing cap bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "MANV-6011",
+    "MANV-L-6014"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "MANV-6011-R02",
+      "part": "MANV-6011",
+      "position": {
+       "x": "900.000",
+       "y": "-460.000",
+       "z": "425.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "MANV-L-6014-R01",
+      "part": "MANV-L-6014",
+      "position": {
+       "x": "900.000",
+       "y": "-460.000",
+       "z": "425.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-162",
+   "label": "Crank shaft / right crank bearing post (bearing cap bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "MANV-6011",
+    "MANV-R-6015"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "MANV-6011-R03",
+      "part": "MANV-6011",
+      "position": {
+       "x": "900.000",
+       "y": "460.000",
+       "z": "425.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "MANV-R-6015-R01",
+      "part": "MANV-R-6015",
+      "position": {
+       "x": "900.000",
+       "y": "460.000",
+       "z": "425.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-163",
+   "label": "Left crank arm and handle / crank shaft (key)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "MANV-L-6012",
+    "MANV-6011"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "MANV-L-6012-R01",
+      "part": "MANV-L-6012",
+      "position": {
+       "x": "900.000",
+       "y": "-440.000",
+       "z": "450.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "MANV-6011-R04",
+      "part": "MANV-6011",
+      "position": {
+       "x": "900.000",
+       "y": "-440.000",
+       "z": "450.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-164",
+   "label": "Right crank arm and handle / crank shaft (key)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "MANV-R-6013",
+    "MANV-6011"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "MANV-R-6013-R01",
+      "part": "MANV-R-6013",
+      "position": {
+       "x": "900.000",
+       "y": "440.000",
+       "z": "450.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "MANV-6011-R05",
+      "part": "MANV-6011",
+      "position": {
+       "x": "900.000",
+       "y": "440.000",
+       "z": "450.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-150",
+   "label": "Crank shaft / crank lantern pinion (pinion keyed to the shaft)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "MANV-6011",
+    "LINT-6015"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "MANV-6011-R01",
+      "part": "MANV-6011",
+      "position": {
+       "x": "900.000",
+       "y": "-250.000",
+       "z": "450.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "LINT-6015-R01",
+      "part": "LINT-6015",
+      "position": {
+       "x": "900.000",
+       "y": "-250.000",
+       "z": "450.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-151",
+   "label": "Windlass peg wheel / windlass drum (peg wheel bolted to the drum flange)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-ROUE-001",
+    "TAMB-6020"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-ROUE-001-F01",
+      "part": "FR-ORN-ROUE-001",
+      "position": {
+       "x": "1140.000",
+       "y": "-235.000",
+       "z": "450.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "50.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "TAMB-6020-R05",
+      "part": "TAMB-6020",
+      "position": {
+       "x": "1140.000",
+       "y": "-235.000",
+       "z": "450.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "50.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-157",
+   "label": "Left return cord / left wing root fitting (return eye)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CRET-L-6075",
+    "ROOT-6180-L"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CRET-L-6075-R01",
+      "part": "CRET-L-6075",
+      "position": {
+       "x": "1900.000",
+       "y": "-700.000",
+       "z": "340.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "HL 6180-03",
+      "part": "ROOT-6180-L",
+      "position": {
+       "x": "74.8031",
+       "y": "-27.5591",
+       "z": "13.3858"
+      },
+      "unit": "IN",
+      "standard": "ISO 2341",
+      "diameter": "0.3937",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "1.1811",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-158",
+   "label": "Right return cord / right wing root fitting (return eye)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CRET-R-6085",
+    "WURZ-R-61080"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CRET-R-6085-R01",
+      "part": "CRET-R-6085",
+      "position": {
+       "x": "1900.000",
+       "y": "700.000",
+       "z": "340.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "WURZ-R-61080-B03",
+      "part": "WURZ-R-61080",
+      "position": {
+       "x": "1900.000",
+       "y": "700.000",
+       "z": "340.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-159",
+   "label": "Foot stirrups / left return cord (left heel eye)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "PEDL-6030",
+    "CRET-L-6075"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "PEDL-6030-R03",
+      "part": "PEDL-6030",
+      "position": {
+       "x": "3450.000",
+       "y": "-300.000",
+       "z": "170.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "20.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "CRET-L-6075-R02",
+      "part": "CRET-L-6075",
+      "position": {
+       "x": "3450.000",
+       "y": "-300.000",
+       "z": "170.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "20.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-160",
+   "label": "Foot stirrups / right return cord (right heel eye)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "PEDL-6030",
+    "CRET-R-6085"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "PEDL-6030-R04",
+      "part": "PEDL-6030",
+      "position": {
+       "x": "3450.000",
+       "y": "300.000",
+       "z": "170.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "20.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "CRET-R-6085-R02",
+      "part": "CRET-R-6085",
+      "position": {
+       "x": "3450.000",
+       "y": "300.000",
+       "z": "170.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "20.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-168",
+   "label": "Left actuator access flap / left inner linen panel (lacing)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "ACCS-6250-L",
+    "LINN-6160-L"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 6250-01",
+      "part": "ACCS-6250-L",
+      "position": {
+       "x": "82.6772",
+       "y": "-59.0551",
+       "z": "16.3399"
+      },
+      "unit": "IN",
+      "standard": "DIN 7332",
+      "diameter": "0.2362",
+      "diameterUnit": "IN",
+      "count": 8,
+      "gripLength": "0.1575",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "HL 6160-02",
+      "part": "LINN-6160-L",
+      "position": {
+       "x": "82.6772",
+       "y": "-59.0551",
+       "z": "16.3399"
+      },
+      "unit": "IN",
+      "standard": "DIN 7332",
+      "diameter": "0.2362",
+      "diameterUnit": "IN",
+      "count": 8,
+      "gripLength": "0.1575",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-169",
+   "label": "Left actuator access flap / left wing actuator (grease line to the rod end)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "ACCS-6250-L",
+    "ACTR-6190-L"
+   ],
+   "couplings": [
+    [
+     {
+      "id": "HC 6250-01",
+      "part": "ACCS-6250-L",
+      "position": {
+       "x": "74.8031",
+       "y": "-59.0551",
+       "z": "11.1194"
+      },
+      "unit": "IN",
+      "standard": "DIN 71412",
+      "dashSize": 2,
+      "rating": "5801.5000",
+      "ratingUnit": "PSI",
+      "fluid": "lithium grease"
+     },
+     {
+      "id": "HC 6190-03",
+      "part": "ACTR-6190-L",
+      "position": {
+       "x": "74.8031",
+       "y": "-59.0551",
+       "z": "11.1194"
+      },
+      "unit": "IN",
+      "standard": "DIN 71412",
+      "dashSize": 2,
+      "rating": "5801.5000",
+      "ratingUnit": "PSI",
+      "fluid": "lithium grease"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-170",
+   "label": "Left cord shackle access flap / left outer linen panel (lacing)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "ACCS-6260-L",
+    "LINN-6170-L"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 6260-01",
+      "part": "ACCS-6260-L",
+      "position": {
+       "x": "87.6982",
+       "y": "-141.7323",
+       "z": "28.5752"
+      },
+      "unit": "IN",
+      "standard": "DIN 7332",
+      "diameter": "0.2362",
+      "diameterUnit": "IN",
+      "count": 8,
+      "gripLength": "0.1575",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "HL 6170-02",
+      "part": "LINN-6170-L",
+      "position": {
+       "x": "87.6982",
+       "y": "-141.7323",
+       "z": "28.5752"
+      },
+      "unit": "IN",
+      "standard": "DIN 7332",
+      "diameter": "0.2362",
+      "diameterUnit": "IN",
+      "count": 8,
+      "gripLength": "0.1575",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-171",
+   "label": "Left cord shackle access flap / left wing drive cord (grease line to the shackle)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "ACCS-6260-L",
+    "CABL-L-6070"
+   ],
+   "couplings": [
+    [
+     {
+      "id": "HC 6260-01",
+      "part": "ACCS-6260-L",
+      "position": {
+       "x": "79.8425",
+       "y": "-141.7323",
+       "z": "29.4882"
+      },
+      "unit": "IN",
+      "standard": "DIN 71412",
+      "dashSize": 2,
+      "rating": "5801.5000",
+      "ratingUnit": "PSI",
+      "fluid": "lithium grease"
+     },
+     {
+      "id": "CABL-L-6070-A01",
+      "part": "CABL-L-6070",
+      "position": {
+       "x": "2028.000",
+       "y": "-3600.000",
+       "z": "749.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 71412",
+      "dashSize": 2,
+      "rating": "400.000",
+      "ratingUnit": "BAR",
+      "fluid": "lithium grease"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-172",
+   "label": "Right actuator access flap / right inner linen panel (lacing)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "KLAP-R-61120",
+    "LEIN-R-61060"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "KLAP-R-61120-B01",
+      "part": "KLAP-R-61120",
+      "position": {
+       "x": "2100.000",
+       "y": "1500.000",
+       "z": "415.033"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 7332",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "4.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "LEIN-R-61060-B02",
+      "part": "LEIN-R-61060",
+      "position": {
+       "x": "2100.000",
+       "y": "1500.000",
+       "z": "415.033"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 7332",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "4.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-173",
+   "label": "Right actuator access flap / right wing actuator (grease line to the rod end)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "KLAP-R-61120",
+    "AKTR-R-61090"
+   ],
+   "couplings": [
+    [
+     {
+      "id": "KLAP-R-61120-K01",
+      "part": "KLAP-R-61120",
+      "position": {
+       "x": "1900.000",
+       "y": "1500.000",
+       "z": "282.433"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 71412",
+      "dashSize": 2,
+      "rating": "400.000",
+      "ratingUnit": "BAR",
+      "fluid": "lithium grease"
+     },
+     {
+      "id": "AKTR-R-61090-K03",
+      "part": "AKTR-R-61090",
+      "position": {
+       "x": "1900.000",
+       "y": "1500.000",
+       "z": "282.433"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 71412",
+      "dashSize": 2,
+      "rating": "400.000",
+      "ratingUnit": "BAR",
+      "fluid": "lithium grease"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-174",
+   "label": "Right cord shackle access flap / right outer linen panel (lacing)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "KLAP-R-61130",
+    "LEIN-R-61070"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "KLAP-R-61130-B01",
+      "part": "KLAP-R-61130",
+      "position": {
+       "x": "2227.534",
+       "y": "3600.000",
+       "z": "725.809"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 7332",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "4.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "LEIN-R-61070-B02",
+      "part": "LEIN-R-61070",
+      "position": {
+       "x": "2227.534",
+       "y": "3600.000",
+       "z": "725.809"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 7332",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "4.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-175",
+   "label": "Right cord shackle access flap / right wing drive cord (grease line to the shackle)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "KLAP-R-61130",
+    "CABL-R-6080"
+   ],
+   "couplings": [
+    [
+     {
+      "id": "KLAP-R-61130-K01",
+      "part": "KLAP-R-61130",
+      "position": {
+       "x": "2028.000",
+       "y": "3600.000",
+       "z": "749.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 71412",
+      "dashSize": 2,
+      "rating": "400.000",
+      "ratingUnit": "BAR",
+      "fluid": "lithium grease"
+     },
+     {
+      "id": "CABL-R-6080-A01",
+      "part": "CABL-R-6080",
+      "position": {
+       "x": "2028.000",
+       "y": "3600.000",
+       "z": "749.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 71412",
+      "dashSize": 2,
+      "rating": "400.000",
+      "ratingUnit": "BAR",
+      "fluid": "lithium grease"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-176",
+   "label": "Ballast stowage bay / keel beam (bay bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-SOUT-001",
+    "FR-ORN-KEEL-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-SOUT-001-F01",
+      "part": "FR-ORN-SOUT-001",
+      "position": {
+       "x": "2727.500",
+       "y": "0.000",
+       "z": "60.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-KEEL-001-F06",
+      "part": "FR-ORN-KEEL-001",
+      "position": {
+       "x": "2727.500",
+       "y": "0.000",
+       "z": "60.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-177",
+   "label": "Stowage bay floor panel / ballast stowage bay (floor screws)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-PLAN-001",
+    "FR-ORN-SOUT-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-PLAN-001-F01",
+      "part": "FR-ORN-PLAN-001",
+      "position": {
+       "x": "2735.000",
+       "y": "0.000",
+       "z": "66.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 7049",
+      "diameter": "4.200",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-SOUT-001-F02",
+      "part": "FR-ORN-SOUT-001",
+      "position": {
+       "x": "2735.000",
+       "y": "0.000",
+       "z": "66.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 7049",
+      "diameter": "4.200",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-178",
+   "label": "Ballast bay leather liner / ballast stowage bay (liner fasteners)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FORR-6140",
+    "FR-ORN-SOUT-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FORR-6140-R01",
+      "part": "FORR-6140",
+      "position": {
+       "x": "2920.000",
+       "y": "-235.000",
+       "z": "240.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 7332",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 12,
+      "gripLength": "4.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-SOUT-001-F03",
+      "part": "FR-ORN-SOUT-001",
+      "position": {
+       "x": "2920.000",
+       "y": "-235.000",
+       "z": "240.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 7332",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 12,
+      "gripLength": "4.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-152",
+   "label": "Ballast water tank / keel beam (tank mounting bolts, pump power connector)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-BALL-001",
+    "FR-ORN-KEEL-001"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-ORN-BALL-001-J01",
+      "part": "FR-ORN-BALL-001",
+      "position": {
+       "x": "1650.000",
+       "y": "60.000",
+       "z": "-60.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "FR-ORN-KEEL-001-J03",
+      "part": "FR-ORN-KEEL-001",
+      "position": {
+       "x": "1650.000",
+       "y": "60.000",
+       "z": "-60.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-BALL-001-F01",
+      "part": "FR-ORN-BALL-001",
+      "position": {
+       "x": "1650.000",
+       "y": "0.000",
+       "z": "-60.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "70.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-KEEL-001-F05",
+      "part": "FR-ORN-KEEL-001",
+      "position": {
+       "x": "1650.000",
+       "y": "0.000",
+       "z": "-60.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "70.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-153",
+   "label": "Ballast water tank / ground service panel (water fill and drain couplings)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-BALL-001",
+    "FR-ORN-PSRV-001"
+   ],
+   "couplings": [
+    [
+     {
+      "id": "FR-ORN-BALL-001-H01",
+      "part": "FR-ORN-BALL-001",
+      "position": {
+       "x": "2100.000",
+       "y": "-540.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 7241 A",
+      "dashSize": 4,
+      "rating": "3.000",
+      "ratingUnit": "BAR",
+      "fluid": "water"
+     },
+     {
+      "id": "FR-ORN-PSRV-001-H01",
+      "part": "FR-ORN-PSRV-001",
+      "position": {
+       "x": "2100.000",
+       "y": "-540.000",
+       "z": "50.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 7241 A",
+      "dashSize": 4,
+      "rating": "3.000",
+      "ratingUnit": "BAR",
+      "fluid": "water"
+     }
+    ],
+    [
+     {
+      "id": "FR-ORN-BALL-001-H02",
+      "part": "FR-ORN-BALL-001",
+      "position": {
+       "x": "2100.000",
+       "y": "-540.000",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 7241 A",
+      "dashSize": 4,
+      "rating": "3.000",
+      "ratingUnit": "BAR",
+      "fluid": "waste water"
+     },
+     {
+      "id": "FR-ORN-PSRV-001-H02",
+      "part": "FR-ORN-PSRV-001",
+      "position": {
+       "x": "2100.000",
+       "y": "-540.000",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 7241 A",
+      "dashSize": 4,
+      "rating": "3.000",
+      "ratingUnit": "BAR",
+      "fluid": "waste water"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-154",
+   "label": "Ballast water tank / tail trim water bottle (trim water and drain couplings)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-BALL-001",
+    "DEPO-6130"
+   ],
+   "couplings": [
+    [
+     {
+      "id": "FR-ORN-BALL-001-H03",
+      "part": "FR-ORN-BALL-001",
+      "position": {
+       "x": "2000.000",
+       "y": "0.000",
+       "z": "-260.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 7241 A",
+      "dashSize": 4,
+      "rating": "3.000",
+      "ratingUnit": "BAR",
+      "fluid": "water"
+     },
+     {
+      "id": "DEPO-6130-A01",
+      "part": "DEPO-6130",
+      "position": {
+       "x": "2000.000",
+       "y": "0.000",
+       "z": "-260.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 7241 A",
+      "dashSize": 4,
+      "rating": "43.500",
+      "ratingUnit": "BAR",
+      "fluid": "water"
+     }
+    ],
+    [
+     {
+      "id": "FR-ORN-BALL-001-H04",
+      "part": "FR-ORN-BALL-001",
+      "position": {
+       "x": "2000.000",
+       "y": "0.000",
+       "z": "-380.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 7241 A",
+      "dashSize": 4,
+      "rating": "3.000",
+      "ratingUnit": "BAR",
+      "fluid": "waste water"
+     },
+     {
+      "id": "DEPO-6130-A02",
+      "part": "DEPO-6130",
+      "position": {
+       "x": "2000.000",
+       "y": "0.000",
+       "z": "-380.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 7241 A",
+      "dashSize": 4,
+      "rating": "3.000",
+      "ratingUnit": "BAR",
+      "fluid": "waste water"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-155",
+   "label": "Tail trim water bottle / tail boom (bottle mounting bolts, valve power connector)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "DEPO-6130",
+    "BOTA-6090"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "DEPO-6130-C01",
+      "part": "DEPO-6130",
+      "position": {
+       "x": "4300.000",
+       "y": "30.000",
+       "z": "20.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "BOTA-6090-C03",
+      "part": "BOTA-6090",
+      "position": {
+       "x": "4300.000",
+       "y": "30.000",
+       "z": "20.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "DEPO-6130-R01",
+      "part": "DEPO-6130",
+      "position": {
+       "x": "4450.000",
+       "y": "0.000",
+       "z": "20.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "BOTA-6090-R04",
+      "part": "BOTA-6090",
+      "position": {
+       "x": "4450.000",
+       "y": "0.000",
+       "z": "20.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-156",
+   "label": "Pilot harness / pilot cradle (strap anchor bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-ORN-SANG-001",
+    "FR-ORN-BERC-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-ORN-SANG-001-F01",
+      "part": "FR-ORN-SANG-001",
+      "position": {
+       "x": "1300.000",
+       "y": "0.000",
+       "z": "80.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-ORN-BERC-001-F02",
+      "part": "FR-ORN-BERC-001",
+      "position": {
+       "x": "1300.000",
+       "y": "0.000",
+       "z": "80.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-165",
+   "label": "Ground handling wheel / left landing skid (axle bolts)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "WHEL-6220",
+    "FR-ORN-PAT-L-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 6220-01",
+      "part": "WHEL-6220",
+      "position": {
+       "x": "70.8661",
+       "y": "-20.8661",
+       "z": "-22.0472"
+      },
+      "unit": "IN",
+      "standard": "ISO 4014",
+      "diameter": "0.4724",
+      "diameterUnit": "IN",
+      "count": 2,
+      "gripLength": "3.3465",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "FR-ORN-PAT-L-001-F03",
+      "part": "FR-ORN-PAT-L-001",
+      "position": {
+       "x": "1800.000",
+       "y": "-530.000",
+       "z": "-560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "85.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-166",
+   "label": "Wheel brake / ground service panel (brake line)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "BRAK-6240",
+    "FR-ORN-PSRV-001"
+   ],
+   "couplings": [
+    [
+     {
+      "id": "HC 6240-01",
+      "part": "BRAK-6240",
+      "position": {
+       "x": "70.8661",
+       "y": "-21.2598",
+       "z": "-19.2913"
+      },
+      "unit": "IN",
+      "standard": "ISO 8434-1",
+      "dashSize": 4,
+      "rating": "725.1900",
+      "ratingUnit": "PSI",
+      "fluid": "HM 32 mineral oil"
+     },
+     {
+      "id": "FR-ORN-PSRV-001-H03",
+      "part": "FR-ORN-PSRV-001",
+      "position": {
+       "x": "1800.000",
+       "y": "-540.000",
+       "z": "-490.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 4,
+      "rating": "50.000",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-167",
+   "label": "Tyre / ground service panel (inflation valve)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "TYRE-6230",
+    "FR-ORN-PSRV-001"
+   ],
+   "couplings": [
+    [
+     {
+      "id": "HC 6230-01",
+      "part": "TYRE-6230",
+      "position": {
+       "x": "70.8661",
+       "y": "-25.1969",
+       "z": "-19.2913"
+      },
+      "unit": "IN",
+      "standard": "ISO 7241 A",
+      "dashSize": 2,
+      "rating": "50.7630",
+      "ratingUnit": "PSI",
+      "fluid": "nitrogen"
+     },
+     {
+      "id": "FR-ORN-PSRV-001-H04",
+      "part": "FR-ORN-PSRV-001",
+      "position": {
+       "x": "1800.000",
+       "y": "-640.000",
+       "z": "-490.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 7241 A",
+      "dashSize": 2,
+      "rating": "3.500",
+      "ratingUnit": "BAR",
+      "fluid": "nitrogen"
+     }
+    ]
+   ]
+  }
+ ],
+ "sparePlugs": [
+  {
+   "id": "FR-ORN-PCMD-001-J03",
+   "part": "FR-ORN-PCMD-001",
+   "position": {
+    "x": "3620.000",
+    "y": "95.000",
+    "z": "140.000"
+   },
+   "unit": "MilliM",
+   "connectorType": "M12-A",
+   "pinCount": 4
+  }
+ ],
+ "seededDefects": [
+  {
+   "interface": "IF-05",
+   "rule": "unit",
+   "features": [
+    "HL 6180-02"
+   ],
+   "detail": "UK row stored with pos_uom NULL"
+  },
+  {
+   "interface": "IF-13",
+   "rule": "position",
+   "features": [
+    "FR-ORN-EMPL-R-001-J01",
+    "WURZ-R-61080-X01"
+   ],
+   "detail": "y differs by 4.3 mm"
+  },
+  {
+   "interface": "IF-03",
+   "rule": "connector",
+   "features": [
+    "FR-ORN-NACI-001-J01",
+    "PL 6200-01"
+   ],
+   "detail": "EN4165 module vs EN3645 shell"
+  },
+  {
+   "interface": "IF-30",
+   "rule": "orphan",
+   "features": [
+    "SERV-6120-C03"
+   ],
+   "detail": "ES plug declared with no FR mate"
+  },
+  {
+   "interface": "IF-25",
+   "rule": "fastener",
+   "features": [
+    "FR-ORN-TRAV-AV-001-F01",
+    "MANV-6010-R01"
+   ],
+   "detail": "FR diameter 10 mm vs ES 12 mm"
+  },
+  {
+   "interface": "IF-02",
+   "rule": "hydraulic",
+   "features": [
+    "FR-ORN-GHYD-001-H01",
+    "HC 6190-01"
+   ],
+   "detail": "UK rating 5000 PSI (344.7 bar) vs FR 206.8 bar"
+  },
+  {
+   "interface": "IF-154",
+   "rule": "hydraulic",
+   "features": [
+    "FR-ORN-BALL-001-H03",
+    "DEPO-6130-A01"
+   ],
+   "detail": "ES presion_bar 43.5, the psi figure of the coupling's data sheet (3.0 bar), vs FR pression_bar 3.0"
+  }
+ ],
+ "seededReferenceDefects": [
+  {
+   "localPart": "HARN-6200-L",
+   "remoteUrn": "urn:plm:fr:part:FR-ORN-NACI-002",
+   "rule": "danglingReference"
+  },
+  {
+   "localPart": "DEPO-6130",
+   "remoteUrn": "urn:plm:fr:part:FR-ORN-BALL-001",
+   "rule": "staleRevision"
+  }
+ ],
+ "seededLifecycleDefects": [
+  {
+   "item": "CONJ-6000",
+   "dependency": "SERV-6120",
+   "rule": "lifecycleConflict"
+  },
+  {
+   "item": "FR-ORN-KIT-001",
+   "dependency": "FR-ORN-CERC-001",
+   "rule": "lifecycleConflict"
+  },
+  {
+   "item": "KIT-6100-L",
+   "dependency": "HARN-6200-L",
+   "rule": "lifecycleConflict"
+  }
+ ],
+ "seededMeshDefects": [
+  {
+   "driver": "LINT-6015",
+   "driven": "FR-ORN-ROUE-001",
+   "rule": "meshModule",
+   "detail": "FR peg wheel recorded with module_mm 12.7, a half-inch module, against the 12 mm of the ES lantern pinion it meshes"
+  }
+ ],
+ "extended": {
+  "assemblies": [
+   {
+    "id": "BAUS-61000",
+    "plm": "DE",
+    "name": "Bausatz Ornithopter, rechter Flügel",
+    "nameEn": "Ornithopter kit, right wing",
+    "kind": "SITE_KIT",
+    "revision": "01",
+    "lifecycle": "Freigegeben"
+   },
+   {
+    "id": "FR-ORN-KIT-001",
+    "plm": "FR",
+    "name": "Kit ornithoptère, structure et commandes",
+    "nameEn": "Ornithopter kit, structure and controls",
+    "kind": "SITE_KIT",
+    "revision": "A",
+    "lifecycle": "Publié"
+   },
+   {
+    "id": "CONJ-6000",
+    "plm": "ES",
+    "name": "Conjunto ornitóptero, accionamiento",
+    "nameEn": "Ornithopter kit, drive",
+    "kind": "SITE_KIT",
+    "revision": 1,
+    "lifecycle": "Liberado"
+   },
+   {
+    "id": "KIT-6100-L",
+    "plm": "UK",
+    "name": "Ornithopter kit, left wing",
+    "nameEn": "Ornithopter kit, left wing",
+    "kind": "SITE_KIT",
+    "revision": "C1",
+    "lifecycle": "Released"
+   },
+   {
+    "id": "MANV-6010",
+    "plm": "ES",
+    "name": "Conjunto de manivela (eje, brazos, empuñaduras y soportes)",
+    "nameEn": "Crank assembly (shaft, arms, handles and bearing posts)",
+    "kind": "ASSEMBLY",
+    "revision": 3,
+    "lifecycle": "Liberado"
+   },
+   {
+    "id": "GEAR-6215",
+    "plm": "UK",
+    "name": "Ground handling wheel set",
+    "kind": "ASSEMBLY",
+    "revision": "C1",
+    "lifecycle": "Released"
+   }
+  ],
+  "bomLines": [
+   {
+    "parent": "BAUS-61000",
+    "child": "HOLM-R-61010",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "HOLM-R-61020",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "GELK-R-61030",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "RIPP-R-61040",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "RIPP-R-61050",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "LEIN-R-61060",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "LEIN-R-61070",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "WURZ-R-61080",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "AKTR-R-61090",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "KABL-R-61100",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-KEEL-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-LAT-L-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-LAT-R-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-TRAV-AV-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-TRAV-MIL-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-TRAV-AR-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-BERC-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-CERC-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-PAT-L-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-PAT-R-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-PCMD-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-NACI-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-GHYD-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-EMPL-L-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-EMPL-R-001",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "MANV-6010",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "TAMB-6020",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "PEDL-6030",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "CPED-6040",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "POLE-L-6050",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "POLE-R-6060",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "CABL-L-6070",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "CABL-R-6080",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "BOTA-6090",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "PCOL-6100",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "CCOL-6110",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "SERV-6120",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "SPAR-6110-L",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "SPAR-6120-L",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "KNKL-6130-L",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "RIBS-6140-L",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "RIBS-6150-L",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "LINN-6160-L",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "LINN-6170-L",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "ROOT-6180-L",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "ACTR-6190-L",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "HARN-6200-L",
+    "quantity": 1
+   },
+   {
+    "parent": "MANV-6010",
+    "child": "MANV-6011",
+    "quantity": 1
+   },
+   {
+    "parent": "MANV-6010",
+    "child": "MANV-L-6012",
+    "quantity": 1
+   },
+   {
+    "parent": "MANV-6010",
+    "child": "MANV-R-6013",
+    "quantity": 1
+   },
+   {
+    "parent": "MANV-6010",
+    "child": "MANV-L-6014",
+    "quantity": 1
+   },
+   {
+    "parent": "MANV-6010",
+    "child": "MANV-R-6015",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "LINT-6015",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-ROUE-001",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "CRET-L-6075",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "CRET-R-6085",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "ACCS-6250-L",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "ACCS-6260-L",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "KLAP-R-61120",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "KLAP-R-61130",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-SOUT-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-PLAN-001",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "FORR-6140",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-BALL-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-PSRV-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-SANG-001",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-6000",
+    "child": "DEPO-6130",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "GEAR-6215",
+    "quantity": 2,
+    "placements": [
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      141.7323,
+      0,
+      0,
+      0,
+      0,
+      180
+     ]
+    ]
+   },
+   {
+    "parent": "GEAR-6215",
+    "child": "WHEL-6220",
+    "quantity": 1
+   },
+   {
+    "parent": "GEAR-6215",
+    "child": "TYRE-6230",
+    "quantity": 1
+   },
+   {
+    "parent": "GEAR-6215",
+    "child": "BRAK-6240",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "LACE-6165-L",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "SCHN-R-61065",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-ORN-KIT-001",
+    "child": "FR-ORN-BIDN-001",
+    "quantity": 2,
+    "placements": [
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      260,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "KANI-61140",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "CAN-6270",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-61000",
+    "child": "RSCH-R-61045",
+    "quantity": 6,
+    "placements": [
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      600.0,
+      84.325,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1300.0,
+      182.703,
+      0,
+      0,
+      0
+     ],
+     [
+      85.023,
+      2200.0,
+      323.504,
+      0,
+      0,
+      0
+     ],
+     [
+      233.812,
+      2900.0,
+      446.933,
+      0,
+      0,
+      0
+     ],
+     [
+      382.602,
+      3600.0,
+      570.362,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   {
+    "parent": "KIT-6100-L",
+    "child": "SHOE-6145-L",
+    "quantity": 6,
+    "placements": [
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      -23.622,
+      3.3199,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      -51.1811,
+      7.193,
+      0,
+      0,
+      0
+     ],
+     [
+      3.3473,
+      -86.6142,
+      12.7364,
+      0,
+      0,
+      0
+     ],
+     [
+      9.2052,
+      -114.1732,
+      17.5958,
+      0,
+      0,
+      0
+     ],
+     [
+      15.0631,
+      -141.7323,
+      22.4552,
+      0,
+      0,
+      0
+     ]
+    ]
+   }
+  ],
+  "externalRefs": [
+   {
+    "localPart": "TAMB-6020",
+    "remoteUrn": "urn:plm:fr:part:FR-ORN-ROUE-001",
+    "quantity": 1,
+    "expectedRevision": "A",
+    "note": "IF-151: peg wheel bolted to the drum flange",
+    "interface": "IF-151"
+   },
+   {
+    "localPart": "ROOT-6180-L",
+    "remoteUrn": "urn:plm:fr:part:FR-ORN-EMPL-L-001",
+    "quantity": 1,
+    "expectedRevision": "A",
+    "note": "IF-01: root fitting on the FR root carrier pin",
+    "interface": "IF-01"
+   },
+   {
+    "localPart": "KABL-R-61100",
+    "remoteUrn": "urn:plm:fr:part:FR-ORN-NACI-001",
+    "quantity": 1,
+    "expectedRevision": "A",
+    "note": "IF-15: strain-gauge loom into the instrumentation pod",
+    "interface": "IF-15"
+   },
+   {
+    "localPart": "CABL-R-6080",
+    "remoteUrn": "urn:plm:de:part:HOLM-R-61020",
+    "quantity": 1,
+    "expectedRevision": "01",
+    "note": "IF-16: drive cord shackle on the DE outer spar",
+    "interface": "IF-16"
+   },
+   {
+    "localPart": "HARN-6200-L",
+    "remoteUrn": "urn:plm:fr:part:FR-ORN-NACI-002",
+    "quantity": 1,
+    "expectedRevision": "A",
+    "note": "IF-03: strain-gauge loom into the instrumentation pod",
+    "defect": "dangling: the pod is FR-ORN-NACI-001; no part FR-ORN-NACI-002 exists"
+   },
+   {
+    "localPart": "DEPO-6130",
+    "remoteUrn": "urn:plm:fr:part:FR-ORN-BALL-001",
+    "quantity": 1,
+    "expectedRevision": "A",
+    "note": "IF-154: trim water line on the FR ballast tank",
+    "interface": "IF-154",
+    "defect": "stale: FR-ORN-BALL-001 is at revision B"
+   }
+  ],
+  "stations": {
+   "key": "WS",
+   "name": "wing station",
+   "axis": "y",
+   "symmetric": true,
+   "measure": "mm from the centreline; WS n is y = +n on the right wing and y = -n on the left",
+   "list": [
+    {
+     "id": "WS 0",
+     "at": "0",
+     "basis": "inferred",
+     "source": "modules/cad/ornithopter.py frame: the keel beam axis"
+    },
+    {
+     "id": "WS 700",
+     "at": "700",
+     "basis": "joint",
+     "source": "S_ROOT; IF-01 and IF-13, the wing root joints"
+    },
+    {
+     "id": "WS 1200",
+     "at": "1200",
+     "basis": "inferred",
+     "source": "RIB_STATIONS_IN; six ribs per wing from the folio, positions inferred"
+    },
+    {
+     "id": "WS 1500",
+     "at": "1500",
+     "basis": "inferred",
+     "source": "wing_actuator(): the actuator rod end on the inner spar"
+    },
+    {
+     "id": "WS 1800",
+     "at": "1800",
+     "basis": "inferred",
+     "source": "RIB_STATIONS_IN"
+    },
+    {
+     "id": "WS 2500",
+     "at": "2500",
+     "basis": "inferred",
+     "source": "RIB_STATIONS_IN"
+    },
+    {
+     "id": "WS 3000",
+     "at": "3000",
+     "basis": "joint",
+     "source": "S_KNUCKLE; IF-06, IF-07, IF-18, IF-19; Codex Atlanticus f. 846v, fixed inner and movable outer sectors"
+    },
+    {
+     "id": "WS 3400",
+     "at": "3400",
+     "basis": "inferred",
+     "source": "RIB_STATIONS_OUT"
+    },
+    {
+     "id": "WS 3600",
+     "at": "3600",
+     "basis": "inferred",
+     "source": "wing_drive_cable(): the drive cord shackle, IF-04 and IF-16"
+    },
+    {
+     "id": "WS 4100",
+     "at": "4100",
+     "basis": "inferred",
+     "source": "RIB_STATIONS_OUT"
+    },
+    {
+     "id": "WS 4800",
+     "at": "4800",
+     "basis": "inferred",
+     "source": "RIB_STATIONS_OUT"
+    },
+    {
+     "id": "WS 5500",
+     "at": "5500",
+     "basis": "measured",
+     "source": "Museo Galileo working model of Ms B f. 74v, span 11.0 m",
+     "tolerance": "50"
+    }
+   ]
+  },
+  "sections": [
+   {
+    "id": "S-CTR",
+    "name": "Centre section",
+    "owner": "FR",
+    "side": "both",
+    "stations": [
+     "WS 0",
+     "WS 700"
+    ]
+   },
+   {
+    "id": "S-L-IN",
+    "name": "Left wing, fixed inner sector",
+    "owner": "UK",
+    "side": "left",
+    "stations": [
+     "WS 700",
+     "WS 1200",
+     "WS 1500",
+     "WS 1800",
+     "WS 2500",
+     "WS 3000"
+    ]
+   },
+   {
+    "id": "S-L-OUT",
+    "name": "Left wing, movable outer sector",
+    "owner": "UK",
+    "side": "left",
+    "stations": [
+     "WS 3000",
+     "WS 3400",
+     "WS 3600",
+     "WS 4100",
+     "WS 4800",
+     "WS 5500"
+    ]
+   },
+   {
+    "id": "S-R-IN",
+    "name": "Right wing, fixed inner sector",
+    "owner": "DE",
+    "side": "right",
+    "stations": [
+     "WS 700",
+     "WS 1200",
+     "WS 1500",
+     "WS 1800",
+     "WS 2500",
+     "WS 3000"
+    ]
+   },
+   {
+    "id": "S-R-OUT",
+    "name": "Right wing, movable outer sector",
+    "owner": "DE",
+    "side": "right",
+    "stations": [
+     "WS 3000",
+     "WS 3400",
+     "WS 3600",
+     "WS 4100",
+     "WS 4800",
+     "WS 5500"
+    ]
+   }
+  ],
+  "functionalEdges": [
+   {
+    "from": "MANV-L-6012",
+    "to": "MANV-6011",
+    "flow": "mechanical",
+    "via": "IF-163"
+   },
+   {
+    "from": "MANV-R-6013",
+    "to": "MANV-6011",
+    "flow": "mechanical",
+    "via": "IF-164"
+   },
+   {
+    "from": "MANV-6011",
+    "to": "LINT-6015",
+    "flow": "mechanical",
+    "via": "IF-150"
+   },
+   {
+    "from": "LINT-6015",
+    "to": "FR-ORN-ROUE-001",
+    "flow": "mechanical"
+   },
+   {
+    "from": "FR-ORN-ROUE-001",
+    "to": "TAMB-6020",
+    "flow": "mechanical",
+    "via": "IF-151"
+   },
+   {
+    "from": "PEDL-6030",
+    "to": "CPED-6040",
+    "flow": "mechanical",
+    "via": "IF-35"
+   },
+   {
+    "from": "CPED-6040",
+    "to": "TAMB-6020",
+    "flow": "mechanical",
+    "via": "IF-36"
+   },
+   {
+    "from": "TAMB-6020",
+    "to": "CABL-L-6070",
+    "flow": "mechanical",
+    "via": "IF-33"
+   },
+   {
+    "from": "TAMB-6020",
+    "to": "CABL-R-6080",
+    "flow": "mechanical",
+    "via": "IF-34"
+   },
+   {
+    "from": "CABL-L-6070",
+    "to": "SPAR-6120-L",
+    "flow": "mechanical",
+    "via": "IF-04"
+   },
+   {
+    "from": "CABL-R-6080",
+    "to": "HOLM-R-61020",
+    "flow": "mechanical",
+    "via": "IF-16"
+   },
+   {
+    "from": "SPAR-6120-L",
+    "to": "RIBS-6150-L",
+    "flow": "mechanical",
+    "via": "IF-09"
+   },
+   {
+    "from": "HOLM-R-61020",
+    "to": "RIPP-R-61050",
+    "flow": "mechanical",
+    "via": "IF-21"
+   },
+   {
+    "from": "PEDL-6030",
+    "to": "CRET-L-6075",
+    "flow": "mechanical",
+    "via": "IF-159"
+   },
+   {
+    "from": "CRET-L-6075",
+    "to": "ROOT-6180-L",
+    "flow": "mechanical",
+    "via": "IF-157"
+   },
+   {
+    "from": "PEDL-6030",
+    "to": "CRET-R-6085",
+    "flow": "mechanical",
+    "via": "IF-160"
+   },
+   {
+    "from": "CRET-R-6085",
+    "to": "WURZ-R-61080",
+    "flow": "mechanical",
+    "via": "IF-158"
+   },
+   {
+    "from": "ACTR-6190-L",
+    "to": "SPAR-6110-L",
+    "flow": "mechanical",
+    "via": "IF-12"
+   },
+   {
+    "from": "AKTR-R-61090",
+    "to": "HOLM-R-61010",
+    "flow": "mechanical",
+    "via": "IF-24"
+   },
+   {
+    "from": "FR-ORN-CERC-001",
+    "to": "CCOL-6110",
+    "flow": "mechanical",
+    "via": "IF-31"
+   },
+   {
+    "from": "CCOL-6110",
+    "to": "PCOL-6100",
+    "flow": "mechanical",
+    "via": "IF-39"
+   },
+   {
+    "from": "FR-ORN-GHYD-001",
+    "to": "ACTR-6190-L",
+    "flow": "hydraulic",
+    "via": "IF-02"
+   },
+   {
+    "from": "FR-ORN-GHYD-001",
+    "to": "AKTR-R-61090",
+    "flow": "hydraulic",
+    "via": "IF-14"
+   },
+   {
+    "from": "FR-ORN-PSRV-001",
+    "to": "BRAK-6240",
+    "flow": "hydraulic",
+    "via": "IF-166"
+   },
+   {
+    "from": "FR-ORN-PCMD-001",
+    "to": "SERV-6120",
+    "flow": "electrical",
+    "via": "IF-30"
+   }
+  ],
+  "ratedSpeeds": [
+   {
+    "part": "LINT-6015",
+    "rpm": "40"
+   },
+   {
+    "part": "TAMB-6020",
+    "rpm": "10"
+   }
+  ],
+  "proposedDefects": [
+   {
+    "rule": "danglingReference",
+    "brief": "the UK wing loom names a pod part number that does not exist",
+    "data": "externalRefs HARN-6200-L -> urn:plm:fr:part:FR-ORN-NACI-002; the pod is FR-ORN-NACI-001"
+   },
+   {
+    "rule": "staleRevision",
+    "brief": "the ES trim bottle expects the ballast tank at its first issue",
+    "data": "externalRefs DEPO-6130 -> urn:plm:fr:part:FR-ORN-BALL-001 expects revision A; FR-ORN-BALL-001 is at B"
+   }
+  ],
+  "sources": [
+   {
+    "title": "Leonardo da Vinci, Paris Manuscript B, f. 74v (Milan, about 1487-1490), Museo Galileo record",
+    "url": "https://brunelleschi.imss.fi.it/genscheda.asp?appl=LIR&chiave=100934&xsl=modello",
+    "used": "the machine: pilot prone, legs on the stirrups, hands on a windlass"
+   },
+   {
+    "title": "Paris Manuscript B, ff. 74v and 77r, Péladan translation (Wikisource)",
+    "url": "https://fr.wikisource.org/wiki/L%C3%A9onard_de_Vinci_:_les_14_manuscrits_de_l%E2%80%99Institut_de_France/Texte_entier",
+    "used": "74v: the trial over a lake; 77r: wheels and pinions multiplying force, the nearest gear note; the gear stage's teeth, modules and speeds are authored"
+   },
+   {
+    "title": "Museo Leonardiano, model of the flying machine of Ms B 74v",
+    "url": "https://museoleonardiano.it/opera/macchina-volante/",
+    "used": "the platform, the stirrups, cords and pulleys, the springs at the wing joints; leather among its materials"
+   },
+   {
+    "title": "Codex on the Flight of Birds, ff. 5 and 7",
+    "url": "https://en.wikipedia.org/wiki/Codex_on_the_Flight_of_Birds",
+    "used": "f. 7: leather laces and raw silk, no metal, a thick ribbon of tanned leather; f. 5: the pilot free from the waist up to balance as in a boat; digitised at https://www.loc.gov/item/2021668201/"
+   }
+  ],
+  "massLimitKg": "260.500",
+  "massLimitSource": "Authored: the rated load of the ground test stand the demonstrator is mounted on",
+  "variants": {
+   "wing-return": {
+    "name": "Wing return",
+    "selects": "what raises the wings after the downstroke, left and right",
+    "default": "stirrup-return",
+    "options": {
+     "stirrup-return": {
+      "default": true,
+      "source": "Paris Manuscript B, f. 74v: the wings raised by pulling the feet back",
+      "parts": ["CRET-L-6075", "CRET-R-6085"],
+      "interfaces": ["IF-157", "IF-158", "IF-159", "IF-160"],
+      "ports": {
+       "IF-157": {
+        "HL 6180-03": "return eye",
+        "CRET-L-6075-R01": "return eye"
+       },
+       "IF-158": {
+        "WURZ-R-61080-B03": "return eye",
+        "CRET-R-6085-R01": "return eye"
+       },
+       "IF-159": {
+        "PEDL-6030-R03": "left heel eye",
+        "CRET-L-6075-R02": "left heel eye"
+       },
+       "IF-160": {
+        "PEDL-6030-R04": "right heel eye",
+        "CRET-R-6085-R02": "right heel eye"
+       }
+      }
+     },
+     "spring-return": {
+      "default": false,
+      "source": "Paris Manuscript B, f. 74v: the wings raised by the force of the spring",
+      "parts": [
+       {
+        "id": "SPRG-6210-L",
+        "plm": "UK",
+        "name": "Left wing return spring",
+        "cadFile": "cad/ornithopter/uk-left-return-spring.stp",
+        "cadPart": "uk-left-return-spring",
+        "classification": {
+         "jurisdiction": "NONE",
+         "releasableTo": "ALL"
+        },
+        "extended": {
+         "revision": "C1",
+         "lifecycle": "Released",
+         "mass": 2.902,
+         "massUnit": "lb",
+         "material": "spring steel",
+         "interpretationNote": "Authored: coil spring from the carrier anchor to the root fitting eye; 74v for the spring return."
+        }
+       },
+       {
+        "id": "FEDR-R-61110",
+        "plm": "DE",
+        "name": "Rechte Flügelrückstellfeder",
+        "cadFile": "cad/ornithopter/de-right-return-spring.stp",
+        "cadPart": "de-right-return-spring",
+        "classification": {
+         "jurisdiction": "NONE",
+         "releasableTo": "ALL"
+        },
+        "extended": {
+         "nameEn": "Right wing return spring",
+         "revision": "01",
+         "lifecycle": "Freigegeben",
+         "mass": 1.316,
+         "massUnit": "kg",
+         "material": "Federstahl",
+         "interpretationNote": "Authored: coil spring from the carrier anchor to the root fitting eye; 74v for the spring return."
+        }
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "IF-180",
+        "label": "Left return spring / left wing root fitting (return eye)",
+        "toleranceMm": "2.0",
+        "parts": ["SPRG-6210-L", "ROOT-6180-L"],
+        "fasteners": [
+         [
+          {
+           "id": "HL 6210-01",
+           "part": "SPRG-6210-L",
+           "position": {
+            "x": "74.8031",
+            "y": "-27.5591",
+            "z": "13.3858"
+           },
+           "unit": "IN",
+           "standard": "ISO 2341",
+           "diameter": "0.3937",
+           "diameterUnit": "IN",
+           "count": 1,
+           "gripLength": "1.1811",
+           "gripUnit": "IN",
+           "port": "return eye"
+          },
+          {
+           "id": "HL 6180-03",
+           "part": "ROOT-6180-L",
+           "position": {
+            "x": "74.8031",
+            "y": "-27.5591",
+            "z": "13.3858"
+           },
+           "unit": "IN",
+           "standard": "ISO 2341",
+           "diameter": "0.3937",
+           "diameterUnit": "IN",
+           "count": 1,
+           "gripLength": "1.1811",
+           "gripUnit": "IN",
+           "port": "return eye"
+          }
+         ]
+        ]
+       },
+       {
+        "id": "IF-181",
+        "label": "Left return spring / left wing root carrier (spring anchor)",
+        "toleranceMm": "2.0",
+        "parts": ["SPRG-6210-L", "FR-ORN-EMPL-L-001"],
+        "fasteners": [
+         [
+          {
+           "id": "HL 6210-02",
+           "part": "SPRG-6210-L",
+           "position": {
+            "x": "76.7717",
+            "y": "-22.8346",
+            "z": "12.2047"
+           },
+           "unit": "IN",
+           "standard": "ISO 2341",
+           "diameter": "0.3150",
+           "diameterUnit": "IN",
+           "count": 1,
+           "gripLength": "1.1811",
+           "gripUnit": "IN",
+           "port": "spring anchor"
+          },
+          {
+           "id": "FR-ORN-EMPL-L-001-F02",
+           "part": "FR-ORN-EMPL-L-001",
+           "position": {
+            "x": "1950.000",
+            "y": "-580.000",
+            "z": "310.000"
+           },
+           "unit": "MilliM",
+           "standard": "ISO 2341",
+           "diameter": "10.000",
+           "diameterUnit": "MilliM",
+           "count": 1,
+           "gripLength": "30.000",
+           "gripUnit": "MilliM",
+           "port": "spring anchor"
+          }
+         ]
+        ]
+       },
+       {
+        "id": "IF-182",
+        "label": "Right return spring / right wing root fitting (return eye)",
+        "toleranceMm": "2.0",
+        "parts": ["FEDR-R-61110", "WURZ-R-61080"],
+        "fasteners": [
+         [
+          {
+           "id": "FEDR-R-61110-B01",
+           "part": "FEDR-R-61110",
+           "position": {
+            "x": "1900.000",
+            "y": "700.000",
+            "z": "340.000"
+           },
+           "unit": "MilliM",
+           "standard": "ISO 2341",
+           "diameter": "10.000",
+           "diameterUnit": "MilliM",
+           "count": 1,
+           "gripLength": "30.000",
+           "gripUnit": "MilliM",
+           "port": "return eye"
+          },
+          {
+           "id": "WURZ-R-61080-B03",
+           "part": "WURZ-R-61080",
+           "position": {
+            "x": "1900.000",
+            "y": "700.000",
+            "z": "340.000"
+           },
+           "unit": "MilliM",
+           "standard": "ISO 2341",
+           "diameter": "10.000",
+           "diameterUnit": "MilliM",
+           "count": 1,
+           "gripLength": "30.000",
+           "gripUnit": "MilliM",
+           "port": "return eye"
+          }
+         ]
+        ]
+       },
+       {
+        "id": "IF-183",
+        "label": "Right return spring / right wing root carrier (spring anchor)",
+        "toleranceMm": "2.0",
+        "parts": ["FEDR-R-61110", "FR-ORN-EMPL-R-001"],
+        "fasteners": [
+         [
+          {
+           "id": "FEDR-R-61110-B02",
+           "part": "FEDR-R-61110",
+           "position": {
+            "x": "1950.000",
+            "y": "580.000",
+            "z": "310.000"
+           },
+           "unit": "MilliM",
+           "standard": "ISO 2341",
+           "diameter": "10.000",
+           "diameterUnit": "MilliM",
+           "count": 1,
+           "gripLength": "30.000",
+           "gripUnit": "MilliM",
+           "port": "spring anchor"
+          },
+          {
+           "id": "FR-ORN-EMPL-R-001-F02",
+           "part": "FR-ORN-EMPL-R-001",
+           "position": {
+            "x": "1950.000",
+            "y": "580.000",
+            "z": "310.000"
+           },
+           "unit": "MilliM",
+           "standard": "ISO 2341",
+           "diameter": "10.000",
+           "diameterUnit": "MilliM",
+           "count": 1,
+           "gripLength": "30.000",
+           "gripUnit": "MilliM",
+           "port": "spring anchor"
+          }
+         ]
+        ]
+       }
+      ],
+      "replaces": {
+       "parts": {
+        "CRET-L-6075": "SPRG-6210-L",
+        "CRET-R-6085": "FEDR-R-61110"
+       },
+       "interfaces": {
+        "IF-157": "IF-180",
+        "IF-158": "IF-182"
+       },
+       "removes": {
+        "parts": [],
+        "assemblies": [],
+        "interfaces": ["IF-159", "IF-160"]
+       }
+      },
+      "bomLines": [
+       {
+        "parent": "KIT-6100-L",
+        "child": "SPRG-6210-L",
+        "quantity": 1
+       },
+       {
+        "parent": "BAUS-61000",
+        "child": "FEDR-R-61110",
+        "quantity": 1
+       }
+      ],
+      "functionalEdges": [
+       {
+        "from": "SPRG-6210-L",
+        "to": "ROOT-6180-L",
+        "flow": "mechanical",
+        "via": "IF-180"
+       },
+       {
+        "from": "FEDR-R-61110",
+        "to": "WURZ-R-61080",
+        "flow": "mechanical",
+        "via": "IF-182"
+       }
+      ],
+      "seededDefects": [
+       {
+        "interface": "IF-181",
+        "rule": "fastener",
+        "features": ["HL 6210-02", "FR-ORN-EMPL-L-001-F02"],
+        "detail": "UK spring anchor pin 0.3150 in (8.0 mm) vs FR anchor bore 10 mm"
+       }
+      ]
+     }
+    }
+   },
+   "crank-build": {
+    "name": "Crank build",
+    "selects": "the hand crank: assembled from shaft, arms and posts, or forged in one piece",
+    "default": "assembled",
+    "options": {
+     "assembled": {
+      "default": true,
+      "assemblies": ["MANV-6010"],
+      "parts": ["MANV-6011", "MANV-L-6012", "MANV-R-6013", "MANV-L-6014", "MANV-R-6015"],
+      "interfaces": ["IF-25", "IF-32", "IF-150", "IF-161", "IF-162", "IF-163", "IF-164"],
+      "ports": {
+       "IF-25": {
+        "FR-ORN-TRAV-AV-001-F01": "crank bearing, left"
+       },
+       "IF-32": {
+        "TAMB-6020-R01": "drum journal tie"
+       },
+       "IF-150": {
+        "LINT-6015-R01": "lantern hub"
+       }
+      }
+     },
+     "one-piece": {
+      "default": false,
+      "source": "Authored: a one-piece forged crank; the machine of Ms B f. 74v names no build",
+      "parts": [
+       {
+        "id": "MANV-6019",
+        "plm": "ES",
+        "name": "Cigüeñal forjado de una pieza",
+        "cadFile": "cad/ornithopter/es-crank-one-piece.stp",
+        "cadPart": "es-crank-one-piece",
+        "classification": {
+         "jurisdiction": "NONE",
+         "releasableTo": "ALL"
+        },
+        "extended": {
+         "nameEn": "One-piece forged crank",
+         "revision": 1,
+         "lifecycle": "Liberado",
+         "mass": 20.678,
+         "massUnit": "kg",
+         "material": "acero forjado",
+         "interpretationNote": "Authored: the geometry of crank_shaft() as one solid."
+        }
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "IF-184",
+        "label": "Forward cross beam / one-piece crank (bearing post bolts)",
+        "toleranceMm": "2.0",
+        "parts": ["FR-ORN-TRAV-AV-001", "MANV-6019"],
+        "fasteners": [
+         [
+          {
+           "id": "FR-ORN-TRAV-AV-001-F01",
+           "part": "FR-ORN-TRAV-AV-001",
+           "position": {
+            "x": "900.000",
+            "y": "-460.000",
+            "z": "50.000"
+           },
+           "unit": "MilliM",
+           "standard": "ISO 4014",
+           "diameter": "10.000",
+           "diameterUnit": "MilliM",
+           "count": 4,
+           "gripLength": "100.000",
+           "gripUnit": "MilliM",
+           "port": "crank bearing, left"
+          },
+          {
+           "id": "MANV-6019-R01",
+           "part": "MANV-6019",
+           "position": {
+            "x": "900.000",
+            "y": "-460.000",
+            "z": "50.000"
+           },
+           "unit": "MilliM",
+           "standard": "ISO 4014",
+           "diameter": "10.000",
+           "diameterUnit": "MilliM",
+           "count": 4,
+           "gripLength": "100.000",
+           "gripUnit": "MilliM",
+           "port": "crank bearing, left"
+          }
+         ]
+        ]
+       },
+       {
+        "id": "IF-185",
+        "label": "One-piece crank / windlass drum journal post (tie bolts)",
+        "toleranceMm": "2.0",
+        "parts": ["MANV-6019", "TAMB-6020"],
+        "fasteners": [
+         [
+          {
+           "id": "MANV-6019-R02",
+           "part": "MANV-6019",
+           "position": {
+            "x": "1025.000",
+            "y": "460.000",
+            "z": "300.000"
+           },
+           "unit": "MilliM",
+           "standard": "ISO 4014",
+           "diameter": "10.000",
+           "diameterUnit": "MilliM",
+           "count": 2,
+           "gripLength": "80.000",
+           "gripUnit": "MilliM",
+           "port": "drum journal tie"
+          },
+          {
+           "id": "TAMB-6020-R01",
+           "part": "TAMB-6020",
+           "position": {
+            "x": "1025.000",
+            "y": "460.000",
+            "z": "300.000"
+           },
+           "unit": "MilliM",
+           "standard": "ISO 4014",
+           "diameter": "10.000",
+           "diameterUnit": "MilliM",
+           "count": 2,
+           "gripLength": "80.000",
+           "gripUnit": "MilliM",
+           "port": "drum journal tie"
+          }
+         ]
+        ]
+       },
+       {
+        "id": "IF-186",
+        "label": "One-piece crank / lantern pinion (key)",
+        "toleranceMm": "2.0",
+        "parts": ["MANV-6019", "LINT-6015"],
+        "fasteners": [
+         [
+          {
+           "id": "MANV-6019-R03",
+           "part": "MANV-6019",
+           "position": {
+            "x": "900.000",
+            "y": "-250.000",
+            "z": "450.000"
+           },
+           "unit": "MilliM",
+           "standard": "DIN 6885",
+           "diameter": "8.000",
+           "diameterUnit": "MilliM",
+           "count": 1,
+           "gripLength": "60.000",
+           "gripUnit": "MilliM",
+           "port": "lantern hub"
+          },
+          {
+           "id": "LINT-6015-R01",
+           "part": "LINT-6015",
+           "position": {
+            "x": "900.000",
+            "y": "-250.000",
+            "z": "450.000"
+           },
+           "unit": "MilliM",
+           "standard": "DIN 6885",
+           "diameter": "8.000",
+           "diameterUnit": "MilliM",
+           "count": 1,
+           "gripLength": "60.000",
+           "gripUnit": "MilliM",
+           "port": "lantern hub"
+          }
+         ]
+        ]
+       }
+      ],
+      "replaces": {
+       "assemblies": {
+        "MANV-6010": "MANV-6019"
+       },
+       "interfaces": {
+        "IF-25": "IF-184",
+        "IF-32": "IF-185",
+        "IF-150": "IF-186"
+       },
+       "removes": {
+        "parts": ["MANV-6011", "MANV-L-6012", "MANV-R-6013", "MANV-L-6014", "MANV-R-6015"],
+        "assemblies": [],
+        "interfaces": ["IF-161", "IF-162", "IF-163", "IF-164"]
+       }
+      },
+      "bomLines": [
+       {
+        "parent": "CONJ-6000",
+        "child": "MANV-6019",
+        "quantity": 1
+       }
+      ],
+      "functionalEdges": [
+       {
+        "from": "MANV-6019",
+        "to": "LINT-6015",
+        "flow": "mechanical",
+        "via": "IF-186"
+       }
+      ]
+     }
+    }
+   }
+  }
+ }
+}

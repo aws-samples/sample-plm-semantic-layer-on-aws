@@ -1,0 +1,2232 @@
+{
+  "product": {
+    "key": "cubesat",
+    "name": "1U CubeSat, authored demonstrator"
+  },
+  "frame": "z along the rails with z = 0 on the outer face of the -Z end plate (the face inserted first into the dispenser), x and y from the axis of the rail square; mm, the frame of modules/cad/cubesat.py. Body 100 x 100 x 100 with |x|, |y| <= 50, rails 8.5 mm square at the corners from z -6.75 to 106.75 (113.5 overall), board stack at z 32, 47.24 and 62.48, solar panel boards 1.6 mm outside the +X, +Y and +Z faces, antenna module 4 mm outside the -X face.",
+  "parts": [
+    {
+      "id": "D-35001",
+      "plm": "DE",
+      "name": "Rahmen 1U (zwei Ringrahmen)",
+      "cadFile": "cad/cubesat/de-frame.stp",
+      "cadPart": "de-frame",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-35001",
+        "nameEn": "1U frame (two ring frames)",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": "0.142",
+        "massUnit": "kg",
+        "material": "EN AW-7075 T6",
+        "dimensionText": "100 x 100 x 100 mm",
+        "interpretationNote": "Zwei Ringrahmen aus je vier Stegen (4 mm hoch) zwischen den Schienen an beiden Enden; die Spezifikation gibt nur Schienen und Hüllkurve vor, die Rahmenform ist eine Auslegungsentscheidung.",
+        "siteKit": "D-35000",
+        "discipline": "mechanical"
+      }
+    },
+    {
+      "id": "D-35002",
+      "plm": "DE",
+      "name": "Schiene +X+Y",
+      "cadFile": "cad/cubesat/de-rail-px-py.stp",
+      "cadPart": "de-rail-px-py",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-35002",
+        "nameEn": "Rail +X+Y",
+        "revision": "02",
+        "lifecycle": "Freigegeben",
+        "mass": "0.038",
+        "massUnit": "kg",
+        "material": "EN AW-7075 T6",
+        "dimensionText": "8,5 x 8,5 x 113,5 mm",
+        "interpretationNote": "8,5 mm Breite ist das Minimum von CDS 2.2.5; die Schiene läuft von z -6,75 bis 106,75 mm (113,5 mm Gesamtlänge), der Kantenradius von 1 mm (CDS 2.2.7) ist nicht modelliert. Revision 01 ist Ersetzt (Gewindeeinsätze für die Panelschrauben hinzugefügt).",
+        "siteKit": "D-35000",
+        "discipline": "mechanical"
+      }
+    },
+    {
+      "id": "D-35003",
+      "plm": "DE",
+      "name": "Schiene +X-Y",
+      "cadFile": "cad/cubesat/de-rail-px-ny.stp",
+      "cadPart": "de-rail-px-ny",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-35003",
+        "nameEn": "Rail +X-Y",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": "0.038",
+        "massUnit": "kg",
+        "material": "EN AW-7075 T6",
+        "dimensionText": "8,5 x 8,5 x 113,5 mm",
+        "interpretationNote": "8,5 mm Breite ist das Minimum von CDS 2.2.5; die Schiene läuft von z -6,75 bis 106,75 mm (113,5 mm Gesamtlänge), der Kantenradius von 1 mm (CDS 2.2.7) ist nicht modelliert.",
+        "siteKit": "D-35000",
+        "discipline": "mechanical"
+      }
+    },
+    {
+      "id": "D-35004",
+      "plm": "DE",
+      "name": "Schiene -X+Y",
+      "cadFile": "cad/cubesat/de-rail-nx-py.stp",
+      "cadPart": "de-rail-nx-py",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-35004",
+        "nameEn": "Rail -X+Y",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": "0.038",
+        "massUnit": "kg",
+        "material": "EN AW-7075 T6",
+        "dimensionText": "8,5 x 8,5 x 113,5 mm",
+        "interpretationNote": "8,5 mm Breite ist das Minimum von CDS 2.2.5; die Schiene läuft von z -6,75 bis 106,75 mm (113,5 mm Gesamtlänge), der Kantenradius von 1 mm (CDS 2.2.7) ist nicht modelliert.",
+        "siteKit": "D-35000",
+        "discipline": "mechanical"
+      }
+    },
+    {
+      "id": "D-35005",
+      "plm": "DE",
+      "name": "Schiene -X-Y",
+      "cadFile": "cad/cubesat/de-rail-nx-ny.stp",
+      "cadPart": "de-rail-nx-ny",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-35005",
+        "nameEn": "Rail -X-Y",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": "0.038",
+        "massUnit": "kg",
+        "material": "EN AW-7075 T6",
+        "dimensionText": "8,5 x 8,5 x 113,5 mm",
+        "interpretationNote": "8,5 mm Breite ist das Minimum von CDS 2.2.5; die Schiene läuft von z -6,75 bis 106,75 mm (113,5 mm Gesamtlänge), der Kantenradius von 1 mm (CDS 2.2.7) ist nicht modelliert.",
+        "siteKit": "D-35000",
+        "discipline": "mechanical"
+      }
+    },
+    {
+      "id": "D-35006",
+      "plm": "DE",
+      "name": "Endplatte -Z",
+      "cadFile": "cad/cubesat/de-end-plate-nz.stp",
+      "cadPart": "de-end-plate-nz",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-35006",
+        "nameEn": "End plate -Z",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": "0.046",
+        "massUnit": "kg",
+        "material": "EN AW-7075 T6",
+        "dimensionText": "83 x 83 x 1,5 mm",
+        "interpretationNote": "Sitzt innerhalb des -Z-Ringrahmens zwischen den Schienen; die Außenseite trägt den Radiatorbelag (FR3501), die Batteriewanne wird von außen durchgeschraubt.",
+        "siteKit": "D-35000",
+        "discipline": "mechanical"
+      }
+    },
+    {
+      "id": "D-35007",
+      "plm": "DE",
+      "name": "Endplatte +Z",
+      "cadFile": "cad/cubesat/de-end-plate-pz.stp",
+      "cadPart": "de-end-plate-pz",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-35007",
+        "nameEn": "End plate +Z",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": "0.046",
+        "massUnit": "kg",
+        "material": "EN AW-7075 T6",
+        "dimensionText": "83 x 83 x 1,5 mm",
+        "interpretationNote": "Sitzt innerhalb des +Z-Ringrahmens; trägt außen das Solarpanel +Z und innen den schwarzen Belag (FR3502).",
+        "siteKit": "D-35000",
+        "discipline": "mechanical"
+      }
+    },
+    {
+      "id": "D-35008",
+      "plm": "DE",
+      "name": "Abstandsbolzensatz Stapel (12 Stück)",
+      "cadFile": "cad/cubesat/de-standoff-set.stp",
+      "cadPart": "de-standoff-set",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-35008",
+        "nameEn": "Stack standoff set (12 spacers)",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": "0.058",
+        "massUnit": "kg",
+        "material": "1.4305",
+        "dimensionText": "Ø 5 mm, Längen 30,5 / 13,64 / 13,64 mm",
+        "interpretationNote": "Vier Säulen bei (±36, ±36) mm statt der PC/104-Lochlage, damit die Säulen an der Batteriewanne vorbeigehen; ein Satz für alle drei Stapelebenen.",
+        "siteKit": "D-35000",
+        "discipline": "mechanical"
+      }
+    },
+    {
+      "id": "UK-3501",
+      "plm": "UK",
+      "name": "EPS board (electrical power system)",
+      "cadFile": "cad/cubesat/uk-eps-board.stp",
+      "cadPart": "uk-eps-board",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3501",
+        "nameEn": "EPS board",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": "0.331",
+        "massUnit": "lb",
+        "material": "FR-4, 1.6 mm",
+        "dimensionText": "3.543 x 3.780 x 0.063 in",
+        "interpretationNote": "PC/104 footprint 90 x 96 mm with the corners notched 3.5 x 6.5 mm for the rails; stacked at the 0.6 in PC/104 pitch. Underside carries the battery, deployment-switch and thermistor connectors.",
+        "siteKit": "UK/3500",
+        "discipline": "electronic"
+      }
+    },
+    {
+      "id": "UK-3502",
+      "plm": "UK",
+      "name": "Battery pack (two 26650 cells)",
+      "cadFile": "cad/cubesat/uk-battery-pack.stp",
+      "cadPart": "uk-battery-pack",
+      "classification": {
+        "jurisdiction": "EXPORT-LICENCE",
+        "releasableTo": "LICENSED"
+      },
+      "extended": {
+        "localId": "UK/3502",
+        "nameEn": "Battery pack",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": "0.661",
+        "massUnit": "lb",
+        "material": "Li-ion 26650 cells, steel can",
+        "dimensionText": "2 x dia 1.024 x 2.559 in",
+        "interpretationNote": "Two cells along x in the ES tray; the protection circuit sits on the EPS board, so the pack is cells and clamps only.",
+        "siteKit": "UK/3500",
+        "discipline": "electrical"
+      }
+    },
+    {
+      "id": "UK-3503",
+      "plm": "UK",
+      "name": "Solar panel board +X",
+      "cadFile": "cad/cubesat/uk-solar-panel-px.stp",
+      "cadPart": "uk-solar-panel-px",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3503",
+        "nameEn": "Solar panel board +X",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": "0.203",
+        "massUnit": "lb",
+        "material": "FR-4 with cover glass",
+        "dimensionText": "0.063 x 3.858 x 3.937 in",
+        "interpretationNote": "Outside the rail plane by 1.6 mm (CDS 2.2.3 allows 6.5 mm); screwed to the two +X rails.",
+        "siteKit": "UK/3500",
+        "discipline": "electrical"
+      }
+    },
+    {
+      "id": "UK-3504",
+      "plm": "UK",
+      "name": "Solar panel board +Y",
+      "cadFile": "cad/cubesat/uk-solar-panel-py.stp",
+      "cadPart": "uk-solar-panel-py",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3504",
+        "nameEn": "Solar panel board +Y",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": "0.203",
+        "massUnit": "lb",
+        "material": "FR-4 with cover glass",
+        "dimensionText": "3.858 x 0.063 x 3.937 in",
+        "interpretationNote": "Outside the rail plane by 1.6 mm; screwed to the -X+Y rail (the +X+Y side is declared on the +X panel).",
+        "siteKit": "UK/3500",
+        "discipline": "electrical"
+      }
+    },
+    {
+      "id": "UK-3506",
+      "plm": "UK",
+      "name": "Solar panel board +Z",
+      "cadFile": "cad/cubesat/uk-solar-panel-pz.stp",
+      "cadPart": "uk-solar-panel-pz",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3506",
+        "nameEn": "Solar panel board +Z",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": "0.187",
+        "massUnit": "lb",
+        "material": "FR-4 with cover glass",
+        "dimensionText": "3.268 x 3.268 x 0.063 in",
+        "interpretationNote": "On the +Z end plate between the rail ends, below the rail end plane (CDS 2.2.8 contact pads stay clear).",
+        "siteKit": "UK/3500",
+        "discipline": "electrical"
+      }
+    },
+    {
+      "id": "UK-3507",
+      "plm": "UK",
+      "name": "On-board computer board",
+      "cadFile": "cad/cubesat/uk-obc-board.stp",
+      "cadPart": "uk-obc-board",
+      "classification": {
+        "jurisdiction": "EU-DUAL-USE",
+        "releasableTo": "EU"
+      },
+      "extended": {
+        "localId": "UK/3507",
+        "nameEn": "OBC board",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": "0.265",
+        "massUnit": "lb",
+        "material": "FR-4, 1.6 mm",
+        "dimensionText": "3.543 x 3.780 x 0.063 in",
+        "interpretationNote": "PC/104 footprint 90 x 96 mm with the corners notched 3.5 x 6.5 mm for the rails; stacked at the 0.6 in PC/104 pitch. Hosts the flight software package UK/3511.",
+        "siteKit": "UK/3500",
+        "discipline": "electronic"
+      }
+    },
+    {
+      "id": "UK-3508",
+      "plm": "UK",
+      "name": "UHF transceiver board",
+      "cadFile": "cad/cubesat/uk-uhf-transceiver.stp",
+      "cadPart": "uk-uhf-transceiver",
+      "classification": {
+        "jurisdiction": "EU-DUAL-USE",
+        "releasableTo": "EU"
+      },
+      "extended": {
+        "localId": "UK/3508",
+        "nameEn": "UHF transceiver board",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": "0.386",
+        "massUnit": "lb",
+        "material": "FR-4, 1.6 mm",
+        "dimensionText": "3.543 x 3.780 x 0.063 in",
+        "interpretationNote": "PC/104 footprint 90 x 96 mm with the corners notched 3.5 x 6.5 mm for the rails; stacked at the 0.6 in PC/104 pitch. Top board of the stack; the amplifier pad takes the FR thermal strap.",
+        "siteKit": "UK/3500",
+        "discipline": "electronic"
+      }
+    },
+    {
+      "id": "UK-3509",
+      "plm": "UK",
+      "name": "UHF antenna module (stowed)",
+      "cadFile": "cad/cubesat/uk-uhf-antenna.stp",
+      "cadPart": "uk-uhf-antenna",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3509",
+        "nameEn": "UHF antenna module",
+        "revision": "P2",
+        "lifecycle": "Frozen",
+        "mass": "0.265",
+        "massUnit": "lb",
+        "material": "Al 6061 housing, steel tape",
+        "dimensionText": "0.157 x 3.780 x 1.181 in",
+        "interpretationNote": "Flat housing on the -X face, 4 mm outside the rail plane, on the two -X rails; the tapes are not modelled deployed.",
+        "siteKit": "UK/3500",
+        "discipline": "electrical"
+      }
+    },
+    {
+      "id": "UK-3510",
+      "plm": "UK",
+      "name": "Harness (power loom and antenna coax)",
+      "cadFile": "cad/cubesat/uk-harness.stp",
+      "cadPart": "uk-harness",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3510",
+        "nameEn": "Harness",
+        "revision": "P2",
+        "lifecycle": "Draft",
+        "mass": "0.187",
+        "massUnit": "lb",
+        "material": "PTFE-insulated AWG 24 loom, RG316 coax",
+        "dimensionText": "dia 0.118 in, 3.38 in of loom and coax",
+        "interpretationNote": "Runs in the 5 mm channel between the board edges and the -X rail plane, the only free path past the full-width boards.",
+        "siteKit": "UK/3500",
+        "discipline": "electrical"
+      }
+    },
+    {
+      "id": "FR3501",
+      "plm": "FR",
+      "name": "Revêtement thermique radiateur, face -Z",
+      "cadFile": "cad/cubesat/fr-radiator-coating.stp",
+      "cadPart": "fr-radiator-coating",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3501",
+        "nameEn": "Radiator coating, -Z face",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": "0.006",
+        "massUnit": "kg",
+        "material": "revêtement blanc silicate",
+        "dimensionText": "83 × 83 × 0,1 mm",
+        "interpretationNote": "Couche appliquée modélisée en feuille de 0,1 mm sur la face externe de la plaque -Z ; maintenue par les vis traversantes de la carcasse batterie.",
+        "siteKit": "FR3500",
+        "discipline": "thermal"
+      }
+    },
+    {
+      "id": "FR3502",
+      "plm": "FR",
+      "name": "Revêtement thermique noir, intérieur plaque +Z",
+      "cadFile": "cad/cubesat/fr-inner-coating.stp",
+      "cadPart": "fr-inner-coating",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3502",
+        "nameEn": "Black coating, +Z end plate inside",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": "0.004",
+        "massUnit": "kg",
+        "material": "peinture noire polyuréthane",
+        "dimensionText": "83 × 83 × 0,1 mm",
+        "interpretationNote": "Couche appliquée modélisée en feuille de 0,1 mm sur la face interne de la plaque +Z ; serrée par les vis du panneau solaire +Z.",
+        "siteKit": "FR3500",
+        "discipline": "thermal"
+      }
+    },
+    {
+      "id": "FR3503",
+      "plm": "FR",
+      "name": "Tresse thermique EPS – structure",
+      "cadFile": "cad/cubesat/fr-thermal-strap-eps.stp",
+      "cadPart": "fr-thermal-strap-eps",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3503",
+        "nameEn": "Thermal strap, EPS to frame",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": "0.032",
+        "massUnit": "kg",
+        "material": "cuivre OFHC (tresse)",
+        "dimensionText": "10 × 1 × 28 mm",
+        "interpretationNote": "Du dessous de la carte EPS au barreau +X du cadre -Z ; porte la thermistance de la carte EPS (connecteur FR3503-J01).",
+        "siteKit": "FR3500",
+        "discipline": "thermal"
+      }
+    },
+    {
+      "id": "FR3504",
+      "plm": "FR",
+      "name": "Couverture isolante multicouche, batterie",
+      "cadFile": "cad/cubesat/fr-insulation-blanket.stp",
+      "cadPart": "fr-insulation-blanket",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3504",
+        "nameEn": "Insulation blanket, battery",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": "0.048",
+        "massUnit": "kg",
+        "material": "MLI 10 couches, polyimide aluminisé",
+        "dimensionText": "74 × 63 × 1,5 mm",
+        "interpretationNote": "Ferme la carcasse batterie sous la carte EPS ; fixée par quatre boutons M2 dans le haut des parois.",
+        "siteKit": "FR3500",
+        "discipline": "thermal"
+      }
+    },
+    {
+      "id": "FR3505",
+      "plm": "FR",
+      "name": "Tresse thermique émetteur UHF – rail",
+      "cadFile": "cad/cubesat/fr-thermal-strap-uhf.stp",
+      "cadPart": "fr-thermal-strap-uhf",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3505",
+        "nameEn": "Thermal strap, UHF transceiver to rail",
+        "revision": "B",
+        "lifecycle": "Publié",
+        "mass": "0.026",
+        "massUnit": "kg",
+        "material": "cuivre OFHC (tresse)",
+        "dimensionText": "1 × 5,5 × 19,92 mm",
+        "interpretationNote": "Du plot amplificateur de la carte UHF à la face interne du rail -X+Y, dans l'encoche de la carte.",
+        "siteKit": "FR3500",
+        "discipline": "thermal"
+      }
+    },
+    {
+      "id": "ES-3501",
+      "plm": "ES",
+      "name": "Soporte de tarjetas +Y",
+      "cadFile": "cad/cubesat/es-board-bracket-py.stp",
+      "cadPart": "es-board-bracket-py",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3501",
+        "nameEn": "Board bracket +Y",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": "0.034",
+        "massUnit": "kg",
+        "material": "EN AW-6082 T6",
+        "dimensionText": "8,5 x 12 x 15,92 mm",
+        "interpretationNote": "Escuadra en L sobre la cara interna del rail +X+Y, con el pie sobre la tarjeta UHF; rigidiza la pila de tarjetas.",
+        "siteKit": "ES-3500",
+        "discipline": "mechanical"
+      }
+    },
+    {
+      "id": "ES-3502",
+      "plm": "ES",
+      "name": "Soporte de tarjetas -Y",
+      "cadFile": "cad/cubesat/es-board-bracket-ny.stp",
+      "cadPart": "es-board-bracket-ny",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3502",
+        "nameEn": "Board bracket -Y",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": "0.034",
+        "massUnit": "kg",
+        "material": "EN AW-6082 T6",
+        "dimensionText": "8,5 x 12 x 15,92 mm",
+        "interpretationNote": "Simétrico de ES-3501 sobre el rail +X-Y; el plano pide tornillos M3 donde el rail lleva rosca M2,5.",
+        "siteKit": "ES-3500",
+        "discipline": "mechanical"
+      }
+    },
+    {
+      "id": "ES-3503",
+      "plm": "ES",
+      "name": "Carcasa de batería (bandeja)",
+      "cadFile": "cad/cubesat/es-battery-enclosure.stp",
+      "cadPart": "es-battery-enclosure",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "supplier": "Forja del Tajo, Toledo",
+      "extended": {
+        "localId": "ES-3503",
+        "nameEn": "Battery enclosure (cast tray)",
+        "revision": 2,
+        "lifecycle": "Liberado",
+        "mass": "0.142",
+        "massUnit": "kg",
+        "material": "AlSi7Mg (fundición)",
+        "dimensionText": "72 x 61 x 28 mm",
+        "interpretationNote": "Bandeja fundida con base y dos paredes laterales, atornillada desde fuera a través de la placa -Z; la manta MLI cierra la parte superior.",
+        "siteKit": "ES-3500",
+        "discipline": "mechanical"
+      }
+    },
+    {
+      "id": "ES-3504",
+      "plm": "ES",
+      "name": "Soporte del interruptor de despliegue",
+      "cadFile": "cad/cubesat/es-switch-bracket.stp",
+      "cadPart": "es-switch-bracket",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3504",
+        "nameEn": "Deployment switch bracket",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": "0.021",
+        "massUnit": "kg",
+        "material": "EN AW-6082 T6",
+        "dimensionText": "10 x 10,5 x 16 mm",
+        "interpretationNote": "Escuadra en L sobre la cara interna del rail -X-Y, apoyada en el marco -Z; el interruptor (CDS 2.3.2) y su émbolo por el pie del rail no están modelados, el latiguillo lleva el conector ES-3504-C01.",
+        "siteKit": "ES-3500",
+        "discipline": "mechanical"
+      }
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "IF-100",
+      "label": "Battery pack / battery enclosure (cell clamp screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "UK-3502",
+        "ES-3503"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3502-F01",
+            "part": "UK-3502",
+            "position": {
+              "x": "0.0000",
+              "y": "0.0000",
+              "z": "0.1378"
+            },
+            "unit": "IN",
+            "standard": "ISO 4762",
+            "diameter": "0.0984",
+            "diameterUnit": "IN",
+            "count": 4,
+            "gripLength": "0.1575",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "ES-3503-R01",
+            "part": "ES-3503",
+            "position": {
+              "x": "0.000",
+              "y": "0.000",
+              "z": "3.500"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "4.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-101",
+      "label": "Board bracket +Y / rail +X+Y (bracket screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "ES-3501",
+        "D-35002"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3501-R01",
+            "part": "ES-3501",
+            "position": {
+              "x": "45.750",
+              "y": "41.500",
+              "z": "72.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "2.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-35002-B01",
+            "part": "D-35002",
+            "position": {
+              "x": "45.750",
+              "y": "41.500",
+              "z": "72.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "2.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-102",
+      "label": "Board bracket -Y / rail +X-Y (bracket screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "ES-3502",
+        "D-35003"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3502-R01",
+            "part": "ES-3502",
+            "position": {
+              "x": "45.750",
+              "y": "-41.500",
+              "z": "72.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "3.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "2.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-35003-B01",
+            "part": "D-35003",
+            "position": {
+              "x": "45.750",
+              "y": "-41.500",
+              "z": "72.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "2.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-103",
+      "label": "Thermal strap EPS / 1U frame (strap lug screw on the -Z ring)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "FR3503",
+        "D-35001"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3503-F01",
+            "part": "FR3503",
+            "position": {
+              "x": "43.500",
+              "y": "-20.000",
+              "z": "4.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "3.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "1.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-35001-B01",
+            "part": "D-35001",
+            "position": {
+              "x": "43.500",
+              "y": "-20.000",
+              "z": "4.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "3.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "1.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-104",
+      "label": "Thermal strap EPS / EPS board (strap lug screw and thermistor plug)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "FR3503",
+        "UK-3501"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3503-F02",
+            "part": "FR3503",
+            "position": {
+              "x": "43.500",
+              "y": "-20.000",
+              "z": "32.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "3.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "2.600",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "UK-3501-F01",
+            "part": "UK-3501",
+            "position": {
+              "x": "1.7126",
+              "y": "-0.7874",
+              "z": "1.2598"
+            },
+            "unit": "IN",
+            "standard": "ISO 4762",
+            "diameter": "0.1181",
+            "diameterUnit": "IN",
+            "count": 1,
+            "gripLength": "0.1024",
+            "gripUnit": "IN"
+          }
+        ]
+      ],
+      "unmatedPlugs": [
+        {
+          "id": "FR3503-J01",
+          "part": "FR3503",
+          "position": {
+            "x": "43.500",
+            "y": "-10.000",
+            "z": "32.000"
+          },
+          "unit": "MilliM",
+          "connectorType": "Nano-D",
+          "pinCount": 9
+        }
+      ]
+    },
+    {
+      "id": "IF-105",
+      "label": "Solar panel board +Z / end plate +Z (panel screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "UK-3506",
+        "D-35007"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3506-F01",
+            "part": "UK-3506",
+            "position": {
+              "x": "0.0000",
+              "y": "0.0000",
+              "z": "3.9370"
+            },
+            "unit": "IN",
+            "standard": "ISO 4762",
+            "diameter": "0.0984",
+            "diameterUnit": "IN",
+            "count": 4,
+            "gripLength": "0.1220",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "D-35007-B01",
+            "part": "D-35007",
+            "position": {
+              "x": "2.500",
+              "y": "0.000",
+              "z": "100.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "3.100",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-106",
+      "label": "Solar panel board +X / rail +X+Y (panel screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "UK-3503",
+        "D-35002"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3503-F01",
+            "part": "UK-3503",
+            "position": {
+              "x": "1.9685",
+              "y": "1.8012",
+              "z": "1.9685"
+            },
+            "unit": "IN",
+            "standard": "ISO 4762",
+            "diameter": "0.0984",
+            "diameterUnit": "IN",
+            "count": 2,
+            "gripLength": "0.0630",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "D-35002-B02",
+            "part": "D-35002",
+            "position": {
+              "x": "50.000",
+              "y": "45.750",
+              "z": "50.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "1.600",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-107",
+      "label": "Solar panel board +X / rail +X-Y (panel screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "UK-3503",
+        "D-35003"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3503-F02",
+            "part": "UK-3503",
+            "position": {
+              "x": "1.9685",
+              "y": "-1.8012",
+              "z": "1.9685"
+            },
+            "unit": null,
+            "standard": "ISO 4762",
+            "diameter": "0.0984",
+            "diameterUnit": "IN",
+            "count": 2,
+            "gripLength": "0.0630",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "D-35003-B02",
+            "part": "D-35003",
+            "position": {
+              "x": "50.000",
+              "y": "-45.750",
+              "z": "50.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "1.600",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-108",
+      "label": "Solar panel board +Y / rail -X+Y (panel screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "UK-3504",
+        "D-35004"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3504-F01",
+            "part": "UK-3504",
+            "position": {
+              "x": "-1.8012",
+              "y": "1.9685",
+              "z": "1.9685"
+            },
+            "unit": "IN",
+            "standard": "ISO 4762",
+            "diameter": "0.0984",
+            "diameterUnit": "IN",
+            "count": 2,
+            "gripLength": "0.0630",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "D-35004-B01",
+            "part": "D-35004",
+            "position": {
+              "x": "-45.750",
+              "y": "50.000",
+              "z": "50.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "1.600",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-109",
+      "label": "Deployment switch bracket / rail -X-Y (bracket screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "ES-3504",
+        "D-35005"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3504-R01",
+            "part": "ES-3504",
+            "position": {
+              "x": "-41.500",
+              "y": "-45.750",
+              "z": "12.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "2.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-35005-B01",
+            "part": "D-35005",
+            "position": {
+              "x": "-41.500",
+              "y": "-45.750",
+              "z": "12.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "2.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-110",
+      "label": "Deployment switch bracket / EPS board (switch pigtail plug)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "ES-3504",
+        "UK-3501"
+      ],
+      "pairs": [
+        [
+          {
+            "id": "ES-3504-C01",
+            "part": "ES-3504",
+            "position": {
+              "x": "-35.000",
+              "y": "-30.000",
+              "z": "32.000"
+            },
+            "unit": "MilliM",
+            "connectorType": "Nano-D",
+            "pinCount": 9
+          },
+          {
+            "id": "UK-3501-J02",
+            "part": "UK-3501",
+            "position": {
+              "x": "-1.3780",
+              "y": "-1.1811",
+              "z": "1.2598"
+            },
+            "unit": "IN",
+            "connectorType": "Micro-D",
+            "pinCount": 9
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-111",
+      "label": "Battery enclosure / end plate -Z (tray through-screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "ES-3503",
+        "D-35006"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3503-R02",
+            "part": "ES-3503",
+            "position": {
+              "x": "0.000",
+              "y": "0.000",
+              "z": "1.500"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "3.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "3.500",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-35006-B01",
+            "part": "D-35006",
+            "position": {
+              "x": "0.000",
+              "y": "0.000",
+              "z": "1.500"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "3.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "3.500",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-112",
+      "label": "Insulation blanket / battery enclosure (blanket buttons)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "FR3504",
+        "ES-3503"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3504-F01",
+            "part": "FR3504",
+            "position": {
+              "x": "0.000",
+              "y": "0.000",
+              "z": "29.500"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 7380-1",
+            "diameter": "2.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "1.500",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3503-R03",
+            "part": "ES-3503",
+            "position": {
+              "x": "0.000",
+              "y": "0.000",
+              "z": "29.500"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 7380-1",
+            "diameter": "2.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "1.500",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-113",
+      "label": "Thermal strap UHF / UHF transceiver board (amplifier pad screw)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "FR3505",
+        "UK-3508"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3505-F01",
+            "part": "FR3505",
+            "position": {
+              "x": "-44.500",
+              "y": "38.750",
+              "z": "64.080"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "3.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "2.600",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "UK-3508-F01",
+            "part": "UK-3508",
+            "position": {
+              "x": "-1.7520",
+              "y": "1.5256",
+              "z": "2.5228"
+            },
+            "unit": "IN",
+            "standard": "ISO 4762",
+            "diameter": "0.1181",
+            "diameterUnit": "IN",
+            "count": 1,
+            "gripLength": "0.1024",
+            "gripUnit": "IN"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-114",
+      "label": "Thermal strap UHF / rail -X+Y (strap lug screw)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "FR3505",
+        "D-35004"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3505-F02",
+            "part": "FR3505",
+            "position": {
+              "x": "-44.500",
+              "y": "41.500",
+              "z": "78.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "3.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "1.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-35004-B02",
+            "part": "D-35004",
+            "position": {
+              "x": "-44.500",
+              "y": "41.500",
+              "z": "78.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "3.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "1.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-115",
+      "label": "UHF antenna module / rail -X+Y (module screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "UK-3509",
+        "D-35004"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3509-F01",
+            "part": "UK-3509",
+            "position": {
+              "x": "-1.9685",
+              "y": "1.8012",
+              "z": "2.9528"
+            },
+            "unit": "IN",
+            "standard": "ISO 4762",
+            "diameter": "0.0984",
+            "diameterUnit": "IN",
+            "count": 2,
+            "gripLength": "0.1575",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "D-35004-B03",
+            "part": "D-35004",
+            "position": {
+              "x": "-50.000",
+              "y": "45.750",
+              "z": "75.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "4.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-116",
+      "label": "Radiator coating / end plate -Z (clamped by the tray through-screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "FR3501",
+        "D-35006"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3501-F01",
+            "part": "FR3501",
+            "position": {
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "3.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "3.600",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-35006-B02",
+            "part": "D-35006",
+            "position": {
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "3.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "3.600",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-117",
+      "label": "Black coating / end plate +Z (clamped by the panel screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "FR3502",
+        "D-35007"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3502-F01",
+            "part": "FR3502",
+            "position": {
+              "x": "0.000",
+              "y": "0.000",
+              "z": "98.500"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "3.200",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-35007-B02",
+            "part": "D-35007",
+            "position": {
+              "x": "0.000",
+              "y": "0.000",
+              "z": "98.500"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "2.500",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "3.200",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-118",
+      "label": "Stack standoff set / EPS board (stack screws)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "D-35008",
+        "UK-3501"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-35008-B01",
+            "part": "D-35008",
+            "position": {
+              "x": "0.000",
+              "y": "0.000",
+              "z": "32.800"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4762",
+            "diameter": "3.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "1.600",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "UK-3501-F02",
+            "part": "UK-3501",
+            "position": {
+              "x": "0.0000",
+              "y": "0.0000",
+              "z": "1.2913"
+            },
+            "unit": "IN",
+            "standard": "ISO 4762",
+            "diameter": "0.1181",
+            "diameterUnit": "IN",
+            "count": 4,
+            "gripLength": "0.0630",
+            "gripUnit": "IN"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-119",
+      "label": "EPS board / OBC board (PC/104 stack header)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "UK-3501",
+        "UK-3507"
+      ],
+      "pairs": [
+        [
+          {
+            "id": "UK-3501-J03",
+            "part": "UK-3501",
+            "position": {
+              "x": "1.1811",
+              "y": "-0.7874",
+              "z": "1.5913"
+            },
+            "unit": "IN",
+            "connectorType": "PC/104",
+            "pinCount": 104
+          },
+          {
+            "id": "UK-3507-J01",
+            "part": "UK-3507",
+            "position": {
+              "x": "1.1811",
+              "y": "-0.7874",
+              "z": "1.5913"
+            },
+            "unit": "IN",
+            "connectorType": "PC/104",
+            "pinCount": 104
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-120",
+      "label": "OBC board / UHF transceiver board (PC/104 stack header)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "UK-3507",
+        "UK-3508"
+      ],
+      "pairs": [
+        [
+          {
+            "id": "UK-3507-J02",
+            "part": "UK-3507",
+            "position": {
+              "x": "1.1811",
+              "y": "-0.7874",
+              "z": "2.1913"
+            },
+            "unit": "IN",
+            "connectorType": "PC/104",
+            "pinCount": 104
+          },
+          {
+            "id": "UK-3508-J01",
+            "part": "UK-3508",
+            "position": {
+              "x": "1.1811",
+              "y": "-0.7874",
+              "z": "2.1913"
+            },
+            "unit": "IN",
+            "connectorType": "PC/104",
+            "pinCount": 104
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-121",
+      "label": "Harness / UHF transceiver board (antenna coax)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "UK-3510",
+        "UK-3508"
+      ],
+      "pairs": [
+        [
+          {
+            "id": "UK-3510-J01",
+            "part": "UK-3510",
+            "position": {
+              "x": "-1.1811",
+              "y": "1.1811",
+              "z": "2.5228"
+            },
+            "unit": "IN",
+            "connectorType": "SMA",
+            "pinCount": 1
+          },
+          {
+            "id": "UK-3508-J02",
+            "part": "UK-3508",
+            "position": {
+              "x": "-1.1811",
+              "y": "1.1811",
+              "z": "2.5228"
+            },
+            "unit": "IN",
+            "connectorType": "SMA",
+            "pinCount": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-122",
+      "label": "Harness / UHF antenna module (antenna coax)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "UK-3510",
+        "UK-3509"
+      ],
+      "pairs": [
+        [
+          {
+            "id": "UK-3510-J02",
+            "part": "UK-3510",
+            "position": {
+              "x": "-1.9685",
+              "y": "0.0000",
+              "z": "2.9528"
+            },
+            "unit": "IN",
+            "connectorType": "SMA",
+            "pinCount": 1
+          },
+          {
+            "id": "UK-3509-J01",
+            "part": "UK-3509",
+            "position": {
+              "x": "-1.9685",
+              "y": "0.0000",
+              "z": "2.9528"
+            },
+            "unit": "IN",
+            "connectorType": "SMA",
+            "pinCount": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-123",
+      "label": "Harness / EPS board (power loom)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "UK-3510",
+        "UK-3501"
+      ],
+      "pairs": [
+        [
+          {
+            "id": "UK-3510-J03",
+            "part": "UK-3510",
+            "position": {
+              "x": "-1.3780",
+              "y": "0.3937",
+              "z": "1.3228"
+            },
+            "unit": "IN",
+            "connectorType": "Micro-D",
+            "pinCount": 25
+          },
+          {
+            "id": "UK-3501-J01",
+            "part": "UK-3501",
+            "position": {
+              "x": "-1.3780",
+              "y": "0.3937",
+              "z": "1.3228"
+            },
+            "unit": "IN",
+            "connectorType": "Micro-D",
+            "pinCount": 25
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-124",
+      "label": "Battery pack / EPS board (battery pigtail)",
+      "toleranceMm": "0.5",
+      "parts": [
+        "UK-3502",
+        "UK-3501"
+      ],
+      "pairs": [
+        [
+          {
+            "id": "UK-3502-J01",
+            "part": "UK-3502",
+            "position": {
+              "x": "0.7874",
+              "y": "-1.1811",
+              "z": "1.2598"
+            },
+            "unit": "IN",
+            "connectorType": "Micro-D",
+            "pinCount": 9
+          },
+          {
+            "id": "UK-3501-J04",
+            "part": "UK-3501",
+            "position": {
+              "x": "0.7874",
+              "y": "-1.1811",
+              "z": "1.2598"
+            },
+            "unit": "IN",
+            "connectorType": "Micro-D",
+            "pinCount": 9
+          }
+        ]
+      ]
+    }
+  ],
+  "sparePlugs": [
+    {
+      "id": "UK-3501-J05",
+      "part": "UK-3501",
+      "position": {
+        "x": "1.7126",
+        "y": "-0.3937",
+        "z": "1.2598"
+      },
+      "unit": "IN",
+      "connectorType": "Nano-D",
+      "pinCount": 9
+    }
+  ],
+  "seededDefects": [
+    {
+      "interface": "IF-107",
+      "rule": "unit",
+      "features": [
+        "UK-3503-F02"
+      ],
+      "detail": "UK row stored with pos_uom NULL"
+    },
+    {
+      "interface": "IF-105",
+      "rule": "position",
+      "features": [
+        "UK-3506-F01",
+        "D-35007-B01"
+      ],
+      "detail": "x differs by 2.5 mm for a 0.5 mm tolerance; the DE hole pattern is the outlier"
+    },
+    {
+      "interface": "IF-110",
+      "rule": "connector",
+      "features": [
+        "ES-3504-C01",
+        "UK-3501-J02"
+      ],
+      "detail": "Nano-D vs Micro-D shell, 9 pins each"
+    },
+    {
+      "interface": "IF-104",
+      "rule": "orphan",
+      "features": [
+        "FR3503-J01"
+      ],
+      "detail": "FR thermistor plug declared with no UK mate (the FR external reference carries the wrong site code); the spare UK plug UK-3501-J05 sits at its position"
+    },
+    {
+      "interface": "IF-102",
+      "rule": "fastener",
+      "features": [
+        "ES-3502-R01",
+        "D-35003-B01"
+      ],
+      "detail": "ES diámetro 3 mm vs DE Durchmesser 2,5 mm"
+    }
+  ],
+ "seededReferenceDefects": [
+  {
+   "localPart": "FR3503",
+   "remoteUrn": "urn:plm:fr:part:UK/3501",
+   "rule": "danglingReference"
+  },
+  {
+   "localPart": "UK-3507",
+   "remoteUrn": "urn:plm:de:part:D-35002",
+   "rule": "staleRevision"
+  }
+ ],
+ "seededLifecycleDefects": [],
+ "seededMeshDefects": [],
+  "extended": {
+    "envelope": {
+      "specification": "CubeSat Design Specification Rev. 14.1",
+      "bodyMm": [
+        100,
+        100,
+        100
+      ],
+      "overallLengthMm": "113.5",
+      "railWidthMm": "8.5",
+      "maxProtrusionMm": "6.5",
+      "railEndContactMm": "6.5 x 6.5"
+    },
+    "massLimitKg": "2.000",
+    "massLimitSource": "CDS Rev. 14.1, 2.2.10 Table 1 (typical maximum mass, 1U); the 1.33 kg of the brief's secondary source is the Rev. 13 limit",
+    "massTotalKg": "2.010",
+    "massMarginKg": "0.010",
+    "massTotalMethod": "sum of extended.mass over the 26 parts, UK lb converted at 0.45359237 kg/lb; the flight software has no mass",
+    "assemblies": [
+      {
+        "id": "D-35000",
+        "plm": "DE",
+        "name": "Strukturbausatz 1U",
+        "nameEn": "Structure kit 1U",
+        "kind": "SITE_KIT",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "FR3500",
+        "plm": "FR",
+        "name": "Kit thermique 1U",
+        "nameEn": "Thermal kit 1U",
+        "kind": "SITE_KIT",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "ES-3500",
+        "plm": "ES",
+        "name": "Kit de soportes y carcasas 1U",
+        "nameEn": "Brackets and housings kit 1U",
+        "kind": "SITE_KIT",
+        "revision": 2,
+        "lifecycle": null
+      },
+      {
+        "id": "UK-3500",
+        "plm": "UK",
+        "name": "Electronics and software kit 1U",
+        "nameEn": "Electronics and software kit 1U",
+        "kind": "SITE_KIT",
+        "revision": null,
+        "lifecycle": null
+      }
+    ],
+    "bomLines": [
+      {
+        "parent": "D-35000",
+        "child": "D-35001",
+        "quantity": 1
+      },
+      {
+        "parent": "D-35000",
+        "child": "D-35002",
+        "quantity": 1
+      },
+      {
+        "parent": "D-35000",
+        "child": "D-35003",
+        "quantity": 1
+      },
+      {
+        "parent": "D-35000",
+        "child": "D-35004",
+        "quantity": 1
+      },
+      {
+        "parent": "D-35000",
+        "child": "D-35005",
+        "quantity": 1
+      },
+      {
+        "parent": "D-35000",
+        "child": "D-35006",
+        "quantity": 1
+      },
+      {
+        "parent": "D-35000",
+        "child": "D-35007",
+        "quantity": 1
+      },
+      {
+        "parent": "D-35000",
+        "child": "D-35008",
+        "quantity": 1
+      },
+      {
+        "parent": "FR3500",
+        "child": "FR3501",
+        "quantity": 1,
+        "findNumber": "1"
+      },
+      {
+        "parent": "FR3500",
+        "child": "FR3502",
+        "quantity": 1,
+        "findNumber": "2"
+      },
+      {
+        "parent": "FR3500",
+        "child": "FR3503",
+        "quantity": 1,
+        "findNumber": "3"
+      },
+      {
+        "parent": "FR3500",
+        "child": "FR3504",
+        "quantity": 1,
+        "findNumber": "4"
+      },
+      {
+        "parent": "FR3500",
+        "child": "FR3505",
+        "quantity": 1,
+        "findNumber": "5"
+      },
+      {
+        "parent": "ES-3500",
+        "child": "ES-3501",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3500",
+        "child": "ES-3502",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3500",
+        "child": "ES-3503",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3500",
+        "child": "ES-3504",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3500",
+        "child": "UK-3501",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3500",
+        "child": "UK-3502",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3500",
+        "child": "UK-3503",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3500",
+        "child": "UK-3504",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3500",
+        "child": "UK-3506",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3500",
+        "child": "UK-3507",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3500",
+        "child": "UK-3508",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3500",
+        "child": "UK-3509",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3500",
+        "child": "UK-3510",
+        "quantity": 1
+      }
+    ],
+    "externalRefs": [
+      {
+        "localPart": "UK-3502",
+        "remoteUrn": "urn:plm:es:part:ES-3503",
+        "quantity": 1,
+        "expectedRevision": 2,
+        "note": "battery pack in the ES tray (I1)",
+        "interface": "IF-100"
+      },
+      {
+        "localPart": "ES-3501",
+        "remoteUrn": "urn:plm:de:part:D-35002",
+        "quantity": 1,
+        "expectedRevision": "02",
+        "note": "bracket on the +X+Y rail (I2)",
+        "interface": "IF-101"
+      },
+      {
+        "localPart": "ES-3502",
+        "remoteUrn": "urn:plm:de:part:D-35003",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "bracket on the +X-Y rail",
+        "interface": "IF-102"
+      },
+      {
+        "localPart": "FR3503",
+        "remoteUrn": "urn:plm:de:part:D-35001",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "strap lug on the -Z ring frame (I3)",
+        "interface": "IF-103"
+      },
+      {
+        "localPart": "FR3503",
+        "remoteUrn": "urn:plm:fr:part:UK/3501",
+        "quantity": 1,
+        "expectedRevision": "C1",
+        "note": "strap lug and thermistor plug on the EPS board (I3)",
+        "interface": "IF-104",
+        "defect": "wrong site code: the URN names the FR PLM with a UK local id; urn:plm:uk:part:UK/3501 was meant, so the reference resolves to nothing"
+      },
+      {
+        "localPart": "UK-3506",
+        "remoteUrn": "urn:plm:de:part:D-35007",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "panel on the +Z end plate (I4)",
+        "interface": "IF-105"
+      },
+      {
+        "localPart": "UK-3503",
+        "remoteUrn": "urn:plm:de:part:D-35002",
+        "quantity": 1,
+        "expectedRevision": "02",
+        "note": "panel on the +X+Y rail",
+        "interface": "IF-106"
+      },
+      {
+        "localPart": "UK-3503",
+        "remoteUrn": "urn:plm:de:part:D-35003",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "panel on the +X-Y rail",
+        "interface": "IF-107"
+      },
+      {
+        "localPart": "UK-3504",
+        "remoteUrn": "urn:plm:de:part:D-35004",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "panel on the -X+Y rail",
+        "interface": "IF-108"
+      },
+      {
+        "localPart": "ES-3504",
+        "remoteUrn": "urn:plm:de:part:D-35005",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "switch bracket on the -X-Y rail",
+        "interface": "IF-109"
+      },
+      {
+        "localPart": "ES-3504",
+        "remoteUrn": "urn:plm:uk:part:UK/3501",
+        "quantity": 1,
+        "expectedRevision": "C1",
+        "note": "switch pigtail into the EPS board",
+        "interface": "IF-110"
+      },
+      {
+        "localPart": "ES-3503",
+        "remoteUrn": "urn:plm:de:part:D-35006",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "tray through-screwed to the -Z end plate",
+        "interface": "IF-111"
+      },
+      {
+        "localPart": "FR3504",
+        "remoteUrn": "urn:plm:es:part:ES-3503",
+        "quantity": 1,
+        "expectedRevision": 2,
+        "note": "blanket buttons on the tray walls",
+        "interface": "IF-112"
+      },
+      {
+        "localPart": "FR3505",
+        "remoteUrn": "urn:plm:uk:part:UK/3508",
+        "quantity": 1,
+        "expectedRevision": "C1",
+        "note": "strap on the UHF amplifier pad",
+        "interface": "IF-113"
+      },
+      {
+        "localPart": "FR3505",
+        "remoteUrn": "urn:plm:de:part:D-35004",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "strap lug on the -X+Y rail",
+        "interface": "IF-114"
+      },
+      {
+        "localPart": "UK-3509",
+        "remoteUrn": "urn:plm:de:part:D-35004",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "antenna module on the -X+Y rail",
+        "interface": "IF-115"
+      },
+      {
+        "localPart": "FR3501",
+        "remoteUrn": "urn:plm:de:part:D-35006",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "coating applied on the -Z end plate",
+        "interface": "IF-116"
+      },
+      {
+        "localPart": "FR3502",
+        "remoteUrn": "urn:plm:de:part:D-35007",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "coating applied inside the +Z end plate",
+        "interface": "IF-117"
+      },
+      {
+        "localPart": "UK-3501",
+        "remoteUrn": "urn:plm:de:part:D-35008",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "EPS board on the stack standoffs",
+        "interface": "IF-118"
+      },
+      {
+        "localPart": "UK-3507",
+        "remoteUrn": "urn:plm:de:part:D-35002",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "OBC bonding strap to the +X+Y rail",
+        "defect": "stale: revision 01 of D-35002 is Ersetzt (superseded) by 02"
+      }
+    ],
+    "nonGeometricItems": [
+      {
+        "localId": "UK/3511",
+        "plm": "UK",
+        "type": "SOFTWARE",
+        "name": "Flight software package",
+        "nameEn": "Flight software package",
+        "version": "1.4.2",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "owner": "UK workshop, software group",
+        "hostedOn": "UK/3507",
+        "siteKit": "UK/3500",
+        "discipline": "software",
+        "notExpressibleBecause": "every part of data/products/*.json needs a STEP file under modules/cad/stp/<product>/ and a cadFile key; the PLM part tables have no type column, and the file index and viewer expect geometry for every part"
+      }
+    ],
+    "proposedDefects": [
+      {
+        "rule": "massLimit",
+        "brief": "total mass across sites exceeds the 1U limit by a small margin",
+        "data": "extended.mass of every part; limit extended.massLimitKg",
+        "scope": "product",
+        "needs": "a mass column in each PLM part table (DE teil.masse_kg, FR piece.masse_kg, ES pieza.masa_kg, UK part.mass_lb) mapped to atelier:massKg with unit conversion, a product-level SHACL-SPARQL shape summing atelier:massKg over atelier:partOf against atelier:massLimitKg on the product, and the product table carrying the limit"
+      },
+      {
+        "rule": "staleRevision",
+        "brief": "UK OBC board references a DE rail revision that is SUPERSEDED",
+        "data": "externalRefs UK/3507 -> urn:plm:de:part:D-35002 expects 01; the rail is at 02 and 01 is Ersetzt",
+        "scope": "external reference",
+        "needs": "revision and lifecycle columns on the PLM part tables mapped to atelier:revision and a canonical atelier:lifecycle, an external-reference table per PLM (externer_verweis, reference_externe, referencia_externa, external_ref) in the link graph with atelier:expectedRevision, and a shape failing when the expected revision is not the remote part's current one"
+      },
+      {
+        "rule": "danglingReference",
+        "brief": "FR thermal strap points to a UK board URN with the wrong site code",
+        "data": "externalRefs FR3503 -> urn:plm:fr:part:UK/3501",
+        "scope": "external reference",
+        "needs": "the external-reference table above and a resolver shape failing when the URN's site segment holds no part of that local id; today the same fact is seeded as the orphan plug FR3503-J01 on IF-104"
+      }
+    ],
+    "lifecycleMapping": {
+      "DE": {
+        "In Arbeit": "WORKING",
+        "Freigegeben": "RELEASED",
+        "Gesperrt": "BLOCKED",
+        "Ersetzt": "SUPERSEDED"
+      },
+      "FR": {
+        "En cours": "WORKING",
+        "Publié": "RELEASED",
+        "Bloqué": "BLOCKED",
+        "Remplacé": "SUPERSEDED"
+      },
+      "ES": {
+        "Borrador": "WORKING",
+        "Liberado": "RELEASED",
+        "Bloqueado": "BLOCKED",
+        "Sustituido": "SUPERSEDED"
+      },
+      "UK": {
+        "Draft": "WORKING",
+        "Released": "RELEASED",
+        "Frozen": "BLOCKED",
+        "Superseded": "SUPERSEDED"
+      }
+    },
+    "sources": [
+      {
+        "title": "CubeSat Design Specification Rev. 14.1 (The CubeSat Program, Cal Poly SLO, 2022-02-09)",
+        "url": "https://www.nasa.gov/wp-content/uploads/2018/01/cubesatdesignspecificationrev14_12022-02-09.pdf",
+        "used": "2.2.3 protrusion 6.5 mm beyond the rail plane; 2.2.5 rail width at least 8.5 mm; 2.2.7 rail edge radius at least 1 mm (not modelled); 2.2.8 rail end contact 6.5 x 6.5 mm; 2.2.10 Table 1 typical maximum mass 1U 2.00 kg; 2.2.12 aluminium alloy structure; 2.3.2 at least one deployment switch; revision history p. 24: the 1.33 kg 1U limit of Rev. 13 and the 113.5 +/-0.1 mm 1U length"
+      },
+      {
+        "title": "Machine-readable CubeSat form factors",
+        "url": "https://cubesat-specs.readthedocs.io",
+        "used": "1U envelope cross-check"
+      },
+      {
+        "title": "CubeSat program page",
+        "url": "https://cubesat.org/cubesatinfo",
+        "used": "programme context only"
+      }
+    ]
+  }
+}

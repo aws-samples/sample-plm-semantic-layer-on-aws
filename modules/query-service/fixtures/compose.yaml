@@ -1,0 +1,54 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Local fixture stack for the query service: PostgreSQL with the four PLM databases and atelier_core,
+# one Ontop endpoint per PLM and one for the core graph, Oxigraph standing in for Neptune (links and
+# file-index graphs), and the query service.
+# Services address each other by service name; run.sh names the project (finch compose -p), so
+# containers are <project>-<service>-1 and several stacks can coexist.
+x-ontop: &ontop
+  image: ontop/ontop:5.5.0@sha256:d19a2055b02812c8ecc0a00cca1733c1669c4143dfeb728acbfdff92b45e94d7
+  depends_on: [pg]
+  environment:
+    ONTOP_WAIT_FOR: "pg:5432"
+  volumes: [../../../ontology:/opt/ontop/ontology:ro, ./generated/ontop:/opt/ontop/input:ro, ./vendor/jdbc:/opt/ontop/jdbc:ro]
+services:
+  pg:
+    image: public.ecr.aws/docker/library/postgres:16.15@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54
+    environment:
+      POSTGRES_PASSWORD: fixture # pragma: allowlist secret
+    volumes:
+      - ./generated/sql:/docker-entrypoint-initdb.d:ro
+  ontop-fr:
+    <<: *ontop
+    command: [--ontology=/opt/ontop/ontology/atelier.ttl, --mapping=/opt/ontop/input/fr.r2rml.ttl, --properties=/opt/ontop/input/fr.properties, --port=8080]
+  ontop-de:
+    <<: *ontop
+    command: [--ontology=/opt/ontop/ontology/atelier.ttl, --mapping=/opt/ontop/input/de.r2rml.ttl, --properties=/opt/ontop/input/de.properties, --port=8080]
+  ontop-uk:
+    <<: *ontop
+    command: [--ontology=/opt/ontop/ontology/atelier.ttl, --mapping=/opt/ontop/input/uk.r2rml.ttl, --properties=/opt/ontop/input/uk.properties, --port=8080]
+  ontop-es:
+    <<: *ontop
+    command: [--ontology=/opt/ontop/ontology/atelier.ttl, --mapping=/opt/ontop/input/es.r2rml.ttl, --properties=/opt/ontop/input/es.properties, --port=8080]
+  ontop-core:
+    <<: *ontop
+    command: [--ontology=/opt/ontop/ontology/atelier.ttl, --mapping=/opt/ontop/input/core.r2rml.ttl, --properties=/opt/ontop/input/core.properties, --port=8080]
+  links:
+    image: oxigraph/oxigraph:0.5.11@sha256:7532c1f9aa5f28c0dc6a4243198f7f6144017fab7429bf6c164a89fec9411767
+    command: [serve, --location, /data, --bind, "0.0.0.0:7878"]
+    ports: ["127.0.0.1:${LINKS_PORT:-18478}:7878"]
+  query:
+    image: ${QUERY_IMAGE:-atelierquery-svc:local}
+    depends_on: [ontop-fr, ontop-de, ontop-uk, ontop-es, ontop-core, links]
+    environment:
+      ONTOP_FR_URL: http://ontop-fr:8080/sparql
+      ONTOP_DE_URL: http://ontop-de:8080/sparql
+      ONTOP_UK_URL: http://ontop-uk:8080/sparql
+      ONTOP_ES_URL: http://ontop-es:8080/sparql
+      ONTOP_CORE_URL: http://ontop-core:8080/sparql
+      NEPTUNE_SPARQL_URL: http://links:7878/query
+    # The fixture's own mappings and schema metadata replace the image's, so the evidence SQL is
+    # reformulated against the databases this stack runs.
+    volumes: [./generated/ontop:/app/mappings:ro, ./generated/ontop:/app/metadata:ro]
+    ports: ["127.0.0.1:${QUERY_PORT:-18480}:8080"]

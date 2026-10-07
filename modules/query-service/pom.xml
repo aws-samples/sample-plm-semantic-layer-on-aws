@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. -->
+<!-- SPDX-License-Identifier: MIT-0 -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.5.16</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>atelier.query</groupId>
+  <artifactId>query-service</artifactId>
+  <version>0.1.0</version>
+  <name>Atelier federated query and validation service</name>
+  <licenses>
+    <license>
+      <name>MIT-0</name>
+      <url>https://github.com/aws/mit-0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <properties>
+    <java.version>21</java.version>
+    <jena.version>6.2.0</jena.version>
+    <awssdk.version>2.55.7</awssdk.version>
+    <!-- Jena 6.2.0 is built against these; the Spring Boot 3.5 managed versions are older. -->
+    <commons-codec.version>1.22.0</commons-codec.version>
+    <commons-lang3.version>3.20.0</commons-lang3.version>
+    <gson.version>2.14.0</gson.version>
+    <!-- MCP Java SDK line whose Spring WebMVC streamable-HTTP transport runs on Spring Framework 6 (the 1.x/2.x line
+         ships a Servlet transport only; its WebMVC transport is a Spring AI 2.0 artifact requiring Spring Framework 7). -->
+    <mcp.version>0.18.4</mcp.version>
+    <!-- The SDK's Jackson 2 binding and its schema validator are built against Jackson 2.20; 2.21.7 is the patched
+         release of the line Spring Boot 3.5.16 manages (2.21.4). Tomcat and Log4j API likewise move to the patched
+         releases of their managed lines. -->
+    <jackson-bom.version>2.21.7</jackson-bom.version>
+    <tomcat.version>10.1.60</tomcat.version>
+    <log4j2.version>2.25.5</log4j2.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>jena-arq</artifactId>
+      <version>${jena.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>jena-shacl</artifactId>
+      <version>${jena.version}</version>
+    </dependency>
+    <!-- One Guava for the JVM: Jena 6.2.0 declares 33.x, Ontop 5.5.0 declares 32.0.1; both run on this one. -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>33.6.0-jre</version>
+    </dependency>
+    <!-- Ontop's SPARQL-to-SQL reformulator (R2RML + OWL API loader + SQL dialects), used offline. -->
+    <dependency>
+      <groupId>it.unibz.inf.ontop</groupId>
+      <artifactId>ontop-system-sql-owlapi</artifactId>
+      <version>5.5.0</version>
+      <exclusions>
+        <!-- log4j 1.x is end-of-life; its API is served by log4j-over-slf4j, which Ontop also brings. -->
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+        <!-- OWL API XML catalog support (LGPL-3.0). The query service loads its mappings and ontology
+             from files and never configures an XML catalog, so the class path does without it. -->
+        <exclusion>
+          <groupId>edu.stanford.protege</groupId>
+          <artifactId>org.protege.xmlcatalog</artifactId>
+        </exclusion>
+        <!-- Commons Logging is provided by spring-jcl. -->
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+        </exclusion>
+        <!-- rdf4j 2.2.2 leftover whose parser factory fails to register against rdf4j 5. -->
+        <exclusion>
+          <groupId>org.eclipse.rdf4j</groupId>
+          <artifactId>rdf4j-queryparser-serql</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- Never connects: its data source writes the JDBC URL Ontop resolves the PostgreSQL dialect from. -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.7.13</version>
+    </dependency>
+    <!-- S3Presigner for CAD URLs: pure SigV4 signing, so no SDK HTTP client is needed. -->
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>s3</artifactId>
+      <version>${awssdk.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>netty-nio-client</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>apache-client</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>apache5-client</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Origin secret of the API Gateway (ORIGIN_SECRET_ARN) for the catalogue and sql tools' calls to the PLM services. -->
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>secretsmanager</artifactId>
+      <version>${awssdk.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>netty-nio-client</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>apache-client</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>apache5-client</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- The SDK's URL-connection HTTP client for Secrets Manager: keeps the image free of Netty and Apache HttpClient. -->
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>url-connection-client</artifactId>
+      <version>${awssdk.version}</version>
+    </dependency>
+    <!-- SigV4 for the link store (NEPTUNE_IAM_AUTH): the SDK's signer and the default credentials provider chain (the task role). -->
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>http-auth-aws</artifactId>
+      <version>${awssdk.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>auth</artifactId>
+      <version>${awssdk.version}</version>
+    </dependency>
+    <!-- MCP server at /query/mcp: the official Java SDK's Spring WebMVC streamable-HTTP transport and Jackson 2 binding. -->
+    <dependency>
+      <groupId>io.modelcontextprotocol.sdk</groupId>
+      <artifactId>mcp-spring-webmvc</artifactId>
+      <version>${mcp.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.modelcontextprotocol.sdk</groupId>
+      <artifactId>mcp-json-jackson2</artifactId>
+      <version>${mcp.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>query-service</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <!-- The ontology, SHACL shapes and QUDT units ship inside the jar under ontology/. -->
+      <resource>
+        <directory>${project.basedir}/../../ontology</directory>
+        <targetPath>ontology</targetPath>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>

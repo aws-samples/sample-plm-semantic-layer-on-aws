@@ -1,0 +1,79 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+/* Architecture: the sample laid against the reference architecture, one two-column block per layer. */
+.arch { height: 100%; overflow: auto; background: var(--paper); }
+.arch-inner { max-width: 1180px; margin: 0 auto; padding: 12px 24px 20px; display: flex; flex-direction: column; }
+.arch-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; padding-bottom: 8px; border-bottom: 1px solid var(--ink); }
+.arch-title { margin: 3px 0 0; font: 600 21px/1.1 var(--font-display); letter-spacing: 0.02em; white-space: nowrap; }
+.arch-legend { margin: 0; font-size: 12px; color: var(--ink-2); display: flex; align-items: center; gap: 4px 6px; white-space: nowrap; }
+.arch-legend .quiet { margin-left: 4px; }
+
+.arch-cols { display: grid; grid-template-columns: 148px 1fr 1fr; gap: 0 14px; padding: 8px 0 3px; }
+.arch-cols .eyebrow { padding-left: 11px; }
+
+.arch-layer { position: relative; display: grid; grid-template-columns: 148px 1fr 1fr; gap: 0 14px; margin-top: 12px; }
+.arch-layer:first-of-type { margin-top: 0; }
+/* Hairline connector from the layer above, centred between the two halves. */
+.arch-link { position: absolute; left: 162px; right: 0; top: -12px; height: 12px; }
+.arch-link::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; border-left: 1px solid var(--ink-2); }
+.arch-label { margin: 0; align-self: center; text-align: right; font: 600 12.5px/1.15 var(--font-display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); }
+.arch-reference, .arch-demo { background: #fff; border: 1px solid var(--rule); border-radius: 2px; padding: 7px 11px; min-height: 44px; display: flex; flex-direction: column; justify-content: center; gap: 5px; }
+.arch-reference p { margin: 0; font-size: 12.5px; line-height: 1.4; color: var(--ink-2); }
+.arch-reference.is-none { border-style: dashed; background: transparent; }
+.arch-reference.is-none p { color: var(--quiet); }
+.arch-layer.is-addition .arch-demo { border-color: var(--ink); box-shadow: inset 3px 0 0 var(--ink); }
+.arch-layer.is-addition .arch-label { color: var(--ink); }
+
+.arch-items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.arch-items li { display: flex; align-items: baseline; gap: 8px; font-size: 12.5px; line-height: 1.35; }
+.arch-text { min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 6px; }
+.arch-code { color: var(--quiet); white-space: nowrap; }
+.arch-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; vertical-align: 0; border: 1.5px solid var(--redact); }
+.arch-dot.is-ok { background: var(--pass); border-color: var(--pass); }
+.arch-dot.is-down { background: var(--fail); border-color: var(--fail); }
+.arch-dot.is-unknown { background: transparent; }
+.arch-dot.is-missing { background: transparent; border-style: dashed; border-color: var(--quiet); }
+.arch-dot.is-none { border-color: transparent; }
+/* A figure read from the server beside a row, in the chip's register; muted while it has none. */
+.arch-count { font: 500 11.5px/1 var(--font-display); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); padding: 2px 6px 1px; border: 1px solid var(--rule); border-radius: 2px; background: var(--paper); white-space: nowrap; }
+.arch-count b { font-weight: 600; color: var(--ink); margin-right: 3px; }
+/* An identifier read from the server keeps its case. */
+.arch-count .mono { text-transform: none; letter-spacing: -0.01em; }
+.arch-count.is-off { color: var(--quiet); border-style: dashed; }
+/* A remark under the row about how this sample builds it. */
+.arch-note { flex-basis: 100%; font-size: 11.5px; line-height: 1.3; color: var(--quiet); }
+
+/* Labelled break: the agent rows are a second client of the same stack, not a layer under Platform. */
+.arch-break { display: grid; grid-template-columns: 148px 1fr; gap: 0 14px; margin-top: 18px; }
+.arch-break span { grid-column: 2; display: flex; align-items: center; gap: 12px; font: 600 11px/1 var(--font-display); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2); }
+.arch-break span::before, .arch-break span::after { content: ''; flex: 1; border-top: 1px solid var(--ink-2); }
+.arch-layer.after-break { margin-top: 10px; }
+/* One chip per PLM: its colour, code, identifier and liveness, on the row of the component they instantiate. */
+.arch-chips { display: flex; flex-wrap: wrap; gap: 4px 6px; flex-basis: 100%; }
+.arch-chip { display: inline-flex; align-items: center; gap: 5px; padding: 1px 7px 1px 6px; border: 1px solid var(--rule); border-left: 3px solid var(--plm); border-radius: 2px; background: var(--paper); font-size: 11.5px; }
+.arch-chip b { font-family: var(--font-display); letter-spacing: 0.06em; color: var(--plm); }
+.arch-chip .mono { color: var(--ink-2); }
+.arch-gap { margin: 0; font-size: 12px; color: var(--quiet); display: flex; align-items: center; gap: 8px; }
+.arch-gap span { font: 600 10.5px/1 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; border: 1px dashed var(--quiet); padding: 3px 5px 2px; border-radius: 2px; }
+
+.arch-foot { margin-top: 14px; padding-top: 8px; border-top: 1px solid var(--ink); display: flex; flex-direction: column; gap: 3px; }
+.arch-foot p { margin: 0; font-size: 13px; line-height: 1.4; color: var(--ink); max-width: 960px; }
+
+/* The tool register under the MCP row: the count chip opens it; the table spans the reference and demo halves. */
+.arch-toggle { cursor: pointer; appearance: none; display: inline-flex; align-items: center; gap: 5px; }
+.arch-toggle b { margin-right: 0; }
+.arch-toggle:hover { border-color: var(--ink-2); color: var(--ink); }
+.arch-toggle[aria-expanded="true"] { background: #fff; border-color: var(--ink); color: var(--ink); }
+.arch-caret { width: 0; height: 0; border-left: 3.5px solid transparent; border-right: 3.5px solid transparent; border-top: 4px solid currentColor; transition: transform 120ms; }
+.arch-toggle[aria-expanded="true"] .arch-caret { transform: rotate(180deg); }
+.arch-tools { grid-column: 2 / -1; margin-top: 6px; background: #fff; border: 1px solid var(--rule); border-radius: 2px; padding: 3px 11px 7px; }
+.arch-tools-table { width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.35; }
+.arch-tools-table th { text-align: left; font-weight: inherit; }
+.arch-tools-table thead th { font: 600 11px/1 var(--font-display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--quiet); padding: 6px 12px 5px 0; border-bottom: 1px solid var(--rule); }
+.arch-tools-table tbody th, .arch-tools-table td { vertical-align: top; padding: 5px 12px 5px 0; border-top: 1px solid var(--rule-2); }
+.arch-tools-table tbody tr:first-child > * { border-top: 0; }
+.arch-tools-table tbody th { white-space: nowrap; color: var(--ink); }
+.arch-tools-table td { color: var(--ink-2); }
+.arch-tools-args { width: 28%; color: var(--quiet); }
+.arch-tools-foot { margin: 6px 0 0; font-size: 11.5px; line-height: 1.3; color: var(--quiet); }

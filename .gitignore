@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Python venvs + caches — NEVER commit these. A committed
+# venv pollutes the Probe scan with hundreds of vendored-dependency findings.
+.venv/
+.venv-demo/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Build output
+dist/
+*.tsbuildinfo
+coverage/
+
+# CDK
+cdk.out/
+cdk-outputs-*.json
+
+# Generated runtime config (distilled from CDK outputs at deploy time)
+config.json
+
+# Environment / secrets
+.env
+.env.*
+.aws-profile
+
+# Editor / OS
+.vscode/
+.DS_Store
+*.log
+
+build-*.log
+
+# CDK lookup cache written by synth against a real account; the placeholder AZs live in infra/cdk.json
+infra/cdk.context.json
+
+# Local experiments and the maintainer's demo recorder stay on this machine; they are not part of the sample.
+spikes/
+scripts/record-demo.py
+.pcsr/

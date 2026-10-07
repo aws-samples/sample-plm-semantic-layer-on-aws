@@ -1,0 +1,17 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# grype reads this file from the directory it runs in (the repository root). Each rule names the advisory and
+# the dependency it is accepted for; a rule without a reason is not added.
+ignore:
+  # Spring4Shell concerns Spring Framework 5.3.x. The starter carries no version of its own (spring-boot-starter-parent
+  # 3.3.13 manages it) and brings Spring Framework 6.1.x; the match is on the starter's empty version string.
+  - vulnerability: GHSA-36p3-wjmg-h94x
+    package:
+      name: spring-boot-starter-web
+      type: java-archive
+  # H2 is a test-scope dependency that never ships in an image; the managed version 2.2.224 postdates the fix (2.1.210).
+  - vulnerability: GHSA-45hx-wfhj-473x
+    package:
+      name: h2
+      type: java-archive

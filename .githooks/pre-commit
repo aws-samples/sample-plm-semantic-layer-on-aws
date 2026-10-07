@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# =============================================================================
+# .githooks/pre-commit — ONLY the fast checks.
+#
+# Install once per clone:  bash scripts/install-hooks.sh
+# Bypass in an emergency:  git commit --no-verify
+#
+# Deliberately just lint (on staged files) + the app-auth grep, both ~1s. The
+# typecheck (~5s), the guardrail synth (~60s) and the CDK gate belong to
+# scripts/verify.sh and CI, NOT here: a hook slow enough to be annoying is a hook
+# that gets bypassed, and a bypassed hook protects nothing.
+# =============================================================================
+set -uo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+# Staged, non-deleted source files only.
+staged="$(git diff --cached --name-only --diff-filter=ACM \
+          | grep -E '\.(ts|tsx|js|jsx|mjs|cjs)$' || true)"
+
+status=0
+
+if [ -n "$staged" ]; then
+  if [ -x node_modules/.bin/eslint ]; then
+    # --no-warn-ignored: passing an explicitly-ignored file (the APPSYNC_JS
+    # resolvers) otherwise prints a warning per file on every single commit, and
+    # a hook that cries wolf four times a commit stops being read.
+    # shellcheck disable=SC2086 — intentional word splitting over the file list
+    # nosemgrep: unquoted-variable-expansion-in-command -- the same intentional word splitting
+    if ! node_modules/.bin/eslint --no-warn-ignored $staged; then
+      echo ""
+      echo "pre-commit: eslint failed on staged files."
+      echo "  Fix them, or record the exception in eslint.config.mjs with a reason."
+      status=1
+    fi
+  else
+    echo "pre-commit: eslint not installed (run 'npm install'), skipping lint"
+  fi
+fi
+
+# Vendored dirs must never be committed: a Python venv adds ~1,300 files and
+# hundreds of vendored-dependency findings to the security scan. .gitignore covers
+# them, but a venv is created later than the first commit, so re-check
+# every time rather than trusting the initial setup.
+tracked_junk="$(git diff --cached --name-only --diff-filter=ACM \
+  | grep -E '(^|/)(\.venv[^/]*|venv|node_modules|cdk\.out[^/]*|__pycache__)/' || true)"
+if [ -n "$tracked_junk" ]; then
+  echo ""
+  echo "pre-commit: refusing to commit vendored/build files:"
+  echo "$tracked_junk" | head -5 | sed 's/^/    /'
+  echo "  Add the pattern to .gitignore and 'git rm -r --cached <dir>'."
+  status=1
+fi
+
+exit "$status"
