@@ -1,0 +1,5557 @@
+{
+  "product": {
+    "key": "glider",
+    "name": "Lilienthal Normalsegelapparat (1894), authored reconstruction"
+  },
+  "frame": "x aft from the nose of the frame (the front of the bumper bow) at the centreline, y to the pilot's right, z up with z = 0 on the top face of the rib hub fittings; mm, the frame of modules/cad/glider.py. Span 6.7 m (front rib tips at y +/-3349), hubs of the eight radial ribs per wing at (400, +/-400), cross rod axis at z -28, hoop of 760 mm centred at x 700, kingpost head at z 1050, lower post foot at z -720, tail boom to x 4850, tail plane hinge at x 3910, fin post at x 4000.",
+  "parts": [
+    {
+      "id": "ES-3401",
+      "plm": "ES",
+      "name": "Costilla izquierda 1 (bambú)",
+      "cadFile": "cad/glider/es-rib-left-1.stp",
+      "cadPart": "es-rib-left-1",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3401",
+        "nameEn": "Left rib 1 (bamboo)",
+        "revision": 1,
+        "lifecycle": "Bloqueado",
+        "mass": 0.355,
+        "massUnit": "kg",
+        "material": "bambú",
+        "materialEn": "bamboo",
+        "dimensionText": "Ø 36 x 2960 mm",
+        "interpretationNote": "Costilla radial 1 de 8, a -5.0° hacia atrás del sentido de la envergadura, 2960 mm del pivote a la punta; un solo arco de circunferencia con 138 mm de flecha. Taco de apoyo de sauce en la cara delantera de la raíz, donde descansa sobre la costilla vecina al plegar el ala; por él la costilla izquierda y la derecha son piezas simétricas. Caña de bambú: es el borde de ataque del ala y lleva el tirante delantero. Bloqueada: la caña espera la inspección de una grieta junto al pivote.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3402",
+      "plm": "ES",
+      "name": "Costilla izquierda 2",
+      "cadFile": "cad/glider/es-rib-left-2.stp",
+      "cadPart": "es-rib-left-2",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3402",
+        "nameEn": "Left rib 2",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.252,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 2970 mm",
+        "interpretationNote": "Costilla radial 2 de 8, a 7.9° hacia atrás del sentido de la envergadura, 2970 mm del pivote a la punta; un solo arco de circunferencia con 149 mm de flecha. Taco de apoyo de sauce en la cara delantera de la raíz, donde descansa sobre la costilla vecina al plegar el ala; por él la costilla izquierda y la derecha son piezas simétricas.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3403",
+      "plm": "ES",
+      "name": "Costilla izquierda 3",
+      "cadFile": "cad/glider/es-rib-left-3.stp",
+      "cadPart": "es-rib-left-3",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3403",
+        "nameEn": "Left rib 3",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.256,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 3010 mm",
+        "interpretationNote": "Costilla radial 3 de 8, a 20.7° hacia atrás del sentido de la envergadura, 3010 mm del pivote a la punta; un solo arco de circunferencia con 195 mm de flecha. Taco de apoyo de sauce en la cara delantera de la raíz, donde descansa sobre la costilla vecina al plegar el ala; por él la costilla izquierda y la derecha son piezas simétricas.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3404",
+      "plm": "ES",
+      "name": "Costilla izquierda 4",
+      "cadFile": "cad/glider/es-rib-left-4.stp",
+      "cadPart": "es-rib-left-4",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3404",
+        "nameEn": "Left rib 4",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.255,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 3000 mm",
+        "interpretationNote": "Costilla radial 4 de 8, a 33.6° hacia atrás del sentido de la envergadura, 3000 mm del pivote a la punta; un solo arco de circunferencia con 228 mm de flecha. Taco de apoyo de sauce en la cara delantera de la raíz, donde descansa sobre la costilla vecina al plegar el ala; por él la costilla izquierda y la derecha son piezas simétricas.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3405",
+      "plm": "ES",
+      "name": "Costilla izquierda 5",
+      "cadFile": "cad/glider/es-rib-left-5.stp",
+      "cadPart": "es-rib-left-5",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3405",
+        "nameEn": "Left rib 5",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.248,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 2920 mm",
+        "interpretationNote": "Costilla radial 5 de 8, a 46.4° hacia atrás del sentido de la envergadura, 2920 mm del pivote a la punta; un solo arco de circunferencia con 243 mm de flecha. Taco de apoyo de sauce en la cara delantera de la raíz, donde descansa sobre la costilla vecina al plegar el ala; por él la costilla izquierda y la derecha son piezas simétricas.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3406",
+      "plm": "ES",
+      "name": "Costilla izquierda 6",
+      "cadFile": "cad/glider/es-rib-left-6.stp",
+      "cadPart": "es-rib-left-6",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3406",
+        "nameEn": "Left rib 6",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.236,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 2780 mm",
+        "interpretationNote": "Costilla radial 6 de 8, a 59.3° hacia atrás del sentido de la envergadura, 2780 mm del pivote a la punta; un solo arco de circunferencia con 241 mm de flecha. Taco de apoyo de sauce en la cara delantera de la raíz, donde descansa sobre la costilla vecina al plegar el ala; por él la costilla izquierda y la derecha son piezas simétricas.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3407",
+      "plm": "ES",
+      "name": "Costilla izquierda 7",
+      "cadFile": "cad/glider/es-rib-left-7.stp",
+      "cadPart": "es-rib-left-7",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3407",
+        "nameEn": "Left rib 7",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.221,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 2600 mm",
+        "interpretationNote": "Costilla radial 7 de 8, a 72.1° hacia atrás del sentido de la envergadura, 2600 mm del pivote a la punta; un solo arco de circunferencia con 222 mm de flecha. Taco de apoyo de sauce en la cara delantera de la raíz, donde descansa sobre la costilla vecina al plegar el ala; por él la costilla izquierda y la derecha son piezas simétricas.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3408",
+      "plm": "ES",
+      "name": "Costilla izquierda 8",
+      "cadFile": "cad/glider/es-rib-left-8.stp",
+      "cadPart": "es-rib-left-8",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3408",
+        "nameEn": "Left rib 8",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.204,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 2400 mm",
+        "interpretationNote": "Costilla radial 8 de 8, a 85.0° hacia atrás del sentido de la envergadura, 2400 mm del pivote a la punta; un solo arco de circunferencia con 192 mm de flecha. Taco de apoyo de sauce en la cara delantera de la raíz, donde descansa sobre la costilla vecina al plegar el ala; por él la costilla izquierda y la derecha son piezas simétricas.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3409",
+      "plm": "ES",
+      "name": "Costilla derecha 1 (bambú)",
+      "cadFile": "cad/glider/es-rib-right-1.stp",
+      "cadPart": "es-rib-right-1",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3409",
+        "nameEn": "Right rib 1 (bamboo)",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.355,
+        "massUnit": "kg",
+        "material": "bambú",
+        "materialEn": "bamboo",
+        "dimensionText": "Ø 36 x 2960 mm",
+        "interpretationNote": "Simétrica de la costilla izquierda 1.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3410",
+      "plm": "ES",
+      "name": "Costilla derecha 2",
+      "cadFile": "cad/glider/es-rib-right-2.stp",
+      "cadPart": "es-rib-right-2",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3410",
+        "nameEn": "Right rib 2",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.252,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 2970 mm",
+        "interpretationNote": "Simétrica de la costilla izquierda 2.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3411",
+      "plm": "ES",
+      "name": "Costilla derecha 3",
+      "cadFile": "cad/glider/es-rib-right-3.stp",
+      "cadPart": "es-rib-right-3",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3411",
+        "nameEn": "Right rib 3",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.256,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 3010 mm",
+        "interpretationNote": "Simétrica de la costilla izquierda 3.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3412",
+      "plm": "ES",
+      "name": "Costilla derecha 4",
+      "cadFile": "cad/glider/es-rib-right-4.stp",
+      "cadPart": "es-rib-right-4",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3412",
+        "nameEn": "Right rib 4",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.255,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 3000 mm",
+        "interpretationNote": "Simétrica de la costilla izquierda 4.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3413",
+      "plm": "ES",
+      "name": "Costilla derecha 5",
+      "cadFile": "cad/glider/es-rib-right-5.stp",
+      "cadPart": "es-rib-right-5",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3413",
+        "nameEn": "Right rib 5",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.248,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 2920 mm",
+        "interpretationNote": "Simétrica de la costilla izquierda 5.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3414",
+      "plm": "ES",
+      "name": "Costilla derecha 6",
+      "cadFile": "cad/glider/es-rib-right-6.stp",
+      "cadPart": "es-rib-right-6",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3414",
+        "nameEn": "Right rib 6",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.236,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 2780 mm",
+        "interpretationNote": "Simétrica de la costilla izquierda 6.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3415",
+      "plm": "ES",
+      "name": "Costilla derecha 7",
+      "cadFile": "cad/glider/es-rib-right-7.stp",
+      "cadPart": "es-rib-right-7",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3415",
+        "nameEn": "Right rib 7",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.221,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 2600 mm",
+        "interpretationNote": "Simétrica de la costilla izquierda 7.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3416",
+      "plm": "ES",
+      "name": "Costilla derecha 8",
+      "cadFile": "cad/glider/es-rib-right-8.stp",
+      "cadPart": "es-rib-right-8",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3416",
+        "nameEn": "Right rib 8",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.204,
+        "massUnit": "kg",
+        "material": "sauce hendido",
+        "materialEn": "willow",
+        "dimensionText": "Ø 22 x 2400 mm",
+        "interpretationNote": "Simétrica de la costilla izquierda 8.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3417",
+      "plm": "ES",
+      "name": "Listón de perfil 1 (bambú)",
+      "cadFile": "cad/glider/es-profile-rail-1.stp",
+      "cadPart": "es-profile-rail-1",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3417",
+        "nameEn": "Profile rail 1 (bamboo)",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.097,
+        "massUnit": "kg",
+        "material": "bambú",
+        "materialEn": "bamboo",
+        "dimensionText": "Ø 12 x 1611 mm",
+        "interpretationNote": "Listón deslizado sobre el entoilado a 900 mm del eje, de la costilla 1 a la última que alcanza; fija la curvatura del perfil sobre las costillas que cruza. El mismo listón sirve en las dos alas: dos por planeador, dibujado en el ala izquierda.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3418",
+      "plm": "ES",
+      "name": "Listón de perfil 2 (bambú)",
+      "cadFile": "cad/glider/es-profile-rail-2.stp",
+      "cadPart": "es-profile-rail-2",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3418",
+        "nameEn": "Profile rail 2 (bamboo)",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.117,
+        "massUnit": "kg",
+        "material": "bambú",
+        "materialEn": "bamboo",
+        "dimensionText": "Ø 12 x 1958 mm",
+        "interpretationNote": "Listón deslizado sobre el entoilado a 1500 mm del eje, de la costilla 1 a la última que alcanza; fija la curvatura del perfil sobre las costillas que cruza. El mismo listón sirve en las dos alas: dos por planeador, dibujado en el ala izquierda.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3419",
+      "plm": "ES",
+      "name": "Listón de perfil 3 (bambú)",
+      "cadFile": "cad/glider/es-profile-rail-3.stp",
+      "cadPart": "es-profile-rail-3",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3419",
+        "nameEn": "Profile rail 3 (bamboo)",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.116,
+        "massUnit": "kg",
+        "material": "bambú",
+        "materialEn": "bamboo",
+        "dimensionText": "Ø 12 x 1942 mm",
+        "interpretationNote": "Listón deslizado sobre el entoilado a 2100 mm del eje, de la costilla 1 a la última que alcanza; fija la curvatura del perfil sobre las costillas que cruza. El mismo listón sirve en las dos alas: dos por planeador, dibujado en el ala izquierda.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3420",
+      "plm": "ES",
+      "name": "Listón de perfil 4 (bambú)",
+      "cadFile": "cad/glider/es-profile-rail-4.stp",
+      "cadPart": "es-profile-rail-4",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3420",
+        "nameEn": "Profile rail 4 (bamboo)",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.104,
+        "massUnit": "kg",
+        "material": "bambú",
+        "materialEn": "bamboo",
+        "dimensionText": "Ø 12 x 1730 mm",
+        "interpretationNote": "Listón deslizado sobre el entoilado a 2700 mm del eje, de la costilla 1 a la última que alcanza; fija la curvatura del perfil sobre las costillas que cruza. El mismo listón sirve en las dos alas: dos por planeador, dibujado en el ala izquierda.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3421",
+      "plm": "ES",
+      "name": "Aro de sauce",
+      "cadFile": "cad/glider/es-hoop.stp",
+      "cadPart": "es-hoop",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3421",
+        "nameEn": "Willow hoop",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.5,
+        "massUnit": "kg",
+        "material": "sauce",
+        "materialEn": "willow",
+        "dimensionText": "Ø 760 mm, varilla Ø 28",
+        "interpretationNote": "Aro circular de 760 mm alrededor de la abertura donde cuelga el piloto, en el plano de la vara transversal; la abertura elíptica de los aparatos conservados se dibuja como un círculo.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3422",
+      "plm": "ES",
+      "name": "Vara transversal (bambú)",
+      "cadFile": "cad/glider/es-cross-rod.stp",
+      "cadPart": "es-cross-rod",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3422",
+        "nameEn": "Cross rod (bamboo)",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.4,
+        "massUnit": "kg",
+        "material": "bambú",
+        "materialEn": "bamboo",
+        "dimensionText": "Ø 40 x 1040 mm",
+        "interpretationNote": "Vara que cruza el aro delante del pecho del piloto y lleva en sus extremos los cubos de costillas; con el aro y la viga de cola forma el bastidor cruzado. Sobre ella se apoyan el mástil y el poste inferior.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3423",
+      "plm": "ES",
+      "name": "Arco de protección",
+      "cadFile": "cad/glider/es-bumper-bow.stp",
+      "cadPart": "es-bumper-bow",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3423",
+        "nameEn": "Bumper bow",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.45,
+        "massUnit": "kg",
+        "material": "sauce",
+        "materialEn": "willow",
+        "dimensionText": "Ø 28 x 1400 mm",
+        "interpretationNote": "Arco delante y debajo del piloto, de los extremos de la vara transversal al morro del bastidor (x 0); amortigua un choque frontal. Lleva el sensor de velocidad y el lastre británicos.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3424",
+      "plm": "ES",
+      "name": "Viga de cola (bambú)",
+      "cadFile": "cad/glider/es-tail-boom.stp",
+      "cadPart": "es-tail-boom",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3424",
+        "nameEn": "Tail boom (bamboo)",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.9,
+        "massUnit": "kg",
+        "material": "bambú",
+        "materialEn": "bamboo",
+        "dimensionText": "Ø 40 x 3780 mm",
+        "interpretationNote": "Viga recta en el eje, del aro (x 1070) al patín de cola (x 4850); lleva la bisagra del plano de cola y la deriva.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3425",
+      "plm": "ES",
+      "name": "Barra de antebrazo izquierda",
+      "cadFile": "cad/glider/es-arm-bar-left.stp",
+      "cadPart": "es-arm-bar-left",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3425",
+        "nameEn": "Left arm bar",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.28,
+        "massUnit": "kg",
+        "material": "fresno",
+        "materialEn": "ash",
+        "dimensionText": "40 x 30 x 585 mm",
+        "interpretationNote": "Barra bajo el bastidor sobre la que el piloto apoya el antebrazo; cuelga de la vara transversal por abrazaderas alemanas y del aro; tope de codo en la cara exterior, de ahí la pieza simétrica.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3426",
+      "plm": "ES",
+      "name": "Barra de antebrazo derecha",
+      "cadFile": "cad/glider/es-arm-bar-right.stp",
+      "cadPart": "es-arm-bar-right",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3426",
+        "nameEn": "Right arm bar",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.28,
+        "massUnit": "kg",
+        "material": "fresno",
+        "materialEn": "ash",
+        "dimensionText": "40 x 30 x 585 mm",
+        "interpretationNote": "Simétrica de la barra de antebrazo izquierda.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3427",
+      "plm": "ES",
+      "name": "Bastidor del plano de cola",
+      "cadFile": "cad/glider/es-tail-plane-frame.stp",
+      "cadPart": "es-tail-plane-frame",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3427",
+        "nameEn": "Tail plane frame",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.4,
+        "massUnit": "kg",
+        "material": "sauce",
+        "materialEn": "willow",
+        "dimensionText": "1000 x 1600 mm, varilla Ø 20",
+        "interpretationNote": "Lente de dos arcos de circunferencia de punta a punta; el arco delantero pasa por los ojos de la bisagra en x 3910. El plano gira hacia arriba libremente y en vuelo descansa sobre el tope del poste de la deriva.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3428",
+      "plm": "ES",
+      "name": "Bastidor de la deriva",
+      "cadFile": "cad/glider/es-fin-frame.stp",
+      "cadPart": "es-fin-frame",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3428",
+        "nameEn": "Fin frame",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.25,
+        "massUnit": "kg",
+        "material": "sauce",
+        "materialEn": "willow",
+        "dimensionText": "780 x 740 mm, varilla Ø 16",
+        "interpretationNote": "Borde inferior recto y arco del extremo del poste a la cola; la deriva es fija.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3429",
+      "plm": "ES",
+      "name": "Juego de tirantes superiores izquierdos (3)",
+      "cadFile": "cad/glider/es-upper-wires-left.stp",
+      "cadPart": "es-upper-wires-left",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3429",
+        "nameEn": "Left upper bracing wires (set of 3)",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.175,
+        "massUnit": "kg",
+        "material": "alambre de acero",
+        "materialEn": "steel wire",
+        "dimensionText": "3 x Ø 2,0 mm, 1975 a 2370 mm",
+        "interpretationNote": "Tres tirantes de la placa de ojos del mástil a las grapas de las costillas 1, 4 y 7 al 62 % de su longitud, por encima del entoilado.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3430",
+      "plm": "ES",
+      "name": "Juego de tirantes superiores derechos (3)",
+      "cadFile": "cad/glider/es-upper-wires-right.stp",
+      "cadPart": "es-upper-wires-right",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3430",
+        "nameEn": "Right upper bracing wires (set of 3)",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.175,
+        "massUnit": "kg",
+        "material": "alambre de acero",
+        "materialEn": "steel wire",
+        "dimensionText": "3 x Ø 2,0 mm, 1975 a 2370 mm",
+        "interpretationNote": "Tres tirantes de la placa de ojos del mástil a las grapas de las costillas 1, 4 y 7 al 62 % de su longitud, por encima del entoilado.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3431",
+      "plm": "ES",
+      "name": "Juego de tirantes inferiores izquierdos (3)",
+      "cadFile": "cad/glider/es-lower-wires-left.stp",
+      "cadPart": "es-lower-wires-left",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3431",
+        "nameEn": "Left lower bracing wires (set of 3)",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.182,
+        "massUnit": "kg",
+        "material": "alambre de acero",
+        "materialEn": "steel wire",
+        "dimensionText": "3 x Ø 2,0 mm, 2057 a 2462 mm",
+        "interpretationNote": "Tres tirantes de la placa de ojos del poste inferior a las grapas de las costillas 1, 4 y 7 al 62 % de su longitud, por debajo; un tensor en cada uno.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3432",
+      "plm": "ES",
+      "name": "Juego de tirantes inferiores derechos (3)",
+      "cadFile": "cad/glider/es-lower-wires-right.stp",
+      "cadPart": "es-lower-wires-right",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3432",
+        "nameEn": "Right lower bracing wires (set of 3)",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.182,
+        "massUnit": "kg",
+        "material": "alambre de acero",
+        "materialEn": "steel wire",
+        "dimensionText": "3 x Ø 2,0 mm, 2057 a 2462 mm",
+        "interpretationNote": "Tres tirantes de la placa de ojos del poste inferior a las grapas de las costillas 1, 4 y 7 al 62 % de su longitud, por debajo; un tensor en cada uno.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3433",
+      "plm": "ES",
+      "name": "Tirante delantero",
+      "cadFile": "cad/glider/es-front-wire.stp",
+      "cadPart": "es-front-wire",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3433",
+        "nameEn": "Front tension wire",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.03,
+        "massUnit": "kg",
+        "material": "alambre de acero",
+        "materialEn": "steel wire",
+        "dimensionText": "Ø 2,0 x 1828 mm",
+        "interpretationNote": "De la costilla 1 al 45 % de su longitud al frente del aro: mantiene el ala desplegada; al soltar su gancho, las costillas giran en sus bolsillos y el ala se pliega hacia la cola. Uno por ala, dibujado a la izquierda.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3434",
+      "plm": "ES",
+      "name": "Tirante de la deriva",
+      "cadFile": "cad/glider/es-tail-wire.stp",
+      "cadPart": "es-tail-wire",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3434",
+        "nameEn": "Fin stay wire",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.03,
+        "massUnit": "kg",
+        "material": "alambre de acero",
+        "materialEn": "steel wire",
+        "dimensionText": "Ø 2,0 x 1340 mm",
+        "interpretationNote": "Del extremo del poste de la deriva a la viga de cola en x 2900.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3435",
+      "plm": "ES",
+      "name": "Vientos del mástil (2)",
+      "cadFile": "cad/glider/es-kingpost-stays.stp",
+      "cadPart": "es-kingpost-stays",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3435",
+        "nameEn": "Kingpost stays (set of 2)",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.07,
+        "massUnit": "kg",
+        "material": "alambre de acero",
+        "materialEn": "steel wire",
+        "dimensionText": "2 x Ø 2,0 mm, 1340 a 2440 mm",
+        "interpretationNote": "Viento delantero del extremo del mástil al arco de protección y trasero a la viga de cola.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3436",
+      "plm": "ES",
+      "name": "Viento del poste inferior",
+      "cadFile": "cad/glider/es-lower-post-stay.stp",
+      "cadPart": "es-lower-post-stay",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3436",
+        "nameEn": "Lower post stay",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.02,
+        "massUnit": "kg",
+        "material": "alambre de acero",
+        "materialEn": "steel wire",
+        "dimensionText": "Ø 2,0 x 660 mm",
+        "interpretationNote": "Del pie del poste inferior al arco de protección.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3437",
+      "plm": "ES",
+      "name": "Tensor de horquilla",
+      "cadFile": "cad/glider/es-turnbuckle.stp",
+      "cadPart": "es-turnbuckle",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3437",
+        "nameEn": "Fork turnbuckle",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.04,
+        "massUnit": "kg",
+        "material": "acero",
+        "materialEn": "steel",
+        "dimensionText": "Ø 10 x 80 mm",
+        "interpretationNote": "Uno en cada tirante inferior y en cada tirante delantero, de 150 a 230 mm del anclaje; ocho por planeador.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3438",
+      "plm": "ES",
+      "name": "Guardacabos",
+      "cadFile": "cad/glider/es-thimble.stp",
+      "cadPart": "es-thimble",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3438",
+        "nameEn": "Wire thimble",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.004,
+        "massUnit": "kg",
+        "material": "acero",
+        "materialEn": "steel",
+        "dimensionText": "Ø 8 x 14 mm",
+        "interpretationNote": "En cada extremo de los tirantes superiores, inferiores y delanteros: 28 por planeador.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3439",
+      "plm": "ES",
+      "name": "Abrazadera fundida del aro",
+      "cadFile": "cad/glider/es-hoop-clamp.stp",
+      "cadPart": "es-hoop-clamp",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "supplier": "Forja del Tajo, Toledo",
+      "extended": {
+        "localId": "ES-3439",
+        "nameEn": "Cast hoop clamp",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.12,
+        "massUnit": "kg",
+        "material": "acero moldeado",
+        "materialEn": "cast steel",
+        "dimensionText": "50 x 50 x 50 mm",
+        "interpretationNote": "Une el aro y la vara transversal donde se cruzan, en y ±233; dos por planeador.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3440",
+      "plm": "ES",
+      "name": "Base fundida del mástil",
+      "cadFile": "cad/glider/es-kingpost-step.stp",
+      "cadPart": "es-kingpost-step",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "supplier": "Forja del Tajo, Toledo",
+      "extended": {
+        "localId": "ES-3440",
+        "nameEn": "Cast kingpost step",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.25,
+        "massUnit": "kg",
+        "material": "acero moldeado",
+        "materialEn": "cast steel",
+        "dimensionText": "Ø 60 x 52 mm, asiento 60 x 90",
+        "interpretationNote": "Casquillo sobre la vara transversal en el eje que recibe el pie del mástil.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3441",
+      "plm": "ES",
+      "name": "Zapata fundida del poste inferior",
+      "cadFile": "cad/glider/es-lower-post-shoe.stp",
+      "cadPart": "es-lower-post-shoe",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "supplier": "Forja del Tajo, Toledo",
+      "extended": {
+        "localId": "ES-3441",
+        "nameEn": "Cast lower post shoe",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.22,
+        "massUnit": "kg",
+        "material": "acero moldeado",
+        "materialEn": "cast steel",
+        "dimensionText": "Ø 56 x 49 mm, asiento 60 x 90",
+        "interpretationNote": "Casquillo bajo la vara transversal que recibe la cabeza del poste inferior.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3442",
+      "plm": "ES",
+      "name": "Casquillo fundido de la viga de cola",
+      "cadFile": "cad/glider/es-boom-socket.stp",
+      "cadPart": "es-boom-socket",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "supplier": "Forja del Tajo, Toledo",
+      "extended": {
+        "localId": "ES-3442",
+        "nameEn": "Cast boom socket",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.2,
+        "massUnit": "kg",
+        "material": "acero moldeado",
+        "materialEn": "cast steel",
+        "dimensionText": "Ø 56 x 110 mm",
+        "interpretationNote": "Une la viga de cola al aro por detrás del piloto.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3443",
+      "plm": "ES",
+      "name": "Base fundida de la deriva",
+      "cadFile": "cad/glider/es-fin-step.stp",
+      "cadPart": "es-fin-step",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "supplier": "Forja del Tajo, Toledo",
+      "extended": {
+        "localId": "ES-3443",
+        "nameEn": "Cast fin step",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.15,
+        "massUnit": "kg",
+        "material": "acero moldeado",
+        "materialEn": "cast steel",
+        "dimensionText": "Ø 56 x 60 mm",
+        "interpretationNote": "Collar sobre la viga de cola con el casquillo del poste de la deriva.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "ES-3444",
+      "plm": "ES",
+      "name": "Patín de cola fundido",
+      "cadFile": "cad/glider/es-tail-skid.stp",
+      "cadPart": "es-tail-skid",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "supplier": "Forja del Tajo, Toledo",
+      "extended": {
+        "localId": "ES-3444",
+        "nameEn": "Cast tail skid",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 0.2,
+        "massUnit": "kg",
+        "material": "acero moldeado",
+        "materialEn": "cast steel",
+        "dimensionText": "Ø 52 x 80 mm",
+        "interpretationNote": "Contera del extremo de la viga con una zapata que protege la cola al aterrizar.",
+        "siteKit": "ES-3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34001",
+      "plm": "DE",
+      "name": "Spannmast mit Augenplatte",
+      "cadFile": "cad/glider/de-kingpost.stp",
+      "cadPart": "de-kingpost",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34001",
+        "nameEn": "Kingpost with eye plate",
+        "revision": "02",
+        "lifecycle": "Freigegeben",
+        "mass": 0.6,
+        "massUnit": "kg",
+        "material": "Esche",
+        "materialEn": "ash",
+        "dimensionText": "Ø 40 x 1058 mm",
+        "interpretationNote": "Mast auf dem Querstab in der Achse; die Augenplatte 25 mm unter dem Kopf nimmt je Flügel drei obere Spanndrähte und die beiden Mastabspannungen auf.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34002",
+      "plm": "DE",
+      "name": "Unterer Spannpfosten mit Augenplatte",
+      "cadFile": "cad/glider/de-lower-post.stp",
+      "cadPart": "de-lower-post",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34002",
+        "nameEn": "Lower post with eye plate",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.38,
+        "massUnit": "kg",
+        "material": "Esche",
+        "materialEn": "ash",
+        "dimensionText": "Ø 36 x 712 mm",
+        "interpretationNote": "Pfosten unter dem Querstab vor der Brust des Piloten; die Augenplatte am Fuß nimmt die unteren Spanndrähte auf.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34003",
+      "plm": "DE",
+      "name": "Seitenflossenpfosten",
+      "cadFile": "cad/glider/de-fin-post.stp",
+      "cadPart": "de-fin-post",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34003",
+        "nameEn": "Fin post",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.3,
+        "massUnit": "kg",
+        "material": "Esche",
+        "materialEn": "ash",
+        "dimensionText": "Ø 30 x 748 mm",
+        "interpretationNote": "Vorderkante der festen Seitenflosse auf dem Leitwerksträger; trägt den Anschlag des Höhenleitwerks.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34004",
+      "plm": "DE",
+      "name": "Rippennabe links",
+      "cadFile": "cad/glider/de-hub-left.stp",
+      "cadPart": "de-hub-left",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34004",
+        "nameEn": "Left rib hub fitting",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.45,
+        "massUnit": "kg",
+        "material": "Stahl",
+        "materialEn": "steel",
+        "dimensionText": "Sektor R 280 x 8 mm, Zapfen Ø 50 x 30",
+        "interpretationNote": "Gemeinsamer Träger der acht Rippen eines Flügels auf dem Ende des Querstabs: Sektorplatte unter den Rippenwurzeln mit einem Bolzenloch je Rippe, auf dem jede Rippe zum Falten nach hinten schwenkt; der Zapfen oben macht linke und rechte Nabe zu Spiegelteilen.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34005",
+      "plm": "DE",
+      "name": "Rippennabe rechts",
+      "cadFile": "cad/glider/de-hub-right.stp",
+      "cadPart": "de-hub-right",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34005",
+        "nameEn": "Right rib hub fitting",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.45,
+        "massUnit": "kg",
+        "material": "Stahl",
+        "materialEn": "steel",
+        "dimensionText": "Sektor R 280 x 8 mm, Zapfen Ø 50 x 30",
+        "interpretationNote": "Spiegelbild der linken Rippennabe.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34006",
+      "plm": "DE",
+      "name": "Rippentasche, erste Rippe",
+      "cadFile": "cad/glider/de-rib-ferrule-large.stp",
+      "cadPart": "de-rib-ferrule-large",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34006",
+        "nameEn": "Rib pocket ferrule, first rib",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.06,
+        "massUnit": "kg",
+        "material": "Stahlrohr",
+        "materialEn": "steel tube",
+        "dimensionText": "Ø 42 x 110 mm",
+        "interpretationNote": "Tasche über der Wurzel der Bambusrippe 1, mit dem Schwenkauge; zwei je Gleiter.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34007",
+      "plm": "DE",
+      "name": "Rippentasche",
+      "cadFile": "cad/glider/de-rib-ferrule.stp",
+      "cadPart": "de-rib-ferrule",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34007",
+        "nameEn": "Rib pocket ferrule",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.035,
+        "massUnit": "kg",
+        "material": "Stahlrohr",
+        "materialEn": "steel tube",
+        "dimensionText": "Ø 28 x 110 mm",
+        "interpretationNote": "Tasche über der Wurzel der Weidenrippen 2 bis 8, mit dem Schwenkauge; vierzehn je Gleiter.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34008",
+      "plm": "DE",
+      "name": "Bolzen ISO 2341 B 6 x 40",
+      "cadFile": "cad/glider/de-pivot-pin.stp",
+      "cadPart": "de-pivot-pin",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34008",
+        "nameEn": "Clevis pin ISO 2341 B 6 x 40",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.012,
+        "massUnit": "kg",
+        "material": "Stahl",
+        "materialEn": "steel",
+        "dimensionText": "6 x 40 mm",
+        "interpretationNote": "Schwenkbolzen jeder Rippe durch Tasche und Nabenplatte; Kaufteil, sechzehn je Gleiter.",
+        "siteKit": "D-34000",
+        "partType": "PURCHASED",
+        "authoredAddition": false,
+        "purchased": {"class": "fastener", "standard": "ISO 2341"}
+      }
+    },
+    {
+      "id": "D-34009",
+      "plm": "DE",
+      "name": "Sechskantschraube ISO 4014 M8 x 70",
+      "cadFile": "cad/glider/de-hub-bolt.stp",
+      "cadPart": "de-hub-bolt",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34009",
+        "nameEn": "Hexagon head bolt ISO 4014 M8 x 70",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.03,
+        "massUnit": "kg",
+        "material": "Stahl 8.8",
+        "materialEn": "steel",
+        "dimensionText": "M8 x 70",
+        "interpretationNote": "Zwei je Nabe durch Nabenplatte und Querstab; Kaufteil.",
+        "siteKit": "D-34000",
+        "partType": "PURCHASED",
+        "authoredAddition": false,
+        "purchased": {"class": "fastener", "standard": "ISO 4014", "attributes": {"diameter": "8", "length": "70"}}
+      }
+    },
+    {
+      "id": "D-34010",
+      "plm": "DE",
+      "name": "Rippenendkappe",
+      "cadFile": "cad/glider/de-rib-tip-cap.stp",
+      "cadPart": "de-rib-tip-cap",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34010",
+        "nameEn": "Rib tip cap",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.012,
+        "massUnit": "kg",
+        "material": "Stahl",
+        "materialEn": "steel",
+        "dimensionText": "Ø 26 x 44 mm",
+        "interpretationNote": "Kappe auf der Spitze der Weidenrippen mit dem Auge für die Hinterkantenschnur; vierzehn je Gleiter.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34011",
+      "plm": "DE",
+      "name": "Spanndrahtschelle",
+      "cadFile": "cad/glider/de-wire-clip.stp",
+      "cadPart": "de-wire-clip",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34011",
+        "nameEn": "Rib wire clip",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.03,
+        "massUnit": "kg",
+        "material": "Stahl",
+        "materialEn": "steel",
+        "dimensionText": "20 x 72 x 72 mm",
+        "interpretationNote": "Schelle um die Rippen 1, 4 und 7 an der Abspannstelle, mit einem Auge oben und einem unten; sechs je Gleiter.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34012",
+      "plm": "DE",
+      "name": "Profilschienenklemme",
+      "cadFile": "cad/glider/de-rail-clip.stp",
+      "cadPart": "de-rail-clip",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34012",
+        "nameEn": "Profile rail clip",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.008,
+        "massUnit": "kg",
+        "material": "Federstahl",
+        "materialEn": "spring steel",
+        "dimensionText": "24 x 16 x 60 mm",
+        "interpretationNote": "Hält eine Profilschiene an ihrem Ende auf der Rippe; sechzehn je Gleiter.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34013",
+      "plm": "DE",
+      "name": "Armstangenhänger",
+      "cadFile": "cad/glider/de-arm-hanger.stp",
+      "cadPart": "de-arm-hanger",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34013",
+        "nameEn": "Arm bar hanger",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.05,
+        "massUnit": "kg",
+        "material": "Stahlblech",
+        "materialEn": "sheet steel",
+        "dimensionText": "30 x 6 x 82 mm",
+        "interpretationNote": "Lasche vom Querstab und vom Bügel zur Armstange; vier je Gleiter.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34014",
+      "plm": "DE",
+      "name": "Bügelschelle",
+      "cadFile": "cad/glider/de-bow-clamp.stp",
+      "cadPart": "de-bow-clamp",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34014",
+        "nameEn": "Bumper bow clamp",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.06,
+        "massUnit": "kg",
+        "material": "Stahl",
+        "materialEn": "steel",
+        "dimensionText": "40 x 40 x 42 mm",
+        "interpretationNote": "Schelle des Prellbügels am Querstabende; zwei je Gleiter.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34015",
+      "plm": "DE",
+      "name": "Höhenleitwerksscharnier",
+      "cadFile": "cad/glider/de-tail-hinge.stp",
+      "cadPart": "de-tail-hinge",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34015",
+        "nameEn": "Tail plane hinge fitting",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.18,
+        "massUnit": "kg",
+        "material": "Stahl",
+        "materialEn": "steel",
+        "dimensionText": "60 x 180 x 36 mm",
+        "interpretationNote": "Grundplatte auf dem Leitwerksträger mit zwei Laschen beiderseits des vorderen Rahmenbogens.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34016",
+      "plm": "DE",
+      "name": "Scharnierbolzen",
+      "cadFile": "cad/glider/de-tail-hinge-pin.stp",
+      "cadPart": "de-tail-hinge-pin",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34016",
+        "nameEn": "Tail plane hinge pin",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.03,
+        "massUnit": "kg",
+        "material": "Stahl",
+        "materialEn": "steel",
+        "dimensionText": "Ø 8 x 182 mm",
+        "interpretationNote": "Bolzen durch die Laschen und die Augen des spanischen Rahmens; das Höhenleitwerk schlägt nach oben frei aus.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "D-34017",
+      "plm": "DE",
+      "name": "Höhenleitwerksanschlag",
+      "cadFile": "cad/glider/de-tail-stop.stp",
+      "cadPart": "de-tail-stop",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-34017",
+        "nameEn": "Tail plane stop",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 0.02,
+        "massUnit": "kg",
+        "material": "Stahl",
+        "materialEn": "steel",
+        "dimensionText": "Ø 8 x 120 mm",
+        "interpretationNote": "Querbolzen durch den Flossenpfosten unter den Schlitzkanten der Höhenleitwerksbespannung: hier ruht das Höhenleitwerk, wenn es nach unten schwingt.",
+        "siteKit": "D-34000",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "FR3401",
+      "plm": "FR",
+      "name": "Entoilage aile gauche",
+      "cadFile": "cad/glider/fr-cover-left.stp",
+      "cadPart": "fr-cover-left",
+      "classification": {
+        "jurisdiction": "EU-DUAL-USE",
+        "releasableTo": "EU"
+      },
+      "extended": {
+        "localId": "FR3401",
+        "nameEn": "Left wing covering",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 1.006,
+        "massUnit": "kg",
+        "material": "croisé de coton collodionné",
+        "materialEn": "cotton",
+        "dimensionText": "6,29 m², 3 350 × 2 870 × 3 mm",
+        "interpretationNote": "Toile tendue sur les huit nervures en un seul panneau réglé de nervure à nervure, de 290 mm du moyeu aux pointes ; 6,29 m² par aile. Clouée sur la nervure 1, lacée à la cordelette de bord de fuite.",
+        "siteKit": "FR3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "FR3402",
+      "plm": "FR",
+      "name": "Entoilage aile droite",
+      "cadFile": "cad/glider/fr-cover-right.stp",
+      "cadPart": "fr-cover-right",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3402",
+        "nameEn": "Right wing covering",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 1.006,
+        "massUnit": "kg",
+        "material": "croisé de coton collodionné",
+        "materialEn": "cotton",
+        "dimensionText": "6,29 m², 3 350 × 2 870 × 3 mm",
+        "interpretationNote": "Toile tendue sur les huit nervures en un seul panneau réglé de nervure à nervure, de 290 mm du moyeu aux pointes ; 6,29 m² par aile. Clouée sur la nervure 1, lacée à la cordelette de bord de fuite.",
+        "siteKit": "FR3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "FR3403",
+      "plm": "FR",
+      "name": "Entoilage de l'empennage horizontal",
+      "cadFile": "cad/glider/fr-tail-plane-cover.stp",
+      "cadPart": "fr-tail-plane-cover",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3403",
+        "nameEn": "Tail plane covering",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 0.12,
+        "massUnit": "kg",
+        "material": "croisé de coton collodionné",
+        "materialEn": "cotton",
+        "dimensionText": "1 000 × 1 600 × 3 mm, fente 40 mm",
+        "interpretationNote": "Deux demi-lentilles de part et d'autre d'une fente de 40 mm où passe la dérive, pour que l'empennage puisse se relever.",
+        "siteKit": "FR3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "FR3404",
+      "plm": "FR",
+      "name": "Entoilage de la dérive",
+      "cadFile": "cad/glider/fr-fin-cover.stp",
+      "cadPart": "fr-fin-cover",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3404",
+        "nameEn": "Fin covering",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 0.06,
+        "massUnit": "kg",
+        "material": "croisé de coton collodionné",
+        "materialEn": "cotton",
+        "dimensionText": "760 × 690 × 2 mm",
+        "interpretationNote": "Toile tendue entre le poteau de dérive et le cadre en saule.",
+        "siteKit": "FR3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "FR3405",
+      "plm": "FR",
+      "name": "Cordelette de bord de fuite gauche",
+      "cadFile": "cad/glider/fr-trailing-cord-left.stp",
+      "cadPart": "fr-trailing-cord-left",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3405",
+        "nameEn": "Left trailing edge cord",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 0.05,
+        "massUnit": "kg",
+        "material": "chanvre",
+        "materialEn": "hemp",
+        "dimensionText": "Ø 6 × 4558 mm",
+        "interpretationNote": "Cordelette passée dans les capuchons des huit pointes de nervure ; elle borde la toile et tient l'écartement des nervures, aile déployée.",
+        "siteKit": "FR3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "FR3406",
+      "plm": "FR",
+      "name": "Cordelette de bord de fuite droite",
+      "cadFile": "cad/glider/fr-trailing-cord-right.stp",
+      "cadPart": "fr-trailing-cord-right",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3406",
+        "nameEn": "Right trailing edge cord",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 0.05,
+        "massUnit": "kg",
+        "material": "chanvre",
+        "materialEn": "hemp",
+        "dimensionText": "Ø 6 × 4558 mm",
+        "interpretationNote": "Cordelette passée dans les capuchons des huit pointes de nervure ; elle borde la toile et tient l'écartement des nervures, aile déployée.",
+        "siteKit": "FR3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "FR3407",
+      "plm": "FR",
+      "name": "Bordure de bord d'attaque",
+      "cadFile": "cad/glider/fr-leading-binding.stp",
+      "cadPart": "fr-leading-binding",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3407",
+        "nameEn": "Leading edge binding",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 0.04,
+        "massUnit": "kg",
+        "material": "ruban de coton",
+        "materialEn": "cotton",
+        "dimensionText": "40 × 2 800 mm",
+        "interpretationNote": "Ruban enroulé sur la nervure 1 et le bord avant de la toile ; un par aile, deux par planeur.",
+        "siteKit": "FR3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "FR3408",
+      "plm": "FR",
+      "name": "Ressort de rappel d'empennage",
+      "cadFile": "cad/glider/fr-tail-spring.stp",
+      "cadPart": "fr-tail-spring",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3408",
+        "nameEn": "Tail plane return spring",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 0.02,
+        "massUnit": "kg",
+        "material": "acier à ressort",
+        "materialEn": "spring steel",
+        "dimensionText": "Ø 8 × 196 mm",
+        "interpretationNote": "Ajout du démonstrateur : ressort léger qui ramène l'empennage sur sa butée après un relèvement.",
+        "siteKit": "FR3400",
+        "partType": "MAKE",
+        "authoredAddition": true
+      }
+    },
+    {
+      "id": "FR3409",
+      "plm": "FR",
+      "name": "Ressort de verrou du hauban avant",
+      "cadFile": "cad/glider/fr-latch-spring.stp",
+      "cadPart": "fr-latch-spring",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3409",
+        "nameEn": "Front wire latch spring",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 0.01,
+        "massUnit": "kg",
+        "material": "acier à ressort",
+        "materialEn": "spring steel",
+        "dimensionText": "Ø 6 × 70 mm",
+        "interpretationNote": "Ajout du démonstrateur : ressort du crochet du hauban avant sur l'arceau, qui empêche son décrochage ; un par aile.",
+        "siteKit": "FR3400",
+        "partType": "MAKE",
+        "authoredAddition": true
+      }
+    },
+    {
+      "id": "FR3410",
+      "plm": "FR",
+      "name": "Œillet de toile",
+      "cadFile": "cad/glider/fr-eyelet.stp",
+      "cadPart": "fr-eyelet",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3410",
+        "nameEn": "Covering eyelet",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 0.001,
+        "massUnit": "kg",
+        "material": "laiton",
+        "materialEn": "brass",
+        "dimensionText": "Ø 10 × 1,5 mm",
+        "interpretationNote": "Œillets du laçage et des passages de haubans ; 64 par planeur.",
+        "siteKit": "FR3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "FR3411",
+      "plm": "FR",
+      "name": "Semence de cuivre",
+      "cadFile": "cad/glider/fr-tack.stp",
+      "cadPart": "fr-tack",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3411",
+        "nameEn": "Copper tack",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 0.001,
+        "massUnit": "kg",
+        "material": "cuivre",
+        "materialEn": "copper",
+        "dimensionText": "Ø 2 × 4 mm",
+        "interpretationNote": "Semences de la toile sur la nervure 1 et sur les cadres d'empennage ; 160 par planeur.",
+        "siteKit": "FR3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "FR3412",
+      "plm": "FR",
+      "name": "Cordelette de laçage",
+      "cadFile": "cad/glider/fr-lacing-cord.stp",
+      "cadPart": "fr-lacing-cord",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3412",
+        "nameEn": "Lacing cord",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 0.02,
+        "massUnit": "kg",
+        "material": "chanvre",
+        "materialEn": "hemp",
+        "dimensionText": "Ø 3 × 4 000 mm",
+        "interpretationNote": "Laçage de la toile à la cordelette de bord de fuite ; une par aile.",
+        "siteKit": "FR3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "UK-3401",
+      "plm": "UK",
+      "name": "Left arm pad",
+      "cadFile": "cad/glider/uk-arm-pad-left.stp",
+      "cadPart": "uk-arm-pad-left",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3401",
+        "nameEn": "Left arm pad",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": 0.772,
+        "massUnit": "lb",
+        "material": "leather over felt",
+        "materialEn": "leather, felt",
+        "dimensionText": "17.323 x 1.969 x 0.591 in",
+        "interpretationNote": "Pad on top of the arm bar, screwed from below, with a raised elbow cup at the rear; the pilot's forearm rests on it and the cup makes the pads a mirror pair.",
+        "siteKit": "UK/3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "UK-3402",
+      "plm": "UK",
+      "name": "Right arm pad",
+      "cadFile": "cad/glider/uk-arm-pad-right.stp",
+      "cadPart": "uk-arm-pad-right",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3402",
+        "nameEn": "Right arm pad",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": 0.772,
+        "massUnit": "lb",
+        "material": "leather over felt",
+        "materialEn": "leather, felt",
+        "dimensionText": "17.323 x 1.969 x 0.591 in",
+        "interpretationNote": "Mirror of the left arm pad.",
+        "siteKit": "UK/3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "UK-3403",
+      "plm": "UK",
+      "name": "Hand grip",
+      "cadFile": "cad/glider/uk-hand-grip.stp",
+      "cadPart": "uk-hand-grip",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3403",
+        "nameEn": "Hand grip",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": 0.176,
+        "massUnit": "lb",
+        "material": "turned ash, leather wrap",
+        "materialEn": "ash, leather",
+        "dimensionText": "1.181 dia x 1.969 in",
+        "interpretationNote": "Stub grip on the inboard face of each arm bar at its front end; two per glider, drawn on the left.",
+        "siteKit": "UK/3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "UK-3404",
+      "plm": "UK",
+      "name": "Forearm strap",
+      "cadFile": "cad/glider/uk-forearm-strap.stp",
+      "cadPart": "uk-forearm-strap",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3404",
+        "nameEn": "Forearm strap",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": 0.11,
+        "massUnit": "lb",
+        "material": "leather",
+        "materialEn": "leather",
+        "dimensionText": "0.236 x 4.528 in loop",
+        "interpretationNote": "Loop over the forearm and the arm bar near the elbow; two per glider.",
+        "siteKit": "UK/3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "UK-3405",
+      "plm": "UK",
+      "name": "Strap buckle",
+      "cadFile": "cad/glider/uk-buckle.stp",
+      "cadPart": "uk-buckle",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3405",
+        "nameEn": "Strap buckle",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": 0.044,
+        "massUnit": "lb",
+        "material": "brass",
+        "materialEn": "brass",
+        "dimensionText": "0.315 x 0.394 x 0.787 in",
+        "interpretationNote": "One on each forearm strap.",
+        "siteKit": "UK/3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    },
+    {
+      "id": "UK-3406",
+      "plm": "UK",
+      "name": "Pilot body sling",
+      "cadFile": "cad/glider/uk-body-sling.stp",
+      "cadPart": "uk-body-sling",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3406",
+        "nameEn": "Pilot body sling",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": 0.992,
+        "massUnit": "lb",
+        "material": "cotton webbing",
+        "materialEn": "cotton",
+        "dimensionText": "0.945 in webbing, 46.0 in loop",
+        "interpretationNote": "Authored addition for the demonstrator: webbing loop under the pilot's chest pinned to the hoop at x 900. The pilot of the original hung by the forearms alone.",
+        "siteKit": "UK/3400",
+        "partType": "MAKE",
+        "authoredAddition": true
+      }
+    },
+    {
+      "id": "UK-3407",
+      "plm": "UK",
+      "name": "Airspeed indicator",
+      "cadFile": "cad/glider/uk-airspeed-indicator.stp",
+      "cadPart": "uk-airspeed-indicator",
+      "classification": {
+        "jurisdiction": "NATIONAL-UK",
+        "releasableTo": "UK"
+      },
+      "extended": {
+        "localId": "UK/3407",
+        "nameEn": "Airspeed indicator",
+        "revision": "P1",
+        "lifecycle": "Draft",
+        "mass": 0.772,
+        "massUnit": "lb",
+        "material": "aluminium case",
+        "materialEn": "aluminium",
+        "dimensionText": "1.575 x 3.150 x 2.362 in",
+        "interpretationNote": "Authored addition, the original had none: dial case aft of the lower post in the pilot's view; its mount on the post is referenced but owned by no workshop.",
+        "siteKit": "UK/3400",
+        "partType": "MAKE",
+        "authoredAddition": true
+      }
+    },
+    {
+      "id": "UK-3408",
+      "plm": "UK",
+      "name": "Airspeed vane sensor",
+      "cadFile": "cad/glider/uk-airspeed-sensor.stp",
+      "cadPart": "uk-airspeed-sensor",
+      "classification": {
+        "jurisdiction": "NATIONAL-UK",
+        "releasableTo": "UK"
+      },
+      "extended": {
+        "localId": "UK/3408",
+        "nameEn": "Airspeed vane sensor",
+        "revision": "P1",
+        "lifecycle": "Draft",
+        "mass": 0.331,
+        "massUnit": "lb",
+        "material": "aluminium, brass vane",
+        "materialEn": "aluminium, brass",
+        "dimensionText": "1.260 dia x 5.906 in",
+        "interpretationNote": "Authored addition, the original had none: vane sensor clamped on the bumper bow at y -200, wired to the indicator through an M8 connector.",
+        "siteKit": "UK/3400",
+        "partType": "MAKE",
+        "authoredAddition": true
+      }
+    },
+    {
+      "id": "UK-3409",
+      "plm": "UK",
+      "name": "Nose ballast bag",
+      "cadFile": "cad/glider/uk-ballast-bag.stp",
+      "cadPart": "uk-ballast-bag",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3409",
+        "nameEn": "Nose ballast bag",
+        "revision": "P2",
+        "lifecycle": "Frozen",
+        "mass": 1.764,
+        "massUnit": "lb",
+        "material": "lead shot in canvas",
+        "materialEn": "lead, cotton",
+        "dimensionText": "2.992 dia x 6.299 in",
+        "interpretationNote": "Authored trim weight on the carrier plate at the front of the bumper bow; Frozen is the UK word read as BLOCKED by the layer.",
+        "siteKit": "UK/3400",
+        "partType": "MAKE",
+        "authoredAddition": true
+      }
+    },
+    {
+      "id": "UK-3410",
+      "plm": "UK",
+      "name": "Ballast carrier plate",
+      "cadFile": "cad/glider/uk-ballast-carrier.stp",
+      "cadPart": "uk-ballast-carrier",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3410",
+        "nameEn": "Ballast carrier plate",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": 0.22,
+        "massUnit": "lb",
+        "material": "ash",
+        "materialEn": "ash",
+        "dimensionText": "2.362 x 7.087 x 0.236 in",
+        "interpretationNote": "Plate bolted on top of the bumper bow at the centreline, carrying the ballast bag.",
+        "siteKit": "UK/3400",
+        "partType": "MAKE",
+        "authoredAddition": false
+      }
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "IF-100",
+      "label": "I1: left rib 1 root / left hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3401",
+        "D-34004"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3401-F01",
+            "part": "ES-3401",
+            "position": {
+              "x": "383.005",
+              "y": "-594.258",
+              "z": "18.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "44.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34004-F01",
+            "part": "D-34004",
+            "position": {
+              "x": "383.005",
+              "y": "-594.258",
+              "z": "18.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "44.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-101",
+      "label": "I1: left rib 2 root / left hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3402",
+        "D-34004"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3402-F01",
+            "part": "ES-3402",
+            "position": {
+              "x": "426.657",
+              "y": "-593.169",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34004-F02",
+            "part": "D-34004",
+            "position": {
+              "x": "426.657",
+              "y": "-593.169",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-102",
+      "label": "I1: left rib 3 root / left hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3403",
+        "D-34004"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3403-F01",
+            "part": "ES-3403",
+            "position": {
+              "x": "468.973",
+              "y": "-582.394",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34004-F03",
+            "part": "D-34004",
+            "position": {
+              "x": "468.973",
+              "y": "-582.394",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-103",
+      "label": "I1: left rib 4 root / left hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3404",
+        "D-34004"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3404-F01",
+            "part": "ES-3404",
+            "position": {
+              "x": "507.830",
+              "y": "-562.473",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34004-F04",
+            "part": "D-34004",
+            "position": {
+              "x": "507.830",
+              "y": "-562.473",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-104",
+      "label": "I1: left rib 5 root / left hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3405",
+        "D-34004"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3405-F01",
+            "part": "ES-3405",
+            "position": {
+              "x": "541.281",
+              "y": "-534.405",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34004-F05",
+            "part": "D-34004",
+            "position": {
+              "x": "541.281",
+              "y": "-534.405",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-105",
+      "label": "I1: left rib 6 root / left hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3406",
+        "D-34004"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3406-F01",
+            "part": "ES-3406",
+            "position": {
+              "x": "567.646",
+              "y": "-499.598",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34004-F06",
+            "part": "D-34004",
+            "position": {
+              "x": "567.646",
+              "y": "-499.598",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-106",
+      "label": "I1: left rib 7 root / left hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3407",
+        "D-34004"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3407-F01",
+            "part": "ES-3407",
+            "position": {
+              "x": "585.606",
+              "y": "-459.796",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34004-F07",
+            "part": "D-34004",
+            "position": {
+              "x": "585.606",
+              "y": "-459.796",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-107",
+      "label": "I1: left rib 8 root / left hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3408",
+        "D-34004"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3408-F01",
+            "part": "ES-3408",
+            "position": {
+              "x": "594.258",
+              "y": "-416.995",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34004-F08",
+            "part": "D-34004",
+            "position": {
+              "x": "594.258",
+              "y": "-416.995",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-108",
+      "label": "I1: right rib 1 root / right hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3409",
+        "D-34005"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3409-F01",
+            "part": "ES-3409",
+            "position": {
+              "x": "383.005",
+              "y": "594.258",
+              "z": "18.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "44.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34005-F01",
+            "part": "D-34005",
+            "position": {
+              "x": "383.005",
+              "y": "594.258",
+              "z": "18.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "44.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-109",
+      "label": "I1: right rib 2 root / right hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3410",
+        "D-34005"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3410-F01",
+            "part": "ES-3410",
+            "position": {
+              "x": "426.657",
+              "y": "593.169",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34005-F02",
+            "part": "D-34005",
+            "position": {
+              "x": "426.657",
+              "y": "593.169",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-110",
+      "label": "I1: right rib 3 root / right hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3411",
+        "D-34005"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3411-F01",
+            "part": "ES-3411",
+            "position": {
+              "x": "468.973",
+              "y": "582.394",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34005-F03",
+            "part": "D-34005",
+            "position": {
+              "x": "468.973",
+              "y": "582.394",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-111",
+      "label": "I1: right rib 4 root / right hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3412",
+        "D-34005"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3412-F01",
+            "part": "ES-3412",
+            "position": {
+              "x": "507.830",
+              "y": "562.473",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34005-F04",
+            "part": "D-34005",
+            "position": {
+              "x": "507.830",
+              "y": "562.473",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-112",
+      "label": "I1: right rib 5 root / right hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3413",
+        "D-34005"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3413-F01",
+            "part": "ES-3413",
+            "position": {
+              "x": "541.281",
+              "y": "534.405",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34005-F05",
+            "part": "D-34005",
+            "position": {
+              "x": "541.281",
+              "y": "534.405",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-113",
+      "label": "I1: right rib 6 root / right hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3414",
+        "D-34005"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3414-F01",
+            "part": "ES-3414",
+            "position": {
+              "x": "567.646",
+              "y": "499.598",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34005-F06",
+            "part": "D-34005",
+            "position": {
+              "x": "567.646",
+              "y": "499.598",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-114",
+      "label": "I1: right rib 7 root / right hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3415",
+        "D-34005"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3415-F01",
+            "part": "ES-3415",
+            "position": {
+              "x": "585.606",
+              "y": "459.796",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34005-F07",
+            "part": "D-34005",
+            "position": {
+              "x": "585.606",
+              "y": "459.796",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-115",
+      "label": "I1: right rib 8 root / right hub fitting (pivot pin through the pocket and the plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3416",
+        "D-34005"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3416-F01",
+            "part": "ES-3416",
+            "position": {
+              "x": "594.258",
+              "y": "416.995",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34005-F08",
+            "part": "D-34005",
+            "position": {
+              "x": "594.258",
+              "y": "416.995",
+              "z": "11.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-116",
+      "label": "I1: left hub fitting / cross rod (two bolts through the plate and the rod end)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-34004",
+        "ES-3422"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-34004-F09",
+            "part": "D-34004",
+            "position": {
+              "x": "400.000",
+              "y": "-430.000",
+              "z": "-28.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "8.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "48.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3422-F01",
+            "part": "ES-3422",
+            "position": {
+              "x": "400.000",
+              "y": "-430.000",
+              "z": "-28.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "8.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "48.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-117",
+      "label": "I1: right hub fitting / cross rod (two bolts through the plate and the rod end)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-34005",
+        "ES-3422"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-34005-F09",
+            "part": "D-34005",
+            "position": {
+              "x": "400.000",
+              "y": "430.000",
+              "z": "-28.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "8.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "48.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3422-F02",
+            "part": "ES-3422",
+            "position": {
+              "x": "400.000",
+              "y": "430.000",
+              "z": "-28.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "8.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "48.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-118",
+      "label": "Left wing covering / left rib 1 (copper tacks along the leading rib)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "FR3401",
+        "ES-3401"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3401-F01",
+            "part": "FR3401",
+            "position": {
+              "x": "264.610",
+              "y": "-1947.520",
+              "z": "293.775"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 1151",
+            "diameter": "1.600",
+            "diameterUnit": "MilliM",
+            "count": 40,
+            "gripLength": "4.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3401-F02",
+            "part": "ES-3401",
+            "position": {
+              "x": "264.610",
+              "y": "-1947.520",
+              "z": "293.775"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 1151",
+            "diameter": "1.600",
+            "diameterUnit": "MilliM",
+            "count": 40,
+            "gripLength": "4.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-119",
+      "label": "Right wing covering / right rib 1 (copper tacks along the leading rib)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "FR3402",
+        "ES-3409"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3402-F01",
+            "part": "FR3402",
+            "position": {
+              "x": "264.610",
+              "y": "1947.520",
+              "z": "293.775"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 1151",
+            "diameter": "1.600",
+            "diameterUnit": "MilliM",
+            "count": 40,
+            "gripLength": "4.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3409-F02",
+            "part": "ES-3409",
+            "position": {
+              "x": "264.610",
+              "y": "1947.520",
+              "z": "293.775"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 1151",
+            "diameter": "1.600",
+            "diameterUnit": "MilliM",
+            "count": 40,
+            "gripLength": "4.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-120",
+      "label": "I2: left upper bracing wires / kingpost (shackle pin through the eye plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3429",
+        "D-34001"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3429-F01",
+            "part": "ES-3429",
+            "position": {
+              "x": "400.000",
+              "y": "-30.000",
+              "z": "1025.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 3,
+            "gripLength": "16.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34001-F01",
+            "part": "D-34001",
+            "position": {
+              "x": "400.000",
+              "y": "-30.000",
+              "z": "1025.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 3,
+            "gripLength": "16.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-121",
+      "label": "I2: right upper bracing wires / kingpost (shackle pin through the eye plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3430",
+        "D-34001"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3430-F01",
+            "part": "ES-3430",
+            "position": {
+              "x": "400.000",
+              "y": "30.000",
+              "z": "1025.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 3,
+            "gripLength": "16.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34001-F02",
+            "part": "D-34001",
+            "position": {
+              "x": "400.000",
+              "y": "30.000",
+              "z": "1025.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 3,
+            "gripLength": "16.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-122",
+      "label": "I2: left lower bracing wires / lower post (shackle pin through the eye plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3431",
+        "D-34002"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3431-F01",
+            "part": "ES-3431",
+            "position": {
+              "x": "412.700",
+              "y": "-30.000",
+              "z": "-700.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 3,
+            "gripLength": "16.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34002-F01",
+            "part": "D-34002",
+            "position": {
+              "x": "400.000",
+              "y": "-30.000",
+              "z": "-700.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 3,
+            "gripLength": "16.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-123",
+      "label": "I2: right lower bracing wires / lower post (shackle pin through the eye plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3432",
+        "D-34002"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3432-F01",
+            "part": "ES-3432",
+            "position": {
+              "x": "400.000",
+              "y": "30.000",
+              "z": "-700.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 3,
+            "gripLength": "16.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34002-F02",
+            "part": "D-34002",
+            "position": {
+              "x": "400.000",
+              "y": "30.000",
+              "z": "-700.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 3,
+            "gripLength": "16.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-124",
+      "label": "Left trailing edge cord / left wing covering (lacing through the hem eyelets)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "FR3405",
+        "FR3401"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3405-F01",
+            "part": "FR3405",
+            "position": {
+              "x": "2058.928",
+              "y": "-2899.591",
+              "z": "210.967"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 7340",
+            "diameter": "4.000",
+            "diameterUnit": "MilliM",
+            "count": 8,
+            "gripLength": "3.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "FR3401-F02",
+            "part": "FR3401",
+            "position": {
+              "x": "2058.928",
+              "y": "-2899.591",
+              "z": "210.967"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 7340",
+            "diameter": "4.000",
+            "diameterUnit": "MilliM",
+            "count": 8,
+            "gripLength": "3.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-125",
+      "label": "Right trailing edge cord / right wing covering (lacing through the hem eyelets)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "FR3406",
+        "FR3402"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3406-F01",
+            "part": "FR3406",
+            "position": {
+              "x": "2058.928",
+              "y": "2899.591",
+              "z": "210.967"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 7340",
+            "diameter": "4.000",
+            "diameterUnit": "MilliM",
+            "count": 8,
+            "gripLength": "3.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "FR3402-F02",
+            "part": "FR3402",
+            "position": {
+              "x": "2058.928",
+              "y": "2899.591",
+              "z": "210.967"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 7340",
+            "diameter": "4.000",
+            "diameterUnit": "MilliM",
+            "count": 8,
+            "gripLength": "3.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-126",
+      "label": "Front tension wire / left rib 1 (clip on the leading rib)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3433",
+        "ES-3401"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3433-F01",
+            "part": "ES-3433",
+            "position": {
+              "x": "276.835",
+              "y": "-1807.786",
+              "z": "241.533"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "40.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3401-F03",
+            "part": "ES-3401",
+            "position": {
+              "x": "276.835",
+              "y": "-1807.786",
+              "z": "241.533"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "40.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-127",
+      "label": "Front tension wire / hoop (latch hook on the front of the hoop)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3433",
+        "ES-3421"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3433-F02",
+            "part": "ES-3433",
+            "position": {
+              "x": "320.000",
+              "y": "0.000",
+              "z": "-28.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "28.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3421-F01",
+            "part": "ES-3421",
+            "position": {
+              "x": "320.000",
+              "y": "0.000",
+              "z": "-28.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "28.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-128",
+      "label": "Kingpost / cast kingpost step (cross bolts)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-34001",
+        "ES-3440"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-34001-F03",
+            "part": "D-34001",
+            "position": {
+              "x": "400.000",
+              "y": "0.000",
+              "z": "16.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "60.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3440-F01",
+            "part": "ES-3440",
+            "position": {
+              "x": "400.000",
+              "y": "0.000",
+              "z": "16.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "60.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-129",
+      "label": "Lower post / cast lower post shoe (cross bolts)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-34002",
+        "ES-3441"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-34002-F03",
+            "part": "D-34002",
+            "position": {
+              "x": "400.000",
+              "y": "0.000",
+              "z": "-70.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "56.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3441-F01",
+            "part": "ES-3441",
+            "position": {
+              "x": "400.000",
+              "y": "0.000",
+              "z": "-70.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "56.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-130",
+      "label": "Hoop / cast boom socket (clamp bolts round the hoop rim)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3421",
+        "ES-3442"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3421-F02",
+            "part": "ES-3421",
+            "position": {
+              "x": "1080.000",
+              "y": "0.000",
+              "z": "-28.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "56.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3442-F01",
+            "part": "ES-3442",
+            "position": {
+              "x": "1080.000",
+              "y": "0.000",
+              "z": "-28.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "56.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-131",
+      "label": "Tail boom / cast boom socket (cross bolts)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3424",
+        "ES-3442"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3424-F01",
+            "part": "ES-3424",
+            "position": {
+              "x": "1120.000",
+              "y": "0.000",
+              "z": "-28.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "56.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3442-F02",
+            "part": "ES-3442",
+            "position": {
+              "x": "1120.000",
+              "y": "0.000",
+              "z": "-28.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "56.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-132",
+      "label": "I3: tail plane hinge fitting / tail boom (bolts through the base plate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-34015",
+        "ES-3424"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-34015-F01",
+            "part": "D-34015",
+            "position": {
+              "x": "3910.000",
+              "y": "0.000",
+              "z": "-8.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "46.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3424-F02",
+            "part": "ES-3424",
+            "position": {
+              "x": "3910.000",
+              "y": "0.000",
+              "z": "-8.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "46.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-133",
+      "label": "I3: tail plane hinge pin / tail plane frame (pin through the eyes of the front rim)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-34016",
+        "ES-3427"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-34016-F01",
+            "part": "D-34016",
+            "position": {
+              "x": "3910.000",
+              "y": "0.000",
+              "z": "20.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "8.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "176.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3427-F01",
+            "part": "ES-3427",
+            "position": {
+              "x": "3910.000",
+              "y": "0.000",
+              "z": "20.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "10.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "176.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-134",
+      "label": "Fin post / cast fin step (cross bolt)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-34003",
+        "ES-3443"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-34003-F01",
+            "part": "D-34003",
+            "position": {
+              "x": "4000.000",
+              "y": "0.000",
+              "z": "2.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "56.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3443-F01",
+            "part": "ES-3443",
+            "position": {
+              "x": "4000.000",
+              "y": "0.000",
+              "z": "2.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "56.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-135",
+      "label": "Fin frame / fin post (lashing clips)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3428",
+        "D-34003"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3428-F01",
+            "part": "ES-3428",
+            "position": {
+              "x": "4015.000",
+              "y": "0.000",
+              "z": "370.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "4.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34003-F02",
+            "part": "D-34003",
+            "position": {
+              "x": "4015.000",
+              "y": "0.000",
+              "z": "370.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "4.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-136",
+      "label": "Tail plane covering / tail plane frame (copper tacks along the rim)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "FR3403",
+        "ES-3427"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3403-F01",
+            "part": "FR3403",
+            "position": {
+              "x": "4410.000",
+              "y": "-790.000",
+              "z": "30.000"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 1151",
+            "diameter": "1.600",
+            "diameterUnit": "MilliM",
+            "count": 30,
+            "gripLength": "4.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3427-F02",
+            "part": "ES-3427",
+            "position": {
+              "x": "4410.000",
+              "y": "-790.000",
+              "z": "30.000"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 1151",
+            "diameter": "1.600",
+            "diameterUnit": "MilliM",
+            "count": 30,
+            "gripLength": "4.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-137",
+      "label": "Fin covering / fin frame (copper tacks along the rim)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "FR3404",
+        "ES-3428"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3404-F01",
+            "part": "FR3404",
+            "position": {
+              "x": "4680.000",
+              "y": "0.000",
+              "z": "28.000"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 1151",
+            "diameter": "1.600",
+            "diameterUnit": "MilliM",
+            "count": 24,
+            "gripLength": "4.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3428-F02",
+            "part": "ES-3428",
+            "position": {
+              "x": "4680.000",
+              "y": "0.000",
+              "z": "28.000"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 1151",
+            "diameter": "1.600",
+            "diameterUnit": "MilliM",
+            "count": 24,
+            "gripLength": "4.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-138",
+      "label": "Tail plane return spring / tail plane stop (spring hook on the stop pin)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "FR3408",
+        "D-34017"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3408-F01",
+            "part": "FR3408",
+            "position": {
+              "x": "4000.000",
+              "y": "50.000",
+              "z": "26.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "8.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "8.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-34017-F01",
+            "part": "D-34017",
+            "position": {
+              "x": "4000.000",
+              "y": "50.000",
+              "z": "26.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "8.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "8.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-139",
+      "label": "I4: left arm pad / left arm bar (wood screws from below)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3401",
+        "ES-3425"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3401-F01",
+            "part": "UK-3401",
+            "position": {
+              "x": "26.1811",
+              "y": "-9.3249",
+              "z": "-4.3307"
+            },
+            "unit": "IN",
+            "standard": "DIN 97",
+            "diameter": "0.1575",
+            "diameterUnit": "IN",
+            "count": 4,
+            "gripLength": "1.7717",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "ES-3425-F01",
+            "part": "ES-3425",
+            "position": {
+              "x": "665.000",
+              "y": "-236.853",
+              "z": "-110.000"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 97",
+            "diameter": "4.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "45.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-140",
+      "label": "I4: right arm pad / right arm bar (wood screws from below)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3402",
+        "ES-3426"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3402-F01",
+            "part": "UK-3402",
+            "position": {
+              "x": "26.1811",
+              "y": "9.3249",
+              "z": "-4.3307"
+            },
+            "unit": "IN",
+            "standard": "DIN 97",
+            "diameter": "0.1575",
+            "diameterUnit": "IN",
+            "count": 4,
+            "gripLength": "1.7717",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "ES-3426-F01",
+            "part": "ES-3426",
+            "position": {
+              "x": "665.000",
+              "y": "236.853",
+              "z": "-110.000"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 97",
+            "diameter": "4.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "45.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-141",
+      "label": "Airspeed indicator / lower post (instrument mount; the mount connector has no mate)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3407",
+        "D-34002"
+      ],
+      "unmatedPlugs": [
+        {
+          "id": "UK-3407-J01",
+          "part": "UK-3407",
+          "position": {
+            "x": "16.4567",
+            "y": "0.0000",
+            "z": "-11.8110"
+          },
+          "unit": "IN",
+          "connectorType": "M8-4",
+          "pinCount": 4
+        }
+      ]
+    },
+    {
+      "id": "IF-142",
+      "label": "Airspeed vane sensor / bumper bow (clamp screws)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3408",
+        "ES-3423"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3408-F01",
+            "part": "UK-3408",
+            "position": {
+              "x": "2.0802",
+              "y": "-7.8740",
+              "z": "-7.3497"
+            },
+            "unit": "IN",
+            "standard": "ISO 4017",
+            "diameter": "0.1969",
+            "diameterUnit": "IN",
+            "count": 2,
+            "gripLength": "1.5748",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "ES-3423-F01",
+            "part": "ES-3423",
+            "position": {
+              "x": "52.837",
+              "y": "-200.000",
+              "z": "-186.682"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4017",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "40.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-143",
+      "label": "Airspeed indicator / airspeed vane sensor (sensor cable connector)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3407",
+        "UK-3408"
+      ],
+      "pairs": [
+        [
+          {
+            "id": "UK-3407-J02",
+            "part": "UK-3407",
+            "position": {
+              "x": "18.6220",
+              "y": "0.0000",
+              "z": "-11.8110"
+            },
+            "unit": "IN",
+            "connectorType": "M8-3",
+            "pinCount": 3
+          },
+          {
+            "id": "UK-3408-J01",
+            "part": "UK-3408",
+            "position": {
+              "x": "18.6220",
+              "y": "0.0000",
+              "z": "-11.8110"
+            },
+            "unit": "IN",
+            "connectorType": "M8-3",
+            "pinCount": 3
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-144",
+      "label": "Ballast carrier plate / bumper bow (bolts through the plate and the bow)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3410",
+        "ES-3423"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3410-F01",
+            "part": "UK-3410",
+            "position": {
+              "x": "1.5354",
+              "y": "0.0000",
+              "z": "-8.1102"
+            },
+            "unit": null,
+            "standard": "ISO 4014",
+            "diameter": "0.2362",
+            "diameterUnit": "IN",
+            "count": 2,
+            "gripLength": "1.5748",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "ES-3423-F02",
+            "part": "ES-3423",
+            "position": {
+              "x": "39.000",
+              "y": "0.000",
+              "z": "-206.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "6.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "40.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-145",
+      "label": "Pilot body sling / hoop (clevis pins through the hoop rim at x 900)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3406",
+        "ES-3421"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3406-F01",
+            "part": "UK-3406",
+            "position": {
+              "x": "35.4331",
+              "y": "-12.7209",
+              "z": "-1.6535"
+            },
+            "unit": "IN",
+            "standard": "ISO 2341",
+            "diameter": "0.3150",
+            "diameterUnit": "IN",
+            "count": 2,
+            "gripLength": "3.1496",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "ES-3421-F03",
+            "part": "ES-3421",
+            "position": {
+              "x": "900.000",
+              "y": "-323.110",
+              "z": "-42.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "8.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "80.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-146",
+      "label": "Turnbuckle / left lower bracing wires (fork turnbuckle on each wire)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3437",
+        "ES-3431"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3437-F01",
+            "part": "ES-3437",
+            "position": {
+              "x": "387.278",
+              "y": "-203.980",
+              "z": "-624.706"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 1480",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 3,
+            "gripLength": "12.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3431-F02",
+            "part": "ES-3431",
+            "position": {
+              "x": "387.278",
+              "y": "-203.980",
+              "z": "-624.706"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 1480",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 3,
+            "gripLength": "12.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-147",
+      "label": "Hand grip / left arm bar (screw through the bar)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3403",
+        "ES-3425"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3403-F01",
+            "part": "UK-3403",
+            "position": {
+              "x": "15.5512",
+              "y": "-7.1630",
+              "z": "-4.9213"
+            },
+            "unit": "IN",
+            "standard": "DIN 97",
+            "diameter": "0.1969",
+            "diameterUnit": "IN",
+            "count": 1,
+            "gripLength": "1.5748",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "ES-3425-F02",
+            "part": "ES-3425",
+            "position": {
+              "x": "395.000",
+              "y": "-181.940",
+              "z": "-125.000"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 97",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "40.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    }
+  ],
+  "sparePlugs": [],
+  "seededDefects": [
+    {
+      "interface": "IF-122",
+      "rule": "position",
+      "features": [
+        "D-34002-F01",
+        "ES-3431-F01"
+      ],
+      "detail": "ES anchor x 412.7 vs DE eye x 400.0, 12.7 mm (0.5 in) apart for a 2.0 mm tolerance: the half-inch offset of the DE eye plate drawing carried as millimetres on the ES row"
+    },
+    {
+      "interface": "IF-144",
+      "rule": "unit",
+      "features": [
+        "UK-3410-F01"
+      ],
+      "detail": "UK row stored with pos_uom NULL"
+    },
+    {
+      "interface": "IF-133",
+      "rule": "fastener",
+      "features": [
+        "D-34016-F01",
+        "ES-3427-F01"
+      ],
+      "detail": "DE hinge pin diameter 8 mm vs ES eye bore 10 mm"
+    },
+    {
+      "interface": "IF-141",
+      "rule": "orphan",
+      "features": [
+        "UK-3407-J01"
+      ],
+      "detail": "UK mount connector declared with no DE mate: the indicator mount is owned by no workshop"
+    }
+  ],
+  "seededReferenceDefects": [
+    {
+      "localPart": "UK-3407",
+      "remoteUrn": "urn:plm:de:part:D-34090",
+      "rule": "danglingReference"
+    }
+  ],
+  "seededLifecycleDefects": [
+    {
+      "item": "FR3401",
+      "dependency": "ES-3401",
+      "rule": "lifecycleConflict"
+    },
+    {
+      "item": "FR3407",
+      "dependency": "ES-3401",
+      "rule": "lifecycleConflict"
+    }
+  ],
+  "seededMeshDefects": [],
+  "extended": {
+    "viewerNote": "The viewer renders one instance per part number at its reference occurrence: the left wing for the profile rails, the front tension wire and the binding, the first rib of a set for the ferrules, pins, caps and clips, the front-left hanger, so the second instances are not drawn.",
+    "assemblies": [
+      {
+        "id": "FR3400",
+        "plm": "FR",
+        "name": "Kit entoilage et voilure",
+        "nameEn": "Coverings kit",
+        "kind": "SITE_KIT",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "FR3480",
+        "plm": "FR",
+        "name": "Voilure gauche",
+        "nameEn": "Left wing covering set",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "FR3481",
+        "plm": "FR",
+        "name": "Voilure droite",
+        "nameEn": "Right wing covering set",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "FR3482",
+        "plm": "FR",
+        "name": "Empennage entoilé",
+        "nameEn": "Tail covering set",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "D-34000",
+        "plm": "DE",
+        "name": "Beschlag-, Mast- und Gelenkbausatz",
+        "nameEn": "Fittings, posts and hinges kit",
+        "kind": "SITE_KIT",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "D-34080",
+        "plm": "DE",
+        "name": "Rippengelenke",
+        "nameEn": "Rib hinge set",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "D-34081",
+        "plm": "DE",
+        "name": "Masten und Rahmenbeschläge",
+        "nameEn": "Posts and frame fittings",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "D-34082",
+        "plm": "DE",
+        "name": "Leitwerksbeschläge",
+        "nameEn": "Tail fittings",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "ES-3400",
+        "plm": "ES",
+        "name": "Conjunto de estructura, herrajes y arriostramiento",
+        "nameEn": "Structure, castings and bracing kit",
+        "kind": "SITE_KIT",
+        "revision": 1,
+        "lifecycle": null
+      },
+      {
+        "id": "ES-3480",
+        "plm": "ES",
+        "name": "Ala izquierda, estructura",
+        "nameEn": "Left wing structure",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "ES-3481",
+        "plm": "ES",
+        "name": "Ala derecha, estructura",
+        "nameEn": "Right wing structure",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "ES-3482",
+        "plm": "ES",
+        "name": "Bastidor",
+        "nameEn": "Frame",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "ES-3483",
+        "plm": "ES",
+        "name": "Cola",
+        "nameEn": "Tail structure",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "ES-3484",
+        "plm": "ES",
+        "name": "Arriostramiento",
+        "nameEn": "Bracing",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "UK-3400",
+        "plm": "UK",
+        "name": "Pilot interface kit",
+        "nameEn": "Pilot interface kit",
+        "kind": "SITE_KIT",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "UK-3480",
+        "plm": "UK",
+        "name": "Pilot harness",
+        "nameEn": "Pilot harness",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "UK-3481",
+        "plm": "UK",
+        "name": "Instrument set (demonstrator addition)",
+        "nameEn": "Instrument set (demonstrator addition)",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      },
+      {
+        "id": "UK-3482",
+        "plm": "UK",
+        "name": "Nose ballast",
+        "nameEn": "Nose ballast",
+        "kind": "ASSEMBLY",
+        "revision": null,
+        "lifecycle": null
+      }
+    ],
+    "bomLines": [
+      {
+        "parent": "FR3400",
+        "child": "FR3480",
+        "quantity": 1,
+        "findNumber": "1"
+      },
+      {
+        "parent": "FR3400",
+        "child": "FR3481",
+        "quantity": 1,
+        "findNumber": "2"
+      },
+      {
+        "parent": "FR3400",
+        "child": "FR3482",
+        "quantity": 1,
+        "findNumber": "3"
+      },
+      {
+        "parent": "FR3480",
+        "child": "FR3401",
+        "quantity": 1,
+        "findNumber": "1"
+      },
+      {
+        "parent": "FR3480",
+        "child": "FR3405",
+        "quantity": 1,
+        "findNumber": "2"
+      },
+      {
+        "parent": "FR3480",
+        "child": "FR3407",
+        "quantity": 1,
+        "findNumber": "3"
+      },
+      {
+        "parent": "FR3480",
+        "child": "FR3409",
+        "quantity": 1,
+        "findNumber": "4"
+      },
+      {
+        "parent": "FR3480",
+        "child": "FR3410",
+        "quantity": 28,
+        "findNumber": "5"
+      },
+      {
+        "parent": "FR3480",
+        "child": "FR3411",
+        "quantity": 70,
+        "findNumber": "6"
+      },
+      {
+        "parent": "FR3480",
+        "child": "FR3412",
+        "quantity": 1,
+        "findNumber": "7"
+      },
+      {
+        "parent": "FR3481",
+        "child": "FR3402",
+        "quantity": 1,
+        "findNumber": "1"
+      },
+      {
+        "parent": "FR3481",
+        "child": "FR3406",
+        "quantity": 1,
+        "findNumber": "2"
+      },
+      {
+        "parent": "FR3481",
+        "child": "FR3407",
+        "quantity": 1,
+        "findNumber": "3",
+        "placements": [
+          [863.3824, 75.5362, 0, 0, 0, -170]
+        ]
+      },
+      {
+        "parent": "FR3481",
+        "child": "FR3409",
+        "quantity": 1,
+        "findNumber": "4",
+        "placements": [
+          [24.1964, 23.1041, -151.0871, -162.1718, -17.7778, -2.8104]
+        ]
+      },
+      {
+        "parent": "FR3481",
+        "child": "FR3410",
+        "quantity": 28,
+        "findNumber": "5"
+      },
+      {
+        "parent": "FR3481",
+        "child": "FR3411",
+        "quantity": 70,
+        "findNumber": "6"
+      },
+      {
+        "parent": "FR3481",
+        "child": "FR3412",
+        "quantity": 1,
+        "findNumber": "7",
+        "placements": [
+          [0, 1218.3476, 0, 0, 0, 0]
+        ]
+      },
+      {
+        "parent": "FR3482",
+        "child": "FR3403",
+        "quantity": 1,
+        "findNumber": "1"
+      },
+      {
+        "parent": "FR3482",
+        "child": "FR3404",
+        "quantity": 1,
+        "findNumber": "2"
+      },
+      {
+        "parent": "FR3482",
+        "child": "FR3408",
+        "quantity": 1,
+        "findNumber": "3"
+      },
+      {
+        "parent": "FR3482",
+        "child": "FR3410",
+        "quantity": 8,
+        "findNumber": "4"
+      },
+      {
+        "parent": "FR3482",
+        "child": "FR3411",
+        "quantity": 20,
+        "findNumber": "5"
+      },
+      {
+        "parent": "D-34000",
+        "child": "D-34080",
+        "quantity": 1
+      },
+      {
+        "parent": "D-34000",
+        "child": "D-34081",
+        "quantity": 1
+      },
+      {
+        "parent": "D-34000",
+        "child": "D-34082",
+        "quantity": 1
+      },
+      {
+        "parent": "D-34080",
+        "child": "D-34004",
+        "quantity": 1
+      },
+      {
+        "parent": "D-34080",
+        "child": "D-34005",
+        "quantity": 1
+      },
+      {
+        "parent": "D-34080",
+        "child": "D-34006",
+        "quantity": 2,
+        "placements": [
+          [0, 0, 0, 0, 0, 0],
+          [141.6178, 147.1498, -467.0499, -142.0782, -30.6035, -10.74]
+        ]
+      },
+      {
+        "parent": "D-34080",
+        "child": "D-34007",
+        "quantity": 14,
+        "placements": [
+          [0, 0, 0, 0, 0, 0],
+          [-69.2071, -88.2529, -11.9132, -3.7164, 3.3625, 11.4536],
+          [-117.5284, -184.0918, -11.7692, -6.654, 7.2491, 22.3586],
+          [-145.7473, -283.1505, -0.0313, -8.7608, 11.5102, 32.9354],
+          [-154.8183, -382.7362, 22.8111, -9.9783, 16.0314, 43.4839],
+          [-144.9134, -481.053, 56.1798, -10.2264, 20.7133, 54.3501],
+          [-115.1604, -576.0307, 99.2448, -9.3925, 25.4404, 65.896],
+          [-5.0242, 4.1029, -11.1414, -131.9091, 42.3435, 19.6087],
+          [2.0922, 23.3001, 85.5074, -100.4219, 58.8859, 40.1909],
+          [7.0604, 37.8458, 117.8073, -64.3925, 59.9075, 65.636],
+          [-2.6035, 55.3688, 123.4126, -41.2363, 53.4972, 78.1964],
+          [-24.2038, 80.514, 120.2572, -27.733, 45.4537, 80.7921],
+          [-53.3803, 116.3933, 116.6309, -18.5731, 37.4853, 78.4229],
+          [-85.6357, 165.5265, 116.736, -11.3118, 30.0016, 73.23]
+        ]
+      },
+      {
+        "parent": "D-34080",
+        "child": "D-34008",
+        "quantity": 16,
+        "placements": [
+          [0, 0, 0, 0, 0, 0],
+          [-43.6526, -1.0886, 0, 0, 0, 0],
+          [42.3159, 10.7749, 0, 0, 0, 0],
+          [81.1731, 30.6959, 0, 0, 0, 0],
+          [114.6234, 58.764, 0, 0, 0, 0],
+          [140.9892, 93.5717, 0, 0, 0, 0],
+          [158.9485, 133.3736, 0, 0, 0, 0],
+          [167.6008, 176.174, 0, 0, 0, 0],
+          [-43.6526, 1187.4273, 0, 0, 0, 0],
+          [0, 1186.3387, 0, 0, 0, 0],
+          [42.3159, 1175.5637, 0, 0, 0, 0],
+          [81.1731, 1155.6428, 0, 0, 0, 0],
+          [114.6234, 1127.5747, 0, 0, 0, 0],
+          [140.9892, 1092.767, 0, 0, 0, 0],
+          [158.9485, 1052.9651, 0, 0, 0, 0],
+          [167.6008, 1010.1647, 0, 0, 0, 0]
+        ]
+      },
+      {
+        "parent": "D-34080",
+        "child": "D-34009",
+        "quantity": 4
+      },
+      {
+        "parent": "D-34080",
+        "child": "D-34010",
+        "quantity": 14,
+        "placements": [
+          [0, 0, 0, 0, 0, 0],
+          [-45.9389, -117.5325, 200.5575, 3.9621, -1.481, 12.4817],
+          [-74.8249, -196.343, 351.13, 7.5163, -3.7241, 24.5647],
+          [-133.1203, -224.2643, 446.7696, 10.5502, -6.5918, 36.2312],
+          [-249.3631, -235.579, 488.0022, 12.9745, -9.9455, 47.5566],
+          [-422.5919, -277.77, 477.5151, 14.7081, -13.6542, 58.7011],
+          [-626.6969, -390.3206, 418.1928, 15.6654, -17.5946, 69.8925],
+          [-294.3319, 75.8384, 274.0818, 67.4503, -74.4113, 97.3505],
+          [-170.1614, 181.3876, 282.0052, 29.1377, -58.67, 123.5454],
+          [-109.0953, 224.8073, 370.0386, 23.6881, -47.558, 117.5574],
+          [-124.1579, 212.9092, 442.3111, 21.7547, -39.3305, 108.2303],
+          [-224.7398, 186.7075, 476.5805, 20.351, -32.5191, 98.3107],
+          [-399.9819, 196.2744, 467.5609, 18.7582, -26.533, 88.3124],
+          [-618.4529, 282.2481, 414.7159, 16.7338, -21.1284, 78.2625]
+        ]
+      },
+      {
+        "parent": "D-34080",
+        "child": "D-34011",
+        "quantity": 6,
+        "placements": [
+          [0, 0, 0, 0, 0, 0],
+          [1223.733, 288.1824, 55.3568, 0, 0, 0],
+          [1761.1932, 1369.4223, -33.4619, 0, 0, 0],
+          [0, 4567.447, 0, 0, 0, 0],
+          [1223.733, 4279.2646, 55.3568, 0, 0, 0],
+          [1761.1932, 3198.0247, -33.4619, 0, 0, 0]
+        ]
+      },
+      {
+        "parent": "D-34080",
+        "child": "D-34012",
+        "quantity": 16
+      },
+      {
+        "parent": "D-34081",
+        "child": "D-34001",
+        "quantity": 1
+      },
+      {
+        "parent": "D-34081",
+        "child": "D-34002",
+        "quantity": 1
+      },
+      {
+        "parent": "D-34081",
+        "child": "D-34013",
+        "quantity": 4
+      },
+      {
+        "parent": "D-34081",
+        "child": "D-34014",
+        "quantity": 2,
+        "placements": [
+          [0, 0, 0, 0, 0, 0],
+          [0, 960, 0, 0, 0, 0]
+        ]
+      },
+      {
+        "parent": "D-34082",
+        "child": "D-34003",
+        "quantity": 1
+      },
+      {
+        "parent": "D-34082",
+        "child": "D-34015",
+        "quantity": 1
+      },
+      {
+        "parent": "D-34082",
+        "child": "D-34016",
+        "quantity": 1
+      },
+      {
+        "parent": "D-34082",
+        "child": "D-34017",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3400",
+        "child": "ES-3480",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3400",
+        "child": "ES-3481",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3400",
+        "child": "ES-3482",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3400",
+        "child": "ES-3483",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3400",
+        "child": "ES-3484",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3480",
+        "child": "ES-3401",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3480",
+        "child": "ES-3402",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3480",
+        "child": "ES-3403",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3480",
+        "child": "ES-3404",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3480",
+        "child": "ES-3405",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3480",
+        "child": "ES-3406",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3480",
+        "child": "ES-3407",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3480",
+        "child": "ES-3408",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3480",
+        "child": "ES-3417",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3480",
+        "child": "ES-3418",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3480",
+        "child": "ES-3419",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3480",
+        "child": "ES-3420",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3481",
+        "child": "ES-3409",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3481",
+        "child": "ES-3410",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3481",
+        "child": "ES-3411",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3481",
+        "child": "ES-3412",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3481",
+        "child": "ES-3413",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3481",
+        "child": "ES-3414",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3481",
+        "child": "ES-3415",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3481",
+        "child": "ES-3416",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3481",
+        "child": "ES-3417",
+        "quantity": 1,
+        "placements": [
+          [0, 1800, 0, 0, 0, 0]
+        ]
+      },
+      {
+        "parent": "ES-3481",
+        "child": "ES-3418",
+        "quantity": 1,
+        "placements": [
+          [0, 3000, 0, 0, 0, 0]
+        ]
+      },
+      {
+        "parent": "ES-3481",
+        "child": "ES-3419",
+        "quantity": 1,
+        "placements": [
+          [0, 4200, 0, 0, 0, 0]
+        ]
+      },
+      {
+        "parent": "ES-3481",
+        "child": "ES-3420",
+        "quantity": 1,
+        "placements": [
+          [0, 5400, 0, 0, 0, 0]
+        ]
+      },
+      {
+        "parent": "ES-3482",
+        "child": "ES-3421",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3482",
+        "child": "ES-3422",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3482",
+        "child": "ES-3423",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3482",
+        "child": "ES-3425",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3482",
+        "child": "ES-3426",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3482",
+        "child": "ES-3439",
+        "quantity": 2,
+        "placements": [
+          [0, 0, 0, 0, 0, 0],
+          [0, 466.4762, 0, 0, 0, 0]
+        ]
+      },
+      {
+        "parent": "ES-3482",
+        "child": "ES-3440",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3482",
+        "child": "ES-3441",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3482",
+        "child": "ES-3442",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3483",
+        "child": "ES-3424",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3483",
+        "child": "ES-3427",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3483",
+        "child": "ES-3428",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3483",
+        "child": "ES-3443",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3483",
+        "child": "ES-3444",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3483",
+        "child": "ES-3434",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3484",
+        "child": "ES-3429",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3484",
+        "child": "ES-3430",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3484",
+        "child": "ES-3431",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3484",
+        "child": "ES-3432",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3484",
+        "child": "ES-3433",
+        "quantity": 2,
+        "placements": [
+          [0, 0, 0, 0, 0, 0],
+          [24.1964, 23.1041, -151.0871, -162.1718, -17.7778, -2.8104]
+        ]
+      },
+      {
+        "parent": "ES-3484",
+        "child": "ES-3435",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3484",
+        "child": "ES-3436",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3484",
+        "child": "ES-3437",
+        "quantity": 8
+      },
+      {
+        "parent": "ES-3484",
+        "child": "ES-3438",
+        "quantity": 28
+      },
+      {
+        "parent": "UK-3400",
+        "child": "UK-3480",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3400",
+        "child": "UK-3481",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3400",
+        "child": "UK-3482",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3480",
+        "child": "UK-3401",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3480",
+        "child": "UK-3402",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3480",
+        "child": "UK-3403",
+        "quantity": 2,
+        "placements": [
+          [0, 0, 0, 0, 0, 0],
+          [0, 12.3575, 0, 0, 0, 0]
+        ]
+      },
+      {
+        "parent": "UK-3480",
+        "child": "UK-3404",
+        "quantity": 2,
+        "placements": [
+          [0, 0, 0, 0, 0, 0],
+          [0, 20.2281, 0, 0, 0, 0]
+        ]
+      },
+      {
+        "parent": "UK-3480",
+        "child": "UK-3405",
+        "quantity": 2,
+        "placements": [
+          [0, 0, 0, 0, 0, 0],
+          [0, 20.2281, 0, 0, 0, 0]
+        ]
+      },
+      {
+        "parent": "UK-3480",
+        "child": "UK-3406",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3481",
+        "child": "UK-3407",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3481",
+        "child": "UK-3408",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3482",
+        "child": "UK-3409",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3482",
+        "child": "UK-3410",
+        "quantity": 1
+      }
+    ],
+    "externalRefs": [
+      {
+        "localPart": "ES-3401",
+        "remoteUrn": "urn:plm:de:part:D-34004",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the left hub fitting"
+      },
+      {
+        "localPart": "ES-3402",
+        "remoteUrn": "urn:plm:de:part:D-34004",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the left hub fitting"
+      },
+      {
+        "localPart": "ES-3403",
+        "remoteUrn": "urn:plm:de:part:D-34004",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the left hub fitting"
+      },
+      {
+        "localPart": "ES-3404",
+        "remoteUrn": "urn:plm:de:part:D-34004",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the left hub fitting"
+      },
+      {
+        "localPart": "ES-3405",
+        "remoteUrn": "urn:plm:de:part:D-34004",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the left hub fitting"
+      },
+      {
+        "localPart": "ES-3406",
+        "remoteUrn": "urn:plm:de:part:D-34004",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the left hub fitting"
+      },
+      {
+        "localPart": "ES-3407",
+        "remoteUrn": "urn:plm:de:part:D-34004",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the left hub fitting"
+      },
+      {
+        "localPart": "ES-3408",
+        "remoteUrn": "urn:plm:de:part:D-34004",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the left hub fitting"
+      },
+      {
+        "localPart": "ES-3409",
+        "remoteUrn": "urn:plm:de:part:D-34005",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the right hub fitting"
+      },
+      {
+        "localPart": "ES-3410",
+        "remoteUrn": "urn:plm:de:part:D-34005",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the right hub fitting"
+      },
+      {
+        "localPart": "ES-3411",
+        "remoteUrn": "urn:plm:de:part:D-34005",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the right hub fitting"
+      },
+      {
+        "localPart": "ES-3412",
+        "remoteUrn": "urn:plm:de:part:D-34005",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the right hub fitting"
+      },
+      {
+        "localPart": "ES-3413",
+        "remoteUrn": "urn:plm:de:part:D-34005",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the right hub fitting"
+      },
+      {
+        "localPart": "ES-3414",
+        "remoteUrn": "urn:plm:de:part:D-34005",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the right hub fitting"
+      },
+      {
+        "localPart": "ES-3415",
+        "remoteUrn": "urn:plm:de:part:D-34005",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the right hub fitting"
+      },
+      {
+        "localPart": "ES-3416",
+        "remoteUrn": "urn:plm:de:part:D-34005",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I1: rib root in its pocket on the right hub fitting"
+      },
+      {
+        "localPart": "D-34004",
+        "remoteUrn": "urn:plm:es:part:ES-3422",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "I1: hub fitting bolted on the cross rod end"
+      },
+      {
+        "localPart": "D-34005",
+        "remoteUrn": "urn:plm:es:part:ES-3422",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "I1: hub fitting bolted on the cross rod end"
+      },
+      {
+        "localPart": "FR3401",
+        "remoteUrn": "urn:plm:es:part:ES-3401",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "covering tacked along the leading rib"
+      },
+      {
+        "localPart": "FR3402",
+        "remoteUrn": "urn:plm:es:part:ES-3409",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "covering tacked along the leading rib"
+      },
+      {
+        "localPart": "FR3407",
+        "remoteUrn": "urn:plm:es:part:ES-3401",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "binding wrapped on the left leading rib"
+      },
+      {
+        "localPart": "FR3407",
+        "remoteUrn": "urn:plm:es:part:ES-3409",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "binding wrapped on the right leading rib"
+      },
+      {
+        "localPart": "ES-3429",
+        "remoteUrn": "urn:plm:de:part:D-34001",
+        "quantity": 1,
+        "expectedRevision": "02",
+        "note": "I2: upper wires on the kingpost eye plate"
+      },
+      {
+        "localPart": "ES-3431",
+        "remoteUrn": "urn:plm:de:part:D-34002",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I2: lower wires on the lower post eye plate"
+      },
+      {
+        "localPart": "ES-3430",
+        "remoteUrn": "urn:plm:de:part:D-34001",
+        "quantity": 1,
+        "expectedRevision": "02",
+        "note": "I2: upper wires on the kingpost eye plate"
+      },
+      {
+        "localPart": "ES-3432",
+        "remoteUrn": "urn:plm:de:part:D-34002",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I2: lower wires on the lower post eye plate"
+      },
+      {
+        "localPart": "D-34001",
+        "remoteUrn": "urn:plm:es:part:ES-3440",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "kingpost in its cast step"
+      },
+      {
+        "localPart": "D-34002",
+        "remoteUrn": "urn:plm:es:part:ES-3441",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "lower post in its cast shoe"
+      },
+      {
+        "localPart": "D-34015",
+        "remoteUrn": "urn:plm:es:part:ES-3424",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "I3: hinge fitting bolted on the tail boom"
+      },
+      {
+        "localPart": "ES-3427",
+        "remoteUrn": "urn:plm:de:part:D-34016",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "I3: front rim eyes on the hinge pin"
+      },
+      {
+        "localPart": "D-34003",
+        "remoteUrn": "urn:plm:es:part:ES-3443",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "fin post in its cast step"
+      },
+      {
+        "localPart": "ES-3428",
+        "remoteUrn": "urn:plm:de:part:D-34003",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "fin frame lashed to the post"
+      },
+      {
+        "localPart": "FR3403",
+        "remoteUrn": "urn:plm:es:part:ES-3427",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "covering tacked on the tail plane rim"
+      },
+      {
+        "localPart": "FR3404",
+        "remoteUrn": "urn:plm:es:part:ES-3428",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "covering tacked on the fin rim"
+      },
+      {
+        "localPart": "FR3408",
+        "remoteUrn": "urn:plm:de:part:D-34017",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "spring hooked on the tail plane stop"
+      },
+      {
+        "localPart": "UK-3401",
+        "remoteUrn": "urn:plm:es:part:ES-3425",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "I4: pad on the left arm bar"
+      },
+      {
+        "localPart": "UK-3402",
+        "remoteUrn": "urn:plm:es:part:ES-3426",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "I4: pad on the right arm bar"
+      },
+      {
+        "localPart": "UK-3403",
+        "remoteUrn": "urn:plm:es:part:ES-3425",
+        "quantity": 2,
+        "expectedRevision": 1,
+        "note": "grip screwed to the arm bar"
+      },
+      {
+        "localPart": "UK-3407",
+        "remoteUrn": "urn:plm:de:part:D-34090",
+        "quantity": 1,
+        "expectedRevision": "01",
+        "note": "Instrumentenhalter (indicator mount): no PLM holds this part"
+      },
+      {
+        "localPart": "UK-3408",
+        "remoteUrn": "urn:plm:es:part:ES-3423",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "sensor clamped on the bumper bow"
+      },
+      {
+        "localPart": "UK-3410",
+        "remoteUrn": "urn:plm:es:part:ES-3423",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "carrier plate bolted on the bumper bow"
+      },
+      {
+        "localPart": "UK-3406",
+        "remoteUrn": "urn:plm:es:part:ES-3421",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "sling pinned to the hoop"
+      }
+    ],
+    "proposedDefects": [
+      {
+        "rule": "danglingReference",
+        "parts": [
+          "UK-3407"
+        ],
+        "detail": "UK/3407 airspeed indicator references urn:plm:de:part:D-34090 (its mount) at revision 01; no PLM holds that part",
+        "needs": "nothing beyond the reference tables and the danglingReference shape; the orphan plug on the indicator's interface is the same gap seen from the interface side"
+      }
+    ],
+    "massBudgetKg": {
+      "DE": 4.13,
+      "ES": 10.97,
+      "FR": 2.68,
+      "UK": 2.85,
+      "total": 20.62,
+      "reference": "about 20 kg for the museum example; UK masses are stored in lb and converted here; occurrences from the bill of materials"
+    },
+    "wingAreaM2": {
+      "perWing": 6.29,
+      "total": 12.58,
+      "reference": "13.6 m2 for the type"
+    },
+    "authoredAdditions": [
+      "FR3408",
+      "FR3409",
+      "UK-3406",
+      "UK-3407",
+      "UK-3408",
+      "UK-3409"
+    ],
+    "sources": [
+      {
+        "title": "Otto Lilienthal, Flying machine, US patent 544,816 (1895)",
+        "url": "https://patents.google.com/patent/US544816A/en",
+        "use": "layout only: crossed frame with a hoop, ribs diverging from a common support and turning in pockets to fold the wing, a cord along the rib tips, a front tension wire from the first rib to the hoop, wires from the ribs down to the frame, a fixed vertical rudder and a tail that swings upward and rests on the rudder"
+      },
+      {
+        "title": "Normalsegelapparat, Wikipedia (de)",
+        "url": "https://de.wikipedia.org/wiki/Normalsegelapparat",
+        "use": "span 6.7 m, 20 kg, folding wings, tail plane movable upward, profile rails slid onto the wing"
+      },
+      {
+        "title": "Lilienthal Normalsegelapparat, Wikipedia (en)",
+        "url": "https://en.wikipedia.org/wiki/Lilienthal_Normalsegelapparat",
+        "use": "length 5.3 m, wing area 13.6 m2, bumper bow"
+      },
+      {
+        "title": "National Air and Space Museum, Lilienthal glider (A19060001000)",
+        "url": "https://airandspace.si.edu/collection-objects/lilienthal-glider/nasm_A19060001000",
+        "use": "split willow frame, cotton twill covering, wings folding to the rear, pilot hanging in the opening between the wings, wood, cotton, ferrous alloy and hemp cord"
+      },
+      {
+        "title": "Otto-Lilienthal-Museum Anklam, aeroplane models",
+        "url": "https://lilienthal-museum.de/olma/e213.htm",
+        "use": "bat-like folding design, wing span 22 to 23 ft, area 140 to 146 sq ft, length 16.1 to 17.4 ft, about 20 kg"
+      }
+    ],
+    "sourceNote": "Every shape and value is authored for this sample; no image, drawing, text or CAD from the sources is reproduced."
+  }
+}

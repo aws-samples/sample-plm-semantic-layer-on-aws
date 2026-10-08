@@ -1,0 +1,81 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# A drivetrain product added to neighbourhood.ttl for the bill-of-materials tests, in the shape the parts and line
+# CONSTRUCTs produce: each site's items (parts and ASSEMBLY rows), their Atelier core tag and membership, and the
+# lines each PLM's idiom reads as atelier:BomLine. No item is the product: each site holds its own kit.
+#   DE  de-kit > de-gearbox (1) > de-stage (2) > de-gear (3, 1.5 kg) and de-bolt-kit (4, no mass); de-gearbox > de-housing (1, 10 kg)
+#   FR  fr-kit > fr-cover-set (1, releasable to FR only) > fr-panel (4, 2 kg) and fr-hinge (2, releasable to FR only, no mass,
+#       a CAD file in the file index); fr-kit > fr-panel (2): two parents
+#   UK  uk-kit > uk-motor (2, 10 lb)
+#   ES  es-kit > es-frame (1, 30 kg, a part with items) > es-bracket (2, 0.5 kg)
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix frpt: <https://example.com/atelier/fr/part/> .
+@prefix dept: <https://example.com/atelier/de/part/> .
+@prefix ukpt: <https://example.com/atelier/uk/part/> .
+@prefix espt: <https://example.com/atelier/es/part/> .
+@prefix prod: <https://example.com/atelier/product/> .
+
+prod:drivetrain a atelier:Product ; atelier:label "Drivetrain" .
+
+dept:de-kit a atelier:Part ; atelier:label "Antriebsbausatz" ; atelier:partType "ASSEMBLY" ; atelier:revision "01" ; atelier:lifecycleLabel "Freigegeben" .
+dept:de-gearbox a atelier:Part ; atelier:label "Getriebe" ; atelier:partType "ASSEMBLY" .
+dept:de-stage a atelier:Part ; atelier:label "Planetenstufe" ; atelier:partType "ASSEMBLY" .
+dept:de-gear a atelier:Part ; atelier:label "Planetenrad" ; atelier:partType "PART" ; atelier:lifecycleLabel "Freigegeben" ; atelier:mass dept:de-gear\/mass .
+dept:de-bolt-kit a atelier:Part ; atelier:label "Schraubensatz" ; atelier:partType "PART" .
+dept:de-housing a atelier:Part ; atelier:label "Gehäuse" ; atelier:partType "PART" ; atelier:mass dept:de-housing\/mass .
+frpt:fr-kit a atelier:Part ; atelier:label "Kit capotage" ; atelier:partType "ASSEMBLY" .
+frpt:fr-cover-set a atelier:Part ; atelier:label "Ensemble capots" ; atelier:partType "ASSEMBLY" .
+frpt:fr-hinge a atelier:Part ; atelier:label "Charnière" ; atelier:partType "PART" ; atelier:cadFile "cad/drivetrain/fr-hinge.stp" .
+frpt:fr-panel a atelier:Part ; atelier:label "Panneau" ; atelier:partType "PART" ; atelier:mass frpt:fr-panel\/mass .
+ukpt:uk-kit a atelier:Part ; atelier:label "Electrical kit" ; atelier:partType "ASSEMBLY" .
+ukpt:uk-motor a atelier:Part ; atelier:label "Pitch motor" ; atelier:partType "PART" ; atelier:mass ukpt:uk-motor\/mass .
+espt:es-kit a atelier:Part ; atelier:label "Kit de estructura" ; atelier:partType "ASSEMBLY" .
+espt:es-frame a atelier:Part ; atelier:label "Bastidor" ; atelier:partType "PART" ; atelier:mass espt:es-frame\/mass .
+espt:es-bracket a atelier:Part ; atelier:label "Soporte" ; atelier:partType "PART" ; atelier:mass espt:es-bracket\/mass .
+
+<https://example.com/atelier/de/part/de-gear/mass> a qudt:QuantityValue ; qudt:numericValue "1.500"^^xsd:decimal ; qudt:unit unit:KiloGM .
+<https://example.com/atelier/de/part/de-housing/mass> a qudt:QuantityValue ; qudt:numericValue "10.000"^^xsd:decimal ; qudt:unit unit:KiloGM .
+<https://example.com/atelier/fr/part/fr-panel/mass> a qudt:QuantityValue ; qudt:numericValue "2.000"^^xsd:decimal ; qudt:unit unit:KiloGM .
+<https://example.com/atelier/uk/part/uk-motor/mass> a qudt:QuantityValue ; qudt:numericValue "10.000"^^xsd:decimal ; qudt:unit unit:LB .
+<https://example.com/atelier/es/part/es-frame/mass> a qudt:QuantityValue ; qudt:numericValue "30.000"^^xsd:decimal ; qudt:unit unit:KiloGM .
+<https://example.com/atelier/es/part/es-bracket/mass> a qudt:QuantityValue ; qudt:numericValue "0.500"^^xsd:decimal ; qudt:unit unit:KiloGM .
+
+dept:de-kit atelier:partOf prod:drivetrain . dept:de-gearbox atelier:partOf prod:drivetrain . dept:de-stage atelier:partOf prod:drivetrain .
+dept:de-gear atelier:partOf prod:drivetrain . dept:de-bolt-kit atelier:partOf prod:drivetrain . dept:de-housing atelier:partOf prod:drivetrain .
+frpt:fr-kit atelier:partOf prod:drivetrain . frpt:fr-cover-set atelier:partOf prod:drivetrain . frpt:fr-panel atelier:partOf prod:drivetrain .
+frpt:fr-hinge atelier:partOf prod:drivetrain .
+ukpt:uk-kit atelier:partOf prod:drivetrain . ukpt:uk-motor atelier:partOf prod:drivetrain .
+espt:es-kit atelier:partOf prod:drivetrain . espt:es-frame atelier:partOf prod:drivetrain . espt:es-bracket atelier:partOf prod:drivetrain .
+
+dept:de-kit atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+dept:de-gearbox atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+dept:de-stage atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+dept:de-gear atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+dept:de-bolt-kit atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+dept:de-housing atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+frpt:fr-kit atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "FR" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+frpt:fr-cover-set atelier:jurisdiction "NATIONAL-FR" ; atelier:releasableTo "FR" ; atelier:taggedBy "FR" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+frpt:fr-hinge atelier:jurisdiction "NATIONAL-FR" ; atelier:releasableTo "FR" ; atelier:taggedBy "FR" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+frpt:fr-panel atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "FR" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+ukpt:uk-kit atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "UK" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+ukpt:uk-motor atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "UK" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+espt:es-kit atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "ES" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+espt:es-frame atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "ES" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+espt:es-bracket atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "ES" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+
+<https://example.com/atelier/de/bomline/de-kit/de-gearbox> a atelier:BomLine ; atelier:parent dept:de-kit ; atelier:child dept:de-gearbox ; atelier:quantity 1.0 .
+<https://example.com/atelier/de/bomline/de-gearbox/de-stage> a atelier:BomLine ; atelier:parent dept:de-gearbox ; atelier:child dept:de-stage ; atelier:quantity 2.0 .
+<https://example.com/atelier/de/bomline/de-stage/de-gear> a atelier:BomLine ; atelier:parent dept:de-stage ; atelier:child dept:de-gear ; atelier:quantity 3.0 .
+<https://example.com/atelier/de/bomline/de-stage/de-bolt-kit> a atelier:BomLine ; atelier:parent dept:de-stage ; atelier:child dept:de-bolt-kit ; atelier:quantity 4.0 .
+<https://example.com/atelier/de/bomline/de-gearbox/de-housing> a atelier:BomLine ; atelier:parent dept:de-gearbox ; atelier:child dept:de-housing ; atelier:quantity 1.0 .
+<https://example.com/atelier/fr/bomline/fr-kit/fr-cover-set> a atelier:BomLine ; atelier:parent frpt:fr-kit ; atelier:child frpt:fr-cover-set ; atelier:quantity 1.0 .
+<https://example.com/atelier/fr/bomline/fr-cover-set/fr-panel> a atelier:BomLine ; atelier:parent frpt:fr-cover-set ; atelier:child frpt:fr-panel ; atelier:quantity 4.0 .
+<https://example.com/atelier/fr/bomline/fr-cover-set/fr-hinge> a atelier:BomLine ; atelier:parent frpt:fr-cover-set ; atelier:child frpt:fr-hinge ; atelier:quantity 2.0 .
+<https://example.com/atelier/fr/bomline/fr-kit/fr-panel> a atelier:BomLine ; atelier:parent frpt:fr-kit ; atelier:child frpt:fr-panel ; atelier:quantity 2.0 .
+<https://example.com/atelier/uk/bomline/uk-kit/uk-motor> a atelier:BomLine ; atelier:parent ukpt:uk-kit ; atelier:child ukpt:uk-motor ; atelier:quantity 2.0 .
+<https://example.com/atelier/es/bomline/es-kit/es-frame> a atelier:BomLine ; atelier:parent espt:es-kit ; atelier:child espt:es-frame ; atelier:quantity 1.0 .
+<https://example.com/atelier/es/bomline/es-frame/es-bracket> a atelier:BomLine ; atelier:parent espt:es-frame ; atelier:child espt:es-bracket ; atelier:quantity 2.0 .

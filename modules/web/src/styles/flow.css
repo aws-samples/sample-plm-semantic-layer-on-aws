@@ -1,0 +1,126 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+.flow { display: grid; grid-template-columns: 1fr 320px; height: 100%; }
+.flow-stage { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.flow-head { display: flex; align-items: center; gap: 14px; padding: 8px 14px; border-bottom: 1px solid var(--rule); font-size: 12.5px; background: var(--paper); }
+.flow-head > * { white-space: nowrap; }
+.flow-head b { color: var(--ink); font-size: 13px; }
+/* The hint gives way first when the header is short of room. */
+.flow-hint { margin-left: auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+/* With the mode switch on the row the hint has no room; the facts panel repeats it. */
+.flow-head:has(.flow-mode) .flow-hint { display: none; }
+/* Which request is drawn: the last click on the check screen or the last question to the agent. */
+.flow-mode { display: inline-flex; border: 1px solid var(--ink-2); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.flow-mode button { border: 0; background: #fff; padding: 5px 9px 4px; cursor: pointer; color: var(--ink-2); font: 600 11px/1 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; }
+.flow-mode button + button { border-left: 1px solid var(--ink-2); }
+.flow-mode button:hover { background: var(--rule-2); }
+.flow-mode button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.flow-mode button:disabled { opacity: 0.45; cursor: default; }
+.flow-caption { flex-shrink: 0; }
+.flow-q { display: inline-block; max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: bottom; font-style: italic; color: var(--ink); }
+.flow-canvas { flex: 1; min-height: 0; background: var(--film); }
+.flow-canvas .react-flow { font-family: var(--font-body); }
+.flow-canvas .react-flow__attribution { font-size: 9px; background: transparent; }
+.flow-canvas .react-flow__minimap { border: 1px solid var(--rule); }
+.flow-canvas .react-flow__edgelabel-renderer { z-index: 3; }
+
+.react-flow__handle.fhandle { width: 0; height: 0; min-width: 0; min-height: 0; border: 0; opacity: 0; pointer-events: none; }
+.react-flow__node.flayer-node { pointer-events: none; }
+.flayer { font: 600 13px/1 var(--font-display); letter-spacing: 0.14em; text-transform: uppercase; color: var(--quiet); text-align: right; }
+
+/* Component cards */
+.fnode {
+  position: relative; height: 100%; background: #fff; border: 1px solid var(--rule); border-radius: 2px;
+  padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; overflow: hidden; cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s;
+}
+.fnode-title { font: 600 15px/1.2 var(--font-display); letter-spacing: 0.02em; color: var(--ink); white-space: nowrap; }
+.fnode-plm { color: var(--plm); margin-right: 6px; letter-spacing: 0.06em; }
+.fnode-id { font-size: 11.5px; font-weight: 600; color: var(--ink-2); }
+.fnode-sub { font-size: 11.5px; line-height: 1.25; color: var(--quiet); white-space: pre-line; }
+.fnode-live { margin-top: auto; font-size: 11px; line-height: 1.3; font-weight: 600; white-space: pre-line; }
+.fnode.is-plm, .fnode.is-ontop, .fnode.is-core { border-left: 3px solid var(--plm); padding-left: 9px; }
+/* Atelier-owned: the ink family and a hairline inset instead of a site colour. */
+.fnode.is-atelier { border-color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--ink-2); border-left-width: 3px; }
+.fnode.is-atelier .fnode-plm { color: var(--ink-2); }
+.fnode.is-coredb, .fnode.is-changelog { height: 48px; border: 1px solid var(--ink-2); border-top: 3px solid var(--ink-2); box-shadow: inset 0 0 0 1px var(--ink-2); background: var(--paper); padding: 6px 8px; gap: 2px; }
+.fnode.is-coredb .fdb-name, .fnode.is-changelog .fdb-name { display: flex; align-items: baseline; }
+.fnode.is-coredb .fnode-plm, .fnode.is-changelog .fnode-plm { font: 600 11px/1 var(--font-display); letter-spacing: 0.06em; color: var(--ink-2); margin-right: 6px; }
+/* The change log is a table of atelier_core, not a database: a plain top rule instead of the database's thick one. */
+.fnode.is-changelog { border-top-width: 1px; border-style: dashed; box-shadow: none; }
+.fnode.is-changelog.tone-on, .fnode.is-changelog.tone-selected { border-style: solid; }
+.fnode.is-query { background: var(--ink); border-color: var(--ink); }
+.fnode.is-query .fnode-title { color: #fff; }
+.fnode.is-query .fnode-id { color: #cfd8de; }
+.fnode.is-query .fnode-sub { color: #9fb0bd; }
+.fnode.is-query .fnode-live { color: #fff; }
+.fnode.is-neptune, .fnode.is-loader { border-color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--ink-2); }
+/* The event bus: a bus bar, two slate rails, the other edge of the system beside the one people enter through. */
+.fnode.is-eventbridge { border-color: var(--ink-2); border-top: 3px solid var(--ink-2); border-bottom: 3px solid var(--ink-2); box-shadow: inset 0 0 0 1px var(--ink-2); padding-top: 6px; padding-bottom: 6px; }
+.fnode.is-eventbridge .fnode-title::before { content: 'bus'; font: 600 9.5px/1 var(--font-display); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2); margin-right: 8px; vertical-align: 2px; }
+.fnode.is-aurora { padding: 10px 24px 8px; gap: 8px; }
+.fnode.is-aurora .fnode-caption { margin-top: auto; }
+.fdb-row { display: grid; grid-auto-flow: column; grid-auto-columns: 140px; gap: 28px; }
+.fdb { height: 48px; border: 1px solid var(--rule); border-top: 3px solid var(--plm); background: var(--paper); padding: 6px 8px; display: flex; flex-direction: column; gap: 2px; }
+.fdb-name { font-weight: 600; font-size: 12px; }
+.fdb-sub { font-size: 10.5px; color: var(--quiet); }
+.fnode-caption { display: flex; align-items: baseline; gap: 10px; }
+.fnode-caption .fnode-sub { white-space: nowrap; }
+.fnode.tone-dim { opacity: 0.28; }
+.fnode.tone-on { border-color: var(--ink-2); }
+.fnode.tone-selected { box-shadow: 0 0 0 2px var(--film), 0 0 0 4px var(--ink); }
+.fnode.is-neptune.tone-selected, .fnode.is-atelier.tone-selected { box-shadow: inset 0 0 0 1px var(--ink-2), 0 0 0 2px var(--film), 0 0 0 4px var(--ink); }
+.fnode.is-coredb.tone-selected { box-shadow: inset 0 0 0 1px var(--ink-2), 0 0 0 2px var(--paper), 0 0 0 4px var(--ink); }
+
+/* Wires */
+.react-flow__edge.wire .react-flow__edge-path { stroke-width: 1.25; }
+.react-flow__edge.wire.tone-on .react-flow__edge-path { stroke-width: 1.75; }
+.react-flow__edge.wire.tone-live .react-flow__edge-path { stroke-width: 2.25; }
+.react-flow__edge.wire.tone-off .react-flow__edge-path { stroke-width: 1; }
+.wire-tag {
+  position: absolute; pointer-events: none; white-space: nowrap;
+  background: #fff; border: 1px solid var(--rule); border-radius: 2px; padding: 2px 6px;
+  font: 600 12px/1.2 var(--font-mono); color: var(--ink);
+}
+.wire-tag.is-protocol { font: 600 12px/1.2 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); background: var(--paper); }
+.wire-tag.is-live { border-left: 3px solid var(--plm); }
+/* A stacked list: the tools an agent turn ran, the corrections a PLM released, one per line. */
+.wire-tag.is-stack { border-left: 3px solid var(--plm); white-space: pre; text-align: left; line-height: 1.35; }
+/* A business event announced on the bus reads differently from a call: inverted, in the emitter's colour. */
+.wire-tag.is-event { background: var(--ink); border-color: var(--ink); color: #fff; border-left: 3px solid var(--plm); white-space: pre; text-align: left; line-height: 1.35; }
+.wire-tag.is-event::before { content: 'event'; font: 600 12px/1 var(--font-display); letter-spacing: 0.14em; text-transform: uppercase; color: #9fb0bd; margin-right: 6px; }
+/* What did not happen, said where it would have: under the corrected database, dashed. */
+.react-flow__node.fnote-node { pointer-events: none; }
+.fnote { height: 22px; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--quiet); border-radius: 2px; background: var(--paper); font: 600 10px/1 var(--font-display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--quiet); }
+
+/* Facts panel */
+.flow-panel { gap: 14px; }
+.node-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+.node-eyebrow { display: flex; align-items: center; justify-content: space-between; }
+.node-title { margin: 0; font: 600 22px/1.05 var(--font-display); letter-spacing: 0.02em; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.node-title b { letter-spacing: 0.06em; }
+.node-endpoint { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.node-does { margin: 0; font-size: 13.5px; line-height: 1.4; color: var(--ink-2); }
+.node-does a { color: var(--ink); }
+.node-q { margin: 0; font-size: 13.5px; line-height: 1.4; color: var(--ink-2); font-style: italic; }
+.facts { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 5px 12px; font-size: 12.5px; }
+.facts dt { color: var(--quiet); white-space: nowrap; }
+.facts dd { margin: 0; overflow-wrap: anywhere; }
+.fact-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 12.5px; }
+.fact-list li { display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--rule-2); padding-bottom: 3px; overflow-wrap: anywhere; }
+.fact-list .quiet { text-align: right; white-space: nowrap; }
+/* An identifier too long to share its row with its note: the note goes under it. */
+.fact-list.is-stacked li { flex-direction: column; align-items: flex-start; gap: 1px; }
+.fact-list.is-stacked .quiet { text-align: left; white-space: normal; }
+.source { margin: 0; font-size: 11.5px; }
+.db-block { display: flex; flex-direction: column; gap: 6px; }
+.db-name { margin: 0; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+.db-owner { font: 500 11px/1 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; }
+.flow-panel .code { max-height: 260px; overflow: auto; white-space: pre; font-size: 10.5px; }
+
+/* The change feed in the facts panel: one entry per block, its owner's colour as the left rule. */
+.change-facts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; }
+.change-fact { display: flex; flex-direction: column; gap: 3px; padding: 6px 8px 6px 10px; background: #fff; border: 1px solid var(--rule-2); box-shadow: inset 3px 0 0 var(--plm, var(--ink-2)); overflow-wrap: anywhere; }
+.change-fact-kind b { font-family: var(--font-display); letter-spacing: 0.06em; }
+.change-fact .change-graph { white-space: normal; }

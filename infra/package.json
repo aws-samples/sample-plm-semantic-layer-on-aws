@@ -1,0 +1,31 @@
+{
+  "name": "plm-semantic-layer-sample-infra",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --test lambda/links-loader/index.test.mts lambda/edge-auth/index.test.mts policies/deploy-role-permissions.test.mts lib/cad-assets.test.mts lib/image-tags.test.mts lib/services-stack.test.mts lib/neptune-iam.test.mts",
+    "build": "tsc",
+    "synth": "cdk synth -c env=prod -c account=${CDK_ACCOUNT:-111111111111} -c region=${CDK_REGION:-eu-west-1} -q",
+    "deploy": "bash scripts/deploy.sh --env prod"
+  },
+  "dependencies": {
+    "@aws-crypto/sha256-js": "5.2.0",
+    "@smithy/signature-v4": "5.7.4",
+    "aws-cdk-lib": "2.271.0",
+    "aws-jwt-verify": "5.2.1",
+    "constructs": "10.8.1"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-secrets-manager": "3.1144.0",
+    "@aws-sdk/client-ssm": "3.1145.0",
+    "@aws-sdk/credential-provider-node": "3.972.84",
+    "@types/aws-lambda": "8.10.164",
+    "@types/node": "20.19.43",
+    "aws-cdk": "2.1143.0",
+    "cdk-nag": "3.0.2",
+    "esbuild": "0.25.12",
+    "ts-node": "10.9.2",
+    "typescript": "5.5.4"
+  }
+}

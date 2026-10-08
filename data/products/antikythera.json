@@ -1,0 +1,2683 @@
+{
+ "product": {
+  "key": "antikythera",
+  "name": "Antikythera mechanism, simplified interpretation"
+ },
+ "frame": "x to the right seen from the front dial, y towards the back of the case, z up; x = z = 0 on the main drive axis b, y = 0 on the front face of the bronze front plate; mm, the frame of modules/cad/antikythera.py. Case 180 x 96 x 340: front door at y -16, back door to y 80, plates at y 0 to 3 and 62 to 65; gears are plain discs at pitch diameter (module 0.55) in layers between y 6 and 58.5.",
+ "parts": [
+  {
+   "id": "D-32001",
+   "plm": "DE",
+   "name": "Kurbel mit Handgriff",
+   "cadFile": "cad/antikythera/de-crank-handle.stp",
+   "cadPart": "de-crank-handle",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-32001",
+    "nameEn": "Crank handle",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": "0,085",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "31 x 10 x 49 mm",
+    "interpretationNote": "Crank and crown gear a1 are hypothetical in the scholarship (none survives); 48 teeth adopted. Modelled as a contrate disc on an arbor along x through the right board.",
+    "siteKit": "D-32000"
+   }
+  },
+  {
+   "id": "D-32002",
+   "plm": "DE",
+   "name": "Kronrad a1 mit Welle a",
+   "cadFile": "cad/antikythera/de-crown-gear-a1.stp",
+   "cadPart": "de-crown-gear-a1",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-32002",
+    "nameEn": "Crown gear a1 with arbor a",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": "0,030",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 26,4 x 2,5 mm, Welle Ø 4 x 33 mm",
+    "interpretationNote": "Crank and crown gear a1 are hypothetical in the scholarship (none survives); 48 teeth adopted. Modelled as a contrate disc on an arbor along x through the right board.",
+    "siteKit": "D-32000",
+    "teeth": {
+     "a1": 48
+    }
+   }
+  },
+  {
+   "id": "D-32003",
+   "plm": "DE",
+   "name": "Hauptantriebsrad b1 mit Hohlwelle b",
+   "cadFile": "cad/antikythera/de-main-drive-wheel-b1.stp",
+   "cadPart": "de-main-drive-wheel-b1",
+   "classification": {
+    "jurisdiction": "NATIONAL-DE",
+    "releasableTo": "DE"
+   },
+   "extended": {
+    "localId": "D-32003",
+    "nameEn": "Main drive wheel b1 with hollow arbor b",
+    "revision": "02",
+    "lifecycle": "Freigegeben",
+    "mass": "0,310",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 122,65 x 3 mm, Hohlwelle Ø 6/3 x 18,5 mm",
+    "interpretationNote": "223 teeth adopted (223 or 224 in the scholarship). One turn per year. The UK input gear b2 and the FR sun pointer key onto the same hollow arbor; the lunar pointer arbor runs inside it.",
+    "siteKit": "D-32000",
+    "teeth": {
+     "b1": 223
+    }
+   }
+  },
+  {
+   "id": "D-32004",
+   "plm": "DE",
+   "name": "Stufenrad c1/c2 mit Welle c",
+   "cadFile": "cad/antikythera/de-gear-cluster-c.stp",
+   "cadPart": "de-gear-cluster-c",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-32004",
+    "nameEn": "Stepped gear c1/c2 with arbor c",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": "0,018",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 20,9 / Ø 26,4 x 2,5 mm, Welle Ø 3 x 16,5 mm",
+    "interpretationNote": "First stage of the mean-sun train: c1 is driven by b2, c2 drives d1.",
+    "siteKit": "D-32000",
+    "teeth": {
+     "c1": 38,
+     "c2": 48
+    }
+   }
+  },
+  {
+   "id": "D-32005",
+   "plm": "DE",
+   "name": "Stufenrad d1/d2 mit Welle d",
+   "cadFile": "cad/antikythera/de-gear-cluster-d.stp",
+   "cadPart": "de-gear-cluster-d",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-32005",
+    "nameEn": "Stepped gear d1/d2 with arbor d",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": "0,075",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 13,2 / Ø 69,85 x 2,5 mm, Welle Ø 3 x 20,5 mm",
+    "interpretationNote": "Second stage of the mean-sun train: d2 drives e2 at 254 sidereal rotations in 19 years.",
+    "siteKit": "D-32000",
+    "teeth": {
+     "d1": 24,
+     "d2": 127
+    }
+   }
+  },
+  {
+   "id": "D-32006",
+   "plm": "DE",
+   "name": "Mondwelle e mit e2/e5",
+   "cadFile": "cad/antikythera/de-lunar-arbor-e.stp",
+   "cadPart": "de-lunar-arbor-e",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-32006",
+    "nameEn": "Lunar arbor e with e2/e5",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": "0,028",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 17,6 / Ø 27,5 x 2,5 mm, Welle Ø 3 x 47 mm",
+    "interpretationNote": "e2 and e5 are fixed on arbor e; the output tube e6/e1 and the UK Saros wheel ride on the same arbor.",
+    "siteKit": "D-32000",
+    "teeth": {
+     "e2": 32,
+     "e5": 50
+    }
+   }
+  },
+  {
+   "id": "D-32007",
+   "plm": "DE",
+   "name": "Mondabtriebsrohr e6/e1",
+   "cadFile": "cad/antikythera/de-lunar-output-tube-e.stp",
+   "cadPart": "de-lunar-output-tube-e",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-32007",
+    "nameEn": "Lunar output tube e6/e1",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": "0,020",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 27,5 / Ø 17,6 x 2,5 mm, Rohr Ø 5,2/3,2 x 8 mm",
+    "interpretationNote": "Tube around arbor e carrying the lunar anomaly from k2 to b3; turns at the sidereal month rate with the anomaly.",
+    "siteKit": "D-32000",
+    "teeth": {
+     "e6": 50,
+     "e1": 32
+    }
+   }
+  },
+  {
+   "id": "D-32008",
+   "plm": "DE",
+   "name": "Mondzeigerwelle mit b3",
+   "cadFile": "cad/antikythera/de-lunar-pointer-arbor-b3.stp",
+   "cadPart": "de-lunar-pointer-arbor-b3",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-32008",
+    "nameEn": "Lunar pointer arbor with b3",
+    "revision": "02",
+    "lifecycle": "Freigegeben",
+    "mass": "0,012",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 17,6 x 2,5 mm, Welle Ø 2,8 x 39 mm",
+    "interpretationNote": "Inner arbor through the hollow arbor b; b3 is driven 1:1 by e1 and the FR lunar pointer is pinned on the front tip. Revision 01 (shorter tip) is Ersetzt.",
+    "siteKit": "D-32000",
+    "teeth": {
+     "b3": 32
+    }
+   }
+  },
+  {
+   "id": "D-32009",
+   "plm": "DE",
+   "name": "Stift-Schlitz-Treibrad k1",
+   "cadFile": "cad/antikythera/de-pin-slot-driver-k1.stp",
+   "cadPart": "de-pin-slot-driver-k1",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-32009",
+    "nameEn": "Pin-and-slot driver k1",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": "0,014",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 27,5 x 2,5 mm, Stift Ø 1,5 x 4 mm",
+    "interpretationNote": "Driven by e5 on the epicyclic stud of the UK Saros wheel; its pin at 9 mm radius drives the slot of k2. k1 and k2 share one stud axis here; the 1,1 mm eccentricity of the original is this attribute: eccentricityMm 1,1.",
+    "siteKit": "D-32000",
+    "teeth": {
+     "k1": 50
+    }
+   }
+  },
+  {
+   "id": "D-32010",
+   "plm": "DE",
+   "name": "Stufenrad l1/l2 mit Welle l",
+   "cadFile": "cad/antikythera/de-gear-cluster-l.stp",
+   "cadPart": "de-gear-cluster-l",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-32010",
+    "nameEn": "Stepped gear l1/l2 with arbor l",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": "0,022",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 20,9 / Ø 29,15 x 2,5 mm, Welle Ø 3 x 16,5 mm",
+    "interpretationNote": "Input of the back-dial trains: l1 is driven by b2, l2 drives m1.",
+    "siteKit": "D-32000",
+    "teeth": {
+     "l1": 38,
+     "l2": 53
+    }
+   }
+  },
+  {
+   "id": "D-32011",
+   "plm": "DE",
+   "name": "Stufenrad m1/m2/m3 mit Welle m",
+   "cadFile": "cad/antikythera/de-gear-cluster-m.stp",
+   "cadPart": "de-gear-cluster-m",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-32011",
+    "nameEn": "Stepped gear m1/m2/m3 with arbor m",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": "0,045",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 52,8 / Ø 8,25 / Ø 14,85 x 2,5 mm, Welle Ø 3 x 47 mm",
+    "interpretationNote": "m2 drives the Metonic gear n1; m3 drives the UK Saros wheel e3 at the back.",
+    "siteKit": "D-32000",
+    "teeth": {
+     "m1": 96,
+     "m2": 15,
+     "m3": 27
+    }
+   }
+  },
+  {
+   "id": "D-32012",
+   "plm": "DE",
+   "name": "Metonrad n1 mit Welle n",
+   "cadFile": "cad/antikythera/de-metonic-gear-n1.stp",
+   "cadPart": "de-metonic-gear-n1",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-32012",
+    "nameEn": "Metonic gear n1 with arbor n",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": "0,024",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 29,15 x 2,5 mm, Welle Ø 3 x 70 mm",
+    "interpretationNote": "Five turns in 19 years; the arbor passes through the back plate to the FR Metonic pointer.",
+    "siteKit": "D-32000",
+    "teeth": {
+     "n1": 53
+    }
+   }
+  },
+  {
+   "id": "UK-3201",
+   "plm": "UK",
+   "name": "Saros train input gear b2",
+   "cadFile": "cad/antikythera/uk-input-gear-b2.stp",
+   "cadPart": "uk-input-gear-b2",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "UK/3201",
+    "nameEn": "Saros train input gear b2",
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": "0.055",
+    "massUnit": "lb",
+    "material": "Bronze CuSn8",
+    "dimensionText": "1.386 dia x 0.098 in",
+    "interpretationNote": "Fixed to the main drive wheel in the reconstruction; here keyed on the DE hollow arbor b as the input of the Saros train. It also feeds the DE mean-sun train (c1) and the DE back-dial input (l1).",
+    "siteKit": "UK/3200",
+    "teeth": {
+     "b2": 64
+    }
+   }
+  },
+  {
+   "id": "UK-3202",
+   "plm": "UK",
+   "name": "Saros wheel e3/e4 with epicyclic stud",
+   "cadFile": "cad/antikythera/uk-saros-wheel-e3.stp",
+   "cadPart": "uk-saros-wheel-e3",
+   "classification": {
+    "jurisdiction": "NATIONAL-UK",
+    "releasableTo": "UK"
+   },
+   "supplier": "Fenland Clockworks, Ely",
+   "extended": {
+    "localId": "UK/3202",
+    "nameEn": "Saros wheel e3/e4 with epicyclic stud",
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": "0.620",
+    "massUnit": "lb",
+    "material": "Bronze CuSn8",
+    "dimensionText": "4.829 dia x 0.276 in",
+    "interpretationNote": "e3 and e4 turn together on a bush around the DE lunar arbor e, once in 8.88 years; one stud carries the pin-and-slot pair k1 and k2.",
+    "siteKit": "UK/3200",
+    "teeth": {
+     "e3": 223,
+     "e4": 188
+    }
+   }
+  },
+  {
+   "id": "UK-3203",
+   "plm": "UK",
+   "name": "Pin-and-slot follower k2",
+   "cadFile": "cad/antikythera/uk-pin-slot-follower-k2.stp",
+   "cadPart": "uk-pin-slot-follower-k2",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "UK/3203",
+    "nameEn": "Pin-and-slot follower k2",
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": "0.030",
+    "massUnit": "lb",
+    "material": "Bronze CuSn8",
+    "dimensionText": "1.083 dia x 0.098 in",
+    "interpretationNote": "Rides the shared stud of the Saros wheel and drives e6; the radial slot that takes the pin of k1 is not modelled.",
+    "siteKit": "UK/3200",
+    "teeth": {
+     "k2": 48
+    }
+   }
+  },
+  {
+   "id": "UK-3204",
+   "plm": "UK",
+   "name": "Stepped gear f1/f2 with arbor f",
+   "cadFile": "cad/antikythera/uk-gear-cluster-f.stp",
+   "cadPart": "uk-gear-cluster-f",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "supplier": "Fenland Clockworks, Ely",
+   "extended": {
+    "localId": "UK/3204",
+    "nameEn": "Stepped gear f1/f2 with arbor f",
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": "0.070",
+    "massUnit": "lb",
+    "material": "Bronze CuSn8",
+    "dimensionText": "1.148 / 0.650 dia x 0.098 in, arbor 0.118 dia x 0.906 in",
+    "interpretationNote": "First stage of the Saros train after e4; the arbor seats in the ES back plate.",
+    "siteKit": "UK/3200",
+    "teeth": {
+     "f1": 53,
+     "f2": 30
+    }
+   }
+  },
+  {
+   "id": "UK-3205",
+   "plm": "UK",
+   "name": "Saros pointer gear g1/g2 with arbor g",
+   "cadFile": "cad/antikythera/uk-gear-cluster-g.stp",
+   "cadPart": "uk-gear-cluster-g",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "UK/3205",
+    "nameEn": "Saros pointer gear g1/g2 with arbor g",
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": "0.075",
+    "massUnit": "lb",
+    "material": "Bronze CuSn8",
+    "dimensionText": "1.169 / 0.433 dia x 0.098 in, arbor 0.118 dia x 0.945 in",
+    "interpretationNote": "g1 makes four turns in 223 synodic months; the arbor passes through the back plate to the FR Saros pointer.",
+    "siteKit": "UK/3200",
+    "teeth": {
+     "g1": 54,
+     "g2": 20
+    }
+   }
+  },
+  {
+   "id": "UK-3206",
+   "plm": "UK",
+   "name": "Stepped gear h1/h2 with arbor h",
+   "cadFile": "cad/antikythera/uk-gear-cluster-h.stp",
+   "cadPart": "uk-gear-cluster-h",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "UK/3206",
+    "nameEn": "Stepped gear h1/h2 with arbor h",
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": "0.060",
+    "massUnit": "lb",
+    "material": "Bronze CuSn8",
+    "dimensionText": "1.299 / 0.325 dia x 0.098 in, arbor 0.118 dia x 0.551 in",
+    "interpretationNote": "Exeligmos reduction: h1 is driven by g2, h2 drives i1.",
+    "siteKit": "UK/3200",
+    "teeth": {
+     "h1": 60,
+     "h2": 15
+    }
+   }
+  },
+  {
+   "id": "UK-3207",
+   "plm": "UK",
+   "name": "Exeligmos pointer gear i1 with arbor i",
+   "cadFile": "cad/antikythera/uk-exeligmos-gear-i1.stp",
+   "cadPart": "uk-exeligmos-gear-i1",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "UK/3207",
+    "nameEn": "Exeligmos pointer gear i1 with arbor i",
+    "revision": "P2",
+    "lifecycle": "Frozen",
+    "mass": "0.055",
+    "massUnit": "lb",
+    "material": "Bronze CuSn8",
+    "dimensionText": "1.299 dia x 0.098 in, arbor 0.118 dia x 0.630 in",
+    "interpretationNote": "One turn in three Saros periods (54 years); the arbor passes through the back plate to the FR Exeligmos pointer.",
+    "siteKit": "UK/3200",
+    "teeth": {
+     "i1": 60
+    }
+   }
+  },
+  {
+   "id": "FR3201",
+   "plm": "FR",
+   "name": "Anneau de cadran avant gravé (zodiaque et calendrier égyptien)",
+   "cadFile": "cad/antikythera/fr-front-dial-ring.stp",
+   "cadPart": "fr-front-dial-ring",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3201",
+    "nameEn": "Front dial ring (zodiac and Egyptian calendar)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": "0,180",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 168 / Ø 128 × 2,5 mm",
+    "interpretationNote": "Plain ring; the two engraved scales (zodiac inner, Egyptian calendar outer) are attributes, not geometry. Screwed to the ES front plate.",
+    "siteKit": "FR3200"
+   }
+  },
+  {
+   "id": "FR3202",
+   "plm": "FR",
+   "name": "Aiguille du Soleil",
+   "cadFile": "cad/antikythera/fr-sun-pointer.stp",
+   "cadPart": "fr-sun-pointer",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3202",
+    "nameEn": "Sun pointer",
+    "revision": "B",
+    "lifecycle": "Publié",
+    "mass": "0,006",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "80 × 4 × 1,5 mm",
+    "interpretationNote": "Pinned on the DE hollow arbor b; one turn per year.",
+    "siteKit": "FR3200"
+   }
+  },
+  {
+   "id": "FR3203",
+   "plm": "FR",
+   "name": "Aiguille de la Lune avec sphère des phases",
+   "cadFile": "cad/antikythera/fr-lunar-pointer.stp",
+   "cadPart": "fr-lunar-pointer",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3203",
+    "nameEn": "Lunar pointer with moon-phase sphere",
+    "revision": "B",
+    "lifecycle": "Publié",
+    "mass": "0,008",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "70 × 4 × 1,5 mm, sphère Ø 6 mm",
+    "interpretationNote": "Pinned on the DE lunar pointer arbor b3. The sphere is half silvered, half black; the small gearing that turns it (Freeth et al. 2006) is not modelled.",
+    "siteKit": "FR3200"
+   }
+  },
+  {
+   "id": "FR3204",
+   "plm": "FR",
+   "name": "Cadran arrière supérieur, spirale de Méton (235 mois, 5 tours)",
+   "cadFile": "cad/antikythera/fr-metonic-dial.stp",
+   "cadPart": "fr-metonic-dial",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3204",
+    "nameEn": "Upper back dial, Metonic spiral",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": "0,260",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 124 × 2,5 mm",
+    "interpretationNote": "Plain plate with a raised rim; the five-turn spiral of 235 month cells is an attribute. Screwed to the ES back plate. Carries the exhibit lighting connector (modern item).",
+    "siteKit": "FR3200"
+   }
+  },
+  {
+   "id": "FR3205",
+   "plm": "FR",
+   "name": "Cadran arrière inférieur, spirale de Saros (223 mois, 4 tours)",
+   "cadFile": "cad/antikythera/fr-saros-dial.stp",
+   "cadPart": "fr-saros-dial",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3205",
+    "nameEn": "Lower back dial, Saros spiral",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": "0,260",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "Ø 124 × 2,5 mm",
+    "interpretationNote": "Plain plate with a raised rim; the four-turn spiral of 223 month cells and the Exeligmos subsidiary dial are attributes. Screwed to the ES back plate.",
+    "siteKit": "FR3200"
+   }
+  },
+  {
+   "id": "FR3206",
+   "plm": "FR",
+   "name": "Aiguille de Méton à curseur",
+   "cadFile": "cad/antikythera/fr-metonic-pointer.stp",
+   "cadPart": "fr-metonic-pointer",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3206",
+    "nameEn": "Metonic pointer with follower",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": "0,010",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "58 × 4 × 2 mm",
+    "interpretationNote": "Pinned on the DE arbor n; the follower pin rides the spiral groove.",
+    "siteKit": "FR3200"
+   }
+  },
+  {
+   "id": "FR3207",
+   "plm": "FR",
+   "name": "Aiguille de Saros à curseur",
+   "cadFile": "cad/antikythera/fr-saros-pointer.stp",
+   "cadPart": "fr-saros-pointer",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3207",
+    "nameEn": "Saros pointer with follower",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": "0,010",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "58 × 4 × 2 mm",
+    "interpretationNote": "Pinned on the UK arbor g; the follower pin rides the spiral groove.",
+    "siteKit": "FR3200"
+   }
+  },
+  {
+   "id": "FR3208",
+   "plm": "FR",
+   "name": "Aiguille de l'Exeligmos",
+   "cadFile": "cad/antikythera/fr-exeligmos-pointer.stp",
+   "cadPart": "fr-exeligmos-pointer",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3208",
+    "nameEn": "Exeligmos pointer",
+    "revision": "A",
+    "lifecycle": "En cours",
+    "mass": "0,002",
+    "massUnit": "kg",
+    "material": "Bronze CuSn8",
+    "dimensionText": "13 × 2,5 × 2 mm",
+    "interpretationNote": "Pinned on the UK arbor i over the subsidiary dial inside the Saros spiral.",
+    "siteKit": "FR3200"
+   }
+  },
+  {
+   "id": "ES-3201",
+   "plm": "ES",
+   "name": "Bastidor de madera (marcos laterales, listones superior e inferior)",
+   "cadFile": "cad/antikythera/es-casing-body.stp",
+   "cadPart": "es-casing-body",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "ES-3201",
+    "nameEn": "Wooden casing frame (side frames, top and bottom rails)",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": "0,620",
+    "massUnit": "kg",
+    "material": "Haya",
+    "dimensionText": "180 x 96 x 340 mm",
+    "interpretationNote": "Open frame so the mechanism shows: each side a frame of four 12 mm rails, the right side with a fifth rail across the middle that carries the crank bush; two rails each along the top and the bottom.",
+    "siteKit": "ES-3200"
+   }
+  },
+  {
+   "id": "ES-3202",
+   "plm": "ES",
+   "name": "Placa frontal de bronce (asientos de ejes, tres aberturas)",
+   "cadFile": "cad/antikythera/es-front-plate.stp",
+   "cadPart": "es-front-plate",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "ES-3202",
+    "nameEn": "Bronze front plate (arbor seats, three openings)",
+    "revision": 2,
+    "lifecycle": "Liberado",
+    "mass": "0,980",
+    "massUnit": "kg",
+    "material": "Bronce CuSn8",
+    "dimensionText": "168 x 3 x 328 mm",
+    "interpretationNote": "Carries the front bearing bushes of the DE arbors; bush holes are not modelled. Three circular openings between the seats (two of Ø 64 above the main drive wheel, one of Ø 100 over the Saros train) show the gearing. Revision 2 adds the bush seats.",
+    "siteKit": "ES-3200"
+   }
+  },
+  {
+   "id": "ES-3203",
+   "plm": "ES",
+   "name": "Placa trasera de bronce (asientos de ejes, cuatro aberturas)",
+   "cadFile": "cad/antikythera/es-back-plate.stp",
+   "cadPart": "es-back-plate",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "ES-3203",
+    "nameEn": "Bronze back plate (arbor seats, four openings)",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": "1,080",
+    "massUnit": "kg",
+    "material": "Bronce CuSn8",
+    "dimensionText": "168 x 3 x 328 mm",
+    "interpretationNote": "Carries the back bearing bushes of the UK arbors and the FR back dials; four circular openings clear of the seats, the dial screws and the exhibit lighting pass-through connector (modern item).",
+    "siteKit": "ES-3200"
+   }
+  },
+  {
+   "id": "ES-3204",
+   "plm": "ES",
+   "name": "Par de marcos de puerta (frontal y trasero)",
+   "cadFile": "cad/antikythera/es-door-pair.stp",
+   "cadPart": "es-door-pair",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "ES-3204",
+    "nameEn": "Door frame pair (front and back)",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": "0,410",
+    "massUnit": "kg",
+    "material": "Haya",
+    "dimensionText": "168 x 6 x 328 mm (x2), listón 14 mm",
+    "interpretationNote": "Open frames of 14 mm rails hinged on the left side frame; the inscribed panels of the original doors are attributes, not geometry.",
+    "siteKit": "ES-3200"
+   }
+  },
+  {
+   "id": "ES-3205",
+   "plm": "ES",
+   "name": "Bisagras (juego de cuatro)",
+   "cadFile": "cad/antikythera/es-hinge-set.stp",
+   "cadPart": "es-hinge-set",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "ES-3205",
+    "nameEn": "Hinges (set of four)",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": "0,060",
+    "massUnit": "kg",
+    "material": "Bronce CuSn8",
+    "dimensionText": "Ø 6 x 30 mm (x4)",
+    "interpretationNote": "Two knuckle hinges per door.",
+    "siteKit": "ES-3200"
+   }
+  },
+  {
+   "id": "ES-3206",
+   "plm": "ES",
+   "name": "Pilares de unión de placas (juego de cuatro)",
+   "cadFile": "cad/antikythera/es-plate-pillar-set.stp",
+   "cadPart": "es-plate-pillar-set",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "ES-3206",
+    "nameEn": "Plate pillars (set of four)",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": "0,110",
+    "massUnit": "kg",
+    "material": "Bronce CuSn8",
+    "dimensionText": "6 x 59 x 10 mm (x4)",
+    "interpretationNote": "Corner pillars between the plates, screwed to the side boards.",
+    "siteKit": "ES-3200"
+   }
+  }
+ ],
+ "interfaces": [
+  {
+   "id": "IF-100",
+   "label": "Lunar pointer / lunar pointer arbor b3 (taper pin on the front tip)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "FR3203",
+    "D-32008"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3203-F01",
+      "part": "FR3203",
+      "position": {
+       "x": "0.000",
+       "y": "-7.250",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2339",
+      "diameter": "1.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "8.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "D-32008-B01",
+      "part": "D-32008",
+      "position": {
+       "x": "0.000",
+       "y": "-7.250",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2339",
+      "diameter": "1.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "8.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-101",
+   "label": "Saros train input gear b2 / main drive wheel b1 (cross pin through the hollow arbor b)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "UK-3201",
+    "D-32003"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "UK-3201-F01",
+      "part": "UK-3201",
+      "position": {
+       "x": "0.0000",
+       "y": "0.4429",
+       "z": "0.0000"
+      },
+      "unit": "IN",
+      "standard": "ISO 2341",
+      "diameter": "0.1181",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "1.3858",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "D-32003-B01",
+      "part": "D-32003",
+      "position": {
+       "x": "0.000",
+       "y": "11.250",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "3.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "35.200",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-102",
+   "label": "Metonic back dial / back plate (dial screws, exhibit lighting plug)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "FR3204",
+    "ES-3203"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3204-F01",
+      "part": "FR3204",
+      "position": {
+       "x": "6.338",
+       "y": "63.500",
+       "z": "129.557"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "2.500",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "5.500",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "ES-3203-R01",
+      "part": "ES-3203",
+      "position": {
+       "x": "6.338",
+       "y": "63.500",
+       "z": "129.557"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "2.500",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "5.500",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ],
+   "unmatedPlugs": [
+    {
+     "id": "FR3204-J01",
+     "part": "FR3204",
+     "position": {
+      "x": "66.338",
+      "y": "65.000",
+      "z": "69.557"
+     },
+     "unit": "MilliM",
+     "connectorType": "M8-A",
+     "pinCount": 3
+    }
+   ]
+  },
+  {
+   "id": "IF-103",
+   "label": "Main drive arbor b bearing seat / front plate (bush)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "D-32003",
+    "ES-3202"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-32003-B03",
+      "part": "D-32003",
+      "position": {
+       "x": "0.000",
+       "y": "1.500",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4379",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "3.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "ES-3202-R01",
+      "part": "ES-3202",
+      "position": {
+       "x": "0.000",
+       "y": "1.500",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4379",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "3.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-104",
+   "label": "Pin-and-slot driver k1 / follower k2 (pin in slot)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "D-32009",
+    "UK-3203"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-32009-B02",
+      "part": "D-32009",
+      "position": {
+       "x": "36.500",
+       "y": "35.000",
+       "z": "-17.600"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2338",
+      "diameter": "1.500",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "3.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "UK-3203-F02",
+      "part": "UK-3203",
+      "position": {
+       "x": "1.4370",
+       "y": "1.3780",
+       "z": "-0.6929"
+      },
+      "unit": "IN",
+      "standard": "ISO 2338",
+      "diameter": "0.0472",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "0.1181",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-105",
+   "label": "Pin-and-slot driver k1 / Saros wheel e3 (epicyclic stud)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "D-32009",
+    "UK-3202"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-32009-B01",
+      "part": "D-32009",
+      "position": {
+       "x": "27.500",
+       "y": "37.250",
+       "z": "-17.600"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2338",
+      "diameter": "2.400",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "2.500",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "UK-3202-F02",
+      "part": "UK-3202",
+      "position": {
+       "x": "1.0827",
+       "y": "1.4665",
+       "z": "-0.6929"
+      },
+      "unit": "IN",
+      "standard": "ISO 2338",
+      "diameter": "0.0945",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "0.0984",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-106",
+   "label": "Saros pointer / Saros pointer arbor g (taper pin)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "FR3207",
+    "UK-3205"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3207-F01",
+      "part": "FR3207",
+      "position": {
+       "x": "-4.000",
+       "y": "69.000",
+       "z": "-94.800"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2339",
+      "diameter": "1.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "8.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "UK-3205-F01",
+      "part": "UK-3205",
+      "position": {
+       "x": "-0.1575",
+       "y": "2.7165",
+       "z": "-3.7795"
+      },
+      "unit": "IN",
+      "standard": "ISO 2339",
+      "diameter": "0.0394",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "0.3150",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-107",
+   "label": "Exeligmos pointer / Exeligmos arbor i (taper pin)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "FR3208",
+    "UK-3207"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3208-F01",
+      "part": "FR3208",
+      "position": {
+       "x": "35.365",
+       "y": "69.000",
+       "z": "-110.581"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2339",
+      "diameter": "1.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "6.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "UK-3207-F01",
+      "part": "UK-3207",
+      "position": {
+       "x": "1.3923",
+       "y": "2.7165",
+       "z": "-4.3536"
+      },
+      "unit": "IN",
+      "standard": "ISO 2339",
+      "diameter": "0.0394",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "0.2362",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-108",
+   "label": "Metonic pointer / Metonic arbor n (taper pin)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "FR3206",
+    "D-32012"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3206-F01",
+      "part": "FR3206",
+      "position": {
+       "x": "6.338",
+       "y": "69.000",
+       "z": "69.557"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2339",
+      "diameter": "1.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "8.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "D-32012-B01",
+      "part": "D-32012",
+      "position": {
+       "x": "6.338",
+       "y": "69.000",
+       "z": "69.557"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2339",
+      "diameter": "1.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "8.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-109",
+   "label": "Sun pointer / main drive arbor b (taper pin on the front tip)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "FR3202",
+    "D-32003"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3202-F01",
+      "part": "FR3202",
+      "position": {
+       "x": "0.000",
+       "y": "-4.750",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2339",
+      "diameter": "1.500",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "D-32003-B02",
+      "part": "D-32003",
+      "position": {
+       "x": "0.000",
+       "y": "-4.750",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2339",
+      "diameter": "1.500",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-110",
+   "label": "Front dial ring / front plate (ring screws)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "FR3201",
+    "ES-3202"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3201-F01",
+      "part": "FR3201",
+      "position": {
+       "x": "0.000",
+       "y": "1.500",
+       "z": "74.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "2.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "5.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "ES-3202-R03",
+      "part": "ES-3202",
+      "position": {
+       "x": "0.000",
+       "y": "1.500",
+       "z": "74.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "2.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "5.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-111",
+   "label": "Saros arbor f bearing seat / back plate (bush)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "UK-3204",
+    "ES-3203"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "UK-3204-F01",
+      "part": "UK-3204",
+      "position": {
+       "x": "0.5734",
+       "y": "2.5000",
+       "z": "-3.2384"
+      },
+      "unit": "IN",
+      "standard": "ISO 4379",
+      "diameter": "0.1181",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "0.1181",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "ES-3203-R04",
+      "part": "ES-3203",
+      "position": {
+       "x": "14.565",
+       "y": "63.500",
+       "z": "-82.255"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4379",
+      "diameter": "3.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "3.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-112",
+   "label": "Lunar arbor e bearing seat / front plate (bush)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "D-32006",
+    "ES-3202"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-32006-B01",
+      "part": "D-32006",
+      "position": {
+       "x": "0.000",
+       "y": "1.500",
+       "z": "-17.600"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4379",
+      "diameter": "3.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "3.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "ES-3202-R02",
+      "part": "ES-3202",
+      "position": {
+       "x": "0.000",
+       "y": "1.500",
+       "z": "-17.600"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4379",
+      "diameter": "3.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "3.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-113",
+   "label": "Saros wheel e3 / lunar arbor e (bush on the arbor)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "UK-3202",
+    "D-32006"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "UK-3202-F01",
+      "part": "UK-3202",
+      "position": {
+       "x": "0.0000",
+       "y": "1.7126",
+       "z": "-0.6929"
+      },
+      "unit": "IN",
+      "standard": "ISO 4379",
+      "diameter": "0.1260",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "0.2756",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "D-32006-B02",
+      "part": "D-32006",
+      "position": {
+       "x": "0.000",
+       "y": "43.500",
+       "z": "-17.600"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4379",
+      "diameter": "3.200",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "7.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-114",
+   "label": "Crank arbor a / casing right board (bush)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "D-32002",
+    "ES-3201"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-32002-B01",
+      "part": "D-32002",
+      "position": {
+       "x": "87.000",
+       "y": "22.200",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4379",
+      "diameter": "4.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "6.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "ES-3201-R01",
+      "part": "ES-3201",
+      "position": {
+       "x": "87.000",
+       "y": "22.200",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4379",
+      "diameter": "4.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "6.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-115",
+   "label": "Saros back dial / back plate (dial screws)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "FR3205",
+    "ES-3203"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3205-F01",
+      "part": "FR3205",
+      "position": {
+       "x": "-4.000",
+       "y": "63.500",
+       "z": "-36.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "2.500",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "5.500",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "ES-3203-R02",
+      "part": "ES-3203",
+      "position": {
+       "x": "-4.000",
+       "y": "63.500",
+       "z": "-36.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "2.500",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "5.500",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-116",
+   "label": "Pin-and-slot follower k2 / Saros wheel e3 (epicyclic stud)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "UK-3203",
+    "UK-3202"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "UK-3203-F01",
+      "part": "UK-3203",
+      "position": {
+       "x": "1.0827",
+       "y": "1.3091",
+       "z": "-0.6929"
+      },
+      "unit": null,
+      "standard": "ISO 2338",
+      "diameter": "0.0945",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "0.0984",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "UK-3202-F03",
+      "part": "UK-3202",
+      "position": {
+       "x": "1.0827",
+       "y": "1.3091",
+       "z": "-0.6929"
+      },
+      "unit": "IN",
+      "standard": "ISO 2338",
+      "diameter": "0.0945",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "0.0984",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-117",
+   "label": "Crank handle / crank arbor a (feather key)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "D-32001",
+    "D-32002"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-32001-B01",
+      "part": "D-32001",
+      "position": {
+       "x": "97.000",
+       "y": "22.200",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "2.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "6.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "D-32002-B02",
+      "part": "D-32002",
+      "position": {
+       "x": "97.000",
+       "y": "22.200",
+       "z": "0.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "2.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "6.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-118",
+   "label": "Plate pillars / casing side boards (wood screws)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "ES-3206",
+    "ES-3201"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "ES-3206-R01",
+      "part": "ES-3206",
+      "position": {
+       "x": "87.000",
+       "y": "32.500",
+       "z": "155.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 1207",
+      "diameter": "3.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "ES-3201-R02",
+      "part": "ES-3201",
+      "position": {
+       "x": "87.000",
+       "y": "32.500",
+       "z": "155.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 1207",
+      "diameter": "3.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "12.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-119",
+   "label": "Plate pillars / front plate (pillar screws)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "ES-3206",
+    "ES-3202"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "ES-3206-R02",
+      "part": "ES-3206",
+      "position": {
+       "x": "81.000",
+       "y": "1.500",
+       "z": "155.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "3.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "6.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "ES-3202-R04",
+      "part": "ES-3202",
+      "position": {
+       "x": "81.000",
+       "y": "1.500",
+       "z": "155.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "3.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "6.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-120",
+   "label": "Hinges / doors (hinge pins)",
+   "toleranceMm": "0.500",
+   "parts": [
+    "ES-3205",
+    "ES-3204"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "ES-3205-R01",
+      "part": "ES-3205",
+      "position": {
+       "x": "-88.000",
+       "y": "-13.000",
+       "z": "120.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2338",
+      "diameter": "2.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "ES-3204-R01",
+      "part": "ES-3204",
+      "position": {
+       "x": "-88.000",
+       "y": "-13.000",
+       "z": "120.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2338",
+      "diameter": "2.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  }
+ ],
+ "sparePlugs": [
+  {
+   "id": "ES-3203-C01",
+   "part": "ES-3203",
+   "position": {
+    "x": "66.338",
+    "y": "65.000",
+    "z": "69.557"
+   },
+   "unit": "MilliM",
+   "connectorType": "M8-A",
+   "pinCount": 3
+  }
+ ],
+ "seededDefects": [
+  {
+   "interface": "IF-104",
+   "rule": "fastener",
+   "features": [
+    "D-32009-B02",
+    "UK-3203-F02"
+   ],
+   "detail": "DE pin diameter 1.5 mm vs UK 0.0472 in (1.199 mm)"
+  },
+  {
+   "interface": "IF-102",
+   "rule": "orphan",
+   "features": [
+    "FR3204-J01"
+   ],
+   "detail": "FR exhibit lighting plug declared with no ES mate; the spare ES plug ES-3203-C01 sits at its position"
+  },
+  {
+   "interface": "IF-106",
+   "rule": "position",
+   "features": [
+    "FR3207-F01",
+    "UK-3205-F01"
+   ],
+   "detail": "z differs by 1.2 mm (FR -94.800 vs UK -3.7795 in); the FR row is the outlier"
+  },
+  {
+   "interface": "IF-116",
+   "rule": "unit",
+   "features": [
+    "UK-3203-F01"
+   ],
+   "detail": "UK row stored with pos_uom NULL"
+  }
+ ],
+ "seededReferenceDefects": [
+  {
+   "localPart": "FR3203",
+   "remoteUrn": "urn:plm:de:part:D-32008",
+   "rule": "staleRevision"
+  },
+  {
+   "localPart": "FR3204",
+   "remoteUrn": "urn:plm:es:pieza:ES-3203",
+   "rule": "danglingReference"
+  }
+ ],
+ "seededLifecycleDefects": [],
+ "seededMeshDefects": [],
+ "extended": {
+  "assemblies": [
+   {
+    "id": "D-32000",
+    "plm": "DE",
+    "name": "Antriebsbausatz (Hauptantrieb, Mond- und Metongetriebe)",
+    "nameEn": "Drive kit",
+    "kind": "SITE_KIT",
+    "revision": null,
+    "lifecycle": null
+   },
+   {
+    "id": "FR3200",
+    "plm": "FR",
+    "name": "Kit cadrans et aiguilles",
+    "nameEn": "Dial kit",
+    "kind": "SITE_KIT",
+    "revision": null,
+    "lifecycle": null
+   },
+   {
+    "id": "ES-3200",
+    "plm": "ES",
+    "name": "Kit carcasa",
+    "nameEn": "Casing kit",
+    "kind": "SITE_KIT",
+    "revision": 1,
+    "lifecycle": null
+   },
+   {
+    "id": "UK-3200",
+    "plm": "UK",
+    "name": "Eclipse train kit (Saros and Exeligmos)",
+    "nameEn": "Eclipse train kit",
+    "kind": "SITE_KIT",
+    "revision": null,
+    "lifecycle": null
+   }
+  ],
+  "bomLines": [
+   {
+    "parent": "D-32000",
+    "child": "D-32001",
+    "quantity": 1
+   },
+   {
+    "parent": "D-32000",
+    "child": "D-32002",
+    "quantity": 1
+   },
+   {
+    "parent": "D-32000",
+    "child": "D-32003",
+    "quantity": 1
+   },
+   {
+    "parent": "D-32000",
+    "child": "D-32004",
+    "quantity": 1
+   },
+   {
+    "parent": "D-32000",
+    "child": "D-32005",
+    "quantity": 1
+   },
+   {
+    "parent": "D-32000",
+    "child": "D-32006",
+    "quantity": 1
+   },
+   {
+    "parent": "D-32000",
+    "child": "D-32007",
+    "quantity": 1
+   },
+   {
+    "parent": "D-32000",
+    "child": "D-32008",
+    "quantity": 1
+   },
+   {
+    "parent": "D-32000",
+    "child": "D-32009",
+    "quantity": 1
+   },
+   {
+    "parent": "D-32000",
+    "child": "D-32010",
+    "quantity": 1
+   },
+   {
+    "parent": "D-32000",
+    "child": "D-32011",
+    "quantity": 1
+   },
+   {
+    "parent": "D-32000",
+    "child": "D-32012",
+    "quantity": 1
+   },
+   {
+    "parent": "FR3200",
+    "child": "FR3201",
+    "quantity": 1,
+    "findNumber": "1"
+   },
+   {
+    "parent": "FR3200",
+    "child": "FR3202",
+    "quantity": 1,
+    "findNumber": "2"
+   },
+   {
+    "parent": "FR3200",
+    "child": "FR3203",
+    "quantity": 1,
+    "findNumber": "3"
+   },
+   {
+    "parent": "FR3200",
+    "child": "FR3204",
+    "quantity": 1,
+    "findNumber": "4"
+   },
+   {
+    "parent": "FR3200",
+    "child": "FR3205",
+    "quantity": 1,
+    "findNumber": "5"
+   },
+   {
+    "parent": "FR3200",
+    "child": "FR3206",
+    "quantity": 1,
+    "findNumber": "6"
+   },
+   {
+    "parent": "FR3200",
+    "child": "FR3207",
+    "quantity": 1,
+    "findNumber": "7"
+   },
+   {
+    "parent": "FR3200",
+    "child": "FR3208",
+    "quantity": 1,
+    "findNumber": "8"
+   },
+   {
+    "parent": "ES-3200",
+    "child": "ES-3201",
+    "quantity": 1
+   },
+   {
+    "parent": "ES-3200",
+    "child": "ES-3202",
+    "quantity": 1
+   },
+   {
+    "parent": "ES-3200",
+    "child": "ES-3203",
+    "quantity": 1
+   },
+   {
+    "parent": "ES-3200",
+    "child": "ES-3204",
+    "quantity": 1
+   },
+   {
+    "parent": "ES-3200",
+    "child": "ES-3205",
+    "quantity": 1
+   },
+   {
+    "parent": "ES-3200",
+    "child": "ES-3206",
+    "quantity": 1
+   },
+   {
+    "parent": "UK-3200",
+    "child": "UK-3201",
+    "quantity": 1
+   },
+   {
+    "parent": "UK-3200",
+    "child": "UK-3202",
+    "quantity": 1
+   },
+   {
+    "parent": "UK-3200",
+    "child": "UK-3203",
+    "quantity": 1
+   },
+   {
+    "parent": "UK-3200",
+    "child": "UK-3204",
+    "quantity": 1
+   },
+   {
+    "parent": "UK-3200",
+    "child": "UK-3205",
+    "quantity": 1
+   },
+   {
+    "parent": "UK-3200",
+    "child": "UK-3206",
+    "quantity": 1
+   },
+   {
+    "parent": "UK-3200",
+    "child": "UK-3207",
+    "quantity": 1
+   }
+  ],
+  "externalRefs": [
+   {
+    "localPart": "FR3203",
+    "remoteUrn": "urn:plm:de:part:D-32008",
+    "quantity": 1,
+    "expectedRevision": "01",
+    "note": "Aiguille de la Lune goupillée sur l'arbre b3; indice 01 attendu, le DE est à 02 (01 Ersetzt)",
+    "interface": "IF-100"
+   },
+   {
+    "localPart": "UK-3201",
+    "remoteUrn": "urn:plm:de:part:D-32003",
+    "quantity": 1,
+    "expectedRevision": "02",
+    "note": "b2 keyed on the hollow arbor b",
+    "interface": "IF-101"
+   },
+   {
+    "localPart": "FR3204",
+    "remoteUrn": "urn:plm:es:pieza:ES-3203",
+    "quantity": 1,
+    "expectedRevision": 1,
+    "note": "Cadran de Méton vissé sur la plaque arrière; URN mal formée (segment 'pieza')",
+    "interface": "IF-102"
+   },
+   {
+    "localPart": "D-32003",
+    "remoteUrn": "urn:plm:es:part:ES-3202",
+    "quantity": 1,
+    "expectedRevision": 2,
+    "note": "Lagerbuchse der Hohlwelle b in der Frontplatte",
+    "interface": "IF-103"
+   },
+   {
+    "localPart": "D-32009",
+    "remoteUrn": "urn:plm:uk:part:UK/3203",
+    "quantity": 1,
+    "expectedRevision": "C1",
+    "note": "Stift von k1 im Schlitz von k2",
+    "interface": "IF-104"
+   },
+   {
+    "localPart": "D-32009",
+    "remoteUrn": "urn:plm:uk:part:UK/3202",
+    "quantity": 1,
+    "expectedRevision": "C1",
+    "note": "k1 auf dem Zapfen des Sarosrads",
+    "interface": "IF-105"
+   },
+   {
+    "localPart": "FR3207",
+    "remoteUrn": "urn:plm:uk:part:UK/3205",
+    "quantity": 1,
+    "expectedRevision": "C1",
+    "note": "Aiguille de Saros goupillée sur l'arbre g",
+    "interface": "IF-106"
+   },
+   {
+    "localPart": "FR3208",
+    "remoteUrn": "urn:plm:uk:part:UK/3207",
+    "quantity": 1,
+    "expectedRevision": "P2",
+    "note": "Aiguille de l'Exeligmos goupillée sur l'arbre i",
+    "interface": "IF-107"
+   },
+   {
+    "localPart": "FR3206",
+    "remoteUrn": "urn:plm:de:part:D-32012",
+    "quantity": 1,
+    "expectedRevision": "01",
+    "note": "Aiguille de Méton goupillée sur l'arbre n",
+    "interface": "IF-108"
+   },
+   {
+    "localPart": "FR3202",
+    "remoteUrn": "urn:plm:de:part:D-32003",
+    "quantity": 1,
+    "expectedRevision": "02",
+    "note": "Aiguille du Soleil goupillée sur l'arbre creux b",
+    "interface": "IF-109"
+   },
+   {
+    "localPart": "FR3201",
+    "remoteUrn": "urn:plm:es:part:ES-3202",
+    "quantity": 1,
+    "expectedRevision": 2,
+    "note": "Anneau de cadran vissé sur la plaque frontale",
+    "interface": "IF-110"
+   },
+   {
+    "localPart": "UK-3204",
+    "remoteUrn": "urn:plm:es:part:ES-3203",
+    "quantity": 1,
+    "expectedRevision": 1,
+    "note": "arbor f bush in the back plate",
+    "interface": "IF-111"
+   },
+   {
+    "localPart": "D-32006",
+    "remoteUrn": "urn:plm:es:part:ES-3202",
+    "quantity": 1,
+    "expectedRevision": 2,
+    "note": "Lagerbuchse der Mondwelle e in der Frontplatte",
+    "interface": "IF-112"
+   },
+   {
+    "localPart": "UK-3202",
+    "remoteUrn": "urn:plm:de:part:D-32006",
+    "quantity": 1,
+    "expectedRevision": "01",
+    "note": "Saros wheel bush on the lunar arbor e",
+    "interface": "IF-113"
+   },
+   {
+    "localPart": "D-32002",
+    "remoteUrn": "urn:plm:es:part:ES-3201",
+    "quantity": 1,
+    "expectedRevision": 1,
+    "note": "Lagerbuchse der Kurbelwelle a in der rechten Seitenwand",
+    "interface": "IF-114"
+   },
+   {
+    "localPart": "FR3205",
+    "remoteUrn": "urn:plm:es:part:ES-3203",
+    "quantity": 1,
+    "expectedRevision": 1,
+    "note": "Cadran de Saros vissé sur la plaque arrière",
+    "interface": "IF-115"
+   }
+  ],
+  "gearModelling": {
+   "gearCount": 29,
+   "module": 0.55,
+   "moduleUnit": "MilliM",
+   "toothForm": "triangular (the original); not modelled, every gear is a plain disc at its pitch diameter",
+   "omitted": "Olympiad and Callippic trains (n2, n3, o1, p1, p2, q1) and the moon-phase gearing",
+   "axes": {
+    "b": {
+     "x": 0.0,
+     "z": 0.0
+    },
+    "e": {
+     "x": 0.0,
+     "z": -17.6
+    },
+    "c": {
+     "x": -24.292,
+     "z": 14.025
+    },
+    "d": {
+     "x": -39.441,
+     "z": 1.276
+    },
+    "l": {
+     "x": 24.292,
+     "z": 14.025
+    },
+    "m": {
+     "x": 6.338,
+     "z": 50.857
+    },
+    "n": {
+     "x": 6.338,
+     "z": 69.557
+    },
+    "k": {
+     "x": 27.5,
+     "z": -17.6
+    },
+    "g": {
+     "x": -4.0,
+     "z": -96.0
+    },
+    "f": {
+     "x": 14.565,
+     "z": -82.255
+    },
+    "h": {
+     "x": 15.053,
+     "z": -107.0
+    },
+    "i": {
+     "x": 35.365,
+     "z": -110.581
+    }
+   },
+   "axisNote": "x and z in the product frame of each arbor; every axis along y; centre distances are module x (z1 + z2) / 2"
+  },
+  "trains": [
+   {
+    "name": "Mean sun",
+    "pointer": "FR3202",
+    "path": [
+     "b1"
+    ],
+    "turnsPerYear": "1"
+   },
+   {
+    "name": "Mean sidereal moon",
+    "pointer": "FR3203",
+    "path": [
+     "b2",
+     "c1",
+     "c2",
+     "d1",
+     "d2",
+     "e2",
+     "e5",
+     "k1",
+     "k2",
+     "e6",
+     "e1",
+     "b3"
+    ],
+    "ratio": "64/38 x 48/24 x 127/32 = 254/19 sidereal rotations per year; the pin-and-slot adds the first lunar anomaly"
+   },
+   {
+    "name": "Metonic",
+    "pointer": "FR3206",
+    "path": [
+     "b2",
+     "l1",
+     "l2",
+     "m1",
+     "m2",
+     "n1"
+    ],
+    "ratio": "64/38 x 53/96 x 15/53 = 5/19: five turns of the spiral in 19 years, 235 synodic months"
+   },
+   {
+    "name": "Saros",
+    "pointer": "FR3207",
+    "path": [
+     "b2",
+     "l1",
+     "l2",
+     "m1",
+     "m3",
+     "e3",
+     "e4",
+     "f1",
+     "f2",
+     "g1"
+    ],
+    "ratio": "64/38 x 53/96 x 27/223 x 188/53 x 30/54: four turns of the spiral in 223 synodic months (18.03 years)"
+   },
+   {
+    "name": "Exeligmos",
+    "pointer": "FR3208",
+    "path": [
+     "g2",
+     "h1",
+     "h2",
+     "i1"
+    ],
+    "ratio": "Saros rate x 20/60 x 15/60: one turn in three Saros periods (54.09 years)"
+   }
+  ],
+  "meshes": [
+   {
+    "id": "M01",
+    "driverPart": "D-32002",
+    "driverGear": "a1",
+    "driverTeeth": 48,
+    "drivenPart": "D-32003",
+    "drivenGear": "b1",
+    "drivenTeeth": 223,
+    "module": 0.55,
+    "type": "contrate",
+    "sites": [
+     "DE"
+    ],
+    "heldBy": "DE"
+   },
+   {
+    "id": "M02",
+    "driverPart": "UK-3201",
+    "driverGear": "b2",
+    "driverTeeth": 64,
+    "drivenPart": "D-32004",
+    "drivenGear": "c1",
+    "drivenTeeth": 38,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "DE",
+     "UK"
+    ],
+    "heldBy": "UK",
+    "centreDistanceMm": 28.05
+   },
+   {
+    "id": "M03",
+    "driverPart": "D-32004",
+    "driverGear": "c2",
+    "driverTeeth": 48,
+    "drivenPart": "D-32005",
+    "drivenGear": "d1",
+    "drivenTeeth": 24,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "DE"
+    ],
+    "heldBy": "DE",
+    "centreDistanceMm": 19.8
+   },
+   {
+    "id": "M04",
+    "driverPart": "D-32005",
+    "driverGear": "d2",
+    "driverTeeth": 127,
+    "drivenPart": "D-32006",
+    "drivenGear": "e2",
+    "drivenTeeth": 32,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "DE"
+    ],
+    "heldBy": "DE",
+    "centreDistanceMm": 43.725
+   },
+   {
+    "id": "M05",
+    "driverPart": "D-32006",
+    "driverGear": "e5",
+    "driverTeeth": 50,
+    "drivenPart": "D-32009",
+    "drivenGear": "k1",
+    "drivenTeeth": 50,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "DE"
+    ],
+    "heldBy": "DE",
+    "centreDistanceMm": 27.5
+   },
+   {
+    "id": "M06",
+    "driverPart": "D-32009",
+    "driverGear": "k1",
+    "driverTeeth": 50,
+    "drivenPart": "UK-3203",
+    "drivenGear": "k2",
+    "drivenTeeth": 50,
+    "module": 0.55,
+    "type": "pin-and-slot",
+    "sites": [
+     "DE",
+     "UK"
+    ],
+    "heldBy": "DE",
+    "interface": "IF-104"
+   },
+   {
+    "id": "M07",
+    "driverPart": "UK-3203",
+    "driverGear": "k2",
+    "driverTeeth": 50,
+    "drivenPart": "D-32007",
+    "drivenGear": "e6",
+    "drivenTeeth": 50,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "DE",
+     "UK"
+    ],
+    "heldBy": "UK",
+    "centreDistanceMm": 27.5
+   },
+   {
+    "id": "M08",
+    "driverPart": "D-32007",
+    "driverGear": "e1",
+    "driverTeeth": 32,
+    "drivenPart": "D-32008",
+    "drivenGear": "b3",
+    "drivenTeeth": 32,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "DE"
+    ],
+    "heldBy": "DE",
+    "centreDistanceMm": 17.6
+   },
+   {
+    "id": "M09",
+    "driverPart": "UK-3201",
+    "driverGear": "b2",
+    "driverTeeth": 64,
+    "drivenPart": "D-32010",
+    "drivenGear": "l1",
+    "drivenTeeth": 38,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "DE",
+     "UK"
+    ],
+    "heldBy": "UK",
+    "centreDistanceMm": 28.05
+   },
+   {
+    "id": "M10",
+    "driverPart": "D-32010",
+    "driverGear": "l2",
+    "driverTeeth": 53,
+    "drivenPart": "D-32011",
+    "drivenGear": "m1",
+    "drivenTeeth": 96,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "DE"
+    ],
+    "heldBy": "DE",
+    "centreDistanceMm": 40.975
+   },
+   {
+    "id": "M11",
+    "driverPart": "D-32011",
+    "driverGear": "m2",
+    "driverTeeth": 15,
+    "drivenPart": "D-32012",
+    "drivenGear": "n1",
+    "drivenTeeth": 53,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "DE"
+    ],
+    "heldBy": "DE",
+    "centreDistanceMm": 18.7
+   },
+   {
+    "id": "M12",
+    "driverPart": "D-32011",
+    "driverGear": "m3",
+    "driverTeeth": 27,
+    "drivenPart": "UK-3202",
+    "drivenGear": "e3",
+    "drivenTeeth": 223,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "DE",
+     "UK"
+    ],
+    "heldBy": "DE",
+    "centreDistanceMm": 68.75
+   },
+   {
+    "id": "M13",
+    "driverPart": "UK-3202",
+    "driverGear": "e4",
+    "driverTeeth": 188,
+    "drivenPart": "UK-3204",
+    "drivenGear": "f1",
+    "drivenTeeth": 53,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "UK"
+    ],
+    "heldBy": "UK",
+    "centreDistanceMm": 66.275
+   },
+   {
+    "id": "M14",
+    "driverPart": "UK-3204",
+    "driverGear": "f2",
+    "driverTeeth": 30,
+    "drivenPart": "UK-3205",
+    "drivenGear": "g1",
+    "drivenTeeth": 54,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "UK"
+    ],
+    "heldBy": "UK",
+    "centreDistanceMm": 23.1
+   },
+   {
+    "id": "M15",
+    "driverPart": "UK-3205",
+    "driverGear": "g2",
+    "driverTeeth": 20,
+    "drivenPart": "UK-3206",
+    "drivenGear": "h1",
+    "drivenTeeth": 60,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "UK"
+    ],
+    "heldBy": "UK",
+    "centreDistanceMm": 22.0
+   },
+   {
+    "id": "M16",
+    "driverPart": "UK-3206",
+    "driverGear": "h2",
+    "driverTeeth": 15,
+    "drivenPart": "UK-3207",
+    "drivenGear": "i1",
+    "drivenTeeth": 60,
+    "module": 0.55,
+    "type": "spur",
+    "sites": [
+     "UK"
+    ],
+    "heldBy": "UK",
+    "centreDistanceMm": 20.625
+   }
+  ],
+  "proposedDefects": [
+   {
+    "rule": "mesh",
+    "interface": "IF-104",
+    "parts": [
+     "D-32009",
+     "UK-3203"
+    ],
+    "mesh": "M06",
+    "detail": "Pin-and-slot pair k1/k2: the DE mesh record expects k2 with 50 teeth; the UK part UK/3203 records 48.",
+    "needs": "A mesh rule over extended.meshes: the driven part's own tooth count equals the count the record expects, both gears share the module, the arbor centre distance equals module x (z1 + z2) / 2 within toleranceMm, and a pin-and-slot pair has equal counts. Requires tooth counts and arbor positions in the PLM mappings."
+   },
+   {
+    "rule": "staleRevision",
+    "interface": "IF-100",
+    "parts": [
+     "FR3203",
+     "D-32008"
+    ],
+    "detail": "FR3203 references urn:plm:de:part:D-32008 at revision 01, which is Ersetzt (SUPERSEDED); the released revision is 02.",
+    "needs": "A revision rule over extended.externalRefs: the expected revision of an external reference is the current released revision of the target. Requires revision and lifecycle columns in the PLM mappings."
+   },
+   {
+    "rule": "malformedUrn",
+    "interface": "IF-102",
+    "parts": [
+     "FR3204",
+     "ES-3203"
+    ],
+    "detail": "FR3204 references urn:plm:es:pieza:ES-3203, which is not a urn:plm:<site>:part:<local id> key and resolves to no part; its physical echo is the orphan plug FR3204-J01 (ES-3203-C01 sits at its position).",
+    "needs": "A reference rule: every external reference parses as urn:plm:(de|fr|es|uk):part:<local id> and resolves to exactly one part. Requires the external reference tables in the PLM mappings."
+   }
+  ],
+  "modernItems": [
+   {
+    "feature": "FR3204-J01",
+    "part": "FR3204",
+    "what": "exhibit lighting connector of the Metonic dial (M8, 3 pins), a modern museum item"
+   },
+   {
+    "feature": "ES-3203-C01",
+    "part": "ES-3203",
+    "what": "pass-through connector in the back plate for the exhibit lighting, a modern museum item"
+   }
+  ],
+  "sources": [
+   {
+    "title": "Decoding the ancient Greek astronomical calculator known as the Antikythera Mechanism",
+    "authors": "Freeth, T., Bitsakis, Y., Moussas, X., Seiradakis, J. H., Tselikas, A., Mangou, H., Zafeiropoulou, M., Hadland, R., Bate, D., Ramsey, A., Allen, M., Crawley, A., Hockley, P., Malzbender, T., Gelb, D., Ambrisco, W., Edmunds, M. G.",
+    "year": 2006,
+    "where": "Nature 444, 587-591",
+    "used": "gear scheme, tooth counts b1 to n1, pin-and-slot lunar anomaly"
+   },
+   {
+    "title": "Calendars with Olympiad display and eclipse prediction on the Antikythera Mechanism",
+    "authors": "Freeth, T., Jones, A., Steele, J. M., Bitsakis, Y.",
+    "year": 2008,
+    "where": "Nature 454, 614-617",
+    "used": "Saros and Exeligmos dials and pointers; Olympiad and Callippic trains, left out here"
+   },
+   {
+    "title": "The Cosmos in the Antikythera Mechanism",
+    "authors": "Freeth, T., Jones, A.",
+    "year": 2012,
+    "where": "ISAW Papers 4",
+    "used": "front dial layout, sun and moon pointers"
+   },
+   {
+    "title": "Open 3D model and article (Heidelberg University Library)",
+    "url": "https://books.ub.uni-heidelberg.de/arthistoricum/catalog/view/1568/2675/131230",
+    "used": "reference only; no geometry copied"
+   },
+   {
+    "title": "CAD reconstruction notes (Shambaugh)",
+    "url": "https://theshamblog.com/cad-files-for-the-antikythera-mechanism/",
+    "used": "reference only; no geometry copied"
+   },
+   {
+    "title": "3D-printable interpretation (kirolab)",
+    "url": "https://github.com/kirolab/3D-printed-Antikythera-mechanism",
+    "used": "reference only; no geometry copied"
+   },
+   {
+    "title": "Antikythera web VR (Weibel)",
+    "url": "https://www.thomasweibel.ch/antikythera/",
+    "used": "reference only"
+   }
+  ]
+ }
+}

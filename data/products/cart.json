@@ -1,0 +1,2086 @@
+{
+ "product": {
+  "key": "cart",
+  "name": "Self-propelled cart (Codex Atlanticus, f. 812r)"
+ },
+ "frame": "x forward in the direction of travel, y to the left, z up with z = 0 on the ground under the drive axle centre; mm, the frame of modules/cad/cart.py. Length 1700 (drive wheel front at x 500, steering wheel rear at x -1200), width 1420 over the drive wheels (centre planes at y +/-680), drive wheel diameter 1000 with the axle at z 500, spring shaft heads at z 740.",
+ "parts": [
+  {
+   "id": "ES-3101",
+   "plm": "ES",
+   "name": "Bastidor del chasis",
+   "cadFile": "cad/cart/es-chassis-frame.stp",
+   "cadPart": "es-chassis-frame",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "ES-3101",
+    "nameEn": "Chassis frame",
+    "revision": 2,
+    "lifecycle": "Liberado",
+    "mass": 34.6,
+    "massUnit": "kg",
+    "material": "roble",
+    "dimensionText": "1380 x 1240 x 80 mm",
+    "siteKit": "ES-3100",
+    "interpretationNote": "Ladder frame of two rails and four cross members; the folio gives no frame section, 80 x 80 mm is adopted."
+   }
+  },
+  {
+   "id": "ES-3102",
+   "plm": "ES",
+   "name": "Rueda motriz izquierda",
+   "cadFile": "cad/cart/es-drive-wheel-left.stp",
+   "cadPart": "es-drive-wheel-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "ES-3102",
+    "nameEn": "Left drive wheel",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 28.4,
+    "massUnit": "kg",
+    "material": "olmo con llanta de hierro forjado",
+    "dimensionText": "Ø 1000 x 60 mm",
+    "siteKit": "ES-3100",
+    "interpretationNote": "The folio shows two large wheels and one small one; the small wheel is read as a rear steering castor, so the cart runs on three wheels and the two large wheels are the drive wheels."
+   }
+  },
+  {
+   "id": "ES-3103",
+   "plm": "ES",
+   "name": "Rueda motriz derecha",
+   "cadFile": "cad/cart/es-drive-wheel-right.stp",
+   "cadPart": "es-drive-wheel-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "ES-3103",
+    "nameEn": "Right drive wheel",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 28.4,
+    "massUnit": "kg",
+    "material": "olmo con llanta de hierro forjado",
+    "dimensionText": "Ø 1000 x 60 mm",
+    "siteKit": "ES-3100",
+    "interpretationNote": "The folio shows two large wheels and one small one; the small wheel is read as a rear steering castor, so the cart runs on three wheels and the two large wheels are the drive wheels."
+   }
+  },
+  {
+   "id": "ES-3104",
+   "plm": "ES",
+   "name": "Eje motriz izquierdo",
+   "cadFile": "cad/cart/es-stub-axle-left.stp",
+   "cadPart": "es-stub-axle-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "supplier": "Forja del Tajo, Toledo",
+   "extended": {
+    "localId": "ES-3104",
+    "nameEn": "Left stub axle",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 7.3,
+    "massUnit": "kg",
+    "material": "hierro forjado",
+    "dimensionText": "Ø 60 x 340 mm",
+    "siteKit": "ES-3100",
+    "interpretationNote": "One stub axle per drive wheel, coupled to the German output shaft by a cross pin in the muff."
+   }
+  },
+  {
+   "id": "ES-3105",
+   "plm": "ES",
+   "name": "Eje motriz derecho",
+   "cadFile": "cad/cart/es-stub-axle-right.stp",
+   "cadPart": "es-stub-axle-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "supplier": "Forja del Tajo, Toledo",
+   "extended": {
+    "localId": "ES-3105",
+    "nameEn": "Right stub axle",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 7.3,
+    "massUnit": "kg",
+    "material": "hierro forjado",
+    "dimensionText": "Ø 60 x 340 mm",
+    "siteKit": "ES-3100"
+   }
+  },
+  {
+   "id": "ES-3106",
+   "plm": "ES",
+   "name": "Chumacera izquierda",
+   "cadFile": "cad/cart/es-bearing-block-left.stp",
+   "cadPart": "es-bearing-block-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "ES-3106",
+    "nameEn": "Left bearing block",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 2.6,
+    "massUnit": "kg",
+    "material": "roble con casquillo de bronce",
+    "dimensionText": "140 x 80 x 100 mm",
+    "siteKit": "ES-3100"
+   }
+  },
+  {
+   "id": "ES-3107",
+   "plm": "ES",
+   "name": "Chumacera derecha",
+   "cadFile": "cad/cart/es-bearing-block-right.stp",
+   "cadPart": "es-bearing-block-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "ES-3107",
+    "nameEn": "Right bearing block",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 2.6,
+    "massUnit": "kg",
+    "material": "roble con casquillo de bronce",
+    "dimensionText": "140 x 80 x 100 mm",
+    "siteKit": "ES-3100"
+   }
+  },
+  {
+   "id": "FR3101",
+   "plm": "FR",
+   "name": "Ressort à lame spiralé gauche",
+   "cadFile": "cad/cart/fr-drive-spring-left.stp",
+   "cadPart": "fr-drive-spring-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3101",
+    "nameEn": "Left coiled leaf spring",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 4.2,
+    "massUnit": "kg",
+    "material": "acier à ressort",
+    "dimensionText": "3 × 50 × 3 100 mm",
+    "siteKit": "FR3100",
+    "interpretationNote": "The hatched discs under the gear wheels are read as coiled flat-strip springs, not bow springs; 2,5 turns from r 70 to r 170."
+   }
+  },
+  {
+   "id": "FR3102",
+   "plm": "FR",
+   "name": "Ressort à lame spiralé droit",
+   "cadFile": "cad/cart/fr-drive-spring-right.stp",
+   "cadPart": "fr-drive-spring-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3102",
+    "nameEn": "Right coiled leaf spring",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 4.2,
+    "massUnit": "kg",
+    "material": "acier à ressort",
+    "dimensionText": "3 × 50 × 3 100 mm",
+    "siteKit": "FR3100"
+   }
+  },
+  {
+   "id": "FR3103",
+   "plm": "FR",
+   "name": "Boîtier de ressorts",
+   "cadFile": "cad/cart/fr-spring-housing.stp",
+   "cadPart": "fr-spring-housing",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3103",
+    "nameEn": "Spring housing",
+    "revision": "B",
+    "lifecycle": "Publié",
+    "mass": 14.1,
+    "massUnit": "kg",
+    "material": "chêne",
+    "dimensionText": "550 × 1 040 × 100 mm",
+    "siteKit": "FR3100",
+    "interpretationNote": "Open-top box; the crown wheels cover it. The folio shows no housing, one is needed to anchor the outer spring ends."
+   }
+  },
+  {
+   "id": "FR3104",
+   "plm": "FR",
+   "name": "Levier de direction",
+   "cadFile": "cad/cart/fr-steering-lever.stp",
+   "cadPart": "fr-steering-lever",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3104",
+    "nameEn": "Steering lever",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 4.5,
+    "massUnit": "kg",
+    "material": "frêne, axe en fer",
+    "dimensionText": "730 × 380 × 40 mm",
+    "siteKit": "FR3100",
+    "interpretationNote": "Tiller on a vertical pivot in the rear cross member; its follower bar runs between the two steering cams."
+   }
+  },
+  {
+   "id": "FR3105",
+   "plm": "FR",
+   "name": "Roue directrice arrière",
+   "cadFile": "cad/cart/fr-steering-wheel.stp",
+   "cadPart": "fr-steering-wheel",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "FR3105",
+    "nameEn": "Rear steering wheel",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 6.8,
+    "massUnit": "kg",
+    "material": "chêne, fourche en fer",
+    "dimensionText": "Ø 300 × 40 mm",
+    "siteKit": "FR3100",
+    "interpretationNote": "The folio shows two large wheels and one small one; the small wheel is read as a rear steering castor, so the cart runs on three wheels and the two large wheels are the drive wheels."
+   }
+  },
+  {
+   "id": "D-31001",
+   "plm": "DE",
+   "name": "Antriebszahnrad links (Kronrad)",
+   "cadFile": "cad/cart/de-crown-wheel-left.stp",
+   "cadPart": "de-crown-wheel-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-31001",
+    "gear": {
+     "teeth": 30,
+     "module": "20"
+    },
+    "nameEn": "Left first drive gear (crown wheel)",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 9.2,
+    "massUnit": "kg",
+    "material": "Eiche, Nabe Buche",
+    "dimensionText": "Ø 600 x 40 mm",
+    "siteKit": "D-31000",
+    "interpretationNote": "Teeth on the underside of the rim so that the lantern pinion on the output shaft runs under it."
+   }
+  },
+  {
+   "id": "D-31002",
+   "plm": "DE",
+   "name": "Antriebszahnrad rechts (Kronrad)",
+   "cadFile": "cad/cart/de-crown-wheel-right.stp",
+   "cadPart": "de-crown-wheel-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-31002",
+    "gear": {
+     "teeth": 30,
+     "module": "20"
+    },
+    "nameEn": "Right first drive gear (crown wheel)",
+    "revision": "02",
+    "lifecycle": "Freigegeben",
+    "mass": 9.2,
+    "massUnit": "kg",
+    "material": "Eiche, Nabe Buche",
+    "dimensionText": "Ø 600 x 40 mm",
+    "siteKit": "D-31000",
+    "supersededRevisions": [
+     "01"
+    ]
+   }
+  },
+  {
+   "id": "D-31003",
+   "plm": "DE",
+   "name": "Laternentrieb links",
+   "cadFile": "cad/cart/de-lantern-pinion-left.stp",
+   "cadPart": "de-lantern-pinion-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-31003",
+    "gear": {
+     "teeth": 6,
+     "module": "20"
+    },
+    "nameEn": "Left lantern pinion",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 1.8,
+    "massUnit": "kg",
+    "material": "Hainbuche, Stäbe Eisen",
+    "dimensionText": "Ø 160 x 120 mm",
+    "siteKit": "D-31000"
+   }
+  },
+  {
+   "id": "D-31004",
+   "plm": "DE",
+   "name": "Laternentrieb rechts",
+   "cadFile": "cad/cart/de-lantern-pinion-right.stp",
+   "cadPart": "de-lantern-pinion-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-31004",
+    "gear": {
+     "teeth": 6,
+     "module": "20"
+    },
+    "nameEn": "Right lantern pinion",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 1.8,
+    "massUnit": "kg",
+    "material": "Hainbuche, Stäbe Eisen",
+    "dimensionText": "Ø 160 x 120 mm",
+    "siteKit": "D-31000"
+   }
+  },
+  {
+   "id": "D-31005",
+   "plm": "DE",
+   "name": "Sperrrad links",
+   "cadFile": "cad/cart/de-ratchet-wheel-left.stp",
+   "cadPart": "de-ratchet-wheel-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-31005",
+    "nameEn": "Left ratchet wheel",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 3.1,
+    "massUnit": "kg",
+    "material": "Schmiedeeisen",
+    "dimensionText": "Ø 200 x 20 mm",
+    "siteKit": "D-31000",
+    "interpretationNote": "No escapement is reconstructed; the ratchet and pawl hold the wound spring."
+   }
+  },
+  {
+   "id": "D-31006",
+   "plm": "DE",
+   "name": "Sperrrad rechts",
+   "cadFile": "cad/cart/de-ratchet-wheel-right.stp",
+   "cadPart": "de-ratchet-wheel-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-31006",
+    "nameEn": "Right ratchet wheel",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 3.1,
+    "massUnit": "kg",
+    "material": "Schmiedeeisen",
+    "dimensionText": "Ø 200 x 20 mm",
+    "siteKit": "D-31000"
+   }
+  },
+  {
+   "id": "D-31007",
+   "plm": "DE",
+   "name": "Lenknocke links",
+   "cadFile": "cad/cart/de-steering-cam-left.stp",
+   "cadPart": "de-steering-cam-left",
+   "classification": {
+    "jurisdiction": "NATIONAL-DE",
+    "releasableTo": "DE"
+   },
+   "extended": {
+    "localId": "D-31007",
+    "nameEn": "Left steering cam",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 2.0,
+    "massUnit": "kg",
+    "material": "Eiche",
+    "dimensionText": "Ø 200 x 40 mm",
+    "siteKit": "D-31000",
+    "interpretationNote": "Steering programme: one lobe per cam nudges the tiller's follower bar as the spring shaft turns."
+   }
+  },
+  {
+   "id": "D-31008",
+   "plm": "DE",
+   "name": "Lenknocke rechts",
+   "cadFile": "cad/cart/de-steering-cam-right.stp",
+   "cadPart": "de-steering-cam-right",
+   "classification": {
+    "jurisdiction": "NATIONAL-DE",
+    "releasableTo": "DE"
+   },
+   "extended": {
+    "localId": "D-31008",
+    "nameEn": "Right steering cam",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 2.0,
+    "massUnit": "kg",
+    "material": "Eiche",
+    "dimensionText": "Ø 200 x 40 mm",
+    "siteKit": "D-31000"
+   }
+  },
+  {
+   "id": "D-31009",
+   "plm": "DE",
+   "name": "Federwelle links",
+   "cadFile": "cad/cart/de-spring-shaft-left.stp",
+   "cadPart": "de-spring-shaft-left",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-31009",
+    "nameEn": "Left spring shaft with winding head",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 3.4,
+    "massUnit": "kg",
+    "material": "Schmiedeeisen",
+    "dimensionText": "Ø 50 x 260 mm",
+    "siteKit": "D-31000"
+   }
+  },
+  {
+   "id": "D-31010",
+   "plm": "DE",
+   "name": "Federwelle rechts",
+   "cadFile": "cad/cart/de-spring-shaft-right.stp",
+   "cadPart": "de-spring-shaft-right",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-31010",
+    "nameEn": "Right spring shaft with winding head",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 3.4,
+    "massUnit": "kg",
+    "material": "Schmiedeeisen",
+    "dimensionText": "Ø 50 x 260 mm",
+    "siteKit": "D-31000"
+   }
+  },
+  {
+   "id": "D-31011",
+   "plm": "DE",
+   "name": "Abtriebswelle",
+   "cadFile": "cad/cart/de-output-shaft.stp",
+   "cadPart": "de-output-shaft",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "D-31011",
+    "nameEn": "Output shaft",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 19.4,
+    "massUnit": "kg",
+    "material": "Schmiedeeisen",
+    "dimensionText": "Ø 60 x 880 mm",
+    "siteKit": "D-31000",
+    "interpretationNote": "One common output shaft: both springs drive both wheels."
+   }
+  },
+  {
+   "id": "UK-3101",
+   "plm": "UK",
+   "name": "Fastener kit (bearing bolts, axle keeper pins)",
+   "cadFile": "cad/cart/uk-fastener-kit.stp",
+   "cadPart": "uk-fastener-kit",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "UK/3101",
+    "nameEn": "Fastener kit",
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 4.2,
+    "massUnit": "lb",
+    "material": "wrought iron",
+    "dimensionText": "0.472 x 8.071 in",
+    "siteKit": "UK/3100"
+   }
+  },
+  {
+   "id": "UK-3102",
+   "plm": "UK",
+   "name": "Nameplate",
+   "cadFile": "cad/cart/uk-nameplate.stp",
+   "cadPart": "uk-nameplate",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "UK/3102",
+    "nameEn": "Nameplate",
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 0.42,
+    "massUnit": "lb",
+    "material": "brass",
+    "dimensionText": "2.362 x 4.724 x 0.118 in",
+    "siteKit": "UK/3100"
+   }
+  },
+  {
+   "id": "UK-3103",
+   "plm": "UK",
+   "name": "Trip counter (wheel revolution counter)",
+   "cadFile": "cad/cart/uk-trip-counter.stp",
+   "cadPart": "uk-trip-counter",
+   "classification": {
+    "jurisdiction": "NATIONAL-UK",
+    "releasableTo": "UK"
+   },
+   "extended": {
+    "localId": "UK/3103",
+    "nameEn": "Trip counter",
+    "revision": "P2",
+    "lifecycle": "Draft",
+    "mass": 0.6,
+    "massUnit": "kg",
+    "material": "anodised aluminium",
+    "dimensionText": "2.362 x 2.362 x 2.362 in",
+    "siteKit": "UK/3100",
+    "interpretationNote": "Authored modern addition for the working reconstruction: counts left wheel hub revolutions; its harness plug is meant for a data logger that is not part of the cart."
+   }
+  },
+  {
+   "id": "UK-3104",
+   "plm": "UK",
+   "name": "Ratchet pawls, left and right",
+   "cadFile": "cad/cart/uk-ratchet-pawls.stp",
+   "cadPart": "uk-ratchet-pawls",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "localId": "UK/3104",
+    "nameEn": "Ratchet pawls",
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 3.1,
+    "massUnit": "lb",
+    "material": "mild steel",
+    "dimensionText": "1.181 x 3.740 x 0.787 in",
+    "siteKit": "UK/3100"
+   }
+  }
+ ],
+ "interfaces": [
+  {
+   "id": "IF-100",
+   "label": "Left drive spring / left first drive gear (inner tongue pin)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR3101",
+    "D-31001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3101-F01",
+      "part": "FR3101",
+      "position": {
+       "x": "-300.000",
+       "y": "265.000",
+       "z": "515.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "D-31001-F01",
+      "part": "D-31001",
+      "position": {
+       "x": "-300.000",
+       "y": "265.000",
+       "z": "515.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-101",
+   "label": "Right drive spring / right first drive gear (inner tongue pin)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR3102",
+    "D-31002"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3102-F01",
+      "part": "FR3102",
+      "position": {
+       "x": "-300.000",
+       "y": "-265.000",
+       "z": "515.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "D-31002-F01",
+      "part": "D-31002",
+      "position": {
+       "x": "-300.000",
+       "y": "-268.400",
+       "z": "515.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-102",
+   "label": "Output shaft / left stub axle (coupling cross pin)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "D-31011",
+    "ES-3104"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-31011-F01",
+      "part": "D-31011",
+      "position": {
+       "x": "0.000",
+       "y": "425.000",
+       "z": "500.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "90.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "ES-3104-F01",
+      "part": "ES-3104",
+      "position": {
+       "x": "0.000",
+       "y": "425.000",
+       "z": "500.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "90.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-103",
+   "label": "Output shaft / right stub axle (coupling cross pin)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "D-31011",
+    "ES-3105"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-31011-F02",
+      "part": "D-31011",
+      "position": {
+       "x": "0.000",
+       "y": "-425.000",
+       "z": "500.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "90.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "ES-3105-F01",
+      "part": "ES-3105",
+      "position": {
+       "x": "0.000",
+       "y": "-425.000",
+       "z": "500.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "90.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-104",
+   "label": "Steering lever / chassis frame (pivot pin in the rear cross member)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR3104",
+    "ES-3101"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3104-F01",
+      "part": "FR3104",
+      "position": {
+       "x": "-1010.000",
+       "y": "0.000",
+       "z": "420.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "40.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "ES-3101-F01",
+      "part": "ES-3101",
+      "position": {
+       "x": "-1010.000",
+       "y": "0.000",
+       "z": "420.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "40.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-105",
+   "label": "Fastener kit / chassis frame (bearing block bolts, left and right rail)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "UK-3101",
+    "ES-3101"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "UK-3101-F01",
+      "part": "UK-3101",
+      "position": {
+       "x": "0.0000",
+       "y": "22.8346",
+       "z": "18.1102"
+      },
+      "unit": "IN",
+      "standard": "ISO 4014",
+      "diameter": "0.4724",
+      "diameterUnit": "IN",
+      "count": 2,
+      "gripLength": "7.0866",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "ES-3101-F02",
+      "part": "ES-3101",
+      "position": {
+       "x": "0.000",
+       "y": "580.000",
+       "z": "460.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "180.000",
+      "gripUnit": "MilliM"
+     }
+    ],
+    [
+     {
+      "id": "UK-3101-F02",
+      "part": "UK-3101",
+      "position": {
+       "x": "0.0000",
+       "y": "-22.8346",
+       "z": "18.1102"
+      },
+      "unit": null,
+      "standard": "ISO 4014",
+      "diameter": "0.4724",
+      "diameterUnit": "IN",
+      "count": 2,
+      "gripLength": "7.0866",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "ES-3101-F03",
+      "part": "ES-3101",
+      "position": {
+       "x": "0.000",
+       "y": "-580.000",
+       "z": "460.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "180.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-106",
+   "label": "Fastener kit / left stub axle (wheel keeper pin)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "UK-3101",
+    "ES-3104"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "UK-3101-F03",
+      "part": "UK-3101",
+      "position": {
+       "x": "0.0000",
+       "y": "28.9370",
+       "z": "19.6850"
+      },
+      "unit": "IN",
+      "standard": "ISO 2341",
+      "diameter": "0.3150",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "2.7559",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "ES-3104-F02",
+      "part": "ES-3104",
+      "position": {
+       "x": "0.000",
+       "y": "735.000",
+       "z": "500.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "70.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-107",
+   "label": "Fastener kit / right stub axle (wheel keeper pin)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "UK-3101",
+    "ES-3105"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "UK-3101-F04",
+      "part": "UK-3101",
+      "position": {
+       "x": "0.0000",
+       "y": "-28.9370",
+       "z": "19.6850"
+      },
+      "unit": "IN",
+      "standard": "ISO 2341",
+      "diameter": "0.3150",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "2.7559",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "ES-3105-F02",
+      "part": "ES-3105",
+      "position": {
+       "x": "0.000",
+       "y": "-735.000",
+       "z": "500.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "70.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-108",
+   "label": "Nameplate / chassis frame (rivets on the rear cross member)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "UK-3102",
+    "ES-3101"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "UK-3102-F01",
+      "part": "UK-3102",
+      "position": {
+       "x": "-39.7638",
+       "y": "0.0000",
+       "z": "18.1102"
+      },
+      "unit": "IN",
+      "standard": "ISO 1051",
+      "diameter": "0.1181",
+      "diameterUnit": "IN",
+      "count": 2,
+      "gripLength": "0.1969",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "ES-3101-F04",
+      "part": "ES-3101",
+      "position": {
+       "x": "-1010.000",
+       "y": "0.000",
+       "z": "460.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 1051",
+      "diameter": "3.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "5.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-109",
+   "label": "Trip counter / chassis frame (mounting screws, harness plug)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "UK-3103",
+    "ES-3101"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "UK-3103-F01",
+      "part": "UK-3103",
+      "position": {
+       "x": "5.1181",
+       "y": "22.8346",
+       "z": "18.1102"
+      },
+      "unit": "IN",
+      "standard": "ISO 4762",
+      "diameter": "0.2362",
+      "diameterUnit": "IN",
+      "count": 2,
+      "gripLength": "0.7874",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "ES-3101-F05",
+      "part": "ES-3101",
+      "position": {
+       "x": "130.000",
+       "y": "580.000",
+       "z": "460.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 2,
+      "gripLength": "20.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ],
+   "unmatedPlugs": [
+    {
+     "id": "UK-3103-J01",
+     "part": "UK-3103",
+     "position": {
+      "x": "6.2992",
+      "y": "22.8346",
+      "z": "19.2913"
+     },
+     "unit": "IN",
+     "connectorType": "M12-A",
+     "pinCount": 4
+    }
+   ]
+  },
+  {
+   "id": "IF-110",
+   "label": "Ratchet pawls / spring housing (pivot pins in the side wall tops)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "UK-3104",
+    "FR3103"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "UK-3104-F01",
+      "part": "UK-3104",
+      "position": {
+       "x": "-11.8110",
+       "y": "20.0787",
+       "z": "22.0472"
+      },
+      "unit": "IN",
+      "standard": "ISO 2341",
+      "diameter": "0.6299",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "1.5748",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "FR3103-F01",
+      "part": "FR3103",
+      "position": {
+       "x": "-300.000",
+       "y": "510.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ],
+    [
+     {
+      "id": "UK-3104-F02",
+      "part": "UK-3104",
+      "position": {
+       "x": "-11.8110",
+       "y": "-20.0787",
+       "z": "22.0472"
+      },
+      "unit": "IN",
+      "standard": "ISO 2341",
+      "diameter": "0.6299",
+      "diameterUnit": "IN",
+      "count": 1,
+      "gripLength": "1.5748",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "FR3103-F02",
+      "part": "FR3103",
+      "position": {
+       "x": "-300.000",
+       "y": "-510.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-111",
+   "label": "Left drive spring / spring housing (outer end pin in the side wall)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR3101",
+    "FR3103"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3101-F02",
+      "part": "FR3101",
+      "position": {
+       "x": "-300.000",
+       "y": "500.000",
+       "z": "515.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR3103-F03",
+      "part": "FR3103",
+      "position": {
+       "x": "-300.000",
+       "y": "500.000",
+       "z": "515.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-112",
+   "label": "Right drive spring / spring housing (outer end pin in the side wall)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR3102",
+    "FR3103"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3102-F02",
+      "part": "FR3102",
+      "position": {
+       "x": "-300.000",
+       "y": "-500.000",
+       "z": "515.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR3103-F04",
+      "part": "FR3103",
+      "position": {
+       "x": "-300.000",
+       "y": "-500.000",
+       "z": "515.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-113",
+   "label": "Steering lever / rear steering wheel (fork head cross pin)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR3104",
+    "FR3105"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR3104-F02",
+      "part": "FR3104",
+      "position": {
+       "x": "-1010.000",
+       "y": "0.000",
+       "z": "355.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "70.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR3105-F01",
+      "part": "FR3105",
+      "position": {
+       "x": "-1010.000",
+       "y": "0.000",
+       "z": "355.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "70.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-114",
+   "label": "Left spring shaft / left first drive gear (feather key)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "D-31009",
+    "D-31001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-31009-F01",
+      "part": "D-31009",
+      "position": {
+       "x": "-300.000",
+       "y": "330.000",
+       "z": "600.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "D-31001-F02",
+      "part": "D-31001",
+      "position": {
+       "x": "-300.000",
+       "y": "330.000",
+       "z": "600.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-115",
+   "label": "Right spring shaft / right first drive gear (feather key)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "D-31010",
+    "D-31002"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-31010-F01",
+      "part": "D-31010",
+      "position": {
+       "x": "-300.000",
+       "y": "-330.000",
+       "z": "600.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "D-31002-F02",
+      "part": "D-31002",
+      "position": {
+       "x": "-300.000",
+       "y": "-330.000",
+       "z": "600.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-116",
+   "label": "Output shaft / left lantern pinion (feather key)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "D-31011",
+    "D-31003"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-31011-F03",
+      "part": "D-31011",
+      "position": {
+       "x": "0.000",
+       "y": "330.000",
+       "z": "500.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "D-31003-F01",
+      "part": "D-31003",
+      "position": {
+       "x": "0.000",
+       "y": "330.000",
+       "z": "500.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-117",
+   "label": "Output shaft / right lantern pinion (feather key)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "D-31011",
+    "D-31004"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-31011-F04",
+      "part": "D-31011",
+      "position": {
+       "x": "0.000",
+       "y": "-330.000",
+       "z": "500.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "D-31004-F01",
+      "part": "D-31004",
+      "position": {
+       "x": "0.000",
+       "y": "-330.000",
+       "z": "500.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-118",
+   "label": "Left spring shaft / left steering cam (feather key)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "D-31009",
+    "D-31007"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-31009-F02",
+      "part": "D-31009",
+      "position": {
+       "x": "-300.000",
+       "y": "330.000",
+       "z": "650.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "D-31007-F01",
+      "part": "D-31007",
+      "position": {
+       "x": "-300.000",
+       "y": "330.000",
+       "z": "650.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-119",
+   "label": "Right spring shaft / right steering cam (feather key)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "D-31010",
+    "D-31008"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "D-31010-F02",
+      "part": "D-31010",
+      "position": {
+       "x": "-300.000",
+       "y": "-330.000",
+       "z": "650.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "D-31008-F01",
+      "part": "D-31008",
+      "position": {
+       "x": "-300.000",
+       "y": "-330.000",
+       "z": "650.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 6885",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  }
+ ],
+ "sparePlugs": [],
+ "seededDefects": [
+  {
+   "interface": "IF-105",
+   "rule": "unit",
+   "features": [
+    "UK-3101-F02"
+   ],
+   "detail": "UK row stored with pos_uom NULL"
+  },
+  {
+   "interface": "IF-101",
+   "rule": "position",
+   "features": [
+    "D-31002-F01",
+    "FR3102-F01"
+   ],
+   "detail": "y differs by 3.4 mm; the DE row is the outlier"
+  },
+  {
+   "interface": "IF-103",
+   "rule": "fastener",
+   "features": [
+    "D-31011-F02",
+    "ES-3105-F01"
+   ],
+   "detail": "DE diameter 10 mm vs ES 12 mm"
+  },
+  {
+   "interface": "IF-109",
+   "rule": "orphan",
+   "features": [
+    "UK-3103-J01"
+   ],
+   "detail": "UK harness plug declared with no mate; its data logger is not a part of the cart"
+  }
+ ],
+ "seededReferenceDefects": [
+  {
+   "localPart": "FR3102",
+   "remoteUrn": "urn:plm:de:part:D-31002",
+   "rule": "staleRevision"
+  },
+  {
+   "localPart": "UK-3103",
+   "remoteUrn": "urn:plm:es:part:ES-3108",
+   "rule": "danglingReference"
+  }
+ ],
+ "seededLifecycleDefects": [
+   {
+    "item": "UK-3100",
+    "dependency": "UK-3103",
+    "rule": "lifecycleConflict"
+   }
+ ],
+ "seededMeshDefects": [],
+ "extended": {
+  "functionalEdges": [
+   {
+    "from": "FR3101",
+    "to": "D-31001",
+    "flow": "mechanical",
+    "via": "IF-100"
+   },
+   {
+    "from": "D-31001",
+    "to": "D-31003",
+    "flow": "mechanical"
+   },
+   {
+    "from": "D-31003",
+    "to": "D-31011",
+    "flow": "mechanical",
+    "via": "IF-116"
+   },
+   {
+    "from": "D-31011",
+    "to": "ES-3104",
+    "flow": "mechanical",
+    "via": "IF-102"
+   },
+   {
+    "from": "ES-3104",
+    "to": "ES-3102",
+    "flow": "mechanical"
+   },
+   {
+    "from": "ES-3102",
+    "to": "UK-3103",
+    "flow": "mechanical"
+   },
+   {
+    "from": "D-31001",
+    "to": "D-31009",
+    "flow": "mechanical",
+    "via": "IF-114"
+   },
+   {
+    "from": "D-31009",
+    "to": "D-31007",
+    "flow": "mechanical",
+    "via": "IF-118"
+   },
+   {
+    "from": "D-31007",
+    "to": "FR3104",
+    "flow": "mechanical"
+   },
+   {
+    "from": "FR3102",
+    "to": "D-31002",
+    "flow": "mechanical",
+    "via": "IF-101"
+   },
+   {
+    "from": "D-31002",
+    "to": "D-31004",
+    "flow": "mechanical"
+   },
+   {
+    "from": "D-31004",
+    "to": "D-31011",
+    "flow": "mechanical",
+    "via": "IF-117"
+   },
+   {
+    "from": "D-31011",
+    "to": "ES-3105",
+    "flow": "mechanical",
+    "via": "IF-103"
+   },
+   {
+    "from": "ES-3105",
+    "to": "ES-3103",
+    "flow": "mechanical"
+   },
+   {
+    "from": "D-31002",
+    "to": "D-31010",
+    "flow": "mechanical",
+    "via": "IF-115"
+   },
+   {
+    "from": "D-31010",
+    "to": "D-31008",
+    "flow": "mechanical",
+    "via": "IF-119"
+   },
+   {
+    "from": "D-31008",
+    "to": "FR3104",
+    "flow": "mechanical"
+   },
+   {
+    "from": "FR3104",
+    "to": "FR3105",
+    "flow": "mechanical",
+    "via": "IF-113"
+   }
+  ],
+  "assemblies": [
+   {
+    "id": "D-31000",
+    "plm": "DE",
+    "name": "Antriebssatz",
+    "nameEn": "Drive kit",
+    "kind": "SITE_KIT",
+    "revision": "01",
+    "lifecycle": "Freigegeben"
+   },
+   {
+    "id": "FR3100",
+    "plm": "FR",
+    "name": "Kit ressorts moteurs et direction",
+    "nameEn": "Motor springs and steering kit",
+    "kind": "SITE_KIT",
+    "revision": "A",
+    "lifecycle": "Publié"
+   },
+   {
+    "id": "ES-3100",
+    "plm": "ES",
+    "name": "Kit de chasis",
+    "nameEn": "Chassis kit",
+    "kind": "SITE_KIT",
+    "revision": 2,
+    "lifecycle": "Liberado"
+   },
+   {
+    "id": "UK-3100",
+    "plm": "UK",
+    "name": "Assembly kit",
+    "nameEn": "Assembly kit",
+    "kind": "SITE_KIT",
+    "revision": "C1",
+    "lifecycle": "Released"
+   }
+  ],
+  "bomLines": [
+   {
+    "parent": "D-31000",
+    "child": "D-31001",
+    "quantity": 1
+   },
+   {
+    "parent": "D-31000",
+    "child": "D-31002",
+    "quantity": 1
+   },
+   {
+    "parent": "D-31000",
+    "child": "D-31003",
+    "quantity": 1
+   },
+   {
+    "parent": "D-31000",
+    "child": "D-31004",
+    "quantity": 1
+   },
+   {
+    "parent": "D-31000",
+    "child": "D-31005",
+    "quantity": 1
+   },
+   {
+    "parent": "D-31000",
+    "child": "D-31006",
+    "quantity": 1
+   },
+   {
+    "parent": "D-31000",
+    "child": "D-31007",
+    "quantity": 1
+   },
+   {
+    "parent": "D-31000",
+    "child": "D-31008",
+    "quantity": 1
+   },
+   {
+    "parent": "D-31000",
+    "child": "D-31009",
+    "quantity": 1
+   },
+   {
+    "parent": "D-31000",
+    "child": "D-31010",
+    "quantity": 1
+   },
+   {
+    "parent": "D-31000",
+    "child": "D-31011",
+    "quantity": 1
+   },
+   {
+    "parent": "FR3100",
+    "child": "FR3101",
+    "quantity": 1,
+    "findNumber": "R1"
+   },
+   {
+    "parent": "FR3100",
+    "child": "FR3102",
+    "quantity": 1,
+    "findNumber": "R2"
+   },
+   {
+    "parent": "FR3100",
+    "child": "FR3103",
+    "quantity": 1,
+    "findNumber": "R3"
+   },
+   {
+    "parent": "FR3100",
+    "child": "FR3104",
+    "quantity": 1,
+    "findNumber": "R4"
+   },
+   {
+    "parent": "FR3100",
+    "child": "FR3105",
+    "quantity": 1,
+    "findNumber": "R5"
+   },
+   {
+    "parent": "ES-3100",
+    "child": "ES-3101",
+    "quantity": 1
+   },
+   {
+    "parent": "ES-3100",
+    "child": "ES-3102",
+    "quantity": 1
+   },
+   {
+    "parent": "ES-3100",
+    "child": "ES-3103",
+    "quantity": 1
+   },
+   {
+    "parent": "ES-3100",
+    "child": "ES-3104",
+    "quantity": 1
+   },
+   {
+    "parent": "ES-3100",
+    "child": "ES-3105",
+    "quantity": 1
+   },
+   {
+    "parent": "ES-3100",
+    "child": "ES-3106",
+    "quantity": 1
+   },
+   {
+    "parent": "ES-3100",
+    "child": "ES-3107",
+    "quantity": 1
+   },
+   {
+    "parent": "UK-3100",
+    "child": "UK-3101",
+    "quantity": 1
+   },
+   {
+    "parent": "UK-3100",
+    "child": "UK-3102",
+    "quantity": 1
+   },
+   {
+    "parent": "UK-3100",
+    "child": "UK-3103",
+    "quantity": 1
+   },
+   {
+    "parent": "UK-3100",
+    "child": "UK-3104",
+    "quantity": 1
+   }
+  ],
+  "externalRefs": [
+   {
+    "localPart": "FR3101",
+    "remoteUrn": "urn:plm:de:part:D-31001",
+    "quantity": 1,
+    "expectedRevision": "01",
+    "note": "I1: inner tongue pinned to the crown wheel hub"
+   },
+   {
+    "localPart": "FR3102",
+    "remoteUrn": "urn:plm:de:part:D-31002",
+    "quantity": 1,
+    "expectedRevision": "01",
+    "note": "I1: inner tongue pinned to the crown wheel hub",
+    "defect": "stale: D-31002 is at revision 02, revision 01 is Ersetzt"
+   },
+   {
+    "localPart": "D-31011",
+    "remoteUrn": "urn:plm:es:part:ES-3104",
+    "quantity": 1,
+    "expectedRevision": 1,
+    "note": "I2: coupling cross pin"
+   },
+   {
+    "localPart": "D-31011",
+    "remoteUrn": "urn:plm:es:part:ES-3105",
+    "quantity": 1,
+    "expectedRevision": 1,
+    "note": "I2: coupling cross pin"
+   },
+   {
+    "localPart": "FR3104",
+    "remoteUrn": "urn:plm:es:part:ES-3101",
+    "quantity": 1,
+    "expectedRevision": 2,
+    "note": "I3: pivot pin in the rear cross member"
+   },
+   {
+    "localPart": "UK-3101",
+    "remoteUrn": "urn:plm:es:part:ES-3101",
+    "quantity": 1,
+    "expectedRevision": 2,
+    "note": "I4: bearing block bolts through the rails"
+   },
+   {
+    "localPart": "UK-3101",
+    "remoteUrn": "urn:plm:es:part:ES-3104",
+    "quantity": 1,
+    "expectedRevision": 1,
+    "note": "wheel keeper pin"
+   },
+   {
+    "localPart": "UK-3101",
+    "remoteUrn": "urn:plm:es:part:ES-3105",
+    "quantity": 1,
+    "expectedRevision": 1,
+    "note": "wheel keeper pin"
+   },
+   {
+    "localPart": "UK-3102",
+    "remoteUrn": "urn:plm:es:part:ES-3101",
+    "quantity": 1,
+    "expectedRevision": 2,
+    "note": "rivets on the rear cross member"
+   },
+   {
+    "localPart": "UK-3103",
+    "remoteUrn": "urn:plm:es:part:ES-3101",
+    "quantity": 1,
+    "expectedRevision": 2,
+    "note": "mounting screws on the left rail"
+   },
+   {
+    "localPart": "UK-3103",
+    "remoteUrn": "urn:plm:es:part:ES-3108",
+    "quantity": 1,
+    "expectedRevision": 1,
+    "note": "counter bracket",
+    "defect": "dangling: no ES part ES-3108 exists"
+   },
+   {
+    "localPart": "UK-3104",
+    "remoteUrn": "urn:plm:fr:part:FR3103",
+    "quantity": 1,
+    "expectedRevision": "B",
+    "note": "pawl pivot pins in the side wall tops"
+   }
+  ],
+  "proposedDefects": [
+   {
+    "brief": "one reference points to a superseded revision of a remote part",
+    "data": "externalRefs FR3102 -> urn:plm:de:part:D-31002 expects revision 01; D-31002 is at 02 and lists 01 under supersededRevisions",
+    "ruleNeeded": "staleRevision: an external reference whose expected revision is not the current revision of the referenced part; needs part revision and lifecycle in the PLM schemas and a reference_externe-style table in the layer"
+   },
+   {
+    "brief": "one external key points to a part that does not exist",
+    "data": "externalRefs UK/3103 -> urn:plm:es:part:ES-3108; no such part; the expressible analogue today is the orphan plug UK-3103-J01 on IF-109",
+    "ruleNeeded": "danglingReference: an external reference URN that resolves to no part in any PLM; needs external references in the link store"
+   },
+   {
+    "brief": "one mass attribute is in the wrong unit",
+    "data": "UK/3103 trip counter stores mass 0.6 with massUnit kg in a PLM whose mass column is mass_lb (the true mass is 0.6 kg = 1.32 lb); the expressible analogue today is the unit defect on IF-105",
+    "ruleNeeded": "massUnit: a part mass whose unit is not the PLM's storage unit; needs mass and its unit in the part tables and the layer"
+   }
+  ],
+  "sources": [
+   {
+    "title": "Museo Galileo, Motus exhibition: the self-propelled cart",
+    "url": "https://mostre.museogalileo.it/motus/en/il-carro-automotore-en"
+   },
+   {
+    "title": "Museo Leonardiano, 1952 model",
+    "url": "https://museoleonardiano.it/en/?p=6406"
+   },
+   {
+    "title": "Overview of the folio and its reconstructions",
+    "url": "https://www.thehistoryofart.org/leonardo-da-vinci/automobile/"
+   },
+   {
+    "title": "Primary source: Codex Atlanticus f. 812r (about 1478-1480)",
+    "url": null
+   }
+  ]
+ }
+}

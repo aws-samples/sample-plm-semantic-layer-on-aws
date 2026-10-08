@@ -1,0 +1,328 @@
+[
+ {
+  "id": "orn-wings",
+  "product": "ornithopter",
+  "question": "Show both wings.",
+  "expect": "isolate_parts",
+  "caption": [
+   [
+    "left"
+   ],
+   [
+    "right"
+   ]
+  ],
+  "required": [
+   "SPAR-6110-L",
+   "SPAR-6120-L",
+   "RIBS-6140-L",
+   "LINN-6160-L",
+   "KNKL-6130-L",
+   "HOLM-R-61010",
+   "HOLM-R-61020",
+   "RIPP-R-61040",
+   "LEIN-R-61060",
+   "GELK-R-61030"
+  ],
+  "forbidden": [
+   "MANV-6011",
+   "BOTA-6090",
+   "FR-ORN-KEEL-001",
+   "TAMB-6020",
+   "PCOL-6100"
+  ]
+ },
+ {
+  "id": "orn-lacing",
+  "product": "ornithopter",
+  "question": "Show the lacing cords.",
+  "expect": "isolate_parts",
+  "required": [
+   "LACE-6165-L",
+   "SCHN-R-61065"
+  ],
+  "forbidden": [
+   "CABL-L-6070",
+   "CABL-R-6080",
+   "CPED-6040",
+   "CRET-L-6075",
+   "CCOL-6110"
+  ]
+ },
+ {
+  "id": "orn-classes",
+  "product": "ornithopter",
+  "question": "Show the classes.",
+  "expect": "ask"
+ },
+ {
+  "id": "wt-gearbox-generator",
+  "product": "wind-turbine",
+  "question": "Show the gearbox and the generator.",
+  "expect": "isolate_parts",
+  "caption": [
+   [
+    "gearbox",
+    "getriebe"
+   ],
+   [
+    "generator"
+   ]
+  ],
+  "required": [
+   "D-37011",
+   "D-37012",
+   "D-37013",
+   "D-37018",
+   "D-37023",
+   "UK-3701",
+   "UK-3702",
+   "UK-3703",
+   "UK-3704"
+  ],
+  "forbidden": [
+   "FR3701",
+   "ES-3710",
+   "D-37043",
+   "UK-3713"
+  ]
+ },
+ {
+  "id": "wt-gearbox-subtree",
+  "product": "wind-turbine",
+  "question": "Show me the gearbox of the wind turbine.",
+  "expect": "open_subtree",
+  "root": "D-37073"
+ },
+ {
+  "id": "wt-orings",
+  "product": "wind-turbine",
+  "question": "Show the O-rings.",
+  "expect": "isolate_parts",
+  "required": [
+   "D-37056",
+   "D-37057",
+   "ES-3742",
+   "UK-3741",
+   "UK-3742"
+  ],
+  "forbidden": [
+   "D-37007",
+   "D-37001"
+  ]
+ },
+ {
+  "id": "wt-blades-context",
+  "product": "wind-turbine",
+  "question": "Highlight the lightning protection parts, in context.",
+  "expect": "highlight_parts",
+  "required": [
+   "FR3718",
+   "FR3719"
+  ],
+  "forbidden": [
+   "D-37001",
+   "UK-3701"
+  ]
+ },
+ {
+  "id": "rover-wheels",
+  "product": "rover",
+  "question": "Show the six wheels.",
+  "expect": "isolate_parts",
+  "required": [
+   "FR3801"
+  ],
+  "forbidden": [
+   "D-38001",
+   "ES-3801",
+   "D-38003"
+  ]
+ },
+ {
+  "id": "rover-uk-fasteners",
+  "product": "rover",
+  "question": "Where are the UK fasteners?",
+  "expect": "view",
+  "required": [
+   "UK-3823",
+   "UK-3824",
+   "UK-3825"
+  ],
+  "forbidden": [
+   "UK-3801",
+   "ES-3826",
+   "D-38014",
+   "FR3811"
+  ]
+ },
+ {
+  "id": "rover-gearmotors",
+  "product": "rover",
+  "question": "Zeig mir die Getriebemotoren.",
+  "expect": "isolate_parts",
+  "required": [
+   "D-38001",
+   "D-38002"
+  ],
+  "forbidden": [
+   "UK-3802",
+   "FR3801"
+  ]
+ },
+ {
+  "id": "glider-left-wing",
+  "product": "glider",
+  "question": "Show the left wing.",
+  "expect": "isolate_parts",
+  "required": [
+   "FR3401",
+   "ES-3401",
+   "ES-3404",
+   "ES-3408"
+  ],
+  "forbidden": [
+   "FR3402",
+   "ES-3409",
+   "ES-3416",
+   "ES-3424"
+  ]
+ },
+ {
+  "id": "steam-flywheel",
+  "product": "steam-engine",
+  "question": "Where is the flywheel?",
+  "expect": "view",
+  "required": [
+   "UK-3301"
+  ],
+  "forbidden": [
+   "ES-3301",
+   "D-33004"
+  ]
+ },
+ {
+  "id": "anti-gears",
+  "product": "antikythera",
+  "question": "Montre-moi les roues dentées du mécanisme d'éclipse.",
+  "expect": "isolate_parts",
+  "required": [
+   "UK-3201",
+   "UK-3204",
+   "UK-3205",
+   "UK-3206",
+   "UK-3207"
+  ],
+  "forbidden": [
+   "D-32002",
+   "FR3201",
+   "ES-3201"
+  ]
+ },
+ {
+  "id": "cubesat-solar",
+  "product": "cubesat",
+  "question": "Show the solar panels.",
+  "expect": "isolate_parts",
+  "required": [
+   "UK-3503",
+   "UK-3504",
+   "UK-3506"
+  ],
+  "forbidden": [
+   "UK-3501",
+   "D-35001"
+  ]
+ },
+ {
+  "id": "steam-cylinder-boiler",
+  "product": "steam-engine",
+  "question": "Show the cylinder and the boiler.",
+  "expect": "isolate_parts",
+  "caption": [
+   [
+    "cylinder",
+    "zylinder"
+   ],
+   [
+    "boiler",
+    "caldera"
+   ]
+  ],
+  "required": [
+   "D-33001",
+   "ES-3301"
+  ],
+  "forbidden": [
+   "UK-3301",
+   "FR3301"
+  ]
+ },
+ {
+  "id": "orn-landing-gear",
+  "product": "ornithopter",
+  "question": "Show the landing gear.",
+  "expect": "isolate_parts",
+  "required": [
+   "FR-ORN-PAT-L-001",
+   "FR-ORN-PAT-R-001"
+  ],
+  "forbidden": [
+   "FR-ORN-KEEL-001",
+   "SPAR-6110-L"
+  ]
+ },
+ {
+  "id": "wt-main-bearings",
+  "product": "wind-turbine",
+  "question": "Show the main bearings.",
+  "expect": "isolate_parts",
+  "required": [
+   "D-37003",
+   "D-37005"
+  ],
+  "forbidden": [
+   "UK-3705",
+   "D-37048",
+   "D-37022"
+  ]
+ },
+ {
+  "id": "rover-electronics",
+  "product": "rover",
+  "question": "Show the electronics.",
+  "expect": "open_subtree",
+  "root": "UK-3800"
+ },
+ {
+  "id": "cubesat-power",
+  "product": "cubesat",
+  "question": "Show the power system.",
+  "expect": "isolate_parts",
+  "required": [
+   "UK-3501",
+   "UK-3503",
+   "UK-3504",
+   "UK-3506"
+  ],
+  "forbidden": [
+   "D-35001",
+   "UK-3508"
+  ]
+ },
+ {
+  "id": "steam-seals",
+  "product": "steam-engine",
+  "question": "Show the seals.",
+  "expect": "isolate_parts",
+  "required": [
+   "D-33009",
+   "UK-3306",
+   "ES-3308"
+  ],
+  "forbidden": [
+   "ES-3301",
+   "UK-3301"
+  ]
+ }
+]

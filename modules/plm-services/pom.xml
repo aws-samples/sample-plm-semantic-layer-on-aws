@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. -->
+<!-- SPDX-License-Identifier: MIT-0 -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.5.16</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>atelier.plm</groupId>
+  <artifactId>plm-services</artifactId>
+  <version>0.1.0</version>
+  <packaging>pom</packaging>
+  <name>Atelier site PLM services and core</name>
+  <licenses>
+    <license>
+      <name>MIT-0</name>
+      <url>https://github.com/aws/mit-0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <modules>
+    <module>plm-common</module>
+    <module>plm-fr</module>
+    <module>plm-de</module>
+    <module>plm-uk</module>
+    <module>plm-es</module>
+    <module>atelier-core</module>
+  </modules>
+
+  <properties>
+    <java.version>21</java.version>
+    <mapstruct.version>1.6.3</mapstruct.version>
+    <awssdk.version>2.55.7</awssdk.version>
+    <!-- The JDBC driver version of every service, the query service and the Ontop image alike. -->
+    <postgresql.version>42.7.13</postgresql.version>
+    <!-- Spring Boot 3.5.16 manages Tomcat 10.1.55, Jackson 2.21.4 and Log4j API 2.24.3, all with open advisories;
+         these are the patched releases of the same lines. -->
+    <tomcat.version>10.1.60</tomcat.version>
+    <jackson-bom.version>2.21.7</jackson-bom.version>
+    <log4j2.version>2.25.5</log4j2.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>atelier.plm</groupId>
+        <artifactId>plm-common</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>${mapstruct.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <annotationProcessorPaths>
+              <path>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+              </path>
+            </annotationProcessorPaths>
+            <compilerArgs>
+              <arg>-Amapstruct.defaultComponentModel=spring</arg>
+              <arg>-Amapstruct.unmappedTargetPolicy=ERROR</arg>
+            </compilerArgs>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

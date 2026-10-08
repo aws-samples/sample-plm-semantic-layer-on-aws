@@ -1,0 +1,200 @@
+{
+  "interface": {
+    "id": "IF-02",
+    "label": "Hydraulic power pack / left wing actuator (pressure and return couplings, position sensor)",
+    "status": "fail",
+    "toleranceMm": 2.0,
+    "parts": [
+      {
+        "id": "FR-ORN-GHYD-001",
+        "plm": "FR",
+        "name": "Groupe hydraulique (démonstrateur au sol)",
+        "cadFile": "cad/ornithopter/fr-hydraulic-power-pack.stp",
+        "cadUrl": null,
+        "sourceFileRef": "cad/ornithopter/fr-hydraulic-power-pack.stp",
+        "jurisdiction": "EU-DUAL-USE",
+        "releasableTo": "EU",
+        "taggedBy": "export-control-fr",
+        "taggedAt": "2026-09-12T09:14:00Z"
+      },
+      {
+        "id": "ACTR-6190-L",
+        "plm": "UK",
+        "name": "Left wing hydraulic actuator",
+        "cadFile": "cad/ornithopter/uk-left-wing-actuator.stp",
+        "cadUrl": null,
+        "sourceFileRef": "cad/ornithopter/uk-left-wing-actuator.stp",
+        "jurisdiction": "EU-DUAL-USE",
+        "releasableTo": "EU",
+        "taggedBy": "export-control-uk",
+        "taggedAt": "2026-09-12T10:02:00Z"
+      }
+    ],
+    "features": [
+      {
+        "id": "FR-ORN-GHYD-001-H01",
+        "plm": "FR",
+        "partId": "FR-ORN-GHYD-001",
+        "kind": "coupling",
+        "properties": {
+          "standard": "ISO 8434-1",
+          "dashSize": 8,
+          "rating": {
+            "value": 206.8,
+            "unit": "BAR",
+            "bar": 206.8
+          },
+          "fluid": "HM 32 mineral oil"
+        },
+        "source": {
+          "x": 2300.0,
+          "y": -480.0,
+          "z": -100.0,
+          "unit": "MilliM"
+        },
+        "positionMm": {
+          "x": 2300.0,
+          "y": -480.0,
+          "z": -100.0
+        },
+        "matesWith": [
+          "HC 6190-01"
+        ]
+      },
+      {
+        "id": "HC 6190-01",
+        "plm": "UK",
+        "partId": "ACTR-6190-L",
+        "kind": "coupling",
+        "properties": {
+          "standard": "ISO 8434-1",
+          "dashSize": 8,
+          "rating": {
+            "value": 5000.0,
+            "unit": "PSI",
+            "bar": 344.7
+          },
+          "fluid": "HM 32 mineral oil"
+        },
+        "source": {
+          "x": 90.5512,
+          "y": -18.8976,
+          "z": -3.937,
+          "unit": "IN"
+        },
+        "positionMm": {
+          "x": 2300.0,
+          "y": -480.0,
+          "z": -100.0
+        },
+        "matesWith": [
+          "FR-ORN-GHYD-001-H01"
+        ]
+      },
+      {
+        "id": "FR-ORN-GHYD-001-J01",
+        "plm": "FR",
+        "partId": "FR-ORN-GHYD-001",
+        "kind": "connector",
+        "properties": {
+          "connectorType": "M12-A",
+          "pinCount": 5
+        },
+        "source": {
+          "x": 2300.0,
+          "y": -440.0,
+          "z": -120.0,
+          "unit": "MilliM"
+        },
+        "positionMm": {
+          "x": 2300.0,
+          "y": -440.0,
+          "z": -120.0
+        },
+        "matesWith": [
+          "PL 6190-01"
+        ]
+      },
+      {
+        "id": "PL 6190-01",
+        "plm": "UK",
+        "partId": "ACTR-6190-L",
+        "kind": "connector",
+        "properties": {
+          "connectorType": "M12-A",
+          "pinCount": 5
+        },
+        "source": {
+          "x": 90.5512,
+          "y": -17.3228,
+          "z": -4.7244,
+          "unit": "IN"
+        },
+        "positionMm": {
+          "x": 2300.0,
+          "y": -440.0,
+          "z": -120.0
+        },
+        "matesWith": [
+          "FR-ORN-GHYD-001-J01"
+        ]
+      }
+    ],
+    "violations": [
+      {
+        "rule": "hydraulic",
+        "shape": "atelier:HydraulicRatingShape",
+        "message": "Mated couplings have different pressure ratings",
+        "focusNode": "FR-ORN-GHYD-001-H01",
+        "features": [
+          "FR-ORN-GHYD-001-H01",
+          "HC 6190-01"
+        ],
+        "detail": {
+          "frBar": 206.8,
+          "ukBar": 344.7,
+          "ukSource": "5000 PSI"
+        }
+      }
+    ]
+  },
+  "provenance": {
+    "calls": [
+      {
+        "endpoint": "ontop-core",
+        "kind": "virtual",
+        "ms": 35
+      },
+      {
+        "endpoint": "ontop-fr",
+        "kind": "virtual",
+        "ms": 58
+      },
+      {
+        "endpoint": "ontop-uk",
+        "kind": "virtual",
+        "ms": 66
+      },
+      {
+        "endpoint": "neptune",
+        "kind": "graph",
+        "ms": 41
+      }
+    ]
+  },
+  "sparql": "PREFIX atelier: <https://atelier.example/ontology#>\nCONSTRUCT { ?f ?p ?o } WHERE { <https://atelier.example/interface/IF-02> atelier:declaresFeature ?f . ?f ?p ?o } LIMIT 200",
+  "timings": {
+    "totalMs": 231,
+    "federationMs": 200,
+    "validationMs": 31
+  },
+  "policy": {
+    "profile": "engineer",
+    "releasable": [
+      "FR",
+      "EU"
+    ],
+    "filter": "FILTER(?releasableTo IN (\"FR\", \"EU\"))",
+    "untagged": []
+  }
+}

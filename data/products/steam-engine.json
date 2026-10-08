@@ -1,0 +1,2399 @@
+{
+  "product": {
+    "key": "steam-engine",
+    "name": "Watt rotative beam engine, simplified (1788 type)"
+  },
+  "frame": "x from the boiler towards the flywheel, y across the engine with the flywheel on the negative side, z up with z = 0 on the floor; mm, the frame of modules/cad/steam_engine.py. Bed frame top at z 300, cylinder axis at x 600, beam pivot at x 3100, z 4000, crankshaft at x 5600, z 2100, flywheel diameter 3500 centred at y -900, boiler from x -3000 to -1200; overall x -3000 to 7350, beam top at z 4250.",
+  "parts": [
+    {
+      "id": "D-33001",
+      "plm": "DE",
+      "name": "Dampfzylinder",
+      "cadFile": "cad/steam-engine/de-cylinder.stp",
+      "cadPart": "de-cylinder",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-33001",
+        "nameEn": "Steam cylinder",
+        "revision": "02",
+        "lifecycle": "In Arbeit",
+        "mass": 1150,
+        "massUnit": "kg",
+        "material": "Gusseisen EN-GJL-250",
+        "dimensionText": "600 x 1900 mm, Bohrung 480 mm",
+        "interpretationNote": "Valve chest and cylinder cover omitted: one steam port on the side wall at z 2150 and one eduction port at z 500; base flange 800 mm across.",
+        "siteKit": "D-33000"
+      }
+    },
+    {
+      "id": "D-33002",
+      "plm": "DE",
+      "name": "Kolben",
+      "cadFile": "cad/steam-engine/de-piston.stp",
+      "cadPart": "de-piston",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-33002",
+        "nameEn": "Piston",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 92,
+        "massUnit": "kg",
+        "material": "Gusseisen EN-GJL-250",
+        "dimensionText": "580 x 150 mm",
+        "interpretationNote": "Drawn at mid-stroke; the packing is not modelled.",
+        "siteKit": "D-33000"
+      }
+    },
+    {
+      "id": "D-33003",
+      "plm": "DE",
+      "name": "Kolbenstange",
+      "cadFile": "cad/steam-engine/de-piston-rod.stp",
+      "cadPart": "de-piston-rod",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-33003",
+        "nameEn": "Piston rod",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 101.5,
+        "massUnit": "kg",
+        "material": "Stahl C45",
+        "dimensionText": "90 x 2000 mm",
+        "interpretationNote": "Runs through the cylinder gland, which belongs to the cylinder casting.",
+        "siteKit": "D-33000"
+      }
+    },
+    {
+      "id": "D-33004",
+      "plm": "DE",
+      "name": "Balancier",
+      "cadFile": "cad/steam-engine/de-beam.stp",
+      "cadPart": "de-beam",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "supplier": "Forja del Tajo, Toledo",
+      "extended": {
+        "localId": "D-33004",
+        "nameEn": "Beam",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 4120,
+        "massUnit": "kg",
+        "material": "Gusseisen EN-GJL-250",
+        "dimensionText": "5500 x 200 x 500 mm",
+        "interpretationNote": "Parallel-sided box section with a 200 mm gudgeon; the original beam tapers towards its ends.",
+        "siteKit": "D-33000"
+      }
+    },
+    {
+      "id": "D-33005",
+      "plm": "DE",
+      "name": "Balancierlagerböcke",
+      "cadFile": "cad/steam-engine/de-beam-bearing-blocks.stp",
+      "cadPart": "de-beam-bearing-blocks",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-33005",
+        "nameEn": "Beam bearing blocks",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 184,
+        "massUnit": "kg",
+        "material": "Gusseisen EN-GJL-250",
+        "dimensionText": "400 x 200 x 400 mm (2 Stück)",
+        "interpretationNote": "Two plummer blocks on the entablature, base and cap each; the cap bolts are not drawn.",
+        "siteKit": "D-33000"
+      }
+    },
+    {
+      "id": "D-33006",
+      "plm": "DE",
+      "name": "Parallelogrammführung",
+      "cadFile": "cad/steam-engine/de-parallel-motion.stp",
+      "cadPart": "de-parallel-motion",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-33006",
+        "nameEn": "Parallel motion linkage",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 262,
+        "massUnit": "kg",
+        "material": "Schmiedestahl S355",
+        "dimensionText": "Lenker 50 mm, Teilung 900 mm",
+        "interpretationNote": "Two link sets at y +/-150 straddling the beam; the radius rods end at x 2500 where a column bracket would carry their fixed pivot. The single-acting engine uses an arch head and chain instead, which this dataset does not hold.",
+        "siteKit": "D-33000"
+      }
+    },
+    {
+      "id": "D-33007",
+      "plm": "DE",
+      "name": "Pleuelstange",
+      "cadFile": "cad/steam-engine/de-connecting-rod.stp",
+      "cadPart": "de-connecting-rod",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-33007",
+        "nameEn": "Connecting rod",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 128,
+        "massUnit": "kg",
+        "material": "Schmiedestahl S355",
+        "dimensionText": "100 x 1996 mm",
+        "interpretationNote": "Drawn at mid-stroke from the beam end to the crank pin.",
+        "siteKit": "D-33000"
+      }
+    },
+    {
+      "id": "D-33008",
+      "plm": "DE",
+      "name": "Kurbel",
+      "cadFile": "cad/steam-engine/de-crank.stp",
+      "cadPart": "de-crank",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-33008",
+        "nameEn": "Crank",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": 214,
+        "massUnit": "kg",
+        "material": "Gusseisen EN-GJL-250 / Stahl C45",
+        "dimensionText": "810 x 100 x 200 mm, Kurbelradius 610 mm",
+        "interpretationNote": "Web and pin; keyed to the flywheel shaft end at y 100.",
+        "siteKit": "D-33000"
+      }
+    },
+    {
+      "id": "D-33009",
+      "plm": "DE",
+      "name": "O-Ring ISO 3601-1 332A, EPDM 70",
+      "cadFile": "cad/steam-engine/de-oring-332.stp",
+      "cadPart": "de-oring-332",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "D-33009",
+        "nameEn": "O-ring ISO 3601-1 332A, EPDM 70",
+        "revision": "01",
+        "lifecycle": "Freigegeben",
+        "mass": "0.010",
+        "massUnit": "kg",
+        "material": "EPDM",
+        "siteKit": "D-33000",
+        "discipline": "steam",
+        "partType": "PURCHASED",
+        "interpretationNote": "Dichtung des Zylinderdeckels. Zukaufteil; die STEP-Datei ist nur ein Hüllkörper und nicht die Herstellergeometrie.",
+        "purchased": {
+          "class": "o-ring",
+          "standard": "ISO 3601-1 332A",
+          "attributes": {
+            "compound": "EPDM 70 Shore A, heißdampfbeständig"
+          },
+          "shelfLifeMonths": 120
+        }
+      }
+    },
+    {
+      "id": "ES-3301",
+      "plm": "ES",
+      "name": "Caldera",
+      "cadFile": "cad/steam-engine/es-boiler.stp",
+      "cadPart": "es-boiler",
+      "classification": {
+        "jurisdiction": "NATIONAL-ES",
+        "releasableTo": "ES"
+      },
+      "extended": {
+        "localId": "ES-3301",
+        "nameEn": "Boiler",
+        "revision": 2,
+        "lifecycle": "Liberado",
+        "mass": 3850,
+        "massUnit": "kg",
+        "material": "chapa de acero P265GH",
+        "dimensionText": "1300 x 1800 mm",
+        "interpretationNote": "Wagon boiler simplified to a cylindrical barrel with a steam dome; setting, firebox and chimney not modelled; pressure class PN 6.",
+        "siteKit": "ES-3300"
+      }
+    },
+    {
+      "id": "ES-3302",
+      "plm": "ES",
+      "name": "Válvula de regulación",
+      "cadFile": "cad/steam-engine/es-throttle-valve.stp",
+      "cadPart": "es-throttle-valve",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3302",
+        "nameEn": "Throttle valve",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 96,
+        "massUnit": "kg",
+        "material": "fundición gris EN-GJL-250",
+        "dimensionText": "300 x 300 mm, DN 150",
+        "interpretationNote": "Throttle on the steam dome; the lever at z 2300 takes the governor link.",
+        "siteKit": "ES-3300"
+      }
+    },
+    {
+      "id": "ES-3303",
+      "plm": "ES",
+      "name": "Tubería de vapor",
+      "cadFile": "cad/steam-engine/es-steam-pipe.stp",
+      "cadPart": "es-steam-pipe",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3303",
+        "nameEn": "Steam pipe",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 162,
+        "massUnit": "kg",
+        "material": "acero P235GH",
+        "dimensionText": "180 x 1950 mm, DN 150",
+        "interpretationNote": "Straight run at z 2150 from the throttle outlet to the cylinder port, flanged at both ends.",
+        "siteKit": "ES-3300"
+      }
+    },
+    {
+      "id": "ES-3304",
+      "plm": "ES",
+      "name": "Tubería de escape",
+      "cadFile": "cad/steam-engine/es-eduction-pipe.stp",
+      "cadPart": "es-eduction-pipe",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3304",
+        "nameEn": "Eduction pipe",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 44,
+        "massUnit": "kg",
+        "material": "acero P235GH",
+        "dimensionText": "160 x 350 mm, DN 150",
+        "interpretationNote": "From the cylinder bottom port to the condenser at z 500, flanged at both ends.",
+        "siteKit": "ES-3300"
+      }
+    },
+    {
+      "id": "ES-3305",
+      "plm": "ES",
+      "name": "Condensador",
+      "cadFile": "cad/steam-engine/es-condenser.stp",
+      "cadPart": "es-condenser",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3305",
+        "nameEn": "Condenser casting",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 525,
+        "massUnit": "kg",
+        "material": "fundición gris EN-GJL-250",
+        "dimensionText": "500 x 1000 mm",
+        "interpretationNote": "Separate condenser without its cold-water cistern; the injection cock is not modelled.",
+        "siteKit": "ES-3300"
+      }
+    },
+    {
+      "id": "ES-3306",
+      "plm": "ES",
+      "name": "Bomba de aire",
+      "cadFile": "cad/steam-engine/es-air-pump.stp",
+      "cadPart": "es-air-pump",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3306",
+        "nameEn": "Air pump",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": 486,
+        "massUnit": "kg",
+        "material": "fundición gris EN-GJL-250 / bronce",
+        "dimensionText": "400 x 1200 mm, vástago 60 x 2500 mm",
+        "interpretationNote": "The pump rod rises to the beam at x 2200; foot valve and bucket are not modelled.",
+        "siteKit": "ES-3300"
+      }
+    },
+    {
+      "id": "ES-3308",
+      "plm": "ES",
+      "name": "Junta tórica 50,17 x 5,33, EPDM 70",
+      "cadFile": "cad/steam-engine/es-oring-5017.stp",
+      "cadPart": "es-oring-5017",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "ES-3308",
+        "nameEn": "O-ring 50.17 x 5.33, EPDM 70",
+        "revision": 1,
+        "lifecycle": "Liberado",
+        "mass": "0.010",
+        "massUnit": "kg",
+        "material": "EPDM",
+        "dimensionText": "50,17 x 5,33 mm",
+        "siteKit": "ES-3300",
+        "discipline": "steam",
+        "partType": "PURCHASED",
+        "interpretationNote": "Junta del vástago de la válvula de regulación. Artículo de compra; el fichero STEP es sólo un sólido envolvente y no la geometría del fabricante.",
+        "purchased": {
+          "class": "o-ring",
+          "attributes": {
+            "innerDiameter": "50.17",
+            "crossSection": "5.33",
+            "compound": "EPDM 70 Shore A, resistente al vapor"
+          },
+          "shelfLifeMonths": 120
+        }
+      }
+    },
+    {
+      "id": "UK-3301",
+      "plm": "UK",
+      "name": "Flywheel",
+      "cadFile": "cad/steam-engine/uk-flywheel.stp",
+      "cadPart": "uk-flywheel",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "supplier": "Forja del Tajo, Toledo",
+      "extended": {
+        "localId": "UK/3301",
+        "nameEn": "Flywheel",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": 7275,
+        "massUnit": "lb",
+        "material": "grey cast iron EN-GJL-250",
+        "dimensionText": "137.795 x 9.843 in",
+        "interpretationNote": "Rim, hub and eight round spokes; the original wheel has a rim cast in segments.",
+        "siteKit": "UK/3300"
+      }
+    },
+    {
+      "id": "UK-3302",
+      "plm": "UK",
+      "name": "Flywheel shaft",
+      "cadFile": "cad/steam-engine/uk-flywheel-shaft.stp",
+      "cadPart": "uk-flywheel-shaft",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3302",
+        "nameEn": "Flywheel shaft",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": 1367,
+        "massUnit": "lb",
+        "material": "forged steel",
+        "dimensionText": "9.449 x 68.898 in",
+        "interpretationNote": "Plain shaft keyed to the flywheel and to the crank web at its y 100 end.",
+        "siteKit": "UK/3300"
+      }
+    },
+    {
+      "id": "UK-3303",
+      "plm": "UK",
+      "name": "Centrifugal governor with throttle linkage",
+      "cadFile": "cad/steam-engine/uk-governor.stp",
+      "cadPart": "uk-governor",
+      "classification": {
+        "jurisdiction": "NATIONAL-UK",
+        "releasableTo": "UK"
+      },
+      "extended": {
+        "localId": "UK/3303",
+        "nameEn": "Centrifugal governor with throttle linkage",
+        "revision": "P2",
+        "lifecycle": "Released",
+        "mass": 106,
+        "massUnit": "lb",
+        "material": "steel spindle, brass balls",
+        "dimensionText": "14.173 x 82.677 in",
+        "interpretationNote": "Stands on the bed frame at the boiler end; the belt drive from the flywheel shaft to the pulley at z 600 is not drawn; the link rod to the throttle lever is one body of this part.",
+        "siteKit": "UK/3300"
+      }
+    },
+    {
+      "id": "UK-3304",
+      "plm": "UK",
+      "name": "Pressure gauge",
+      "cadFile": "cad/steam-engine/uk-pressure-gauge.stp",
+      "cadPart": "uk-pressure-gauge",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3304",
+        "nameEn": "Pressure gauge",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": 5.1,
+        "massUnit": "lb",
+        "material": "brass",
+        "dimensionText": "6.299 x 18.110 in",
+        "interpretationNote": "Modern replica Bourdon gauge on a siphon stem screwed into the boiler shell; mechanical, no electrical connection.",
+        "siteKit": "UK/3300"
+      }
+    },
+    {
+      "id": "UK-3305",
+      "plm": "UK",
+      "name": "Governor speed indicator",
+      "cadFile": "cad/steam-engine/uk-speed-indicator.stp",
+      "cadPart": "uk-speed-indicator",
+      "classification": {
+        "jurisdiction": "EU-DUAL-USE",
+        "releasableTo": "EU"
+      },
+      "extended": {
+        "localId": "UK/3305",
+        "nameEn": "Governor speed indicator",
+        "revision": "P1",
+        "lifecycle": "Draft",
+        "mass": 9.3,
+        "massUnit": "lb",
+        "material": "aluminium housing",
+        "dimensionText": "3.937 x 4.724 x 7.874 in",
+        "interpretationNote": "Authored modern addition and the only electrical item: a tachometer display on a post bolted to the governor base plate, fed by M12 sensor plugs on the governor.",
+        "siteKit": "UK/3300"
+      }
+    },
+    {
+      "id": "UK-3306",
+      "plm": "UK",
+      "name": "O-ring, 1.975 ID x 0.210 section, EPDM 70",
+      "cadFile": "cad/steam-engine/uk-oring-1975.stp",
+      "cadPart": "uk-oring-1975",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "UK/3306",
+        "nameEn": "O-ring, 1.975 ID x 0.210 section, EPDM 70",
+        "revision": "C1",
+        "lifecycle": "Released",
+        "mass": "0.022",
+        "massUnit": "lb",
+        "material": "EPDM",
+        "dimensionText": "1.975 x 0.210 in",
+        "siteKit": "UK-3300",
+        "discipline": "steam",
+        "partType": "PURCHASED",
+        "interpretationNote": "Seal of the governor spindle gland at the throttle linkage. Purchased item; the STEP file is only an envelope solid and not the manufacturer's geometry.",
+        "purchased": {
+          "class": "o-ring",
+          "attributes": {
+            "innerDiameter": "1.975",
+            "crossSection": "0.210",
+            "compound": "EPDM 70 Shore A, steam resistant"
+          },
+          "shelfLifeMonths": 120
+        }
+      }
+    },
+    {
+      "id": "FR3301",
+      "plm": "FR",
+      "name": "Bâti",
+      "cadFile": "cad/steam-engine/fr-bed-frame.stp",
+      "cadPart": "fr-bed-frame",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3301",
+        "nameEn": "Bed frame",
+        "revision": "B",
+        "lifecycle": "Publié",
+        "mass": 12500,
+        "massUnit": "kg",
+        "material": "fonte grise EN-GJL-250",
+        "dimensionText": "7600 × 2800 × 300 mm",
+        "interpretationNote": "One ribbed bedplate drawn as a slab; the boiler stands beyond it on its own setting.",
+        "siteKit": "FR3300"
+      }
+    },
+    {
+      "id": "FR3302",
+      "plm": "FR",
+      "name": "Colonne gauche",
+      "cadFile": "cad/steam-engine/fr-column-left.stp",
+      "cadPart": "fr-column-left",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3302",
+        "nameEn": "Left column",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 905,
+        "massUnit": "kg",
+        "material": "fonte grise EN-GJL-250",
+        "dimensionText": "300 × 3300 mm",
+        "interpretationNote": "Hollow column at y +700; left is positive y, seen from the boiler towards the flywheel.",
+        "siteKit": "FR3300"
+      }
+    },
+    {
+      "id": "FR3303",
+      "plm": "FR",
+      "name": "Colonne droite",
+      "cadFile": "cad/steam-engine/fr-column-right.stp",
+      "cadPart": "fr-column-right",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3303",
+        "nameEn": "Right column",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 905,
+        "massUnit": "kg",
+        "material": "fonte grise EN-GJL-250",
+        "dimensionText": "300 × 3300 mm",
+        "interpretationNote": "Hollow column at y -700, on the flywheel side.",
+        "siteKit": "FR3300"
+      }
+    },
+    {
+      "id": "FR3304",
+      "plm": "FR",
+      "name": "Entablement",
+      "cadFile": "cad/steam-engine/fr-entablature.stp",
+      "cadPart": "fr-entablature",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3304",
+        "nameEn": "Entablature",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 2590,
+        "massUnit": "kg",
+        "material": "fonte grise EN-GJL-250",
+        "dimensionText": "1000 × 1800 × 200 mm",
+        "interpretationNote": "Carries the beam bearing blocks and the nameplate; its bolts to the column caps are not modelled.",
+        "siteKit": "FR3300"
+      }
+    },
+    {
+      "id": "FR3305",
+      "plm": "FR",
+      "name": "Chaises de palier de l'arbre de volant",
+      "cadFile": "cad/steam-engine/fr-shaft-pedestals.stp",
+      "cadPart": "fr-shaft-pedestals",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3305",
+        "nameEn": "Flywheel shaft pedestals",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 1250,
+        "massUnit": "kg",
+        "material": "fonte grise EN-GJL-250",
+        "dimensionText": "500 × 250 × 2020 mm (2 pièces)",
+        "interpretationNote": "Two plummer blocks, outboard of the flywheel and between flywheel and crank, base and cap each.",
+        "siteKit": "FR3300"
+      }
+    },
+    {
+      "id": "FR3306",
+      "plm": "FR",
+      "name": "Plaque constructeur",
+      "cadFile": "cad/steam-engine/fr-nameplate.stp",
+      "cadPart": "fr-nameplate",
+      "classification": {
+        "jurisdiction": "NONE",
+        "releasableTo": "ALL"
+      },
+      "extended": {
+        "localId": "FR3306",
+        "nameEn": "Nameplate",
+        "revision": "A",
+        "lifecycle": "Publié",
+        "mass": 3.2,
+        "massUnit": "kg",
+        "material": "bronze",
+        "dimensionText": "500 × 100 × 10 mm",
+        "interpretationNote": "On the entablature face at y -900.",
+        "siteKit": "FR3300"
+      }
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "IF-01",
+      "label": "Steam pipe flange / cylinder steam port (I1, DN 150 flange)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3303",
+        "D-33001"
+      ],
+      "couplings": [
+        [
+          {
+            "id": "ES-3303-A01",
+            "part": "ES-3303",
+            "position": {
+              "x": "300.000",
+              "y": "0.000",
+              "z": "2150.000"
+            },
+            "unit": "MilliM",
+            "standard": "EN 1092-1",
+            "dashSize": 150,
+            "rating": "6.000",
+            "ratingUnit": "BAR",
+            "fluid": "steam"
+          },
+          {
+            "id": "D-33001-K01",
+            "part": "D-33001",
+            "position": {
+              "x": "300.000",
+              "y": "0.000",
+              "z": "2150.000"
+            },
+            "unit": "MilliM",
+            "standard": "EN 1092-1",
+            "dashSize": 150,
+            "rating": "6.000",
+            "ratingUnit": "BAR",
+            "fluid": "steam"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-02",
+      "label": "Crank / flywheel shaft (I2, feather key)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-33008",
+        "UK-3302"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-33008-B01",
+            "part": "D-33008",
+            "position": {
+              "x": "5600.000",
+              "y": "100.000",
+              "z": "2100.000"
+            },
+            "unit": "MilliM",
+            "standard": "DIN 6885",
+            "diameter": "20.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "100.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "UK-3302-HL01",
+            "part": "UK-3302",
+            "position": {
+              "x": "220.4724",
+              "y": "3.9370",
+              "z": "82.6772"
+            },
+            "unit": "IN",
+            "standard": "DIN 6885",
+            "diameter": "0.7500",
+            "diameterUnit": "IN",
+            "count": 1,
+            "gripLength": "3.9370",
+            "gripUnit": "IN"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-03",
+      "label": "Governor link rod / throttle valve lever (I3, clevis pin)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3303",
+        "ES-3302"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3303-HL01",
+            "part": "UK-3303",
+            "position": {
+              "x": "-70.8661",
+              "y": "-5.9055",
+              "z": "90.5512"
+            },
+            "unit": "IN",
+            "standard": "ISO 2341",
+            "diameter": "0.4724",
+            "diameterUnit": "IN",
+            "count": 1,
+            "gripLength": "1.1811",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "ES-3302-R01",
+            "part": "ES-3302",
+            "position": {
+              "x": "-1800.000",
+              "y": "-150.000",
+              "z": "2300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "12.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "30.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-04",
+      "label": "Cylinder base flange / bed frame (I4, holding-down bolts)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-33001",
+        "FR3301"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-33001-B01",
+            "part": "D-33001",
+            "position": {
+              "x": "950.000",
+              "y": "0.000",
+              "z": "300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "24.000",
+            "diameterUnit": "MilliM",
+            "count": 8,
+            "gripLength": "90.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "FR3301-F01",
+            "part": "FR3301",
+            "position": {
+              "x": "950.000",
+              "y": "0.000",
+              "z": "300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "24.000",
+            "diameterUnit": "MilliM",
+            "count": 8,
+            "gripLength": "90.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-05",
+      "label": "Cylinder eduction port / eduction pipe (DN 150 flange)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-33001",
+        "ES-3304"
+      ],
+      "couplings": [
+        [
+          {
+            "id": "D-33001-K02",
+            "part": "D-33001",
+            "position": {
+              "x": "900.000",
+              "y": "0.000",
+              "z": "500.000"
+            },
+            "unit": "MilliM",
+            "standard": "EN 1092-1",
+            "dashSize": 150,
+            "rating": "6.000",
+            "ratingUnit": "BAR",
+            "fluid": "steam"
+          },
+          {
+            "id": "ES-3304-A01",
+            "part": "ES-3304",
+            "position": {
+              "x": "900.000",
+              "y": "0.000",
+              "z": "500.000"
+            },
+            "unit": "MilliM",
+            "standard": "EN 1092-1",
+            "dashSize": 150,
+            "rating": "6.000",
+            "ratingUnit": "BAR",
+            "fluid": "steam"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-06",
+      "label": "Boiler shell gauge boss / pressure gauge siphon (DN 15 connection)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3301",
+        "UK-3304"
+      ],
+      "couplings": [
+        [
+          {
+            "id": "ES-3301-A01",
+            "part": "ES-3301",
+            "position": {
+              "x": "-1300.000",
+              "y": "0.000",
+              "z": "1600.000"
+            },
+            "unit": "MilliM",
+            "standard": "EN 1092-1",
+            "dashSize": 15,
+            "rating": "6.000",
+            "ratingUnit": "BAR",
+            "fluid": "steam"
+          },
+          {
+            "id": "UK-3304-HC01",
+            "part": "UK-3304",
+            "position": {
+              "x": "-51.1811",
+              "y": "0.0000",
+              "z": "62.9921"
+            },
+            "unit": "IN",
+            "standard": "EN 1092-1",
+            "dashSize": 15,
+            "rating": "150.0000",
+            "ratingUnit": "PSI",
+            "fluid": "steam"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-07",
+      "label": "Beam bearing blocks / entablature (holding-down bolts, both blocks)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-33005",
+        "FR3304"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-33005-B01",
+            "part": "D-33005",
+            "position": {
+              "x": "3100.000",
+              "y": "-300.000",
+              "z": "3800.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "20.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "110.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "FR3304-F01",
+            "part": "FR3304",
+            "position": {
+              "x": "3100.000",
+              "y": "-300.000",
+              "z": "3800.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "20.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "110.000",
+            "gripUnit": "MilliM"
+          }
+        ],
+        [
+          {
+            "id": "D-33005-B02",
+            "part": "D-33005",
+            "position": {
+              "x": "3100.000",
+              "y": "300.000",
+              "z": "3800.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "20.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "110.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "FR3304-F02",
+            "part": "FR3304",
+            "position": {
+              "x": "3103.500",
+              "y": "300.000",
+              "z": "3800.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "20.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "110.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-08",
+      "label": "Flywheel shaft / outboard pedestal (bearing cap bolts)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3302",
+        "FR3305"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3302-HL02",
+            "part": "UK-3302",
+            "position": {
+              "x": "220.4724",
+              "y": "-56.1024",
+              "z": "91.3386"
+            },
+            "unit": "IN",
+            "standard": "ISO 4014",
+            "diameter": "1.1811",
+            "diameterUnit": "IN",
+            "count": 2,
+            "gripLength": "4.7244",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "FR3305-F01",
+            "part": "FR3305",
+            "position": {
+              "x": "5600.000",
+              "y": "-1425.000",
+              "z": "2320.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "30.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "120.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-09",
+      "label": "Condenser base flange / bed frame (holding-down bolts)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3305",
+        "FR3301"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "ES-3305-R01",
+            "part": "ES-3305",
+            "position": {
+              "x": "1785.000",
+              "y": "0.000",
+              "z": "300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "16.000",
+            "diameterUnit": "MilliM",
+            "count": 6,
+            "gripLength": "60.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "FR3301-F02",
+            "part": "FR3301",
+            "position": {
+              "x": "1785.000",
+              "y": "0.000",
+              "z": "300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "16.000",
+            "diameterUnit": "MilliM",
+            "count": 6,
+            "gripLength": "60.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-10",
+      "label": "Governor base plate / bed frame (holding-down bolts)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3303",
+        "FR3301"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3303-HL02",
+            "part": "UK-3303",
+            "position": {
+              "x": "-11.8110",
+              "y": "-35.4331",
+              "z": "11.8110"
+            },
+            "unit": "IN",
+            "standard": "ISO 4014",
+            "diameter": "0.4724",
+            "diameterUnit": "IN",
+            "count": 4,
+            "gripLength": "1.5748",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "FR3301-F03",
+            "part": "FR3301",
+            "position": {
+              "x": "-300.000",
+              "y": "-900.000",
+              "z": "300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "12.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "40.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-11",
+      "label": "Beam / air pump rod (pump rod pin)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-33004",
+        "ES-3306"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-33004-B01",
+            "part": "D-33004",
+            "position": {
+              "x": "2200.000",
+              "y": "0.000",
+              "z": "4000.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "40.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "220.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "ES-3306-R01",
+            "part": "ES-3306",
+            "position": {
+              "x": "2200.000",
+              "y": "0.000",
+              "z": "4000.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "40.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "220.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-12",
+      "label": "Boiler steam dome / throttle valve inlet (DN 150 flange)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3301",
+        "ES-3302"
+      ],
+      "couplings": [
+        [
+          {
+            "id": "ES-3301-A02",
+            "part": "ES-3301",
+            "position": {
+              "x": "-1800.000",
+              "y": "0.000",
+              "z": "2000.000"
+            },
+            "unit": "MilliM",
+            "standard": "EN 1092-1",
+            "dashSize": 150,
+            "rating": "6.000",
+            "ratingUnit": "BAR",
+            "fluid": "steam"
+          },
+          {
+            "id": "ES-3302-A01",
+            "part": "ES-3302",
+            "position": {
+              "x": "-1800.000",
+              "y": "0.000",
+              "z": "2000.000"
+            },
+            "unit": "MilliM",
+            "standard": "EN 1092-1",
+            "dashSize": 150,
+            "rating": "6.000",
+            "ratingUnit": "BAR",
+            "fluid": "steam"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-13",
+      "label": "Throttle valve outlet / steam pipe (DN 150 flange)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3302",
+        "ES-3303"
+      ],
+      "couplings": [
+        [
+          {
+            "id": "ES-3302-A02",
+            "part": "ES-3302",
+            "position": {
+              "x": "-1650.000",
+              "y": "0.000",
+              "z": "2150.000"
+            },
+            "unit": "MilliM",
+            "standard": "EN 1092-1",
+            "dashSize": 150,
+            "rating": "6.000",
+            "ratingUnit": "BAR",
+            "fluid": "steam"
+          },
+          {
+            "id": "ES-3303-A02",
+            "part": "ES-3303",
+            "position": {
+              "x": "-1650.000",
+              "y": "0.000",
+              "z": "2150.000"
+            },
+            "unit": "MilliM",
+            "standard": "EN 1092-1",
+            "dashSize": 150,
+            "rating": "6.000",
+            "ratingUnit": "BAR",
+            "fluid": "steam"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-14",
+      "label": "Eduction pipe / condenser inlet (DN 150 flange)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "ES-3304",
+        "ES-3305"
+      ],
+      "couplings": [
+        [
+          {
+            "id": "ES-3304-A02",
+            "part": "ES-3304",
+            "position": {
+              "x": "1250.000",
+              "y": "0.000",
+              "z": "500.000"
+            },
+            "unit": "MilliM",
+            "standard": "EN 1092-1",
+            "dashSize": 150,
+            "rating": "6.000",
+            "ratingUnit": "BAR",
+            "fluid": "steam"
+          },
+          {
+            "id": "ES-3305-A01",
+            "part": "ES-3305",
+            "position": {
+              "x": "1250.000",
+              "y": "0.000",
+              "z": "500.000"
+            },
+            "unit": "MilliM",
+            "standard": "EN 1092-1",
+            "dashSize": 150,
+            "rating": "6.000",
+            "ratingUnit": "BAR",
+            "fluid": "steam"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-15",
+      "label": "Left column foot / bed frame (holding-down bolts)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "FR3302",
+        "FR3301"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3302-F01",
+            "part": "FR3302",
+            "position": {
+              "x": "3100.000",
+              "y": "700.000",
+              "z": "300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "24.000",
+            "diameterUnit": "MilliM",
+            "count": 6,
+            "gripLength": "70.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "FR3301-F04",
+            "part": "FR3301",
+            "position": {
+              "x": "3100.000",
+              "y": "700.000",
+              "z": "300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "24.000",
+            "diameterUnit": "MilliM",
+            "count": 6,
+            "gripLength": "70.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-16",
+      "label": "Right column foot / bed frame (holding-down bolts)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "FR3303",
+        "FR3301"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3303-F01",
+            "part": "FR3303",
+            "position": {
+              "x": "3100.000",
+              "y": "-700.000",
+              "z": "300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "24.000",
+            "diameterUnit": "MilliM",
+            "count": 6,
+            "gripLength": "70.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "FR3301-F05",
+            "part": "FR3301",
+            "position": {
+              "x": "3100.000",
+              "y": "-700.000",
+              "z": "300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4014",
+            "diameter": "24.000",
+            "diameterUnit": "MilliM",
+            "count": 6,
+            "gripLength": "70.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-17",
+      "label": "Nameplate / entablature (screws)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "FR3306",
+        "FR3304"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "FR3306-F01",
+            "part": "FR3306",
+            "position": {
+              "x": "3100.000",
+              "y": "-900.000",
+              "z": "3700.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 7045",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "12.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "FR3304-F03",
+            "part": "FR3304",
+            "position": {
+              "x": "3100.000",
+              "y": "-900.000",
+              "z": "3700.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 7045",
+            "diameter": "5.000",
+            "diameterUnit": "MilliM",
+            "count": 4,
+            "gripLength": "12.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-18",
+      "label": "Piston / piston rod (rod nut)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-33002",
+        "D-33003"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-33002-B01",
+            "part": "D-33002",
+            "position": {
+              "x": "600.000",
+              "y": "0.000",
+              "z": "1300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4032",
+            "diameter": "60.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "50.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-33003-B01",
+            "part": "D-33003",
+            "position": {
+              "x": "600.000",
+              "y": "0.000",
+              "z": "1300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 4032",
+            "diameter": "60.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "50.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-19",
+      "label": "Piston rod head / parallel motion (crosshead pin)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-33003",
+        "D-33006"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-33003-B02",
+            "part": "D-33003",
+            "position": {
+              "x": "600.000",
+              "y": "0.000",
+              "z": "3300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "50.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "380.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-33006-B01",
+            "part": "D-33006",
+            "position": {
+              "x": "600.000",
+              "y": "0.000",
+              "z": "3300.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "50.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "380.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-20",
+      "label": "Parallel motion main links / beam end (link pins)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-33006",
+        "D-33004"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-33006-B02",
+            "part": "D-33006",
+            "position": {
+              "x": "600.000",
+              "y": "0.000",
+              "z": "4000.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "50.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "320.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-33004-B02",
+            "part": "D-33004",
+            "position": {
+              "x": "600.000",
+              "y": "0.000",
+              "z": "4000.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "50.000",
+            "diameterUnit": "MilliM",
+            "count": 2,
+            "gripLength": "320.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-21",
+      "label": "Beam end / connecting rod (rod pin)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-33004",
+        "D-33007"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-33004-B03",
+            "part": "D-33004",
+            "position": {
+              "x": "5600.000",
+              "y": "0.000",
+              "z": "4000.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "60.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "220.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-33007-B01",
+            "part": "D-33007",
+            "position": {
+              "x": "5600.000",
+              "y": "0.000",
+              "z": "4000.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "60.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "220.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-22",
+      "label": "Connecting rod / crank (crank pin)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "D-33007",
+        "D-33008"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "D-33007-B02",
+            "part": "D-33007",
+            "position": {
+              "x": "6210.000",
+              "y": "0.000",
+              "z": "2100.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "100.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "130.000",
+            "gripUnit": "MilliM"
+          },
+          {
+            "id": "D-33008-B02",
+            "part": "D-33008",
+            "position": {
+              "x": "6210.000",
+              "y": "0.000",
+              "z": "2100.000"
+            },
+            "unit": "MilliM",
+            "standard": "ISO 2341",
+            "diameter": "100.000",
+            "diameterUnit": "MilliM",
+            "count": 1,
+            "gripLength": "130.000",
+            "gripUnit": "MilliM"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-23",
+      "label": "Flywheel hub / flywheel shaft (feather key)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3301",
+        "UK-3302"
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3301-HL01",
+            "part": "UK-3301",
+            "position": {
+              "x": "220.4724",
+              "y": "-35.4331",
+              "z": "87.4016"
+            },
+            "unit": null,
+            "standard": "DIN 6885",
+            "diameter": "1.1024",
+            "diameterUnit": "IN",
+            "count": 1,
+            "gripLength": "9.8425",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "UK-3302-HL03",
+            "part": "UK-3302",
+            "position": {
+              "x": "220.4724",
+              "y": "-35.4331",
+              "z": "87.4016"
+            },
+            "unit": "IN",
+            "standard": "DIN 6885",
+            "diameter": "1.1024",
+            "diameterUnit": "IN",
+            "count": 1,
+            "gripLength": "9.8425",
+            "gripUnit": "IN"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "IF-24",
+      "label": "Governor / speed indicator (sensor plugs, bracket screws)",
+      "toleranceMm": "2.0",
+      "parts": [
+        "UK-3303",
+        "UK-3305"
+      ],
+      "pairs": [
+        [
+          {
+            "id": "UK-3303-PL01",
+            "part": "UK-3303",
+            "position": {
+              "x": "-11.8110",
+              "y": "-31.4961",
+              "z": "25.5906"
+            },
+            "unit": "IN",
+            "connectorType": "M12-A",
+            "pinCount": 4
+          },
+          {
+            "id": "UK-3305-PL01",
+            "part": "UK-3305",
+            "position": {
+              "x": "-11.8110",
+              "y": "-31.4961",
+              "z": "25.5906"
+            },
+            "unit": "IN",
+            "connectorType": "M12-A",
+            "pinCount": 4
+          }
+        ]
+      ],
+      "fasteners": [
+        [
+          {
+            "id": "UK-3303-HL03",
+            "part": "UK-3303",
+            "position": {
+              "x": "-7.8740",
+              "y": "-35.4331",
+              "z": "12.9921"
+            },
+            "unit": "IN",
+            "standard": "ISO 4762",
+            "diameter": "0.3150",
+            "diameterUnit": "IN",
+            "count": 2,
+            "gripLength": "0.9843",
+            "gripUnit": "IN"
+          },
+          {
+            "id": "UK-3305-HL01",
+            "part": "UK-3305",
+            "position": {
+              "x": "-7.8740",
+              "y": "-35.4331",
+              "z": "12.9921"
+            },
+            "unit": "IN",
+            "standard": "ISO 4762",
+            "diameter": "0.3150",
+            "diameterUnit": "IN",
+            "count": 2,
+            "gripLength": "0.9843",
+            "gripUnit": "IN"
+          }
+        ]
+      ],
+      "unmatedPlugs": [
+        {
+          "id": "UK-3303-PL02",
+          "part": "UK-3303",
+          "position": {
+            "x": "-11.8110",
+            "y": "-31.4961",
+            "z": "68.8976"
+          },
+          "unit": "IN",
+          "connectorType": "M12-A",
+          "pinCount": 5
+        }
+      ]
+    }
+  ],
+  "sparePlugs": [
+    {
+      "id": "UK-3305-PL02",
+      "part": "UK-3305",
+      "position": {
+        "x": "-11.8110",
+        "y": "-31.4961",
+        "z": "68.8976"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 5
+    }
+  ],
+  "seededDefects": [
+    {
+      "interface": "IF-06",
+      "rule": "hydraulic",
+      "features": [
+        "ES-3301-A01",
+        "UK-3304-HC01"
+      ],
+      "detail": "UK gauge rating 150 PSI (10.3 bar) vs ES boiler 6 bar"
+    },
+    {
+      "interface": "IF-02",
+      "rule": "fastener",
+      "features": [
+        "D-33008-B01",
+        "UK-3302-HL01"
+      ],
+      "detail": "DE key 20 mm vs UK 3/4 in (19.05 mm)"
+    },
+    {
+      "interface": "IF-07",
+      "rule": "position",
+      "features": [
+        "D-33005-B02",
+        "FR3304-F02"
+      ],
+      "detail": "x differs by 3.5 mm; the FR row is the outlier"
+    },
+    {
+      "interface": "IF-23",
+      "rule": "unit",
+      "features": [
+        "UK-3301-HL01"
+      ],
+      "detail": "UK row stored with pos_uom NULL"
+    },
+    {
+      "interface": "IF-24",
+      "rule": "orphan",
+      "features": [
+        "UK-3303-PL02"
+      ],
+      "detail": "UK governor sleeve sensor plug declared with no indicator mate; the spare plug UK-3305-PL02 sits at its position"
+    }
+  ],
+ "seededReferenceDefects": [
+  {
+   "localPart": "FR3301",
+   "remoteUrn": "urn:plm:es:part:ES-3307",
+   "rule": "danglingReference"
+  }
+ ],
+ "seededLifecycleDefects": [
+   {
+    "item": "ES-3303",
+    "dependency": "D-33001",
+    "rule": "lifecycleConflict"
+   },
+   {
+    "item": "UK-3300",
+    "dependency": "UK-3305",
+    "rule": "lifecycleConflict"
+   }
+ ],
+ "seededMeshDefects": [],
+  "extended": {
+    "variants": {
+      "acting": {
+        "name": "Acting",
+        "selects": "how steam drives the piston: on both faces, the parallel motion pushing and pulling the beam, or on the top face only",
+        "default": "double-acting",
+        "options": {
+          "double-acting": {
+            "default": true,
+            "parts": ["D-33006"],
+            "interfaces": ["IF-19", "IF-20"],
+            "ports": {
+              "IF-19": {
+                "D-33003-B02": "crosshead pin"
+              },
+              "IF-20": {
+                "D-33004-B02": "beam end link pins"
+              }
+            }
+          },
+          "single-acting": {
+            "default": false,
+            "applicability": "not modelled: the equilibrium valve and arch head are not in this file",
+            "replaces": {
+              "removes": {
+                "parts": ["D-33006"],
+                "assemblies": [],
+                "interfaces": ["IF-19", "IF-20"]
+              }
+            }
+          }
+        }
+      },
+      "governor": {
+        "name": "Governor",
+        "selects": "whether a centrifugal governor and its speed indicator drive the throttle lever; independent of the acting",
+        "default": "with-governor",
+        "options": {
+          "with-governor": {
+            "default": true,
+            "parts": ["UK-3303", "UK-3305"],
+            "interfaces": ["IF-03", "IF-10", "IF-24"],
+            "ports": {
+              "IF-03": {
+                "ES-3302-R01": "governor link"
+              },
+              "IF-10": {
+                "FR3301-F03": "governor base"
+              }
+            }
+          },
+          "without-governor": {
+            "default": false,
+            "replaces": {
+              "removes": {
+                "parts": ["UK-3303", "UK-3305"],
+                "assemblies": [],
+                "interfaces": ["IF-03", "IF-10", "IF-24"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "functionalEdges": [
+      {
+        "from": "ES-3301",
+        "to": "ES-3302",
+        "flow": "steam",
+        "via": "IF-12"
+      },
+      {
+        "from": "ES-3302",
+        "to": "ES-3303",
+        "flow": "steam",
+        "via": "IF-13"
+      },
+      {
+        "from": "ES-3303",
+        "to": "D-33001",
+        "flow": "steam",
+        "via": "IF-01"
+      },
+      {
+        "from": "D-33001",
+        "to": "D-33002",
+        "flow": "steam"
+      },
+      {
+        "from": "D-33001",
+        "to": "ES-3304",
+        "flow": "steam",
+        "via": "IF-05"
+      },
+      {
+        "from": "ES-3304",
+        "to": "ES-3305",
+        "flow": "steam",
+        "via": "IF-14"
+      },
+      {
+        "from": "ES-3301",
+        "to": "UK-3304",
+        "flow": "steam",
+        "via": "IF-06"
+      },
+      {
+        "from": "D-33002",
+        "to": "D-33003",
+        "flow": "mechanical",
+        "via": "IF-18"
+      },
+      {
+        "from": "D-33003",
+        "to": "D-33006",
+        "flow": "mechanical",
+        "via": "IF-19"
+      },
+      {
+        "from": "D-33006",
+        "to": "D-33004",
+        "flow": "mechanical",
+        "via": "IF-20"
+      },
+      {
+        "from": "D-33004",
+        "to": "D-33007",
+        "flow": "mechanical",
+        "via": "IF-21"
+      },
+      {
+        "from": "D-33007",
+        "to": "D-33008",
+        "flow": "mechanical",
+        "via": "IF-22"
+      },
+      {
+        "from": "D-33008",
+        "to": "UK-3302",
+        "flow": "mechanical",
+        "via": "IF-02"
+      },
+      {
+        "from": "UK-3302",
+        "to": "UK-3301",
+        "flow": "mechanical",
+        "via": "IF-23"
+      },
+      {
+        "from": "D-33004",
+        "to": "ES-3306",
+        "flow": "mechanical",
+        "via": "IF-11"
+      },
+      {
+        "from": "UK-3302",
+        "to": "UK-3303",
+        "flow": "mechanical"
+      },
+      {
+        "from": "UK-3303",
+        "to": "ES-3302",
+        "flow": "mechanical",
+        "via": "IF-03"
+      },
+      {
+        "from": "UK-3303",
+        "to": "UK-3305",
+        "flow": "electrical",
+        "via": "IF-24"
+      }
+    ],
+    "assemblies": [
+      {
+        "id": "D-33000",
+        "plm": "DE",
+        "name": "Antriebssatz Zylinder und Bewegung",
+        "nameEn": "Cylinder and motion drive kit",
+        "kind": "SITE_KIT",
+        "revision": "02",
+        "lifecycle": "In Arbeit"
+      },
+      {
+        "id": "FR3300",
+        "plm": "FR",
+        "name": "Kit d'assemblage final",
+        "nameEn": "Final assembly kit",
+        "kind": "SITE_KIT",
+        "revision": "B",
+        "lifecycle": "Publié"
+      },
+      {
+        "id": "ES-3300",
+        "plm": "ES",
+        "name": "Kit lado vapor",
+        "nameEn": "Steam side kit",
+        "kind": "SITE_KIT",
+        "revision": 2,
+        "lifecycle": "Liberado"
+      },
+      {
+        "id": "UK-3300",
+        "plm": "UK",
+        "name": "Regulation kit",
+        "nameEn": "Regulation kit",
+        "kind": "SITE_KIT",
+        "revision": "C1",
+        "lifecycle": "Released"
+      }
+    ],
+    "bomLines": [
+      {
+        "parent": "D-33000",
+        "child": "D-33001",
+        "quantity": 1
+      },
+      {
+        "parent": "D-33000",
+        "child": "D-33002",
+        "quantity": 1
+      },
+      {
+        "parent": "D-33000",
+        "child": "D-33003",
+        "quantity": 1
+      },
+      {
+        "parent": "D-33000",
+        "child": "D-33004",
+        "quantity": 1
+      },
+      {
+        "parent": "D-33000",
+        "child": "D-33005",
+        "quantity": 1
+      },
+      {
+        "parent": "D-33000",
+        "child": "D-33006",
+        "quantity": 1
+      },
+      {
+        "parent": "D-33000",
+        "child": "D-33007",
+        "quantity": 1
+      },
+      {
+        "parent": "D-33000",
+        "child": "D-33008",
+        "quantity": 1
+      },
+      {
+        "parent": "FR3300",
+        "child": "FR3301",
+        "quantity": 1,
+        "findNumber": "1"
+      },
+      {
+        "parent": "FR3300",
+        "child": "FR3302",
+        "quantity": 1,
+        "findNumber": "2"
+      },
+      {
+        "parent": "FR3300",
+        "child": "FR3303",
+        "quantity": 1,
+        "findNumber": "3"
+      },
+      {
+        "parent": "FR3300",
+        "child": "FR3304",
+        "quantity": 1,
+        "findNumber": "4"
+      },
+      {
+        "parent": "FR3300",
+        "child": "FR3305",
+        "quantity": 1,
+        "findNumber": "5"
+      },
+      {
+        "parent": "FR3300",
+        "child": "FR3306",
+        "quantity": 1,
+        "findNumber": "6"
+      },
+      {
+        "parent": "ES-3300",
+        "child": "ES-3301",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3300",
+        "child": "ES-3302",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3300",
+        "child": "ES-3303",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3300",
+        "child": "ES-3304",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3300",
+        "child": "ES-3305",
+        "quantity": 1
+      },
+      {
+        "parent": "ES-3300",
+        "child": "ES-3306",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3300",
+        "child": "UK-3301",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3300",
+        "child": "UK-3302",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3300",
+        "child": "UK-3303",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3300",
+        "child": "UK-3304",
+        "quantity": 1
+      },
+      {
+        "parent": "UK-3300",
+        "child": "UK-3305",
+        "quantity": 1
+      },
+      {
+        "parent": "D-33000",
+        "child": "D-33009",
+        "quantity": 2
+      },
+      {
+        "parent": "ES-3300",
+        "child": "ES-3308",
+        "quantity": 2
+      },
+      {
+        "parent": "UK-3300",
+        "child": "UK-3306",
+        "quantity": 1
+      }
+    ],
+    "externalRefs": [
+      {
+        "localPart": "ES-3303",
+        "remoteUrn": "urn:plm:de:part:D-33001",
+        "quantity": 1,
+        "expectedRevision": "02",
+        "note": "I1 steam pipe flange to cylinder steam port"
+      },
+      {
+        "localPart": "D-33008",
+        "remoteUrn": "urn:plm:uk:part:UK/3302",
+        "quantity": 1,
+        "expectedRevision": "C1",
+        "note": "I2 crank keyed to the flywheel shaft"
+      },
+      {
+        "localPart": "UK-3303",
+        "remoteUrn": "urn:plm:es:part:ES-3302",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "I3 governor link rod to the throttle lever"
+      },
+      {
+        "localPart": "D-33001",
+        "remoteUrn": "urn:plm:fr:part:FR3301",
+        "quantity": 1,
+        "expectedRevision": "B",
+        "note": "I4 cylinder base to the bed frame"
+      },
+      {
+        "localPart": "D-33001",
+        "remoteUrn": "urn:plm:es:part:ES-3304",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "eduction port to the eduction pipe"
+      },
+      {
+        "localPart": "ES-3301",
+        "remoteUrn": "urn:plm:uk:part:UK/3304",
+        "quantity": 1,
+        "expectedRevision": "C1",
+        "note": "gauge boss to the pressure gauge"
+      },
+      {
+        "localPart": "D-33005",
+        "remoteUrn": "urn:plm:fr:part:FR3304",
+        "quantity": 1,
+        "expectedRevision": "A",
+        "note": "bearing blocks on the entablature"
+      },
+      {
+        "localPart": "UK-3302",
+        "remoteUrn": "urn:plm:fr:part:FR3305",
+        "quantity": 1,
+        "expectedRevision": "A",
+        "note": "shaft in the pedestals"
+      },
+      {
+        "localPart": "ES-3305",
+        "remoteUrn": "urn:plm:fr:part:FR3301",
+        "quantity": 1,
+        "expectedRevision": "B",
+        "note": "condenser on the bed frame"
+      },
+      {
+        "localPart": "UK-3303",
+        "remoteUrn": "urn:plm:fr:part:FR3301",
+        "quantity": 1,
+        "expectedRevision": "B",
+        "note": "governor on the bed frame"
+      },
+      {
+        "localPart": "D-33004",
+        "remoteUrn": "urn:plm:es:part:ES-3306",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "air pump rod on the beam"
+      },
+      {
+        "localPart": "FR3301",
+        "remoteUrn": "urn:plm:es:part:ES-3307",
+        "quantity": 1,
+        "expectedRevision": 1,
+        "note": "equilibrium valve mounting; the part exists only in the single-acting variant and is not in this file"
+      }
+    ],
+    "proposedDefects": [
+      {
+        "rule": "lifecycle",
+        "notExpressibleBecause": "needs a same-site dependency relation the model does not carry: the piston rod runs through the gland of the cylinder casting, a dependency between two parts of the DE site; an external reference links two sites and the site's bill of materials does not hold this relation, so lifecycleConflict cannot report it",
+        "parts": [
+          "D-33003",
+          "D-33001"
+        ],
+        "detail": "Kolbenstange D-33003 is Freigegeben (RELEASED) while Dampfzylinder D-33001, through whose gland it runs, is In Arbeit (WORKING)",
+        "needs": "a lifecycle column in each PLM part table (DE status, FR etat, ES estado, UK lifecycle) mapped by R2RML to a canonical atelier:lifecycle (WORKING, RELEASED, BLOCKED, SUPERSEDED; UK Frozen mapped to BLOCKED), and a SHACL shape failing a RELEASED part whose mate or BOM neighbour is WORKING"
+      },
+      {
+        "rule": "variant-reference",
+        "parts": [
+          "FR3301"
+        ],
+        "remoteUrn": "urn:plm:es:part:ES-3307",
+        "detail": "the bed frame's external reference names the equilibrium valve, a part of the single-acting variant only",
+        "needs": "product variants in the core database (variant, variant_part) and external-reference rows in the PLMs (remote URN, quantity, expected revision), an atelier:inVariant mapping, and a shape failing a reference whose target shares no variant with the referencing part"
+      }
+    ],
+    "notes": [
+      "EN 1092-1 flange couplings carry the nominal diameter DN in the dash-size column.",
+      "Site kits D-33000, FR3300, ES-3300 and UK/3300 are the local top-level subassemblies; they have no geometry and are not parts of this file."
+    ],
+    "sources": [
+      {
+        "title": "Science Museum Group, 1788 'Lap' engine, object co50948",
+        "url": "https://collection.sciencemuseumgroup.org.uk/objects/co50948",
+        "licence": "CC BY-NC-SA 4.0 images; reference only"
+      },
+      {
+        "title": "Boulton and Watt drawings, IMechE archive (Archives Hub)",
+        "url": "https://archiveshub.ac.uk/search/archives/76555a4b-b0be-3f14-9346-42f8808ca334",
+        "licence": "reference only"
+      },
+      {
+        "title": "Portfolio of drawings used in the reproduction of Watt's rotative engine, object co50970",
+        "url": "https://collection.sciencemuseumgroup.org.uk/objects/co50970/portfolio-of-drawings-etc-used-in-the-reproduction-of-watts-rotative-engine-1788-drawings",
+        "licence": "CC BY-NC-SA 4.0 images; reference only"
+      }
+    ],
+    "sourceNote": "Every shape and value is authored for this sample; no image, drawing or CAD is copied."
+  }
+}

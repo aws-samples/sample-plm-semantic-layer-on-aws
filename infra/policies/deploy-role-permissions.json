@@ -1,0 +1,157 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CdkAssumeBootstrapRoles",
+      "Effect": "Allow",
+      "Action": ["sts:AssumeRole", "sts:TagSession"],
+      "Resource": "arn:aws:iam::111111111111:role/cdk-*"
+    },
+    {
+      "Sid": "CloudFormationDeploy",
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:CreateChangeSet",
+        "cloudformation:DescribeChangeSet",
+        "cloudformation:ExecuteChangeSet",
+        "cloudformation:DeleteChangeSet",
+        "cloudformation:ListChangeSets",
+        "cloudformation:CreateStack",
+        "cloudformation:UpdateStack",
+        "cloudformation:RollbackStack",
+        "cloudformation:ContinueUpdateRollback",
+        "cloudformation:DeleteStack",
+        "cloudformation:UpdateTerminationProtection",
+        "cloudformation:DescribeStacks",
+        "cloudformation:DescribeStackEvents",
+        "cloudformation:DescribeStackResources",
+        "cloudformation:ListStackResources",
+        "cloudformation:ListStacks",
+        "cloudformation:GetTemplate",
+        "cloudformation:GetTemplateSummary"
+      ],
+      "Resource": [
+        "arn:aws:cloudformation:eu-west-1:111111111111:stack/Atelier*/*",
+        "arn:aws:cloudformation:us-east-1:111111111111:stack/Atelier*/*"
+      ]
+    },
+    {
+      "Sid": "CdkToolkitRead",
+      "Effect": "Allow",
+      "Action": "cloudformation:DescribeStacks",
+      "Resource": [
+        "arn:aws:cloudformation:eu-west-1:111111111111:stack/CDKToolkit/*",
+        "arn:aws:cloudformation:us-east-1:111111111111:stack/CDKToolkit/*"
+      ]
+    },
+    {
+      "Sid": "SsmForCdkBootstrap",
+      "Effect": "Allow",
+      "Action": "ssm:GetParameter",
+      "Resource": [
+        "arn:aws:ssm:eu-west-1:111111111111:parameter/cdk-bootstrap/*",
+        "arn:aws:ssm:us-east-1:111111111111:parameter/cdk-bootstrap/*"
+      ]
+    },
+    {
+      "Sid": "CdkAssetPublish",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:GetBucketLocation",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::cdk-hnb659fds-assets-*",
+        "arn:aws:s3:::cdk-hnb659fds-assets-*/*"
+      ]
+    },
+    {
+      "Sid": "PassCfnExecRole",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::111111111111:role/cdk-hnb659fds-cfn-exec-role-111111111111-*"
+    },
+    {
+      "Sid": "EcrPushImages",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:InitiateLayerUpload",
+        "ecr:UploadLayerPart",
+        "ecr:CompleteLayerUpload",
+        "ecr:PutImage",
+        "ecr:BatchGetImage",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:DescribeRepositories",
+        "ecr:DescribeImages"
+      ],
+      "Resource": "arn:aws:ecr:eu-west-1:111111111111:repository/atelier/*"
+    },
+    {
+      "Sid": "EcrLogin",
+      "Effect": "Allow",
+      "Action": "ecr:GetAuthorizationToken",
+      "Resource": "*"
+    },
+    {
+      "Sid": "PublishRuntimeConfig",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::atelier-web-*",
+        "arn:aws:s3:::atelier-web-*/*"
+      ]
+    },
+    {
+      "Sid": "SmokeAndOutputs",
+      "Effect": "Allow",
+      "Action": [
+        "cloudfront:CreateInvalidation",
+        "cloudfront:GetDistribution",
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource": [
+        "arn:aws:cloudfront::111111111111:distribution/*",
+        "arn:aws:secretsmanager:eu-west-1:111111111111:secret:OriginVerifySecret*"
+      ]
+    },
+    {
+      "Sid": "SmokeReadsCad",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::atelier-data-cadbucket*/*"
+    },
+    {
+      "Sid": "AgentAlbAdmitsCloudFrontVpcOrigin",
+      "Effect": "Allow",
+      "Action": "ec2:AuthorizeSecurityGroupIngress",
+      "Resource": "arn:aws:ec2:eu-west-1:111111111111:security-group/*",
+      "Condition": {
+        "StringEquals": {
+          "ec2:ResourceTag/atelier:role": "agent-alb"
+        }
+      }
+    },
+    {
+      "Sid": "AgentAlbIngressRules",
+      "Effect": "Allow",
+      "Action": "ec2:AuthorizeSecurityGroupIngress",
+      "Resource": "arn:aws:ec2:eu-west-1:111111111111:security-group-rule/*"
+    },
+    {
+      "Sid": "DescribeForDeployAndSmoke",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeSecurityGroups"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

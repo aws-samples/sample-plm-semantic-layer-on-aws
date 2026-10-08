@@ -1,0 +1,48 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# QUDT conversion multipliers for the units the PLMs store quantity values in.
+# qudt:conversionMultiplier converts a value in the unit to the coherent SI unit
+# of its quantity kind: metre for lengths, pascal for pressures, kilogram for masses.
+# Values as published in the QUDT units vocabulary:
+#   https://qudt.org/vocab/unit/MilliM  qudt:conversionMultiplier 0.001
+#   https://qudt.org/vocab/unit/IN      qudt:conversionMultiplier 0.0254
+#   https://qudt.org/vocab/unit/BAR     qudt:conversionMultiplier 100000
+#   https://qudt.org/vocab/unit/PSI     qudt:conversionMultiplier 6894.757293168
+#   https://qudt.org/vocab/unit/KiloGM  qudt:conversionMultiplier 1
+#   https://qudt.org/vocab/unit/LB      qudt:conversionMultiplier 0.45359237
+# A quantity value whose unit is not listed here fails the unit rule.
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+unit:MilliM a qudt:Unit ;
+  rdfs:label "millimetre" ;
+  qudt:conversionMultiplier "0.001"^^xsd:decimal ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit/> .
+
+unit:IN a qudt:Unit ;
+  rdfs:label "inch" ;
+  qudt:conversionMultiplier "0.0254"^^xsd:decimal ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit/> .
+
+unit:BAR a qudt:Unit ;
+  rdfs:label "bar" ;
+  qudt:conversionMultiplier "100000"^^xsd:decimal ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit/> .
+
+unit:PSI a qudt:Unit ;
+  rdfs:label "pound-force per square inch" ;
+  qudt:conversionMultiplier "6894.757293168"^^xsd:decimal ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit/> .
+
+unit:KiloGM a qudt:Unit ;
+  rdfs:label "kilogram" ;
+  qudt:conversionMultiplier "1"^^xsd:decimal ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit/> .
+
+unit:LB a qudt:Unit ;
+  rdfs:label "pound (avoirdupois)" ;
+  qudt:conversionMultiplier "0.45359237"^^xsd:decimal ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit/> .

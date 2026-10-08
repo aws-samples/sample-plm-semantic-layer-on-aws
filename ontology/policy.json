@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "fr-engineer":       { "label": "FR engineer",            "nationality": "FR", "releasable": ["ALL", "EU", "FR"] },
+    "de-engineer":       { "label": "DE engineer",            "nationality": "DE", "releasable": ["ALL", "EU", "DE"] },
+    "uk-engineer":       { "label": "UK engineer",            "nationality": "UK", "releasable": ["ALL", "EU", "UK"] },
+    "es-engineer":       { "label": "ES engineer",            "nationality": "ES", "releasable": ["ALL", "EU", "ES"] },
+    "programme-cleared": { "label": "Programme cleared",      "nationality": null, "releasable": ["ALL", "EU", "FR", "DE", "UK", "ES"] },
+    "export-officer":    { "label": "Export-control officer", "nationality": null, "releasable": ["ALL", "EU", "FR", "DE", "UK", "ES", "LICENSED"] },
+    "unknown":           { "label": "No profile",             "nationality": null, "releasable": ["ALL"] }
+  }
+}

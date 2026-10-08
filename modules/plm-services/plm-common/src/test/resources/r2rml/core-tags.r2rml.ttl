@@ -1,0 +1,21 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Generated from the JPA entity annotations of atelier-core (package atelier.plm.core.domain) by atelier.plm.common.r2rml.R2rmlGenerator.
+# Do not edit: change the annotations and regenerate with modules/ontop/scripts/generate-mappings.sh.
+
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix atelier: <https://example.com/atelier/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix map: <https://example.com/atelier/core/mapping#> .
+
+map:PartTag a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "part_tag" ] ;
+  rr:subjectMap [ rr:template "https://example.com/atelier/{plm}/part/{native_key}" ; rr:class atelier:Part ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:jurisdiction ; rr:objectMap [ rr:column "jurisdiction" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:releasableTo ; rr:objectMap [ rr:column "releasable_to" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:taggedBy ; rr:objectMap [ rr:column "tagged_by" ] ] ;
+  rr:predicateObjectMap [ rr:predicate atelier:taggedAt ; rr:objectMap [ rr:column "tagged_at" ] ] .

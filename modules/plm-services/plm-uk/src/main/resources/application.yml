@@ -1,0 +1,37 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# All connection settings come from the environment (DB_* or DB_SECRET_JSON); nothing is baked in.
+plm:
+  code: uk
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: plm-uk
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT:5432}/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 5
+  jpa:
+    open-in-view: false
+    hibernate:
+      # Flyway owns the native schema; Hibernate only checks the entities match it.
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+# Actuator lives under /uk so the API Gateway can route /uk/* to this service as one prefix.
+management:
+  endpoints:
+    web:
+      base-path: /uk
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never

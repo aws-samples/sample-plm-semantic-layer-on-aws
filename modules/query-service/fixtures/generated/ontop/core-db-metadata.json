@@ -1,0 +1,239 @@
+{
+   "metadata" : {
+      "dbmsProductName" : "PostgreSQL",
+      "dbmsVersion" : "16.15 (Debian 16.15-1.pgdg13+2)",
+      "driverName" : "PostgreSQL JDBC Driver",
+      "driverVersion" : "42.7.13",
+      "idFactoryType" : "POSTGRESQL",
+      "quotationString" : "\""
+   },
+   "relations" : [
+      {
+         "columns" : [
+            {
+               "datatype" : "bigserial",
+               "isNullable" : false,
+               "name" : "\"id\""
+            },
+            {
+               "datatype" : "text(2147483647)",
+               "isNullable" : false,
+               "name" : "\"plm\""
+            },
+            {
+               "datatype" : "text(2147483647)",
+               "isNullable" : false,
+               "name" : "\"table_name\""
+            },
+            {
+               "datatype" : "text(2147483647)",
+               "isNullable" : false,
+               "name" : "\"row_key\""
+            },
+            {
+               "datatype" : "text(2147483647)",
+               "isNullable" : false,
+               "name" : "\"column_name\""
+            },
+            {
+               "datatype" : "text(2147483647)",
+               "isNullable" : true,
+               "name" : "\"before\""
+            },
+            {
+               "datatype" : "text(2147483647)",
+               "isNullable" : true,
+               "name" : "\"after\""
+            },
+            {
+               "datatype" : "text(2147483647)",
+               "isNullable" : true,
+               "name" : "\"actor\""
+            },
+            {
+               "datatype" : "text(2147483647)",
+               "isNullable" : true,
+               "name" : "\"purpose\""
+            },
+            {
+               "datatype" : "timestamptz",
+               "isNullable" : false,
+               "name" : "\"at\""
+            }
+         ],
+         "name" : [
+            "\"demo_change\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"demo_change\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "demo_change_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(32)",
+               "isNullable" : false,
+               "name" : "\"product_key\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : false,
+               "name" : "\"name\""
+            },
+            {
+               "datatype" : "text(2147483647)",
+               "isNullable" : true,
+               "name" : "\"frame\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"mass_limit_kg\""
+            }
+         ],
+         "name" : [
+            "\"product\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"product\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"product_key\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "product_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(32)",
+               "isNullable" : false,
+               "name" : "\"product_key\""
+            },
+            {
+               "datatype" : "varchar(2)",
+               "isNullable" : false,
+               "name" : "\"plm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"native_key\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"product_key\""
+                  ],
+                  "relation" : [
+                     "\"product_part\""
+                  ]
+               },
+               "name" : "product_part_product_key_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"product_key\""
+                  ],
+                  "relation" : [
+                     "\"product\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"product_part\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"product_part\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"product_key\"",
+                  "\"plm\"",
+                  "\"native_key\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "product_part_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(2)",
+               "isNullable" : false,
+               "name" : "\"plm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"native_key\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : false,
+               "name" : "\"jurisdiction\""
+            },
+            {
+               "datatype" : "varchar(8)",
+               "isNullable" : false,
+               "name" : "\"releasable_to\""
+            },
+            {
+               "datatype" : "varchar(2)",
+               "isNullable" : false,
+               "name" : "\"tagged_by\""
+            },
+            {
+               "datatype" : "timestamptz",
+               "isNullable" : false,
+               "name" : "\"tagged_at\""
+            }
+         ],
+         "name" : [
+            "\"part_tag\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"part_tag\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"plm\"",
+                  "\"native_key\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "part_tag_pkey"
+            }
+         ]
+      }
+   ]
+}

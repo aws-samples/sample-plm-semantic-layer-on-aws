@@ -1,0 +1,980 @@
+{
+   "metadata" : {
+      "dbmsProductName" : "PostgreSQL",
+      "dbmsVersion" : "16.15 (Debian 16.15-1.pgdg13+2)",
+      "driverName" : "PostgreSQL JDBC Driver",
+      "driverVersion" : "42.7.13",
+      "idFactoryType" : "POSTGRESQL",
+      "quotationString" : "\""
+   },
+   "relations" : [
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"ancestor\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"descendant\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"depth\""
+            }
+         ],
+         "name" : [
+            "\"bom_closure\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"bom_closure\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"ancestor\"",
+                  "\"descendant\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "bom_closure_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"conn_ref\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"comp_id\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"pos_x\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"pos_y\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"pos_z\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"pos_uom\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"shell_type\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"pin_qty\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"port_name\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"option_code\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"comp_id\""
+                  ],
+                  "relation" : [
+                     "\"harness_connector\""
+                  ]
+               },
+               "name" : "harness_connector_comp_id_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"comp_id\""
+                  ],
+                  "relation" : [
+                     "\"component\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"harness_connector\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"harness_connector\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"conn_ref\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "harness_connector_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"comp_id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"supplier_id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"supplier_part_no\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"lead_time_days\""
+            },
+            {
+               "datatype" : "bool",
+               "isNullable" : false,
+               "name" : "\"preferred\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"comp_id\""
+                  ],
+                  "relation" : [
+                     "\"supplier_part\""
+                  ]
+               },
+               "name" : "supplier_part_comp_id_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"comp_id\""
+                  ],
+                  "relation" : [
+                     "\"component\""
+                  ]
+               }
+            },
+            {
+               "from" : {
+                  "columns" : [
+                     "\"supplier_id\""
+                  ],
+                  "relation" : [
+                     "\"supplier_part\""
+                  ]
+               },
+               "name" : "supplier_part_supplier_id_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"supplier_id\""
+                  ],
+                  "relation" : [
+                     "\"supplier\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"supplier_part\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"supplier_part\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "supplier_part_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"line_no\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"level\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"parent_part_no\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"child_part_no\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"qty\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"child_part_no\""
+                  ],
+                  "relation" : [
+                     "\"bom_line\""
+                  ]
+               },
+               "name" : "bom_line_child_part_no_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"comp_id\""
+                  ],
+                  "relation" : [
+                     "\"component\""
+                  ]
+               }
+            },
+            {
+               "from" : {
+                  "columns" : [
+                     "\"parent_part_no\""
+                  ],
+                  "relation" : [
+                     "\"bom_line\""
+                  ]
+               },
+               "name" : "bom_line_parent_part_no_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"comp_id\""
+                  ],
+                  "relation" : [
+                     "\"component\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"bom_line\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"bom_line\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"line_no\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "bom_line_pkey"
+            },
+            {
+               "determinants" : [
+                  "\"parent_part_no\"",
+                  "\"child_part_no\""
+               ],
+               "isPrimaryKey" : false,
+               "name" : "bom_line_parent_child_key"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"cplg_ref\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"comp_id\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"pos_x\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"pos_y\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"pos_z\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"pos_uom\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"standard\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"dash\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : true,
+               "name" : "\"rating\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"rating_uom\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"fluid\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"port_name\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"option_code\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"comp_id\""
+                  ],
+                  "relation" : [
+                     "\"hyd_coupling\""
+                  ]
+               },
+               "name" : "hyd_coupling_comp_id_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"comp_id\""
+                  ],
+                  "relation" : [
+                     "\"component\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"hyd_coupling\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"hyd_coupling\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"cplg_ref\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "hyd_coupling_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"fast_ref\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"comp_id\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"pos_x\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"pos_y\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"pos_z\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"pos_uom\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"standard\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"dia\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"dia_uom\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"qty\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"grip\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"grip_uom\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"port_name\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"option_code\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"comp_id\""
+                  ],
+                  "relation" : [
+                     "\"fastener\""
+                  ]
+               },
+               "name" : "fastener_comp_id_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"comp_id\""
+                  ],
+                  "relation" : [
+                     "\"component\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"fastener\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"fastener\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"fast_ref\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "fastener_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"comp_id\""
+            },
+            {
+               "datatype" : "varchar(255)",
+               "isNullable" : false,
+               "name" : "\"name\""
+            },
+            {
+               "datatype" : "varchar(512)",
+               "isNullable" : true,
+               "name" : "\"cad_file\""
+            },
+            {
+               "datatype" : "varchar(8)",
+               "isNullable" : true,
+               "name" : "\"revision\""
+            },
+            {
+               "datatype" : "varchar(32)",
+               "isNullable" : true,
+               "name" : "\"lifecycle\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"mass_lb\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"material\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : false,
+               "name" : "\"part_type\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"standard\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"nominal_dia\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"nominal_length\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"size_uom\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"teeth\""
+            },
+            {
+               "datatype" : "numeric(8, 5)",
+               "isNullable" : true,
+               "name" : "\"module_in\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"item_class\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"inside_dia\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"cross_section\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"compound\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"legend\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"width\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"height\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"face_material\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"adhesive\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"base_width\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"depth\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"contour_width\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"shell_material\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"outside_dia\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"section_width\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"rim_dia\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"ply_rating\""
+            },
+            {
+               "datatype" : "numeric(8, 4)",
+               "isNullable" : true,
+               "name" : "\"heat_stack_dia\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"rotors\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"shelf_life_months\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"option_code\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : true,
+               "name" : "\"span_from\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : true,
+               "name" : "\"span_to\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"span_uom\""
+            }
+         ],
+         "name" : [
+            "\"component\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"component\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"comp_id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "component_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : false,
+               "name" : "\"id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"part_no\""
+            },
+            {
+               "datatype" : "varchar(160)",
+               "isNullable" : false,
+               "name" : "\"remote_urn\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"qty\""
+            },
+            {
+               "datatype" : "varchar(8)",
+               "isNullable" : true,
+               "name" : "\"expected_revision\""
+            },
+            {
+               "datatype" : "varchar(400)",
+               "isNullable" : true,
+               "name" : "\"note\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"part_no\""
+                  ],
+                  "relation" : [
+                     "\"external_ref\""
+                  ]
+               },
+               "name" : "external_ref_part_no_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"comp_id\""
+                  ],
+                  "relation" : [
+                     "\"component\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"external_ref\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"external_ref\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "external_ref_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"supplier_id\""
+            },
+            {
+               "datatype" : "varchar(255)",
+               "isNullable" : false,
+               "name" : "\"name\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"town\""
+            }
+         ],
+         "name" : [
+            "\"supplier\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"supplier\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"supplier_id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "supplier_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"parent_part_no\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"child_part_no\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"occurrence_no\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"x_in\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"y_in\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"z_in\""
+            },
+            {
+               "datatype" : "numeric(9, 4)",
+               "isNullable" : false,
+               "name" : "\"rx_deg\""
+            },
+            {
+               "datatype" : "numeric(9, 4)",
+               "isNullable" : false,
+               "name" : "\"ry_deg\""
+            },
+            {
+               "datatype" : "numeric(9, 4)",
+               "isNullable" : false,
+               "name" : "\"rz_deg\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : true,
+               "name" : "\"span_from\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : true,
+               "name" : "\"span_to\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"span_uom\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"parent_part_no\"",
+                     "\"child_part_no\""
+                  ],
+                  "relation" : [
+                     "\"bom_line_placement\""
+                  ]
+               },
+               "name" : "bom_line_placement_parent_part_no_child_part_no_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"parent_part_no\"",
+                     "\"child_part_no\""
+                  ],
+                  "relation" : [
+                     "\"bom_line\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"bom_line_placement\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"bom_line_placement\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"parent_part_no\"",
+                  "\"child_part_no\"",
+                  "\"occurrence_no\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "bom_line_placement_pkey"
+            }
+         ]
+      }
+   ]
+}

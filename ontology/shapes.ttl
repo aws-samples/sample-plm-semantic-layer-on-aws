@@ -1,0 +1,616 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# SHACL rules for cross-PLM interfaces.
+#
+# The data graph is the federated neighbourhood of the interfaces (link-store
+# facts plus feature and part facts from each PLM) merged with units.ttl,
+# because the SPARQL constraints read qudt:conversionMultiplier from the data
+# graph, and with the rdfs:subClassOf axioms of atelier.ttl, so that a shape
+# targeting atelier:InterfaceFeature reaches every plug, fastener and coupling.
+#
+# Each shape carries ateliersh:rule, the rule name the query service reports.
+# It also carries ateliersh:focus, what its results are about (interface, part,
+# reference or product), and sh:description, a plain-language account of what it
+# checks and why only the layer can check it, which GET /query/rules serves.
+# Results carry the focus feature as sh:focusNode; for pair rules sh:value is
+# the mated feature, and for the unit rule sh:resultPath is the quantity
+# property (atelier:positionX|Y|Z, atelier:diameter, atelier:gripLength, atelier:pressureRating).
+#
+# Two severities. The interface rules are sh:Violation results on features and
+# decide an interface's pass or fail (the product rule massLimit is a sh:Violation
+# on the product, reported as a finding of the product); ateliersh:MateCardinalityShape is one of them, a
+# core constraint (sh:maxCount 1 on atelier:matesWith) with sh:resultPath atelier:matesWith
+# and no sh:value. The data-quality shape at the end gives
+# sh:Warning results on parts (sh:focusNode the part IRI): the query service
+# reports them as findings on the part and counts them per rule; they never
+# enter an interface's status.
+#
+# Lengths are normalised to millimetres as value x multiplier(unit) x 1000 and
+# pressures to pascals as value x multiplier(unit), where the multiplier converts
+# to the SI unit (QUDT). Arithmetic stays xsd:decimal. Numbers in messages are
+# computed values, so they print in one canonical form ("2.0", "4.3") whatever
+# lexical form the sources return.
+#
+# Feature IRIs are .../atelier/{plm}/{plug|fastener|coupling}/{id}; messages name
+# the PLM, the kind and the percent-decoded id.
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix atelier:   <https://example.com/atelier/ontology#> .
+@prefix ateliersh: <https://example.com/atelier/shapes#> .
+
+<https://example.com/atelier/shapes> a owl:Ontology ;
+  rdfs:comment "Validation rules for features mated across Atelier interfaces: unit, position, orphan, kind and doubleMate for every feature class; connector for plugs; fastener for fastener groups; hydraulic for hydraulic couplings. Data-quality shapes on parts, warnings that never fail an interface: cadMissing; massScale; danglingReference and staleRevision on the external references a part makes; conflictingLeadTime on the supplier offers for a part; lifecycleConflict on a released item that depends on a working or blocked one; meshModule on a gear driven by a gear of another module. Product rule: massLimit, the mass of every site's parts against the product's limit." ;
+  sh:declare
+    [ sh:prefix "atelier"  ; sh:namespace "https://example.com/atelier/ontology#"^^xsd:anyURI ] ,
+    [ sh:prefix "qudt" ; sh:namespace "http://qudt.org/schema/qudt/"^^xsd:anyURI ] ,
+    [ sh:prefix "skos" ; sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ] .
+
+ateliersh:rule a owl:AnnotationProperty ;
+  rdfs:comment "Name of the rule a shape implements, as reported by the query service: unit, position, orphan, kind, doubleMate, connector, fastener or hydraulic for the interface rules; cadMissing, massScale, danglingReference, staleRevision, conflictingLeadTime, lifecycleConflict and meshModule for the data-quality shapes on parts; massLimit for the product rule." .
+
+ateliersh:focus a owl:AnnotationProperty ;
+  rdfs:comment "What a shape's results are about, as the query service groups the rules: interface (a feature of an interface), part, reference (an external reference a part makes, reported on that part) or product." .
+
+# Unit: every quantity value of a feature (position axes, diameter, grip length,
+# pressure rating) has a qudt:unit for which a QUDT conversion multiplier is known.
+ateliersh:UnitShape a sh:NodeShape ;
+  ateliersh:rule "unit" ;
+  ateliersh:focus "interface" ;
+  sh:description "Every measured value on a plug, fastener group or coupling, its position, diameter, grip length or pressure rating, must say which unit it is in, and the unit must be one the layer knows how to convert. Each site stores its own units (millimetres, inches, bar, PSI); only the layer, which compares the sites with each other, needs every value in a unit it can convert."@en ;
+  rdfs:comment "Every quantity value of an interface feature carries a unit with a known conversion multiplier." ;
+  sh:targetClass atelier:InterfaceFeature ;
+  sh:sparql [
+    sh:message "{?plm} {?kind} {?id} has no unit on its {?what} (stored value {?raw}), so it cannot be converted" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?path ?value ?plm ?kind ?id ?what ?raw WHERE {
+        VALUES (?path ?what) {
+          (atelier:positionX "x position") (atelier:positionY "y position") (atelier:positionZ "z position")
+          (atelier:diameter "diameter") (atelier:gripLength "grip length") (atelier:pressureRating "pressure rating")
+        }
+        $this ?path ?value .
+        OPTIONAL { ?value qudt:numericValue ?raw }
+        FILTER NOT EXISTS { ?value qudt:unit ?anyUnit }
+        BIND (UCASE(REPLACE(STR($this), "^.*/atelier/([a-z]+)/[a-z]+/.*$", "$1")) AS ?plm)
+        BIND (REPLACE(STR($this), "^.*/atelier/[a-z]+/([a-z]+)/.*$", "$1") AS ?kind)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?id)
+      }""" ] ;
+  sh:sparql [
+    sh:message "{?plm} {?kind} {?id} states its {?what} in unit {?unitName}, which has no known conversion multiplier" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?path ?value ?plm ?kind ?id ?what ?unitName WHERE {
+        VALUES (?path ?what) {
+          (atelier:positionX "x position") (atelier:positionY "y position") (atelier:positionZ "z position")
+          (atelier:diameter "diameter") (atelier:gripLength "grip length") (atelier:pressureRating "pressure rating")
+        }
+        $this ?path ?value .
+        ?value qudt:unit ?unit .
+        FILTER NOT EXISTS { ?unit qudt:conversionMultiplier ?anyMultiplier }
+        BIND (UCASE(REPLACE(STR($this), "^.*/atelier/([a-z]+)/[a-z]+/.*$", "$1")) AS ?plm)
+        BIND (REPLACE(STR($this), "^.*/atelier/[a-z]+/([a-z]+)/.*$", "$1") AS ?kind)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?id)
+        BIND (REPLACE(STR(?unit), "^.*/", "") AS ?unitName)
+      }""" ] .
+
+# Position: mated features coincide within the interface's tolerance on each axis
+# after normalisation to mm. Each mated pair is reported once (from the feature
+# whose IRI sorts first).
+ateliersh:PositionShape a sh:NodeShape ;
+  ateliersh:rule "position" ;
+  ateliersh:focus "interface" ;
+  sh:description "Two features that mate, a plug and its socket, a bolt pattern and its holes, must sit at the same place on every axis, within the tolerance the interface allows. The two sides come from different sites, often in different length units, so only the layer, which converts both to millimetres, can see that they do not meet."@en ;
+  rdfs:comment "Mated features coincide within atelier:toleranceMm of their interface on each axis, after conversion to millimetres." ;
+  sh:targetSubjectsOf atelier:matesWith ;
+  sh:sparql [
+    sh:message "{?a} and {?b} are {?deltaShown} mm apart on {?axis}; tolerance {?tolShown} mm" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?path ?value ?a ?b ?axis ?deltaShown ?tolShown WHERE {
+        $this atelier:matesWith ?value .
+        FILTER (STR($this) < STR(?value))
+        ?if atelier:declaresFeature $this , ?value ; atelier:toleranceMm ?tol .
+        VALUES (?path ?axis) { (atelier:positionX "x") (atelier:positionY "y") (atelier:positionZ "z") }
+        $this  ?path ?q1 . ?q1 qudt:numericValue ?v1 ; qudt:unit ?u1 . ?u1 qudt:conversionMultiplier ?m1 .
+        ?value ?path ?q2 . ?q2 qudt:numericValue ?v2 ; qudt:unit ?u2 . ?u2 qudt:conversionMultiplier ?m2 .
+        BIND (ABS(?v1 * ?m1 - ?v2 * ?m2) * 1000 AS ?deltaMm)
+        FILTER (?deltaMm > ?tol)
+        BIND (ROUND(?deltaMm * 1000) / 1000 AS ?deltaShown)
+        BIND (?tol + 0.0 AS ?tolShown)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?a)
+        BIND (REPLACE(REPLACE(STR(?value), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?b)
+      }""" ] .
+
+# Kind: mated features are of the same class (a plug mates with a plug, a
+# fastener group with a fastener group, a coupling with a coupling).
+ateliersh:KindShape a sh:NodeShape ;
+  ateliersh:rule "kind" ;
+  ateliersh:focus "interface" ;
+  sh:description "Two features that mate must be the same kind of thing: a plug mates with a plug, a fastener group with a fastener group, a coupling with a coupling. The link store says what mates with what and each site says what its feature is; the layer is where the two statements meet."@en ;
+  rdfs:comment "Mated features have the same rdf:type." ;
+  sh:targetSubjectsOf atelier:matesWith ;
+  sh:sparql [
+    sh:message "{?a} ({?k1}) and {?b} ({?k2}) are mated but are not the same kind of feature" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?a ?b ?k1 ?k2 WHERE {
+        $this atelier:matesWith ?value .
+        FILTER (STR($this) < STR(?value))
+        $this a ?c1 . ?value a ?c2 .
+        FILTER NOT EXISTS { ?value a ?c1 }
+        FILTER NOT EXISTS { $this a ?c2 }
+        BIND (REPLACE(STR(?c1), "^.*#", "") AS ?k1)
+        BIND (REPLACE(STR(?c2), "^.*#", "") AS ?k2)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?a)
+        BIND (REPLACE(REPLACE(STR(?value), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?b)
+      }""" ] .
+
+# Connector: mated plugs have the same connector type and pin count.
+ateliersh:ConnectorShape a sh:NodeShape ;
+  ateliersh:rule "connector" ;
+  ateliersh:focus "interface" ;
+  sh:description "Two plugs that mate must be the same connector type with the same number of pins. One site designs each plug, so neither site's system holds both plugs; the layer reads both and compares them."@en ;
+  rdfs:comment "Mated plugs have equal atelier:connectorType and atelier:pinCount." ;
+  sh:targetSubjectsOf atelier:matesWith ;
+  sh:sparql [
+    sh:message "{?a} ({?t1}, {?p1} pins) and {?b} ({?t2}, {?p2} pins) are mated but do not match" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?a ?b ?t1 ?t2 ?p1 ?p2 WHERE {
+        $this atelier:matesWith ?value .
+        FILTER (STR($this) < STR(?value))
+        $this  atelier:connectorType ?t1 ; atelier:pinCount ?p1 .
+        ?value atelier:connectorType ?t2 ; atelier:pinCount ?p2 .
+        FILTER (?t1 != ?t2 || ?p1 != ?p2)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?a)
+        BIND (REPLACE(REPLACE(STR(?value), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?b)
+      }""" ] .
+
+# Fastener: mated fastener groups have the same standard and count, and
+# diameters equal within 0.05 mm after conversion to millimetres.
+ateliersh:FastenerShape a sh:NodeShape ;
+  ateliersh:rule "fastener" ;
+  ateliersh:focus "interface" ;
+  sh:description "Two fastener groups that mate must use the same fastener standard and the same number of fasteners, and their diameters must agree within 0.05 mm once both are in millimetres. The sides come from two sites, one may state inches, so only the layer can compare them."@en ;
+  rdfs:comment "Mated fastener groups have equal atelier:fastenerStandard and atelier:fastenerCount, and atelier:diameter values within 0.05 mm of each other after conversion to millimetres." ;
+  sh:targetSubjectsOf atelier:matesWith ;
+  sh:sparql [
+    sh:message "{?a} ({?s1}, {?n1} fasteners) and {?b} ({?s2}, {?n2} fasteners) are mated but do not match" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?a ?b ?s1 ?s2 ?n1 ?n2 WHERE {
+        $this atelier:matesWith ?value .
+        FILTER (STR($this) < STR(?value))
+        $this  atelier:fastenerStandard ?s1 ; atelier:fastenerCount ?n1 .
+        ?value atelier:fastenerStandard ?s2 ; atelier:fastenerCount ?n2 .
+        FILTER (?s1 != ?s2 || ?n1 != ?n2)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?a)
+        BIND (REPLACE(REPLACE(STR(?value), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?b)
+      }""" ] ;
+  sh:sparql [
+    sh:message "{?a} and {?b} fastener diameters differ: {?d1} mm vs {?d2} mm" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?a ?b ?d1 ?d2 WHERE {
+        $this atelier:matesWith ?value .
+        FILTER (STR($this) < STR(?value))
+        $this  atelier:diameter ?q1 . ?q1 qudt:numericValue ?v1 ; qudt:unit ?u1 . ?u1 qudt:conversionMultiplier ?m1 .
+        ?value atelier:diameter ?q2 . ?q2 qudt:numericValue ?v2 ; qudt:unit ?u2 . ?u2 qudt:conversionMultiplier ?m2 .
+        BIND (?v1 * ?m1 * 1000 AS ?mm1)
+        BIND (?v2 * ?m2 * 1000 AS ?mm2)
+        FILTER (ABS(?mm1 - ?mm2) > 0.05)
+        BIND (ROUND(?mm1 * 1000) / 1000 AS ?d1)
+        BIND (ROUND(?mm2 * 1000) / 1000 AS ?d2)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?a)
+        BIND (REPLACE(REPLACE(STR(?value), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?b)
+      }""" ] .
+
+# Hydraulic: mated couplings have the same standard, dash size and fluid, and
+# pressure ratings equal within 2 % after conversion to pascals (shown in bar).
+ateliersh:HydraulicShape a sh:NodeShape ;
+  ateliersh:rule "hydraulic" ;
+  ateliersh:focus "interface" ;
+  sh:description "Two hydraulic couplings that mate must share the coupling standard, the dash size and the fluid, and their pressure ratings must agree within 2 percent once both are converted. The sites state pressure in bar or PSI; the layer converts both and compares."@en ;
+  rdfs:comment "Mated hydraulic couplings have equal atelier:couplingStandard, atelier:dashSize and atelier:fluid, and atelier:pressureRating values within 2 % of the larger after conversion." ;
+  sh:targetSubjectsOf atelier:matesWith ;
+  sh:sparql [
+    sh:message "{?a} ({?s1}, dash {?d1}, {?f1}) and {?b} ({?s2}, dash {?d2}, {?f2}) are mated but do not match" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?a ?b ?s1 ?s2 ?d1 ?d2 ?f1 ?f2 WHERE {
+        $this atelier:matesWith ?value .
+        FILTER (STR($this) < STR(?value))
+        $this  atelier:couplingStandard ?s1 ; atelier:dashSize ?d1 ; atelier:fluid ?f1 .
+        ?value atelier:couplingStandard ?s2 ; atelier:dashSize ?d2 ; atelier:fluid ?f2 .
+        FILTER (?s1 != ?s2 || ?d1 != ?d2 || ?f1 != ?f2)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?a)
+        BIND (REPLACE(REPLACE(STR(?value), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?b)
+      }""" ] ;
+  sh:sparql [
+    sh:message "{?a} and {?b} pressure ratings differ by more than 2 %: {?p1} bar vs {?p2} bar" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?a ?b ?p1 ?p2 WHERE {
+        $this atelier:matesWith ?value .
+        FILTER (STR($this) < STR(?value))
+        $this  atelier:pressureRating ?q1 . ?q1 qudt:numericValue ?v1 ; qudt:unit ?u1 . ?u1 qudt:conversionMultiplier ?m1 .
+        ?value atelier:pressureRating ?q2 . ?q2 qudt:numericValue ?v2 ; qudt:unit ?u2 . ?u2 qudt:conversionMultiplier ?m2 .
+        BIND (?v1 * ?m1 AS ?pa1)
+        BIND (?v2 * ?m2 AS ?pa2)
+        FILTER (ABS(?pa1 - ?pa2) > 0.02 * IF(?pa1 > ?pa2, ?pa1, ?pa2))
+        BIND (ROUND(?pa1 / 100) / 1000 AS ?p1)
+        BIND (ROUND(?pa2 / 100) / 1000 AS ?p2)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?a)
+        BIND (REPLACE(REPLACE(STR(?value), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?b)
+      }""" ] .
+
+# Orphan: every feature an interface declares has at least one atelier:matesWith.
+ateliersh:OrphanShape a sh:NodeShape ;
+  ateliersh:rule "orphan" ;
+  ateliersh:focus "interface" ;
+  sh:description "Every feature an interface lists must mate with a feature on the other side. A site can publish a plug that no other site has connected; the link store lists the interface's features and only the layer sees that one of them mates with nothing."@en ;
+  rdfs:comment "Every feature declared on an interface has at least one atelier:matesWith." ;
+  sh:targetObjectsOf atelier:declaresFeature ;
+  sh:sparql [
+    sh:message "{?plm} {?kind} {?id} is declared on interface {?ifId} but mates with no {?kind}" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?plm ?kind ?id ?ifId WHERE {
+        ?value atelier:declaresFeature $this .
+        FILTER NOT EXISTS { $this atelier:matesWith ?anyMate }
+        BIND (UCASE(REPLACE(STR($this), "^.*/atelier/([a-z]+)/[a-z]+/.*$", "$1")) AS ?plm)
+        BIND (REPLACE(STR($this), "^.*/atelier/[a-z]+/([a-z]+)/.*$", "$1") AS ?kind)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/[a-z]+/", ""), "%20", " ") AS ?id)
+        BIND (REPLACE(STR(?value), "^.*/", "") AS ?ifId)   # the interface id: the last segment of interface/{product}/{id}
+      }""" ] .
+
+# Double mate: a feature mates with at most one feature, so a second mate published
+# for a plug fails its interface instead of passing silently. A core constraint on
+# the feature class: it reaches every plug, fastener and coupling through the
+# rdfs:subClassOf axioms merged into the data graph.
+ateliersh:MateCardinalityShape a sh:PropertyShape ;
+  ateliersh:rule "doubleMate" ;
+  ateliersh:focus "interface" ;
+  sh:description "A feature mates with one feature at most. A second mate published for the same plug is a mistake in the link store that would otherwise pass unnoticed; the layer counts the mates across every site's links."@en ;
+  rdfs:comment "An interface feature has at most one atelier:matesWith." ;
+  sh:targetClass atelier:InterfaceFeature ;
+  sh:path atelier:matesWith ;
+  sh:maxCount 1 ;
+  sh:severity sh:Violation ;
+  sh:message "mates with more than one feature" .
+
+# Data quality: every part with geometry the viewer may see has exactly one CAD
+# file in the file index. A sh:Warning on the part, reported as a finding and
+# counted per rule; it never changes an interface's status, which is computed
+# from the sh:Violation results on the interface's features only. The target is
+# the parts whose atelier:partType is PART or unstated: an assembly, a site kit,
+# software and a document have no geometry, so no CAD file.
+ateliersh:PartCadShape a sh:PropertyShape ;
+  ateliersh:rule "cadMissing" ;
+  ateliersh:focus "part" ;
+  sh:description "Every part with geometry must have exactly one CAD file in the file index, the shared index of where each part's file is. The site that owns the part releases it, the file index records the file: the layer joins the two and finds the parts released without a file."@en ;
+  rdfs:comment "Every part with geometry (part type PART) carries exactly one atelier:cadFile from the file index." ;
+  sh:target [
+    a sh:SPARQLTarget ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT ?this WHERE {
+        ?this a atelier:Part .
+        FILTER NOT EXISTS { ?this atelier:partType ?type FILTER (STR(?type) != "PART") }
+      }""" ] ;
+  sh:path atelier:cadFile ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:severity sh:Warning ;
+  sh:message "no CAD file published in the file index for this part" .
+
+# External references: a part names another site's part by URN with the revision it expects. The URN
+# resolves to a part IRI by string functions alone: urn:plm:<site>:part:<local id> becomes
+# https://example.com/atelier/<site>/part/<local id, IRI-encoded as R2RML encodes it>, the British
+# native form UK/nnnn being the part key UK-nnnn. Both shapes focus the part that makes the
+# reference (sh:value the reference) and are sh:Warning findings on it. Existence is read from the
+# product memberships of every part (atelier:partOf, from the core graph, which the query service
+# merges into the data graph whatever the viewer may see), so a reference to a hidden part is not
+# dangling; a revision can only be compared on a target the viewer sees (described by its PLM, so
+# carrying the PLM's atelier:label), so a reference to a hidden part raises no staleRevision either.
+ateliersh:DanglingReferenceShape a sh:NodeShape ;
+  ateliersh:rule "danglingReference" ;
+  ateliersh:focus "reference" ;
+  sh:description "When a part names a part of another site, the name must be a well-formed part URN that leads to an existing part. The referring site cannot check another site's parts; the layer holds the product memberships of every site and resolves the name."@en ;
+  rdfs:comment "An external reference's URN is the urn:plm:<site>:part:<local id> key of an existing part." ;
+  sh:targetObjectsOf atelier:fromPart ;
+  sh:severity sh:Warning ;
+  sh:sparql [
+    sh:message "{?id} references {?u}, which is not a urn:plm:<site>:part:<local id> key and resolves to no part" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?id ?u WHERE {
+        ?value atelier:fromPart $this ; atelier:remoteUrn ?urn .
+        BIND (STR(?urn) AS ?u)
+        BIND (REGEX(?u, "^urn:plm:(de|fr|es|uk):part:.+$") AS ?wellFormed)
+        BIND (REPLACE(?u, "^urn:plm:([a-z]+):part:.*$", "$1") AS ?site)
+        BIND (REPLACE(?u, "^urn:plm:[a-z]+:part:", "") AS ?local)
+        BIND (IF(?site = "uk", REPLACE(?local, "^UK/", "UK-"), ?local) AS ?key)
+        BIND (IF(?wellFormed, IRI(CONCAT("https://example.com/atelier/", ?site, "/part/", ENCODE_FOR_URI(?key))), ?none) AS ?target)
+        FILTER (!?wellFormed)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/part/", ""), "%20", " ") AS ?id)
+      }""" ] ;
+  sh:sparql [
+    sh:message "{?id} references {?u}, which resolves to no part of any PLM" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?id ?u WHERE {
+        ?value atelier:fromPart $this ; atelier:remoteUrn ?urn .
+        BIND (STR(?urn) AS ?u)
+        BIND (REGEX(?u, "^urn:plm:(de|fr|es|uk):part:.+$") AS ?wellFormed)
+        BIND (REPLACE(?u, "^urn:plm:([a-z]+):part:.*$", "$1") AS ?site)
+        BIND (REPLACE(?u, "^urn:plm:[a-z]+:part:", "") AS ?local)
+        BIND (IF(?site = "uk", REPLACE(?local, "^UK/", "UK-"), ?local) AS ?key)
+        BIND (IF(?wellFormed, IRI(CONCAT("https://example.com/atelier/", ?site, "/part/", ENCODE_FOR_URI(?key))), ?none) AS ?target)
+        FILTER (?wellFormed && NOT EXISTS { ?target atelier:partOf ?anyProduct })
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/part/", ""), "%20", " ") AS ?id)
+      }""" ] .
+
+ateliersh:StaleRevisionShape a sh:NodeShape ;
+  ateliersh:rule "staleRevision" ;
+  ateliersh:focus "reference" ;
+  sh:description "When a part names another site's part with the revision it expects, the part it names must be at that revision and not superseded. The expectation lives at one site and the current revision at another; only the layer reads both."@en ;
+  rdfs:comment "A referenced part the viewer sees is at the expected revision and not SUPERSEDED." ;
+  sh:targetObjectsOf atelier:fromPart ;
+  sh:severity sh:Warning ;
+  sh:sparql [
+    sh:message "{?id} expects revision {?expected} of {?u}, which is at revision {?current} ({?state})" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?id ?u ?expected ?current ?state WHERE {
+        ?value atelier:fromPart $this ; atelier:remoteUrn ?urn .
+        OPTIONAL { ?value atelier:expectedRevision ?expectedValue }
+        BIND (STR(?urn) AS ?u)
+        BIND (REGEX(?u, "^urn:plm:(de|fr|es|uk):part:.+$") AS ?wellFormed)
+        BIND (REPLACE(?u, "^urn:plm:([a-z]+):part:.*$", "$1") AS ?site)
+        BIND (REPLACE(?u, "^urn:plm:[a-z]+:part:", "") AS ?local)
+        BIND (IF(?site = "uk", REPLACE(?local, "^UK/", "UK-"), ?local) AS ?key)
+        BIND (IF(?wellFormed, IRI(CONCAT("https://example.com/atelier/", ?site, "/part/", ENCODE_FOR_URI(?key))), ?none) AS ?target)
+        FILTER (?wellFormed)
+        ?target atelier:label ?targetName .
+        OPTIONAL { ?target atelier:revision ?currentValue }
+        OPTIONAL {
+          ?target atelier:lifecycleLabel ?word .
+          ?concept skos:inScheme atelier:Lifecycle ; skos:altLabel ?alt ; skos:prefLabel ?stateLabel .
+          FILTER (STR(?alt) = STR(?word))
+        }
+        BIND (COALESCE(STR(?expectedValue), "none") AS ?expected)
+        BIND (COALESCE(STR(?currentValue), "none") AS ?current)
+        BIND (COALESCE(STR(?stateLabel), "no lifecycle state") AS ?state)
+        FILTER ((BOUND(?expectedValue) && BOUND(?currentValue) && STR(?currentValue) != STR(?expectedValue))
+                || (BOUND(?concept) && ?concept = atelier:Superseded))
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/part/", ""), "%20", " ") AS ?id)
+      }""" ] .
+
+# Data quality: the preferred supplier offers of a part agree on the lead time. An offer is held by the PLM of
+# the part it offers, so two offers on one part are always of the same PLM. A sh:Warning on the part, one result
+# per disagreeing pair, with the longer offer as sh:value; it never changes an interface's status.
+ateliersh:ConflictingLeadTimeShape a sh:NodeShape ;
+  ateliersh:rule "conflictingLeadTime" ;
+  ateliersh:focus "part" ;
+  sh:description "The preferred supplier offers for one part must agree on the lead time. Offers are kept with the part's site; the layer gathers them with the supplier names of the file index and reports offers that promise different delivery times."@en ;
+  rdfs:comment "The preferred supplier offers of a part agree on the lead time." ;
+  sh:targetClass atelier:Part ;
+  sh:severity sh:Warning ;
+  sh:sparql [
+    sh:message "preferred offers disagree on the lead time: {?shortDays} days from {?shortSupplier}, {?longDays} days from {?longSupplier}" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?shortDays ?shortSupplier ?longDays ?longSupplier WHERE {
+        ?short atelier:offersPart $this ; atelier:preferred true ; atelier:leadTimeDays ?shortDays ; atelier:fromSupplier ?s1 .
+        ?value atelier:offersPart $this ; atelier:preferred true ; atelier:leadTimeDays ?longDays ; atelier:fromSupplier ?s2 .
+        FILTER (?shortDays < ?longDays)
+        OPTIONAL { ?s1 atelier:label ?l1 }
+        OPTIONAL { ?s2 atelier:label ?l2 }
+        BIND (COALESCE(?l1, REPLACE(STR(?s1), "^.*/", "")) AS ?shortSupplier)
+        BIND (COALESCE(?l2, REPLACE(STR(?s2), "^.*/", "")) AS ?longSupplier)
+      }""" ] .
+
+# Lifecycle propagation: each site releases its items in its own words, and only the layer holds both the canonical
+# lifecycle (the atelier:Lifecycle scheme) and the dependencies across sites. An item whose canonical state is
+# RELEASED must not depend on one that is WORKING or BLOCKED. A dependency is a child of one of the item's
+# bill-of-materials lines, or the part one of its external references resolves to, by the reference shapes' own
+# resolution text. The focus is the dependent item, sh:value the dependency; a sh:Warning finding on the item, which
+# never fails an interface. A dependency the viewer may not see carries no PLM label or lifecycle word after
+# redaction, so it raises nothing: the rule is not evaluable for that viewer, as the reference rules are not.
+ateliersh:LifecycleConflictShape a sh:NodeShape ;
+  ateliersh:rule "lifecycleConflict" ;
+  ateliersh:focus "part" ;
+  sh:description "A released item must not depend on an item that is still in work or blocked, whether the dependency is in its bill of materials or another site's part it references. Each site names its lifecycle states in its own words; the layer translates them to one shared set of states and follows the dependencies across sites."@en ;
+  rdfs:comment "A RELEASED item depends on no WORKING or BLOCKED item: neither the children of its bill-of-materials lines nor the parts its external references resolve to." ;
+  sh:targetClass atelier:Part ;
+  sh:severity sh:Warning ;
+  sh:sparql [
+    sh:message "{?plm} {?id} {?name} is {?word} ({?state}) but its bill of materials holds {?depPlm} {?depId} {?depName}, which is {?depWord} ({?depState})" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?plm ?id ?name ?word ?state ?depPlm ?depId ?depName ?depWord ?depState WHERE {
+        $this atelier:label ?name ; atelier:lifecycleLabel ?word .
+        atelier:Released skos:altLabel ?releasedWord ; skos:prefLabel ?state .
+        FILTER (STR(?releasedWord) = STR(?word))
+        ?line a atelier:BomLine ; atelier:parent $this ; atelier:child ?value .
+        ?value atelier:label ?depName ; atelier:lifecycleLabel ?depWord .
+        ?concept skos:inScheme atelier:Lifecycle ; skos:altLabel ?alt ; skos:prefLabel ?depState .
+        FILTER (STR(?alt) = STR(?depWord) && ?concept IN (atelier:Working, atelier:Blocked))
+        BIND (UCASE(REPLACE(STR($this), "^.*/atelier/([a-z]+)/part/.*$", "$1")) AS ?plm)
+        BIND (UCASE(REPLACE(STR(?value), "^.*/atelier/([a-z]+)/part/.*$", "$1")) AS ?depPlm)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/part/", ""), "%20", " ") AS ?id)
+        BIND (REPLACE(REPLACE(STR(?value), "^.*/atelier/[a-z]+/part/", ""), "%20", " ") AS ?depId)
+      }""" ] ;
+  sh:sparql [
+    sh:message "{?plm} {?id} {?name} is {?word} ({?state}) but references {?u}, {?depPlm} {?depId} {?depName}, which is {?depWord} ({?depState})" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?plm ?id ?name ?word ?state ?depPlm ?depId ?depName ?depWord ?depState ?u WHERE {
+        $this atelier:label ?name ; atelier:lifecycleLabel ?word .
+        atelier:Released skos:altLabel ?releasedWord ; skos:prefLabel ?state .
+        FILTER (STR(?releasedWord) = STR(?word))
+        ?ref atelier:fromPart $this ; atelier:remoteUrn ?urn .
+        BIND (STR(?urn) AS ?u)
+        BIND (REGEX(?u, "^urn:plm:(de|fr|es|uk):part:.+$") AS ?wellFormed)
+        BIND (REPLACE(?u, "^urn:plm:([a-z]+):part:.*$", "$1") AS ?site)
+        BIND (REPLACE(?u, "^urn:plm:[a-z]+:part:", "") AS ?local)
+        BIND (IF(?site = "uk", REPLACE(?local, "^UK/", "UK-"), ?local) AS ?key)
+        BIND (IF(?wellFormed, IRI(CONCAT("https://example.com/atelier/", ?site, "/part/", ENCODE_FOR_URI(?key))), ?none) AS ?target)
+        FILTER (?wellFormed)
+        BIND (?target AS ?value)
+        ?value atelier:label ?depName ; atelier:lifecycleLabel ?depWord .
+        ?concept skos:inScheme atelier:Lifecycle ; skos:altLabel ?alt ; skos:prefLabel ?depState .
+        FILTER (STR(?alt) = STR(?depWord) && ?concept IN (atelier:Working, atelier:Blocked))
+        BIND (UCASE(REPLACE(STR($this), "^.*/atelier/([a-z]+)/part/.*$", "$1")) AS ?plm)
+        BIND (UCASE(REPLACE(STR(?value), "^.*/atelier/([a-z]+)/part/.*$", "$1")) AS ?depPlm)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/part/", ""), "%20", " ") AS ?id)
+        BIND (REPLACE(REPLACE(STR(?value), "^.*/atelier/[a-z]+/part/", ""), "%20", " ") AS ?depId)
+      }""" ] .
+
+# Mass scale: within one product, the sites' parts weigh within the same order of
+# magnitude, so a site whose median part mass is more than 100 times the median of
+# the other sites has stored its masses in another unit than its column states
+# (grams in a kilogram column). A part's site is the PLM that states it
+# (atelier:ownedBy). Masses are taken per part, not per occurrence, over the parts
+# of type PART with a stated mass, and converted to kilograms through the
+# multipliers of units.ttl. Each site is summarised by its lower median (the
+# smallest mass that at least half of its masses do not exceed) over at least five
+# parts: over fewer a median says nothing about a site's unit, and one interface's
+# neighbourhood holds two parts. The other sites' median is the lower median of
+# their medians; there are four sites, so at most three others: the middle one of
+# three, the smaller of two. No single PLM can see the defect, since each site's
+# masses are plausible on their own.
+# The focus is the product and each part of the flagged site is a result's
+# sh:value: the medians are computed once per product, with $this bound in every
+# subquery, where a focus per part would repeat them for every part of the site.
+# The query service reports each result as a sh:Warning finding on the part its
+# sh:value names; it never fails an interface.
+ateliersh:MassScaleShape a sh:NodeShape ;
+  ateliersh:rule "massScale" ;
+  ateliersh:focus "product" ;
+  sh:description "Within one product, the typical part mass of one site must not be more than 100 times that of the other sites: a site that enters grams in a kilogram column shows up this way. Each site's masses look plausible on their own; only the layer, which sees every site's parts of the product, can compare them."@en ;
+  rdfs:comment "No site's median part mass in a product is over 100 times the other sites' median." ;
+  sh:targetClass atelier:Product ;
+  sh:severity sh:Warning ;
+  sh:sparql [
+    sh:message "{?site} part masses in {?productKey} are {?factor} times the other sites' (median {?siteShown} kg against {?otherShown} kg): the site stores its masses in another unit than its column states" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?site ?productKey ?factor ?siteShown ?otherShown WHERE {
+        { SELECT ?site ?siteMedian (COUNT(*) AS ?k) (SUM(?m) AS ?sum) (MIN(?m) AS ?min) (MAX(?m) AS ?max) WHERE {
+          { SELECT ?site (MIN(?v) AS ?siteMedian) WHERE {
+            { SELECT ?site (COUNT(*) AS ?n) WHERE {
+              ?a atelier:partOf $this ; atelier:ownedBy ?site ; atelier:partType "PART" ; atelier:mass ?aQ .
+              ?aQ qudt:numericValue ?aN ; qudt:unit ?u .
+            } GROUP BY ?site }
+            { SELECT ?site ?b ?v (COUNT(*) AS ?atMost) WHERE {
+              ?b atelier:partOf $this ; atelier:ownedBy ?site ; atelier:partType "PART" ; atelier:mass ?bQ .
+              ?bQ qudt:numericValue ?bN ; qudt:unit ?u .
+              ?c atelier:partOf $this ; atelier:ownedBy ?site ; atelier:partType "PART" ; atelier:mass ?cQ .
+              ?cQ qudt:numericValue ?cN ; qudt:unit ?u .
+              ?u qudt:conversionMultiplier ?toKg .
+              FILTER (?cN <= ?bN)
+              BIND (?bN * ?toKg AS ?v)
+            } GROUP BY ?site ?b ?v }
+            FILTER (?n >= 5 && ?atMost * 2 >= ?n)
+          } GROUP BY ?site }
+          { SELECT ?other (MIN(?v) AS ?m) WHERE {
+            { SELECT ?other (COUNT(*) AS ?n) WHERE {
+              ?a atelier:partOf $this ; atelier:ownedBy ?other ; atelier:partType "PART" ; atelier:mass ?aQ .
+              ?aQ qudt:numericValue ?aN ; qudt:unit ?u .
+            } GROUP BY ?other }
+            { SELECT ?other ?b ?v (COUNT(*) AS ?atMost) WHERE {
+              ?b atelier:partOf $this ; atelier:ownedBy ?other ; atelier:partType "PART" ; atelier:mass ?bQ .
+              ?bQ qudt:numericValue ?bN ; qudt:unit ?u .
+              ?c atelier:partOf $this ; atelier:ownedBy ?other ; atelier:partType "PART" ; atelier:mass ?cQ .
+              ?cQ qudt:numericValue ?cN ; qudt:unit ?u .
+              ?u qudt:conversionMultiplier ?toKg .
+              FILTER (?cN <= ?bN)
+              BIND (?bN * ?toKg AS ?v)
+            } GROUP BY ?other ?b ?v }
+            FILTER (?n >= 5 && ?atMost * 2 >= ?n)
+          } GROUP BY ?other }
+          FILTER (?other != ?site)
+        } GROUP BY ?site ?siteMedian }
+        BIND (IF(?k = 3, ?sum - ?min - ?max, ?min) AS ?otherMedian)
+        FILTER (?otherMedian > 0 && ?siteMedian > 100 * ?otherMedian)
+        ?value atelier:partOf $this ; atelier:ownedBy ?site ; atelier:partType "PART" ; atelier:mass ?anyMass .
+        BIND (ROUND(?siteMedian / ?otherMedian) AS ?factor)
+        BIND (ROUND(?siteMedian * 1000) / 1000 AS ?siteShown)
+        BIND (ROUND(?otherMedian * 1000) / 1000 AS ?otherShown)
+        BIND (REPLACE(STR($this), "^.*/", "") AS ?productKey)
+      }""" ] .
+
+# Mass limit: the product weighs no more than its atelier:massLimit. No PLM holds
+# the product, so only the layer can add up its sites: the sum runs over every
+# item of the product that states a mass, its occurrences (atelier:occurrences, the
+# quantities multiplied down the atelier:BomLine tree from its site kit, derived by
+# the query service as the bill-of-materials roll-up does) times its unit mass
+# converted to kilograms through the multipliers of units.ttl. Parts, software and
+# documents count; an assembly carries no own mass unless it states one. An item
+# the viewer may not see contributes nothing, so a restricted view can only
+# under-report the mass. A sh:Violation on the product, reported as a finding of
+# the product.
+ateliersh:MassLimitShape a sh:NodeShape ;
+  ateliersh:rule "massLimit" ;
+  ateliersh:focus "product" ;
+  sh:description "A product must weigh no more than its mass limit, counting every item of every site as many times as the bills of materials use it. No site holds the whole product; the layer adds up the masses of all sites, converted to kilograms."@en ;
+  rdfs:comment "The product's items weigh no more than its atelier:massLimit." ;
+  sh:targetSubjectsOf atelier:massLimit ;
+  sh:sparql [
+    sh:message "{?productKey} weighs {?totalShown} kg over every site's parts, more than its limit of {?limitShown} kg" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?productKey ?totalShown ?limitShown WHERE {
+        $this atelier:massLimit ?value .
+        ?value qudt:numericValue ?limitN ; qudt:unit/qudt:conversionMultiplier ?limitK .
+        {
+          SELECT ?product (SUM(?occurrences * ?n * ?k) AS ?total) WHERE {
+            ?item atelier:partOf ?product ; atelier:occurrences ?occurrences ; atelier:mass ?q .
+            ?q qudt:numericValue ?n ; qudt:unit/qudt:conversionMultiplier ?k .
+          } GROUP BY ?product
+        }
+        FILTER (?product = $this && ?total > ?limitN * ?limitK)
+        BIND (ROUND(?total * 1000) / 1000 AS ?totalShown)
+        BIND (?limitN * ?limitK + 0.0 AS ?limitShown)
+        BIND (REPLACE(STR($this), "^.*/", "") AS ?productKey)
+      }""" ] .
+
+# Gear mesh: two gears joined by a mechanical functional edge mesh, so their modules are equal. Each site states its
+# gear's module in its own unit (millimetres, inches in the British PLM), and the edge between them is the layer's own
+# knowledge (atelier:Drive in the link store): only the layer holds both. Modules are compared in millimetres through
+# the multipliers of units.ttl, within 0.01 mm: a British module stored in inches to its five decimals (0.0984 in,
+# 2.4994 mm) meshes a 2.5 mm partner, a 0.1 in module (2.54 mm) does not. The focus is the driven gear, sh:value the driving gear; a
+# sh:Warning finding on the driven gear, which never fails an interface. A gear the viewer may not see carries no
+# module after redaction, so the rule is not evaluable for that viewer.
+ateliersh:MeshModuleShape a sh:NodeShape ;
+  ateliersh:rule "meshModule" ;
+  ateliersh:focus "part" ;
+  sh:description "Two gears that mesh must have the same module, the tooth size, or their teeth do not engage. The gears of one train are often designed at different sites, each stating the module in its own unit and words; only the layer, which holds the functional edges between the sites' parts and converts the units, sees that a driver and the gear it drives disagree. The finding is on the driven gear."@en ;
+  rdfs:comment "Two gears joined by a mechanical atelier:Drive have the same atelier:gearModule, within 0.01 mm after conversion to millimetres." ;
+  sh:targetObjectsOf atelier:driven ;
+  sh:severity sh:Warning ;
+  sh:sparql [
+    sh:message "{?plm} {?id} {?name} has module {?mineShown} mm but is driven by {?driverPlm} {?driverId} {?driverName}, module {?theirsShown} mm: meshing gears need one module" ;
+    sh:prefixes <https://example.com/atelier/shapes> ;
+    sh:select """
+      SELECT $this ?value ?plm ?id ?name ?mineShown ?driverPlm ?driverId ?driverName ?theirsShown WHERE {
+        ?edge a atelier:Drive ; atelier:driven $this ; atelier:driver ?value ; atelier:flow "mechanical" .
+        $this atelier:label ?name ; atelier:gearModule ?q1 .
+        ?q1 qudt:numericValue ?v1 ; qudt:unit/qudt:conversionMultiplier ?m1 .
+        ?value atelier:label ?driverName ; atelier:gearModule ?q2 .
+        ?q2 qudt:numericValue ?v2 ; qudt:unit/qudt:conversionMultiplier ?m2 .
+        BIND (?v1 * ?m1 * 1000 AS ?mine)
+        BIND (?v2 * ?m2 * 1000 AS ?theirs)
+        FILTER (ABS(?mine - ?theirs) > 0.01)
+        BIND (ROUND(?mine * 1000) / 1000 AS ?mineShown)
+        BIND (ROUND(?theirs * 1000) / 1000 AS ?theirsShown)
+        BIND (UCASE(REPLACE(STR($this), "^.*/atelier/([a-z]+)/part/.*$", "$1")) AS ?plm)
+        BIND (UCASE(REPLACE(STR(?value), "^.*/atelier/([a-z]+)/part/.*$", "$1")) AS ?driverPlm)
+        BIND (REPLACE(REPLACE(STR($this), "^.*/atelier/[a-z]+/part/", ""), "%20", " ") AS ?id)
+        BIND (REPLACE(REPLACE(STR(?value), "^.*/atelier/[a-z]+/part/", ""), "%20", " ") AS ?driverId)
+      }""" ] .

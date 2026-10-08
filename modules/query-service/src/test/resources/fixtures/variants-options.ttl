@@ -1,0 +1,51 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+# The options graph of the product of fixtures/variants.ttl: the group "return", its default option "cord" (the base
+# items it is made of) and the option "spring" (its parts, interfaces and lines). Under "spring" the UK spring takes the
+# frame's return eye (IF-11, the frame's own feature, 0.3937 in against 10 mm), the DE anchor block the frame's spring
+# anchor bore (IF-12, 8 mm against 10 mm: fastener), and the spring the pedal's heel eye turned a quarter turn (IF-13);
+# the pedal's toe eye is not modelled under "spring". The two springs stand 10 in apart, the second turned a half turn.
+
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://example.com/atelier/variant/slot/return> a atelier:Variant ; rdfs:label "Arm return" ; rdfs:comment "what returns the arm to its rest" ; atelier:ofProduct <https://example.com/atelier/product/slot> ; atelier:defaultOption <https://example.com/atelier/option/cord> .
+<https://example.com/atelier/option/cord> a atelier:Option ; rdfs:label "cord" ; atelier:optionOf <https://example.com/atelier/variant/slot/return> .
+<https://example.com/atelier/option/spring> a atelier:Option ; rdfs:label "spring" ; dcterms:source "Authored" ; atelier:applicability "the spring build" ; atelier:portNotModelled "toe eye" ; atelier:optionOf <https://example.com/atelier/variant/slot/return> .
+<https://example.com/atelier/es/part/ES-ARM> atelier:appliesUnderOption <https://example.com/atelier/option/cord> .
+<https://example.com/atelier/interface/slot/IF-01> atelier:appliesUnderOption <https://example.com/atelier/option/cord> .
+<https://example.com/atelier/interface/slot/IF-02> atelier:appliesUnderOption <https://example.com/atelier/option/cord> .
+<https://example.com/atelier/interface/slot/IF-04> atelier:appliesUnderOption <https://example.com/atelier/option/cord> .
+<https://example.com/atelier/interface/slot/IF-05> atelier:appliesUnderOption <https://example.com/atelier/option/cord> .
+<https://example.com/atelier/uk/part/UK-SPRING> atelier:appliesUnderOption <https://example.com/atelier/option/spring> .
+<https://example.com/atelier/de/part/DE-ANCHOR> atelier:appliesUnderOption <https://example.com/atelier/option/spring> .
+<https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING> a atelier:BomLine ; atelier:parent <https://example.com/atelier/uk/part/UK-KIT> ; atelier:child <https://example.com/atelier/uk/part/UK-SPRING> ; atelier:quantity "2"^^xsd:decimal ; atelier:appliesUnderOption <https://example.com/atelier/option/spring> .
+<https://example.com/atelier/option/spring/line/DE-KIT/DE-ANCHOR> a atelier:BomLine ; atelier:parent <https://example.com/atelier/de/part/DE-KIT> ; atelier:child <https://example.com/atelier/de/part/DE-ANCHOR> ; atelier:quantity "1"^^xsd:decimal ; atelier:appliesUnderOption <https://example.com/atelier/option/spring> .
+<https://example.com/atelier/interface/slot/IF-11> a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/slot> ; rdfs:label "Spring / frame (return eye)" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart <https://example.com/atelier/uk/part/UK-SPRING> , <https://example.com/atelier/fr/part/FR-FRAME> ; atelier:declaresFeature <https://example.com/atelier/uk/fastener/HL%2001> , <https://example.com/atelier/fr/fastener/FR-FRAME-F01> ;
+  atelier:appliesUnderOption <https://example.com/atelier/option/spring> .
+<https://example.com/atelier/uk/fastener/HL%2001> atelier:matesWith <https://example.com/atelier/fr/fastener/FR-FRAME-F01> . <https://example.com/atelier/fr/fastener/FR-FRAME-F01> atelier:matesWith <https://example.com/atelier/uk/fastener/HL%2001> .
+<https://example.com/atelier/interface/slot/IF-12> a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/slot> ; rdfs:label "Anchor block / frame (spring anchor)" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart <https://example.com/atelier/de/part/DE-ANCHOR> , <https://example.com/atelier/fr/part/FR-FRAME> ; atelier:declaresFeature <https://example.com/atelier/de/fastener/DE-ANCHOR-B01> , <https://example.com/atelier/fr/fastener/FR-FRAME-F03> ;
+  atelier:appliesUnderOption <https://example.com/atelier/option/spring> .
+<https://example.com/atelier/de/fastener/DE-ANCHOR-B01> atelier:matesWith <https://example.com/atelier/fr/fastener/FR-FRAME-F03> . <https://example.com/atelier/fr/fastener/FR-FRAME-F03> atelier:matesWith <https://example.com/atelier/de/fastener/DE-ANCHOR-B01> .
+<https://example.com/atelier/interface/slot/IF-13> a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/slot> ; rdfs:label "Spring / pedal (heel eye)" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart <https://example.com/atelier/uk/part/UK-SPRING> , <https://example.com/atelier/es/part/ES-PEDAL> ; atelier:declaresFeature <https://example.com/atelier/uk/fastener/HL%2002> , <https://example.com/atelier/es/fastener/ES-PEDAL-R05> ;
+  atelier:appliesUnderOption <https://example.com/atelier/option/spring> .
+<https://example.com/atelier/uk/fastener/HL%2002> atelier:matesWith <https://example.com/atelier/es/fastener/ES-PEDAL-R05> . <https://example.com/atelier/es/fastener/ES-PEDAL-R05> atelier:matesWith <https://example.com/atelier/uk/fastener/HL%2002> .
+<https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/1> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING> ; atelier:index 1 ;
+  atelier:translationX <https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/1/translation/x> ; atelier:translationY <https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/1/translation/y> ; atelier:translationZ <https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/1/translation/z> ;
+  atelier:rotationX 0 ; atelier:rotationY 0 ; atelier:rotationZ 0 ; atelier:appliesUnderOption <https://example.com/atelier/option/spring> .
+<https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/1/translation/x> qudt:numericValue 0 ; qudt:unit unit:IN .
+<https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/1/translation/y> qudt:numericValue 0 ; qudt:unit unit:IN .
+<https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/1/translation/z> qudt:numericValue 0 ; qudt:unit unit:IN .
+<https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/2> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING> ; atelier:index 2 ;
+  atelier:translationX <https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/2/translation/x> ; atelier:translationY <https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/2/translation/y> ; atelier:translationZ <https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/2/translation/z> ;
+  atelier:rotationX 0 ; atelier:rotationY 0 ; atelier:rotationZ 180 ; atelier:appliesUnderOption <https://example.com/atelier/option/spring> .
+<https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/2/translation/x> qudt:numericValue 10 ; qudt:unit unit:IN .
+<https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/2/translation/y> qudt:numericValue 0 ; qudt:unit unit:IN .
+<https://example.com/atelier/option/spring/line/UK-KIT/UK-SPRING/occurrence/2/translation/z> qudt:numericValue 0 ; qudt:unit unit:IN .

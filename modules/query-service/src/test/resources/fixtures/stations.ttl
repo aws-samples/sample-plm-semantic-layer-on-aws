@@ -1,0 +1,131 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Stations, sections and spans of the drivetrain (bom.ttl, placements.ttl) for the stations tests, in the shape the
+# stations, spans and occurrence-spans CONSTRUCTs produce. Axis y, symmetric: ST 0 inferred, ST 300 joint, ST 600
+# measured (tolerance 5 mm); S-C (FR, both, ST 0 to ST 300, the section the FR-only hinge is), S-R (DE, right) and S-L
+# (UK, left), both ST 300 to ST 600. Spans in mm, the UK motor's in inches:
+#   de-gear 400 to 450 (each of its three rows too); de-housing 280 to 320, no rows; fr-panel 50 to 150, its fr-kit rows
+#   50 to 150 and 550 to 650, its cover-set rows 50 to 150; fr-hinge (FR only) 290 to 310; uk-motor 11.8110 to 15.7480
+#   in, its rows the same and, turned 180 degrees about z, -15.7480 to -11.8110 in; es-frame -350 to 350; es-bracket 0 to
+#   20, its rows 0 to 20 and, turned 90 degrees about x, -100 to 0.
+# A three-level DE tree under de-kit: de-arm-set twice, the second 1000 mm along y and turned 180 degrees about z, >
+# de-arm-pair twice, 50 mm apart along y, > de-arm (400 to 420, no rows): its true envelopes are 400 to 420, 450 to 470,
+# 580 to 600 and 530 to 550.
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prod: <https://example.com/atelier/product/> .
+
+prod:drivetrain atelier:stationAxis "y" ; atelier:stationsSymmetric true ; atelier:stationMeasure "mm from the centre plane" .
+
+<https://example.com/atelier/station/drivetrain/ST%200> a atelier:Station ; skos:notation "ST 0" ; atelier:sectionOf prod:drivetrain ; atelier:stationPosition <https://example.com/atelier/station/drivetrain/ST%200/position> ; atelier:stationBasis atelier:InferredStation ; dcterms:source "the drivetrain drawing" .
+<https://example.com/atelier/station/drivetrain/ST%200/position> a qudt:QuantityValue ; qudt:numericValue "0"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/station/drivetrain/ST%20300> a atelier:Station ; skos:notation "ST 300" ; atelier:sectionOf prod:drivetrain ; atelier:stationPosition <https://example.com/atelier/station/drivetrain/ST%20300/position> ; atelier:stationBasis atelier:JointStation ; dcterms:source "the drivetrain drawing" .
+<https://example.com/atelier/station/drivetrain/ST%20300/position> a qudt:QuantityValue ; qudt:numericValue "300"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/station/drivetrain/ST%20600> a atelier:Station ; skos:notation "ST 600" ; atelier:sectionOf prod:drivetrain ; atelier:stationPosition <https://example.com/atelier/station/drivetrain/ST%20600/position> ; atelier:stationBasis atelier:MeasuredStation ; dcterms:source "the drivetrain drawing" ; atelier:stationTolerance <https://example.com/atelier/station/drivetrain/ST%20600/tolerance> .
+<https://example.com/atelier/station/drivetrain/ST%20600/position> a qudt:QuantityValue ; qudt:numericValue "600"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/station/drivetrain/ST%20600/tolerance> a qudt:QuantityValue ; qudt:numericValue "5"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/section/drivetrain/S-C> a atelier:Section ; skos:notation "S-C" ; rdfs:label "S-C" ; atelier:sectionOf prod:drivetrain ; atelier:ownedBy "FR" ; atelier:sectionSide "both" ; atelier:hasStation <https://example.com/atelier/station/drivetrain/ST%200> , <https://example.com/atelier/station/drivetrain/ST%20300> ; atelier:sectionPart <https://example.com/atelier/fr/part/fr-hinge> .
+<https://example.com/atelier/section/drivetrain/S-R> a atelier:Section ; skos:notation "S-R" ; rdfs:label "S-R" ; atelier:sectionOf prod:drivetrain ; atelier:ownedBy "DE" ; atelier:sectionSide "right" ; atelier:hasStation <https://example.com/atelier/station/drivetrain/ST%20300> , <https://example.com/atelier/station/drivetrain/ST%20600> .
+<https://example.com/atelier/section/drivetrain/S-L> a atelier:Section ; skos:notation "S-L" ; rdfs:label "S-L" ; atelier:sectionOf prod:drivetrain ; atelier:ownedBy "UK" ; atelier:sectionSide "left" ; atelier:hasStation <https://example.com/atelier/station/drivetrain/ST%20300> , <https://example.com/atelier/station/drivetrain/ST%20600> .
+
+<https://example.com/atelier/de/part/de-gear> atelier:spanFrom <https://example.com/atelier/de/part/de-gear/span-from> ; atelier:spanTo <https://example.com/atelier/de/part/de-gear/span-to> .
+<https://example.com/atelier/de/part/de-gear/span-from> a qudt:QuantityValue ; qudt:numericValue "400.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/part/de-gear/span-to> a qudt:QuantityValue ; qudt:numericValue "450.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/1> atelier:spanFrom <https://example.com/atelier/de/occurrence/de-stage/de-gear/1/span-from> ; atelier:spanTo <https://example.com/atelier/de/occurrence/de-stage/de-gear/1/span-to> .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/1/span-from> a qudt:QuantityValue ; qudt:numericValue "400.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/1/span-to> a qudt:QuantityValue ; qudt:numericValue "450.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/2> atelier:spanFrom <https://example.com/atelier/de/occurrence/de-stage/de-gear/2/span-from> ; atelier:spanTo <https://example.com/atelier/de/occurrence/de-stage/de-gear/2/span-to> .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/2/span-from> a qudt:QuantityValue ; qudt:numericValue "400.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/2/span-to> a qudt:QuantityValue ; qudt:numericValue "450.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/3> atelier:spanFrom <https://example.com/atelier/de/occurrence/de-stage/de-gear/3/span-from> ; atelier:spanTo <https://example.com/atelier/de/occurrence/de-stage/de-gear/3/span-to> .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/3/span-from> a qudt:QuantityValue ; qudt:numericValue "400.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-stage/de-gear/3/span-to> a qudt:QuantityValue ; qudt:numericValue "450.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/part/de-housing> atelier:spanFrom <https://example.com/atelier/de/part/de-housing/span-from> ; atelier:spanTo <https://example.com/atelier/de/part/de-housing/span-to> .
+<https://example.com/atelier/de/part/de-housing/span-from> a qudt:QuantityValue ; qudt:numericValue "280.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/part/de-housing/span-to> a qudt:QuantityValue ; qudt:numericValue "320.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/part/fr-panel> atelier:spanFrom <https://example.com/atelier/fr/part/fr-panel/span-from> ; atelier:spanTo <https://example.com/atelier/fr/part/fr-panel/span-to> .
+<https://example.com/atelier/fr/part/fr-panel/span-from> a qudt:QuantityValue ; qudt:numericValue "50.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/part/fr-panel/span-to> a qudt:QuantityValue ; qudt:numericValue "150.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/1> atelier:spanFrom <https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/1/span-from> ; atelier:spanTo <https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/1/span-to> .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/1/span-from> a qudt:QuantityValue ; qudt:numericValue "50.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/1/span-to> a qudt:QuantityValue ; qudt:numericValue "150.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/2> atelier:spanFrom <https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/2/span-from> ; atelier:spanTo <https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/2/span-to> .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/2/span-from> a qudt:QuantityValue ; qudt:numericValue "550.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-kit/fr-panel/2/span-to> a qudt:QuantityValue ; qudt:numericValue "650.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/1> atelier:spanFrom <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/1/span-from> ; atelier:spanTo <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/1/span-to> .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/1/span-from> a qudt:QuantityValue ; qudt:numericValue "50.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/1/span-to> a qudt:QuantityValue ; qudt:numericValue "150.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/2> atelier:spanFrom <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/2/span-from> ; atelier:spanTo <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/2/span-to> .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/2/span-from> a qudt:QuantityValue ; qudt:numericValue "50.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/2/span-to> a qudt:QuantityValue ; qudt:numericValue "150.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/3> atelier:spanFrom <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/3/span-from> ; atelier:spanTo <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/3/span-to> .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/3/span-from> a qudt:QuantityValue ; qudt:numericValue "50.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/3/span-to> a qudt:QuantityValue ; qudt:numericValue "150.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/4> atelier:spanFrom <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/4/span-from> ; atelier:spanTo <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/4/span-to> .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/4/span-from> a qudt:QuantityValue ; qudt:numericValue "50.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-panel/4/span-to> a qudt:QuantityValue ; qudt:numericValue "150.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/part/fr-hinge> atelier:spanFrom <https://example.com/atelier/fr/part/fr-hinge/span-from> ; atelier:spanTo <https://example.com/atelier/fr/part/fr-hinge/span-to> .
+<https://example.com/atelier/fr/part/fr-hinge/span-from> a qudt:QuantityValue ; qudt:numericValue "290.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/part/fr-hinge/span-to> a qudt:QuantityValue ; qudt:numericValue "310.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/1> atelier:spanFrom <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/1/span-from> ; atelier:spanTo <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/1/span-to> .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/1/span-from> a qudt:QuantityValue ; qudt:numericValue "290.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/1/span-to> a qudt:QuantityValue ; qudt:numericValue "310.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/2> atelier:spanFrom <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/2/span-from> ; atelier:spanTo <https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/2/span-to> .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/2/span-from> a qudt:QuantityValue ; qudt:numericValue "290.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/occurrence/fr-cover-set/fr-hinge/2/span-to> a qudt:QuantityValue ; qudt:numericValue "310.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/uk/part/uk-motor> atelier:spanFrom <https://example.com/atelier/uk/part/uk-motor/span-from> ; atelier:spanTo <https://example.com/atelier/uk/part/uk-motor/span-to> .
+<https://example.com/atelier/uk/part/uk-motor/span-from> a qudt:QuantityValue ; qudt:numericValue "11.8110"^^xsd:decimal ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/part/uk-motor/span-to> a qudt:QuantityValue ; qudt:numericValue "15.7480"^^xsd:decimal ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/1> atelier:spanFrom <https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/1/span-from> ; atelier:spanTo <https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/1/span-to> .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/1/span-from> a qudt:QuantityValue ; qudt:numericValue "11.8110"^^xsd:decimal ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/1/span-to> a qudt:QuantityValue ; qudt:numericValue "15.7480"^^xsd:decimal ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/2> atelier:spanFrom <https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/2/span-from> ; atelier:spanTo <https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/2/span-to> .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/2/span-from> a qudt:QuantityValue ; qudt:numericValue "-15.7480"^^xsd:decimal ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/occurrence/uk-kit/uk-motor/2/span-to> a qudt:QuantityValue ; qudt:numericValue "-11.8110"^^xsd:decimal ; qudt:unit unit:IN .
+<https://example.com/atelier/es/part/es-frame> atelier:spanFrom <https://example.com/atelier/es/part/es-frame/span-from> ; atelier:spanTo <https://example.com/atelier/es/part/es-frame/span-to> .
+<https://example.com/atelier/es/part/es-frame/span-from> a qudt:QuantityValue ; qudt:numericValue "-350.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/part/es-frame/span-to> a qudt:QuantityValue ; qudt:numericValue "350.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/part/es-bracket> atelier:spanFrom <https://example.com/atelier/es/part/es-bracket/span-from> ; atelier:spanTo <https://example.com/atelier/es/part/es-bracket/span-to> .
+<https://example.com/atelier/es/part/es-bracket/span-from> a qudt:QuantityValue ; qudt:numericValue "0.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/part/es-bracket/span-to> a qudt:QuantityValue ; qudt:numericValue "20.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/1> atelier:spanFrom <https://example.com/atelier/es/occurrence/es-frame/es-bracket/1/span-from> ; atelier:spanTo <https://example.com/atelier/es/occurrence/es-frame/es-bracket/1/span-to> .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/1/span-from> a qudt:QuantityValue ; qudt:numericValue "0.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/1/span-to> a qudt:QuantityValue ; qudt:numericValue "20.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/2> atelier:spanFrom <https://example.com/atelier/es/occurrence/es-frame/es-bracket/2/span-from> ; atelier:spanTo <https://example.com/atelier/es/occurrence/es-frame/es-bracket/2/span-to> .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/2/span-from> a qudt:QuantityValue ; qudt:numericValue "-100.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/occurrence/es-frame/es-bracket/2/span-to> a qudt:QuantityValue ; qudt:numericValue "0.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+
+<https://example.com/atelier/de/part/de-arm-set> a atelier:Part ; atelier:label "Armsatz" ; atelier:partType "ASSEMBLY" .
+<https://example.com/atelier/de/part/de-arm-pair> a atelier:Part ; atelier:label "Armpaar" ; atelier:partType "ASSEMBLY" .
+<https://example.com/atelier/de/part/de-arm> a atelier:Part ; atelier:label "Arm" ; atelier:partType "PART" .
+<https://example.com/atelier/de/part/de-arm-set> atelier:partOf prod:drivetrain ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/de/part/de-arm-pair> atelier:partOf prod:drivetrain ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/de/part/de-arm> atelier:partOf prod:drivetrain ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/de/bomline/de-kit/de-arm-set> a atelier:BomLine ; atelier:parent <https://example.com/atelier/de/part/de-kit> ; atelier:child <https://example.com/atelier/de/part/de-arm-set> ; atelier:quantity 2.0 .
+<https://example.com/atelier/de/bomline/de-arm-set/de-arm-pair> a atelier:BomLine ; atelier:parent <https://example.com/atelier/de/part/de-arm-set> ; atelier:child <https://example.com/atelier/de/part/de-arm-pair> ; atelier:quantity 2.0 .
+<https://example.com/atelier/de/bomline/de-arm-pair/de-arm> a atelier:BomLine ; atelier:parent <https://example.com/atelier/de/part/de-arm-pair> ; atelier:child <https://example.com/atelier/de/part/de-arm> ; atelier:quantity 1.0 .
+<https://example.com/atelier/de/occurrence/de-kit/de-arm-set/1> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/de/bomline/de-kit/de-arm-set> ; atelier:index 1 ; atelier:translationX <https://example.com/atelier/de/occurrence/de-kit/de-arm-set/1/translation/x> ; atelier:translationY <https://example.com/atelier/de/occurrence/de-kit/de-arm-set/1/translation/y> ; atelier:translationZ <https://example.com/atelier/de/occurrence/de-kit/de-arm-set/1/translation/z> ; atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/de/occurrence/de-kit/de-arm-set/1/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-kit/de-arm-set/1/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-kit/de-arm-set/1/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-kit/de-arm-set/2> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/de/bomline/de-kit/de-arm-set> ; atelier:index 2 ; atelier:translationX <https://example.com/atelier/de/occurrence/de-kit/de-arm-set/2/translation/x> ; atelier:translationY <https://example.com/atelier/de/occurrence/de-kit/de-arm-set/2/translation/y> ; atelier:translationZ <https://example.com/atelier/de/occurrence/de-kit/de-arm-set/2/translation/z> ; atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 180.0 .
+<https://example.com/atelier/de/occurrence/de-kit/de-arm-set/2/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-kit/de-arm-set/2/translation/y> a qudt:QuantityValue ; qudt:numericValue 1000.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-kit/de-arm-set/2/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/1> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/de/bomline/de-arm-set/de-arm-pair> ; atelier:index 1 ; atelier:translationX <https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/1/translation/x> ; atelier:translationY <https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/1/translation/y> ; atelier:translationZ <https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/1/translation/z> ; atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/1/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/1/translation/y> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/1/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/2> a atelier:Occurrence ; atelier:ofLine <https://example.com/atelier/de/bomline/de-arm-set/de-arm-pair> ; atelier:index 2 ; atelier:translationX <https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/2/translation/x> ; atelier:translationY <https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/2/translation/y> ; atelier:translationZ <https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/2/translation/z> ; atelier:rotationX 0.0 ; atelier:rotationY 0.0 ; atelier:rotationZ 0.0 .
+<https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/2/translation/x> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/2/translation/y> a qudt:QuantityValue ; qudt:numericValue 50.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/occurrence/de-arm-set/de-arm-pair/2/translation/z> a qudt:QuantityValue ; qudt:numericValue 0.0 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/part/de-arm> atelier:spanFrom <https://example.com/atelier/de/part/de-arm/span-from> ; atelier:spanTo <https://example.com/atelier/de/part/de-arm/span-to> .
+<https://example.com/atelier/de/part/de-arm/span-from> a qudt:QuantityValue ; qudt:numericValue "400.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/part/de-arm/span-to> a qudt:QuantityValue ; qudt:numericValue "420.000"^^xsd:decimal ; qudt:unit unit:MilliM .

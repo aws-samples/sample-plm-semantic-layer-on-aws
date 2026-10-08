@@ -1,0 +1,19 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "GitLabRunnerBroker",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111111111111:role/REPLACE_WITH_RUNNER_ROLE"
+      },
+      "Action": ["sts:AssumeRole", "sts:TagSession"],
+      "Condition": {
+        "StringEquals": {
+          "aws:PrincipalTag/GitLab:Group": "REPLACE_WITH_GITLAB_GROUP",
+          "aws:PrincipalTag/GitLab:Project": "REPLACE_WITH_GITLAB_PROJECT"
+        }
+      }
+    }
+  ]
+}

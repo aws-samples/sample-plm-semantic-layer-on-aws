@@ -1,0 +1,83 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# A fastening product added to neighbourhood.ttl for the purchased-item tests, in the shape the parts and offers CONSTRUCTs
+# produce: each site's purchased parts with their item class, standard and nominal size as stored, their Atelier core tag and membership,
+# and each site's supplier offers with their suppliers.
+#   one M3 x 10 socket head cap screw bought under four standards and two units: de-screw (DIN 912, mm), fr-screw
+#     (NF EN ISO 4762, mm), uk-screw (BS EN ISO 4762, in), es-screw (UNE-EN ISO 4762, in); uk-spare-screw is the same screw, releasable
+#     to UK only; es-long-screw is an M3 x 12 (2 mm longer), fr-countersunk a standard no concept carries
+#   two M4 cap screws whose sites state no length: de-stud (DIN 912) and es-stud (UNE-EN ISO 4762); de-nut (DIN 934) and
+#     es-nut (UNE-EN ISO 4032), standards no concept carries
+#   de-bearing: two preferred offers, 10 days from L-01 and 35 days from L-02, and a 60-day offer from L-03 that is not preferred
+#   Kestrelmoor Fastener Supply Ltd is listed by UK (S02) and ES (P-01)
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/atelier/product/fastening> a atelier:Product ; atelier:label "Fastening kit" .
+
+<https://example.com/atelier/de/part/de-screw> a atelier:Part ; atelier:label "Zylinderschraube DIN 912 M3 x 10" ; atelier:partType "PART" ; atelier:cadFile "cad/fastening/de-screw.stp" ; atelier:itemClass "fastener" ; atelier:standard "DIN 912" ; atelier:nominalDiameter <https://example.com/atelier/de/part/de-screw/nominal-diameter> ; atelier:nominalLength <https://example.com/atelier/de/part/de-screw/nominal-length> .
+<https://example.com/atelier/de/part/de-screw/nominal-diameter> a qudt:QuantityValue ; qudt:numericValue "3.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/part/de-screw/nominal-length> a qudt:QuantityValue ; qudt:numericValue "10.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/part/de-screw> atelier:partOf <https://example.com/atelier/product/fastening> ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/de/part/de-nut> a atelier:Part ; atelier:label "Sechskantmutter DIN 934 M4" ; atelier:partType "PART" ; atelier:cadFile "cad/fastening/de-nut.stp" ; atelier:itemClass "fastener" ; atelier:standard "DIN 934" ; atelier:nominalDiameter <https://example.com/atelier/de/part/de-nut/nominal-diameter> .
+<https://example.com/atelier/de/part/de-nut/nominal-diameter> a qudt:QuantityValue ; qudt:numericValue "4.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/part/de-nut> atelier:partOf <https://example.com/atelier/product/fastening> ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/de/part/de-bearing> a atelier:Part ; atelier:label "Rillenkugellager 6001-2RS" ; atelier:partType "PART" ; atelier:cadFile "cad/fastening/de-bearing.stp" .
+<https://example.com/atelier/de/part/de-bearing> atelier:partOf <https://example.com/atelier/product/fastening> ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/fr/part/fr-screw> a atelier:Part ; atelier:label "Vis CHC M3 × 10" ; atelier:partType "PART" ; atelier:cadFile "cad/fastening/fr-screw.stp" ; atelier:itemClass "fastener" ; atelier:standard "NF EN ISO 4762" ; atelier:nominalDiameter <https://example.com/atelier/fr/part/fr-screw/nominal-diameter> ; atelier:nominalLength <https://example.com/atelier/fr/part/fr-screw/nominal-length> .
+<https://example.com/atelier/fr/part/fr-screw/nominal-diameter> a qudt:QuantityValue ; qudt:numericValue "3.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/part/fr-screw/nominal-length> a qudt:QuantityValue ; qudt:numericValue "10.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/part/fr-screw> atelier:partOf <https://example.com/atelier/product/fastening> ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "FR" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/fr/part/fr-countersunk> a atelier:Part ; atelier:label "Vis FHC M4 × 12" ; atelier:partType "PART" ; atelier:cadFile "cad/fastening/fr-countersunk.stp" ; atelier:itemClass "fastener" ; atelier:standard "NF EN ISO 10642" ; atelier:nominalDiameter <https://example.com/atelier/fr/part/fr-countersunk/nominal-diameter> ; atelier:nominalLength <https://example.com/atelier/fr/part/fr-countersunk/nominal-length> .
+<https://example.com/atelier/fr/part/fr-countersunk/nominal-diameter> a qudt:QuantityValue ; qudt:numericValue "4.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/part/fr-countersunk/nominal-length> a qudt:QuantityValue ; qudt:numericValue "12.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/part/fr-countersunk> atelier:partOf <https://example.com/atelier/product/fastening> ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "FR" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/uk/part/uk-screw> a atelier:Part ; atelier:label "Cap screw, socket head, 0.118 x 0.394 in" ; atelier:partType "PART" ; atelier:cadFile "cad/fastening/uk-screw.stp" ; atelier:itemClass "fastener" ; atelier:standard "BS EN ISO 4762" ; atelier:nominalDiameter <https://example.com/atelier/uk/part/uk-screw/nominal-diameter> ; atelier:nominalLength <https://example.com/atelier/uk/part/uk-screw/nominal-length> .
+<https://example.com/atelier/uk/part/uk-screw/nominal-diameter> a qudt:QuantityValue ; qudt:numericValue "0.1180"^^xsd:decimal ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/part/uk-screw/nominal-length> a qudt:QuantityValue ; qudt:numericValue "0.3940"^^xsd:decimal ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/part/uk-screw> atelier:partOf <https://example.com/atelier/product/fastening> ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "UK" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/uk/part/uk-spare-screw> a atelier:Part ; atelier:label "Cap screw, socket head, 0.118 x 0.394 in, spares" ; atelier:partType "PART" ; atelier:cadFile "cad/fastening/uk-spare-screw.stp" ; atelier:itemClass "fastener" ; atelier:standard "BS EN ISO 4762" ; atelier:nominalDiameter <https://example.com/atelier/uk/part/uk-spare-screw/nominal-diameter> ; atelier:nominalLength <https://example.com/atelier/uk/part/uk-spare-screw/nominal-length> .
+<https://example.com/atelier/uk/part/uk-spare-screw/nominal-diameter> a qudt:QuantityValue ; qudt:numericValue "0.1180"^^xsd:decimal ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/part/uk-spare-screw/nominal-length> a qudt:QuantityValue ; qudt:numericValue "0.3940"^^xsd:decimal ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/part/uk-spare-screw> atelier:partOf <https://example.com/atelier/product/fastening> ; atelier:jurisdiction "NATIONAL-UK" ; atelier:releasableTo "UK" ; atelier:taggedBy "UK" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/es/part/es-screw> a atelier:Part ; atelier:label "Tornillo cilíndrico 0,118 x 0,394 in" ; atelier:partType "PART" ; atelier:cadFile "cad/fastening/es-screw.stp" ; atelier:itemClass "fastener" ; atelier:standard "UNE-EN ISO 4762" ; atelier:nominalDiameter <https://example.com/atelier/es/part/es-screw/nominal-diameter> ; atelier:nominalLength <https://example.com/atelier/es/part/es-screw/nominal-length> .
+<https://example.com/atelier/es/part/es-screw/nominal-diameter> a qudt:QuantityValue ; qudt:numericValue "0.118"^^xsd:decimal ; qudt:unit unit:IN .
+<https://example.com/atelier/es/part/es-screw/nominal-length> a qudt:QuantityValue ; qudt:numericValue "0.394"^^xsd:decimal ; qudt:unit unit:IN .
+<https://example.com/atelier/es/part/es-screw> atelier:partOf <https://example.com/atelier/product/fastening> ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "ES" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/es/part/es-long-screw> a atelier:Part ; atelier:label "Tornillo cilíndrico M3 x 12" ; atelier:partType "PART" ; atelier:cadFile "cad/fastening/es-long-screw.stp" ; atelier:itemClass "fastener" ; atelier:standard "UNE-EN ISO 4762" ; atelier:nominalDiameter <https://example.com/atelier/es/part/es-long-screw/nominal-diameter> ; atelier:nominalLength <https://example.com/atelier/es/part/es-long-screw/nominal-length> .
+<https://example.com/atelier/es/part/es-long-screw/nominal-diameter> a qudt:QuantityValue ; qudt:numericValue "3.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/part/es-long-screw/nominal-length> a qudt:QuantityValue ; qudt:numericValue "12.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/part/es-long-screw> atelier:partOf <https://example.com/atelier/product/fastening> ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "ES" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/es/part/es-nut> a atelier:Part ; atelier:label "Tuerca hexagonal M4" ; atelier:partType "PART" ; atelier:cadFile "cad/fastening/es-nut.stp" ; atelier:itemClass "fastener" ; atelier:standard "UNE-EN ISO 4032" ; atelier:nominalDiameter <https://example.com/atelier/es/part/es-nut/nominal-diameter> .
+<https://example.com/atelier/es/part/es-nut/nominal-diameter> a qudt:QuantityValue ; qudt:numericValue "4.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/part/es-nut> atelier:partOf <https://example.com/atelier/product/fastening> ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "ES" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+
+<https://example.com/atelier/de/part/de-stud> a atelier:Part ; atelier:label "Zylinderschraube DIN 912 M4" ; atelier:partType "PART" ; atelier:cadFile "cad/fastening/de-stud.stp" ; atelier:itemClass "fastener" ; atelier:standard "DIN 912" ; atelier:nominalDiameter <https://example.com/atelier/de/part/de-stud/nominal-diameter> .
+<https://example.com/atelier/de/part/de-stud/nominal-diameter> a qudt:QuantityValue ; qudt:numericValue "4.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/part/de-stud> atelier:partOf <https://example.com/atelier/product/fastening> ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/es/part/es-stud> a atelier:Part ; atelier:label "Tornillo cilíndrico M4" ; atelier:partType "PART" ; atelier:cadFile "cad/fastening/es-stud.stp" ; atelier:itemClass "fastener" ; atelier:standard "UNE-EN ISO 4762" ; atelier:nominalDiameter <https://example.com/atelier/es/part/es-stud/nominal-diameter> .
+<https://example.com/atelier/es/part/es-stud/nominal-diameter> a qudt:QuantityValue ; qudt:numericValue "4.000"^^xsd:decimal ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/part/es-stud> atelier:partOf <https://example.com/atelier/product/fastening> ; atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "ES" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+
+<https://example.com/atelier/de/supplier/L-01> a atelier:Supplier ; atelier:label "Quellmoos Normteile KG" ; atelier:location "Schwäbisch Hall" .
+<https://example.com/atelier/de/supplier/L-02> a atelier:Supplier ; atelier:label "Zinnkraut Antriebstechnik GmbH" ; atelier:location "Regensburg" .
+<https://example.com/atelier/de/supplier/L-03> a atelier:Supplier ; atelier:label "Ampferhain Lager GmbH" ; atelier:location "Kassel" .
+<https://example.com/atelier/fr/supplier/F02> a atelier:Supplier ; atelier:label "Visserie Brumevale SARL" ; atelier:location "Besançon" .
+<https://example.com/atelier/uk/supplier/S02> a atelier:Supplier ; atelier:label "Kestrelmoor Fastener Supply Ltd" ; atelier:location "Birmingham" .
+<https://example.com/atelier/es/supplier/P-01> a atelier:Supplier ; atelier:label "Kestrelmoor Fastener Supply Ltd" ; atelier:location "Birmingham" .
+<https://example.com/atelier/es/supplier/P-03> a atelier:Supplier ; atelier:label "Tornillería Vega Lenta S.L." ; atelier:location "Zaragoza" .
+
+<https://example.com/atelier/de/offer/1> a atelier:SupplierOffer ; atelier:offersPart <https://example.com/atelier/de/part/de-screw> ; atelier:fromSupplier <https://example.com/atelier/de/supplier/L-01> ; atelier:supplierPartNumber "QN-912-M3x10" ; atelier:leadTimeDays 7 ; atelier:preferred true .
+<https://example.com/atelier/de/offer/2> a atelier:SupplierOffer ; atelier:offersPart <https://example.com/atelier/de/part/de-bearing> ; atelier:fromSupplier <https://example.com/atelier/de/supplier/L-01> ; atelier:supplierPartNumber "QN-6001-2RS" ; atelier:leadTimeDays 10 ; atelier:preferred true .
+<https://example.com/atelier/de/offer/3> a atelier:SupplierOffer ; atelier:offersPart <https://example.com/atelier/de/part/de-bearing> ; atelier:fromSupplier <https://example.com/atelier/de/supplier/L-02> ; atelier:supplierPartNumber "ZK-L-6001" ; atelier:leadTimeDays 35 ; atelier:preferred true .
+<https://example.com/atelier/de/offer/4> a atelier:SupplierOffer ; atelier:offersPart <https://example.com/atelier/de/part/de-bearing> ; atelier:fromSupplier <https://example.com/atelier/de/supplier/L-03> ; atelier:supplierPartNumber "AL-6001" ; atelier:leadTimeDays 60 ; atelier:preferred false .
+<https://example.com/atelier/de/offer/5> a atelier:SupplierOffer ; atelier:offersPart <https://example.com/atelier/de/part/de-nut> ; atelier:fromSupplier <https://example.com/atelier/de/supplier/L-01> ; atelier:supplierPartNumber "QN-934-M4" ; atelier:leadTimeDays 7 ; atelier:preferred true .
+<https://example.com/atelier/fr/offer/1> a atelier:SupplierOffer ; atelier:offersPart <https://example.com/atelier/fr/part/fr-screw> ; atelier:fromSupplier <https://example.com/atelier/fr/supplier/F02> ; atelier:supplierPartNumber "VB-CHC-3-10" ; atelier:leadTimeDays 10 ; atelier:preferred true .
+<https://example.com/atelier/uk/offer/1> a atelier:SupplierOffer ; atelier:offersPart <https://example.com/atelier/uk/part/uk-screw> ; atelier:fromSupplier <https://example.com/atelier/uk/supplier/S02> ; atelier:supplierPartNumber "KF-SHC-0118-0394" ; atelier:leadTimeDays 21 ; atelier:preferred true .
+<https://example.com/atelier/uk/offer/2> a atelier:SupplierOffer ; atelier:offersPart <https://example.com/atelier/uk/part/uk-spare-screw> ; atelier:fromSupplier <https://example.com/atelier/uk/supplier/S02> ; atelier:supplierPartNumber "KF-SHC-0118-0394" ; atelier:leadTimeDays 21 ; atelier:preferred true .
+<https://example.com/atelier/es/offer/1> a atelier:SupplierOffer ; atelier:offersPart <https://example.com/atelier/es/part/es-screw> ; atelier:fromSupplier <https://example.com/atelier/es/supplier/P-01> ; atelier:supplierPartNumber "KF-SHC-0118-0394" ; atelier:leadTimeDays 21 ; atelier:preferred true .
+<https://example.com/atelier/es/offer/2> a atelier:SupplierOffer ; atelier:offersPart <https://example.com/atelier/es/part/es-nut> ; atelier:fromSupplier <https://example.com/atelier/es/supplier/P-03> ; atelier:supplierPartNumber "TVL-4032-4" ; atelier:leadTimeDays 14 ; atelier:preferred true .
+<https://example.com/atelier/es/offer/3> a atelier:SupplierOffer ; atelier:offersPart <https://example.com/atelier/es/part/es-long-screw> ; atelier:fromSupplier <https://example.com/atelier/es/supplier/P-03> ; atelier:supplierPartNumber "TVL-4762-3-12" ; atelier:leadTimeDays 14 ; atelier:preferred true .

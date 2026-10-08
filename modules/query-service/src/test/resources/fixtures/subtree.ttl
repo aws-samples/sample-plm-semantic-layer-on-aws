@@ -1,0 +1,46 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Two interfaces of the drivetrain (bom.ttl, references.ttl) added for the subtree tests, in the shape the link store
+# and the feature CONSTRUCTs produce: IF-D1 joins the DE housing, inside the gearbox's subtree, to the FR panel outside
+# it (one mated plug pair, passing); IF-D2 joins the UK pitch motor to the FR hinge, both outside it.
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix frpt: <https://example.com/atelier/fr/part/> .
+@prefix dept: <https://example.com/atelier/de/part/> .
+@prefix ukpt: <https://example.com/atelier/uk/part/> .
+@prefix ifd:  <https://example.com/atelier/interface/drivetrain/> .
+@prefix frp:  <https://example.com/atelier/fr/plug/> .
+@prefix dep:  <https://example.com/atelier/de/plug/> .
+@prefix ukp:  <https://example.com/atelier/uk/plug/> .
+
+ifd:IF-D1 a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/drivetrain> ; atelier:label "Housing / panel" ;
+  atelier:toleranceMm "2.0"^^xsd:decimal ; atelier:betweenPart dept:de-housing , frpt:fr-panel ; atelier:declaresFeature dep:DH1 , frp:FP1 .
+ifd:IF-D2 a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/drivetrain> ; atelier:label "Pitch motor / hinge" ;
+  atelier:toleranceMm "2.0"^^xsd:decimal ; atelier:betweenPart ukpt:uk-motor , frpt:fr-hinge ; atelier:declaresFeature ukp:UM2 , frp:FH2 .
+
+dep:DH1 atelier:matesWith frp:FP1 . frp:FP1 atelier:matesWith dep:DH1 .
+ukp:UM2 atelier:matesWith frp:FH2 . frp:FH2 atelier:matesWith ukp:UM2 .
+
+dep:DH1 a atelier:Plug ; atelier:onPart dept:de-housing ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX dep:DH1\/position\/x ; atelier:positionY dep:DH1\/position\/y ; atelier:positionZ dep:DH1\/position\/z .
+dep:DH1\/position\/x a qudt:QuantityValue ; qudt:numericValue 100.000 ; qudt:unit unit:MilliM .
+dep:DH1\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+dep:DH1\/position\/z a qudt:QuantityValue ; qudt:numericValue 50.000 ; qudt:unit unit:MilliM .
+frp:FP1 a atelier:Plug ; atelier:onPart frpt:fr-panel ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX frp:FP1\/position\/x ; atelier:positionY frp:FP1\/position\/y ; atelier:positionZ frp:FP1\/position\/z .
+frp:FP1\/position\/x a qudt:QuantityValue ; qudt:numericValue 100.000 ; qudt:unit unit:MilliM .
+frp:FP1\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+frp:FP1\/position\/z a qudt:QuantityValue ; qudt:numericValue 50.000 ; qudt:unit unit:MilliM .
+ukp:UM2 a atelier:Plug ; atelier:onPart ukpt:uk-motor ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX ukp:UM2\/position\/x ; atelier:positionY ukp:UM2\/position\/y ; atelier:positionZ ukp:UM2\/position\/z .
+ukp:UM2\/position\/x a qudt:QuantityValue ; qudt:numericValue 300.000 ; qudt:unit unit:MilliM .
+ukp:UM2\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+ukp:UM2\/position\/z a qudt:QuantityValue ; qudt:numericValue 50.000 ; qudt:unit unit:MilliM .
+frp:FH2 a atelier:Plug ; atelier:onPart frpt:fr-hinge ; atelier:connectorType "EN3645" ; atelier:pinCount 19 ;
+  atelier:positionX frp:FH2\/position\/x ; atelier:positionY frp:FH2\/position\/y ; atelier:positionZ frp:FH2\/position\/z .
+frp:FH2\/position\/x a qudt:QuantityValue ; qudt:numericValue 300.000 ; qudt:unit unit:MilliM .
+frp:FH2\/position\/y a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+frp:FH2\/position\/z a qudt:QuantityValue ; qudt:numericValue 50.000 ; qudt:unit unit:MilliM .

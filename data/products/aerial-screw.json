@@ -1,0 +1,4154 @@
+{
+ "product": {
+  "key": "aerial-screw",
+  "name": "Aerial screw working replica (Paris Manuscript B, f. 83v)"
+ },
+ "frame": "z up on the mast axis with z = 0 on the floor, x towards the hydraulic skid, y to its left; mm, the frame of modules/cad/aerial_screw.py. Sail diameter 4669 (a 1:2 replica of the folio's 8 braccia radius), deck top at z 600, mast top at 3532; the sail is one left-handed turn from z 2182 to 2934.",
+ "parts": [
+  {
+   "id": "FR-VIS-BASE-001",
+   "plm": "FR",
+   "name": "Anneau de base (tambour au sol)",
+   "cadFile": "cad/aerial-screw/fr-base-ring.stp",
+   "cadPart": "fr-base-ring",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Base ring (ground drum)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 71.88,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-VIS-ROTR-001",
+   "plm": "FR",
+   "name": "Anneau rotor (tourne avec la vis)",
+   "cadFile": "cad/aerial-screw/fr-rotor-ring.stp",
+   "cadPart": "fr-rotor-ring",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Rotor ring (turns with the screw)",
+    "revision": "B",
+    "lifecycle": "Publié",
+    "mass": 42.33,
+    "massUnit": "kg",
+    "material": "composite verre-époxy"
+   }
+  },
+  {
+   "id": "FR-VIS-MOYU-001",
+   "plm": "FR",
+   "name": "Tambour de moyeu",
+   "cadFile": "cad/aerial-screw/fr-hub.stp",
+   "cadPart": "fr-hub",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Hub drum",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 14.59,
+    "massUnit": "kg",
+    "material": "composite verre-époxy"
+   }
+  },
+  {
+   "id": "FR-VIS-MAT-B-001",
+   "plm": "FR",
+   "name": "Mât, tronçon inférieur",
+   "cadFile": "cad/aerial-screw/fr-mast-lower.stp",
+   "cadPart": "fr-mast-lower",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Mast, lower segment",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 10.93,
+    "massUnit": "kg",
+    "material": "composite verre-époxy"
+   }
+  },
+  {
+   "id": "FR-VIS-COLL-001",
+   "plm": "FR",
+   "name": "Collier (nœud des jambes de force)",
+   "cadFile": "cad/aerial-screw/fr-collar-plate.stp",
+   "cadPart": "fr-collar-plate",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Collar (strut node)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 7.694,
+    "massUnit": "kg",
+    "material": "acier"
+   }
+  },
+  {
+   "id": "FR-VIS-VOIL-A-001",
+   "plm": "FR",
+   "name": "Segment de voile A (0 à 90 degrés)",
+   "cadFile": "cad/aerial-screw/fr-sail-segment-a.stp",
+   "cadPart": "fr-sail-segment-a",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Sail segment A (0 to 90 degrees)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 1.701,
+    "massUnit": "kg",
+    "material": "toile de lin"
+   }
+  },
+  {
+   "id": "FR-VIS-POUS-1-001",
+   "plm": "FR",
+   "name": "Poteau de poussée 1 (poignée historique)",
+   "cadFile": "cad/aerial-screw/fr-push-post-1.stp",
+   "cadPart": "fr-push-post-1",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Push post 1 (historical handle)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 2.205,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-VIS-POUS-2-001",
+   "plm": "FR",
+   "name": "Poteau de poussée 2 (poignée historique)",
+   "cadFile": "cad/aerial-screw/fr-push-post-2.stp",
+   "cadPart": "fr-push-post-2",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Push post 2 (historical handle)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 2.205,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-VIS-POUS-3-001",
+   "plm": "FR",
+   "name": "Poteau de poussée 3 (poignée historique)",
+   "cadFile": "cad/aerial-screw/fr-push-post-3.stp",
+   "cadPart": "fr-push-post-3",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Push post 3 (historical handle)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 2.205,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-VIS-POUS-4-001",
+   "plm": "FR",
+   "name": "Poteau de poussée 4 (poignée historique)",
+   "cadFile": "cad/aerial-screw/fr-push-post-4.stp",
+   "cadPart": "fr-push-post-4",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Push post 4 (historical handle)",
+    "revision": "A",
+    "lifecycle": "Publié",
+    "mass": 2.205,
+    "massUnit": "kg",
+    "material": "frêne"
+   }
+  },
+  {
+   "id": "FR-VIS-PCMD-001",
+   "plm": "FR",
+   "name": "Poste de commande (IHM, automate)",
+   "cadFile": "cad/aerial-screw/fr-control-post.stp",
+   "cadPart": "fr-control-post",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Control station (HMI, controller)",
+    "revision": "B",
+    "lifecycle": "En cours",
+    "mass": 31.09,
+    "massUnit": "kg",
+    "material": "tôle d'acier"
+   }
+  },
+  {
+   "id": "LAUF-70010",
+   "plm": "DE",
+   "name": "Laufring für den Rotorring",
+   "cadFile": "cad/aerial-screw/de-roller-track.stp",
+   "cadPart": "de-roller-track",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Roller track for the rotor ring",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 106.72,
+    "massUnit": "kg",
+    "material": "Stahl S235"
+   }
+  },
+  {
+   "id": "DREH-70020",
+   "plm": "DE",
+   "name": "Drehkranz mit Schleifring",
+   "cadFile": "cad/aerial-screw/de-slewing-bearing.stp",
+   "cadPart": "de-slewing-bearing",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Slewing ring with slip ring",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 77.17,
+    "massUnit": "kg",
+    "material": "Vergütungsstahl 42CrMo4"
+   }
+  },
+  {
+   "id": "MAST-70030",
+   "plm": "DE",
+   "name": "Mast, Mittelsegment",
+   "cadFile": "cad/aerial-screw/de-mast-middle.stp",
+   "cadPart": "de-mast-middle",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Mast, middle segment",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 14.27,
+    "massUnit": "kg",
+    "material": "Aluminium EN AW-6082"
+   }
+  },
+  {
+   "id": "STRB-1-70040",
+   "plm": "DE",
+   "name": "Diagonalstrebe 1",
+   "cadFile": "cad/aerial-screw/de-strut-1.stp",
+   "cadPart": "de-strut-1",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Diagonal strut 1",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 6.158,
+    "massUnit": "kg",
+    "material": "Stahl S235"
+   }
+  },
+  {
+   "id": "STRB-2-70050",
+   "plm": "DE",
+   "name": "Diagonalstrebe 2",
+   "cadFile": "cad/aerial-screw/de-strut-2.stp",
+   "cadPart": "de-strut-2",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Diagonal strut 2",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 6.158,
+    "massUnit": "kg",
+    "material": "Stahl S235"
+   }
+  },
+  {
+   "id": "STRB-3-70060",
+   "plm": "DE",
+   "name": "Diagonalstrebe 3",
+   "cadFile": "cad/aerial-screw/de-strut-3.stp",
+   "cadPart": "de-strut-3",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Diagonal strut 3",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 6.158,
+    "massUnit": "kg",
+    "material": "Stahl S235"
+   }
+  },
+  {
+   "id": "STRB-4-70070",
+   "plm": "DE",
+   "name": "Diagonalstrebe 4",
+   "cadFile": "cad/aerial-screw/de-strut-4.stp",
+   "cadPart": "de-strut-4",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Diagonal strut 4",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 6.158,
+    "massUnit": "kg",
+    "material": "Stahl S235"
+   }
+  },
+  {
+   "id": "SEGL-B-70080",
+   "plm": "DE",
+   "name": "Segelsegment B (90 bis 180 Grad)",
+   "cadFile": "cad/aerial-screw/de-sail-segment-b.stp",
+   "cadPart": "de-sail-segment-b",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Sail segment B (90 to 180 degrees)",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 1.701,
+    "massUnit": "kg",
+    "material": "Leinen"
+   }
+  },
+  {
+   "id": "HMOT-70090",
+   "plm": "DE",
+   "name": "Hydraulischer Drehantrieb",
+   "cadFile": "cad/aerial-screw/de-hydraulic-motor.stp",
+   "cadPart": "de-hydraulic-motor",
+   "classification": {
+    "jurisdiction": "EXPORT-LICENCE",
+    "releasableTo": "LICENSED"
+   },
+   "extended": {
+    "nameEn": "Hydraulic rotary drive",
+    "revision": "01",
+    "lifecycle": "Freigegeben",
+    "mass": 39.89,
+    "massUnit": "kg",
+    "material": "Stahl, Grauguss"
+   }
+  },
+  {
+   "id": "GETR-70100",
+   "plm": "DE",
+   "name": "Planetengetriebe",
+   "cadFile": "cad/aerial-screw/de-reducer.stp",
+   "cadPart": "de-reducer",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Planetary gearbox",
+    "revision": "02",
+    "lifecycle": "Freigegeben",
+    "mass": 65.31,
+    "massUnit": "kg",
+    "material": "Vergütungsstahl 42CrMo4"
+   }
+  },
+  {
+   "id": "VENT-70110",
+   "plm": "DE",
+   "name": "Hydraulikblock mit Magnetventilen",
+   "cadFile": "cad/aerial-screw/de-manifold.stp",
+   "cadPart": "de-manifold",
+   "classification": {
+    "jurisdiction": "EU-DUAL-USE",
+    "releasableTo": "EU"
+   },
+   "extended": {
+    "nameEn": "Hydraulic block with solenoid valves",
+    "revision": "02",
+    "lifecycle": "In Arbeit",
+    "mass": 36.45,
+    "massUnit": "kg",
+    "material": "Aluminium EN AW-6082"
+   }
+  },
+  {
+   "id": "MAST-7010",
+   "plm": "UK",
+   "name": "Mast, upper segment",
+   "cadFile": "cad/aerial-screw/uk-mast-upper.stp",
+   "cadPart": "uk-mast-upper",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 33.29,
+    "massUnit": "lb",
+    "material": "aluminium alloy 6061"
+   }
+  },
+  {
+   "id": "SAIL-7020-C",
+   "plm": "UK",
+   "name": "Sail segment C (180 to 270 degrees)",
+   "cadFile": "cad/aerial-screw/uk-sail-segment-c.stp",
+   "cadPart": "uk-sail-segment-c",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 3.75,
+    "massUnit": "lb",
+    "material": "linen"
+   }
+  },
+  {
+   "id": "STAY-7030",
+   "plm": "UK",
+   "name": "Tension stays 1 to 5 with load cells (lower arms)",
+   "cadFile": "cad/aerial-screw/uk-stay-set-lower.stp",
+   "cadPart": "uk-stay-set-lower",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 14.62,
+    "massUnit": "lb",
+    "material": "steel wire rope, load cells"
+   }
+  },
+  {
+   "id": "STAY-7040",
+   "plm": "UK",
+   "name": "Tension stays 6 to 9 with load cells (upper arms)",
+   "cadFile": "cad/aerial-screw/uk-stay-set-upper.stp",
+   "cadPart": "uk-stay-set-upper",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 14.92,
+    "massUnit": "lb",
+    "material": "steel wire rope, load cells"
+   }
+  },
+  {
+   "id": "BRAK-7050",
+   "plm": "UK",
+   "name": "Hydraulic release brake",
+   "cadFile": "cad/aerial-screw/uk-brake.stp",
+   "cadPart": "uk-brake",
+   "classification": {
+    "jurisdiction": "EU-DUAL-USE",
+    "releasableTo": "EU"
+   },
+   "supplier": "Sheaf Hydraulik Works, Sheffield",
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 36.01,
+    "massUnit": "lb",
+    "material": "steel"
+   }
+  },
+  {
+   "id": "HPU-7060",
+   "plm": "UK",
+   "name": "Hydraulic power pack (reservoir, pump, filter)",
+   "cadFile": "cad/aerial-screw/uk-power-pack.stp",
+   "cadPart": "uk-power-pack",
+   "classification": {
+    "jurisdiction": "EU-DUAL-USE",
+    "releasableTo": "EU"
+   },
+   "supplier": "Sheaf Hydraulik Works, Sheffield",
+   "extended": {
+    "revision": "C1",
+    "lifecycle": "Released",
+    "mass": 132.91,
+    "massUnit": "lb",
+    "material": "steel, cast iron"
+   }
+  },
+  {
+   "id": "INST-7070",
+   "plm": "UK",
+   "name": "Instrumentation mast (anemometer, tilt, RPM)",
+   "cadFile": "cad/aerial-screw/uk-instrumentation-mast.stp",
+   "cadPart": "uk-instrumentation-mast",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "revision": "P2",
+    "lifecycle": "Draft",
+    "mass": 21.71,
+    "massUnit": "lb",
+    "material": "aluminium alloy 6061"
+   }
+  },
+  {
+   "id": "CUB-1-7010",
+   "plm": "ES",
+   "name": "Sector de cubierta 1 (0 a 90 grados)",
+   "cadFile": "cad/aerial-screw/es-deck-sector-1.stp",
+   "cadPart": "es-deck-sector-1",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Deck sector 1 (0 to 90 degrees)",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 25.96,
+    "massUnit": "kg",
+    "material": "pino"
+   }
+  },
+  {
+   "id": "CUB-2-7020",
+   "plm": "ES",
+   "name": "Sector de cubierta 2 (90 a 180 grados)",
+   "cadFile": "cad/aerial-screw/es-deck-sector-2.stp",
+   "cadPart": "es-deck-sector-2",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Deck sector 2 (90 to 180 degrees)",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 25.96,
+    "massUnit": "kg",
+    "material": "pino"
+   }
+  },
+  {
+   "id": "CUB-3-7030",
+   "plm": "ES",
+   "name": "Sector de cubierta 3 (180 a 270 grados)",
+   "cadFile": "cad/aerial-screw/es-deck-sector-3.stp",
+   "cadPart": "es-deck-sector-3",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Deck sector 3 (180 to 270 degrees)",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 25.96,
+    "massUnit": "kg",
+    "material": "pino"
+   }
+  },
+  {
+   "id": "CUB-4-7040",
+   "plm": "ES",
+   "name": "Sector de cubierta 4 (270 a 360 grados)",
+   "cadFile": "cad/aerial-screw/es-deck-sector-4.stp",
+   "cadPart": "es-deck-sector-4",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Deck sector 4 (270 to 360 degrees)",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 25.96,
+    "massUnit": "kg",
+    "material": "pino"
+   }
+  },
+  {
+   "id": "BRZ-7050",
+   "plm": "ES",
+   "name": "Brazos radiales 1 a 5 (mástil medio)",
+   "cadFile": "cad/aerial-screw/es-arm-set-lower.stp",
+   "cadPart": "es-arm-set-lower",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Radial arms 1 to 5 (middle mast)",
+    "revision": 2,
+    "lifecycle": "Liberado",
+    "mass": 14.44,
+    "massUnit": "kg",
+    "material": "pino"
+   }
+  },
+  {
+   "id": "BRZ-7060",
+   "plm": "ES",
+   "name": "Brazos radiales 6 a 9 (mástil superior)",
+   "cadFile": "cad/aerial-screw/es-arm-set-upper.stp",
+   "cadPart": "es-arm-set-upper",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Radial arms 6 to 9 (upper mast)",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 9.719,
+    "massUnit": "kg",
+    "material": "pino"
+   }
+  },
+  {
+   "id": "VELA-D-7070",
+   "plm": "ES",
+   "name": "Segmento de vela D (270 a 360 grados)",
+   "cadFile": "cad/aerial-screw/es-sail-segment-d.stp",
+   "cadPart": "es-sail-segment-d",
+   "classification": {
+    "jurisdiction": "NONE",
+    "releasableTo": "ALL"
+   },
+   "extended": {
+    "nameEn": "Sail segment D (270 to 360 degrees)",
+    "revision": 1,
+    "lifecycle": "Liberado",
+    "mass": 1.701,
+    "massUnit": "kg",
+    "material": "lino"
+   }
+  }
+ ],
+ "interfaces": [
+  {
+   "id": "IF-48",
+   "label": "Sail segment A / sail segment B (splice battens, sensor loom)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-VOIL-A-001",
+    "SEGL-B-70080"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-VIS-VOIL-A-001-J01",
+      "part": "FR-VIS-VOIL-A-001",
+      "position": {
+       "x": "0.000",
+       "y": "-1240.000",
+       "z": "2370.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 8
+     },
+     {
+      "id": "SEGL-B-70080-X01",
+      "part": "SEGL-B-70080",
+      "position": {
+       "x": "0.000",
+       "y": "-1240.000",
+       "z": "2370.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 8
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-VIS-VOIL-A-001-F01",
+      "part": "FR-VIS-VOIL-A-001",
+      "position": {
+       "x": "0.000",
+       "y": "-1200.000",
+       "z": "2370.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 12,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "SEGL-B-70080-B01",
+      "part": "SEGL-B-70080",
+      "position": {
+       "x": "0.000",
+       "y": "-1200.000",
+       "z": "2370.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 12,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-49",
+   "label": "Sail segment B / sail segment C (splice battens, sensor loom)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "SEGL-B-70080",
+    "SAIL-7020-C"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "SEGL-B-70080-X02",
+      "part": "SEGL-B-70080",
+      "position": {
+       "x": "-1240.000",
+       "y": "0.000",
+       "z": "2558.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 8
+     },
+     {
+      "id": "PL 7020-01",
+      "part": "SAIL-7020-C",
+      "position": {
+       "x": "-48.8189",
+       "y": "0.0000",
+       "z": "100.7087"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 8
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "SEGL-B-70080-B02",
+      "part": "SEGL-B-70080",
+      "position": {
+       "x": "-1200.000",
+       "y": "0.000",
+       "z": "2558.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 12,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "HL 7020-01",
+      "part": "SAIL-7020-C",
+      "position": {
+       "x": "-47.2441",
+       "y": "0.0000",
+       "z": "100.7087"
+      },
+      "unit": "IN",
+      "standard": "ISO 4762",
+      "diameter": "0.3150",
+      "diameterUnit": "IN",
+      "count": 12,
+      "gripLength": "2.3622",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-50",
+   "label": "Sail segment C / sail segment D (splice battens, sensor loom)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "SAIL-7020-C",
+    "VELA-D-7070"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "PL 7020-02",
+      "part": "SAIL-7020-C",
+      "position": {
+       "x": "0.0000",
+       "y": "48.8189",
+       "z": "108.1102"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 8
+     },
+     {
+      "id": "VELA-D-7070-C01",
+      "part": "VELA-D-7070",
+      "position": {
+       "x": "0.000",
+       "y": "1240.000",
+       "z": "2746.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 8
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 7020-02",
+      "part": "SAIL-7020-C",
+      "position": {
+       "x": "0.0000",
+       "y": "47.2441",
+       "z": "108.1102"
+      },
+      "unit": "IN",
+      "standard": "ISO 4762",
+      "diameter": "0.3150",
+      "diameterUnit": "IN",
+      "count": 12,
+      "gripLength": "2.3622",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "VELA-D-7070-R01",
+      "part": "VELA-D-7070",
+      "position": {
+       "x": "0.000",
+       "y": "1200.000",
+       "z": "2746.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 12,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-51",
+   "label": "Mast lower segment / mast middle segment (flange, conduit connectors)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-MAT-B-001",
+    "MAST-70030"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-VIS-MAT-B-001-J01",
+      "part": "FR-VIS-MAT-B-001",
+      "position": {
+       "x": "120.000",
+       "y": "0.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     },
+     {
+      "id": "MAST-70030-X01",
+      "part": "MAST-70030",
+      "position": {
+       "x": "120.000",
+       "y": "0.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     }
+    ],
+    [
+     {
+      "id": "FR-VIS-MAT-B-001-J02",
+      "part": "FR-VIS-MAT-B-001",
+      "position": {
+       "x": "-120.000",
+       "y": "0.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     },
+     {
+      "id": "MAST-70030-X02",
+      "part": "MAST-70030",
+      "position": {
+       "x": "-120.000",
+       "y": "0.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-VIS-MAT-B-001-F01",
+      "part": "FR-VIS-MAT-B-001",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "MAST-70030-B01",
+      "part": "MAST-70030",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-52",
+   "label": "Mast middle segment / mast upper segment (flange, conduit connectors)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "MAST-70030",
+    "MAST-7010"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "MAST-70030-X03",
+      "part": "MAST-70030",
+      "position": {
+       "x": "120.000",
+       "y": "0.000",
+       "z": "2600.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     },
+     {
+      "id": "PL 7010-01",
+      "part": "MAST-7010",
+      "position": {
+       "x": "4.7244",
+       "y": "0.0000",
+       "z": "102.3622"
+      },
+      "unit": "IN",
+      "connectorType": "M23",
+      "pinCount": 12
+     }
+    ],
+    [
+     {
+      "id": "MAST-70030-X04",
+      "part": "MAST-70030",
+      "position": {
+       "x": "-120.000",
+       "y": "0.000",
+       "z": "2600.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     },
+     {
+      "id": "PL 7010-02",
+      "part": "MAST-7010",
+      "position": {
+       "x": "-4.7244",
+       "y": "0.0000",
+       "z": "102.3622"
+      },
+      "unit": "IN",
+      "connectorType": "M23",
+      "pinCount": 12
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "MAST-70030-B02",
+      "part": "MAST-70030",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "2600.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "HL 7010-01",
+      "part": "MAST-7010",
+      "position": {
+       "x": "0.0000",
+       "y": "0.0000",
+       "z": "102.3622"
+      },
+      "unit": "IN",
+      "standard": "ISO 4014",
+      "diameter": "0.6299",
+      "diameterUnit": "IN",
+      "count": 8,
+      "gripLength": "2.3622",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-53",
+   "label": "Radial arms 1 to 5 / mast middle segment (root brackets, strain gauges)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "BRZ-7050",
+    "MAST-70030"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "BRZ-7050-C01",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "120.000",
+       "y": "0.000",
+       "z": "2182.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "MAST-70030-X05",
+      "part": "MAST-70030",
+      "position": {
+       "x": "120.000",
+       "y": "0.000",
+       "z": "2182.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "BRZ-7050-C02",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "85.000",
+       "y": "-85.000",
+       "z": "2276.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "MAST-70030-X06",
+      "part": "MAST-70030",
+      "position": {
+       "x": "85.000",
+       "y": "-85.000",
+       "z": "2276.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "BRZ-7050-C03",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "0.000",
+       "y": "-120.000",
+       "z": "2370.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "MAST-70030-X07",
+      "part": "MAST-70030",
+      "position": {
+       "x": "0.000",
+       "y": "-120.000",
+       "z": "2370.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "BRZ-7050-C04",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "-85.000",
+       "y": "-85.000",
+       "z": "2464.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "MAST-70030-X08",
+      "part": "MAST-70030",
+      "position": {
+       "x": "-85.000",
+       "y": "-85.000",
+       "z": "2464.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "BRZ-7050-C05",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "-120.000",
+       "y": "0.000",
+       "z": "2558.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "MAST-70030-X09",
+      "part": "MAST-70030",
+      "position": {
+       "x": "-120.000",
+       "y": "0.000",
+       "z": "2558.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "BRZ-7050-R01",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "0.000",
+       "y": "-120.000",
+       "z": "2370.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 20,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "MAST-70030-B03",
+      "part": "MAST-70030",
+      "position": {
+       "x": "0.000",
+       "y": "-120.000",
+       "z": "2370.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 20,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-54",
+   "label": "Radial arms 6 to 9 / mast upper segment (root brackets, strain gauges)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "BRZ-7060",
+    "MAST-7010"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "BRZ-7060-C01",
+      "part": "BRZ-7060",
+      "position": {
+       "x": "-85.000",
+       "y": "85.000",
+       "z": "2652.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "PL 7010-03",
+      "part": "MAST-7010",
+      "position": {
+       "x": "-3.3465",
+       "y": "3.3465",
+       "z": "104.4094"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "BRZ-7060-C02",
+      "part": "BRZ-7060",
+      "position": {
+       "x": "0.000",
+       "y": "120.000",
+       "z": "2746.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "PL 7010-04",
+      "part": "MAST-7010",
+      "position": {
+       "x": "0.0000",
+       "y": "4.7244",
+       "z": "108.1102"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "BRZ-7060-C03",
+      "part": "BRZ-7060",
+      "position": {
+       "x": "85.000",
+       "y": "85.000",
+       "z": "2840.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "PL 7010-05",
+      "part": "MAST-7010",
+      "position": {
+       "x": "3.3465",
+       "y": "3.3465",
+       "z": "111.8110"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "BRZ-7060-C04",
+      "part": "BRZ-7060",
+      "position": {
+       "x": "120.000",
+       "y": "0.000",
+       "z": "2934.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "PL 7010-06",
+      "part": "MAST-7010",
+      "position": {
+       "x": "4.7244",
+       "y": "0.0000",
+       "z": "115.5118"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "BRZ-7060-R01",
+      "part": "BRZ-7060",
+      "position": {
+       "x": "0.000",
+       "y": "120.000",
+       "z": "2746.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 16,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "HL 7010-02",
+      "part": "MAST-7010",
+      "position": {
+       "x": "0.0000",
+       "y": "4.7244",
+       "z": "108.1102"
+      },
+      "unit": "IN",
+      "standard": "ISO 4014",
+      "diameter": "0.4724",
+      "diameterUnit": "IN",
+      "count": 16,
+      "gripLength": "3.1496",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-55",
+   "label": "Radial arms 1 to 5 / sail segment A (lacing clamps, arms 1 to 3)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "BRZ-7050",
+    "FR-VIS-VOIL-A-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "BRZ-7050-R02",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "849.000",
+       "y": "-849.000",
+       "z": "2276.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 18,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-VOIL-A-001-F02",
+      "part": "FR-VIS-VOIL-A-001",
+      "position": {
+       "x": "849.000",
+       "y": "-849.000",
+       "z": "2276.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 18,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-56",
+   "label": "Radial arms 1 to 5 / sail segment B (lacing clamps, arms 3 to 5)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "BRZ-7050",
+    "SEGL-B-70080"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "BRZ-7050-R03",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "-849.000",
+       "y": "-849.000",
+       "z": "2464.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 18,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "SEGL-B-70080-B03",
+      "part": "SEGL-B-70080",
+      "position": {
+       "x": "-849.000",
+       "y": "-849.000",
+       "z": "2464.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 18,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-57",
+   "label": "Radial arms 6 to 9 / sail segment C (lacing clamps, arms 6 and 7)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "BRZ-7060",
+    "SAIL-7020-C"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "BRZ-7060-R02",
+      "part": "BRZ-7060",
+      "position": {
+       "x": "-849.000",
+       "y": "849.000",
+       "z": "2652.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 12,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "HL 7020-03",
+      "part": "SAIL-7020-C",
+      "position": {
+       "x": "-33.4252",
+       "y": "33.4252",
+       "z": "104.4094"
+      },
+      "unit": "IN",
+      "standard": "ISO 4017",
+      "diameter": "0.2362",
+      "diameterUnit": "IN",
+      "count": 12,
+      "gripLength": "1.5748",
+      "gripUnit": "IN"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-58",
+   "label": "Radial arms 6 to 9 / sail segment D (lacing clamps, arms 7 to 9)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "BRZ-7060",
+    "VELA-D-7070"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "BRZ-7060-R03",
+      "part": "BRZ-7060",
+      "position": {
+       "x": "849.000",
+       "y": "849.000",
+       "z": "2840.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 18,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "VELA-D-7070-R02",
+      "part": "VELA-D-7070",
+      "position": {
+       "x": "849.000",
+       "y": "849.000",
+       "z": "2840.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "6.000",
+      "diameterUnit": "MilliM",
+      "count": 18,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-59",
+   "label": "Tension stays 1 to 5 / radial arms 1 to 5 (shackles at the arm tips, load cells)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "STAY-7030",
+    "BRZ-7050"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "PL 7030-01",
+      "part": "STAY-7030",
+      "position": {
+       "x": "91.8898",
+       "y": "0.0000",
+       "z": "85.9055"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "BRZ-7050-C06",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "2334.000",
+       "y": "0.000",
+       "z": "2182.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "PL 7030-02",
+      "part": "STAY-7030",
+      "position": {
+       "x": "64.9606",
+       "y": "-64.9606",
+       "z": "89.6063"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "BRZ-7050-C07",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "1650.000",
+       "y": "-1650.000",
+       "z": "2276.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "PL 7030-03",
+      "part": "STAY-7030",
+      "position": {
+       "x": "0.0000",
+       "y": "-91.8898",
+       "z": "93.3071"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "BRZ-7050-C08",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "0.000",
+       "y": "-2334.000",
+       "z": "2370.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "PL 7030-04",
+      "part": "STAY-7030",
+      "position": {
+       "x": "-64.9606",
+       "y": "-64.9606",
+       "z": "97.0079"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "BRZ-7050-C09",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "-1650.000",
+       "y": "-1650.000",
+       "z": "2464.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "PL 7030-05",
+      "part": "STAY-7030",
+      "position": {
+       "x": "-91.8898",
+       "y": "0.0000",
+       "z": "100.7087"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "BRZ-7050-C10",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "-2334.000",
+       "y": "0.000",
+       "z": "2558.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 7030-01",
+      "part": "STAY-7030",
+      "position": {
+       "x": "0.0000",
+       "y": "-91.8898",
+       "z": "93.3071"
+      },
+      "unit": "IN",
+      "standard": "DIN 82101",
+      "diameter": "0.4724",
+      "diameterUnit": "IN",
+      "count": 5,
+      "gripLength": "0.9449",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "BRZ-7050-R04",
+      "part": "BRZ-7050",
+      "position": {
+       "x": "0.000",
+       "y": "-2334.000",
+       "z": "2370.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 5,
+      "gripLength": "24.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-60",
+   "label": "Tension stays 6 to 9 / radial arms 6 to 9 (shackles at the arm tips, load cells)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "STAY-7040",
+    "BRZ-7060"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "PL 7040-01",
+      "part": "STAY-7040",
+      "position": {
+       "x": "-64.9606",
+       "y": "64.9606",
+       "z": "104.4094"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "BRZ-7060-C05",
+      "part": "BRZ-7060",
+      "position": {
+       "x": "-1650.000",
+       "y": "1650.000",
+       "z": "2652.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "PL 7040-02",
+      "part": "STAY-7040",
+      "position": {
+       "x": "0.0000",
+       "y": "91.8898",
+       "z": "108.1102"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "BRZ-7060-C06",
+      "part": "BRZ-7060",
+      "position": {
+       "x": "0.000",
+       "y": "2334.000",
+       "z": "2746.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "PL 7040-03",
+      "part": "STAY-7040",
+      "position": {
+       "x": "64.9606",
+       "y": "64.9606",
+       "z": "111.8110"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "BRZ-7060-C07",
+      "part": "BRZ-7060",
+      "position": {
+       "x": "1650.000",
+       "y": "1650.000",
+       "z": "2840.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ],
+    [
+     {
+      "id": "PL 7040-04",
+      "part": "STAY-7040",
+      "position": {
+       "x": "91.8898",
+       "y": "0.0000",
+       "z": "115.5118"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "BRZ-7060-C08",
+      "part": "BRZ-7060",
+      "position": {
+       "x": "2334.000",
+       "y": "0.000",
+       "z": "2934.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 7040-01",
+      "part": "STAY-7040",
+      "position": {
+       "x": "0.0000",
+       "y": "91.8898",
+       "z": "108.1102"
+      },
+      "unit": "IN",
+      "standard": "DIN 82101",
+      "diameter": "0.4724",
+      "diameterUnit": "IN",
+      "count": 4,
+      "gripLength": "0.9449",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "BRZ-7060-R04",
+      "part": "BRZ-7060",
+      "position": {
+       "x": "0.000",
+       "y": "2334.000",
+       "z": "2746.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 82101",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "24.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-61",
+   "label": "Tension stays 1 to 5 / rotor ring (turnbuckle anchors)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "STAY-7030",
+    "FR-VIS-ROTR-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 7030-02",
+      "part": "STAY-7030",
+      "position": {
+       "x": "0.0000",
+       "y": "-44.0945",
+       "z": "25.1969"
+      },
+      "unit": "IN",
+      "standard": "DIN 444",
+      "diameter": "0.4724",
+      "diameterUnit": "IN",
+      "count": 5,
+      "gripLength": "1.5748",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "FR-VIS-ROTR-001-F01",
+      "part": "FR-VIS-ROTR-001",
+      "position": {
+       "x": "0.000",
+       "y": "-1120.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 444",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 5,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-62",
+   "label": "Tension stays 6 to 9 / rotor ring (turnbuckle anchors)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "STAY-7040",
+    "FR-VIS-ROTR-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 7040-02",
+      "part": "STAY-7040",
+      "position": {
+       "x": "0.0000",
+       "y": "44.0945",
+       "z": "25.1969"
+      },
+      "unit": "IN",
+      "standard": "DIN 444",
+      "diameter": "0.4724",
+      "diameterUnit": "IN",
+      "count": 4,
+      "gripLength": "1.5748",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "FR-VIS-ROTR-001-F02",
+      "part": "FR-VIS-ROTR-001",
+      "position": {
+       "x": "0.000",
+       "y": "1120.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 444",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-63",
+   "label": "Diagonal strut 1 / rotor ring (clevis)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "STRB-1-70040",
+    "FR-VIS-ROTR-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "STRB-1-70040-B01",
+      "part": "STRB-1-70040",
+      "position": {
+       "x": "998.000",
+       "y": "-413.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-ROTR-001-F03",
+      "part": "FR-VIS-ROTR-001",
+      "position": {
+       "x": "998.000",
+       "y": "-413.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-64",
+   "label": "Diagonal strut 1 / collar plate (clevis)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "STRB-1-70040",
+    "FR-VIS-COLL-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "STRB-1-70040-B02",
+      "part": "STRB-1-70040",
+      "position": {
+       "x": "152.000",
+       "y": "-63.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-COLL-001-F01",
+      "part": "FR-VIS-COLL-001",
+      "position": {
+       "x": "152.000",
+       "y": "-63.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-65",
+   "label": "Diagonal strut 2 / rotor ring (clevis)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "STRB-2-70050",
+    "FR-VIS-ROTR-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "STRB-2-70050-B01",
+      "part": "STRB-2-70050",
+      "position": {
+       "x": "-413.000",
+       "y": "-998.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-ROTR-001-F04",
+      "part": "FR-VIS-ROTR-001",
+      "position": {
+       "x": "-413.000",
+       "y": "-998.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-66",
+   "label": "Diagonal strut 2 / collar plate (clevis)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "STRB-2-70050",
+    "FR-VIS-COLL-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "STRB-2-70050-B02",
+      "part": "STRB-2-70050",
+      "position": {
+       "x": "-63.000",
+       "y": "-152.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-COLL-001-F02",
+      "part": "FR-VIS-COLL-001",
+      "position": {
+       "x": "-63.000",
+       "y": "-152.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-67",
+   "label": "Diagonal strut 3 / rotor ring (clevis)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "STRB-3-70060",
+    "FR-VIS-ROTR-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "STRB-3-70060-B01",
+      "part": "STRB-3-70060",
+      "position": {
+       "x": "-998.000",
+       "y": "413.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-ROTR-001-F05",
+      "part": "FR-VIS-ROTR-001",
+      "position": {
+       "x": "-998.000",
+       "y": "413.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-68",
+   "label": "Diagonal strut 3 / collar plate (clevis)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "STRB-3-70060",
+    "FR-VIS-COLL-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "STRB-3-70060-B02",
+      "part": "STRB-3-70060",
+      "position": {
+       "x": "-152.000",
+       "y": "63.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-COLL-001-F03",
+      "part": "FR-VIS-COLL-001",
+      "position": {
+       "x": "-152.000",
+       "y": "63.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-69",
+   "label": "Diagonal strut 4 / rotor ring (clevis)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "STRB-4-70070",
+    "FR-VIS-ROTR-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "STRB-4-70070-B01",
+      "part": "STRB-4-70070",
+      "position": {
+       "x": "413.000",
+       "y": "998.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-ROTR-001-F06",
+      "part": "FR-VIS-ROTR-001",
+      "position": {
+       "x": "413.000",
+       "y": "998.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-70",
+   "label": "Diagonal strut 4 / collar plate (clevis)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "STRB-4-70070",
+    "FR-VIS-COLL-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "STRB-4-70070-B02",
+      "part": "STRB-4-70070",
+      "position": {
+       "x": "63.000",
+       "y": "152.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-COLL-001-F04",
+      "part": "FR-VIS-COLL-001",
+      "position": {
+       "x": "63.000",
+       "y": "152.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 2341",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 1,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-71",
+   "label": "Collar plate / mast lower segment (clamp)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-COLL-001",
+    "FR-VIS-MAT-B-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-VIS-COLL-001-F05",
+      "part": "FR-VIS-COLL-001",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "70.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-MAT-B-001-F02",
+      "part": "FR-VIS-MAT-B-001",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "1719.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "70.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-72",
+   "label": "Hub drum / slewing bearing (inner race bolts, slip ring rotor connectors)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-MOYU-001",
+    "DREH-70020"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-VIS-MOYU-001-J01",
+      "part": "FR-VIS-MOYU-001",
+      "position": {
+       "x": "250.000",
+       "y": "0.000",
+       "z": "600.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     },
+     {
+      "id": "DREH-70020-X01",
+      "part": "DREH-70020",
+      "position": {
+       "x": "250.000",
+       "y": "0.000",
+       "z": "600.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     }
+    ],
+    [
+     {
+      "id": "FR-VIS-MOYU-001-J02",
+      "part": "FR-VIS-MOYU-001",
+      "position": {
+       "x": "-250.000",
+       "y": "0.000",
+       "z": "600.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     },
+     {
+      "id": "DREH-70020-X02",
+      "part": "DREH-70020",
+      "position": {
+       "x": "-250.000",
+       "y": "0.000",
+       "z": "600.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     }
+    ]
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-VIS-MOYU-001-F01",
+      "part": "FR-VIS-MOYU-001",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "600.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 24,
+      "gripLength": "90.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "DREH-70020-B01",
+      "part": "DREH-70020",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "600.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 24,
+      "gripLength": "90.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-73",
+   "label": "Hub drum / mast lower segment (mast foot)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-MOYU-001",
+    "FR-VIS-MAT-B-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-VIS-MOYU-001-F02",
+      "part": "FR-VIS-MOYU-001",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "760.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-MAT-B-001-F03",
+      "part": "FR-VIS-MAT-B-001",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "760.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "16.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-74",
+   "label": "Slewing bearing / base ring (outer race to the base frame)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "DREH-70020",
+    "FR-VIS-BASE-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "DREH-70020-B02",
+      "part": "DREH-70020",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "520.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 24,
+      "gripLength": "90.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-BASE-001-F01",
+      "part": "FR-VIS-BASE-001",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "520.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 24,
+      "gripLength": "90.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-75",
+   "label": "Roller track / base ring (track on the drum top)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "LAUF-70010",
+    "FR-VIS-BASE-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "LAUF-70010-B01",
+      "part": "LAUF-70010",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "480.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 16,
+      "gripLength": "50.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-BASE-001-F02",
+      "part": "FR-VIS-BASE-001",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "480.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 16,
+      "gripLength": "50.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-76",
+   "label": "Roller track / rotor ring (guide rollers)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "LAUF-70010",
+    "FR-VIS-ROTR-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "LAUF-70010-B02",
+      "part": "LAUF-70010",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-ROTR-001-F07",
+      "part": "FR-VIS-ROTR-001",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 8,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-77",
+   "label": "Deck sector 1 / base ring (deck bearers)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CUB-1-7010",
+    "FR-VIS-BASE-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CUB-1-7010-R01",
+      "part": "CUB-1-7010",
+      "position": {
+       "x": "735.000",
+       "y": "735.000",
+       "z": "520.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 571",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-BASE-001-F03",
+      "part": "FR-VIS-BASE-001",
+      "position": {
+       "x": "735.000",
+       "y": "735.000",
+       "z": "520.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 571",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-78",
+   "label": "Deck sector 2 / base ring (deck bearers)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CUB-2-7020",
+    "FR-VIS-BASE-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CUB-2-7020-R01",
+      "part": "CUB-2-7020",
+      "position": {
+       "x": "-735.000",
+       "y": "735.000",
+       "z": "520.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 571",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-BASE-001-F04",
+      "part": "FR-VIS-BASE-001",
+      "position": {
+       "x": "-735.000",
+       "y": "735.000",
+       "z": "520.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 571",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-79",
+   "label": "Deck sector 3 / base ring (deck bearers)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CUB-3-7030",
+    "FR-VIS-BASE-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CUB-3-7030-R01",
+      "part": "CUB-3-7030",
+      "position": {
+       "x": "-735.000",
+       "y": "-735.000",
+       "z": "520.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 571",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-BASE-001-F05",
+      "part": "FR-VIS-BASE-001",
+      "position": {
+       "x": "-735.000",
+       "y": "-735.000",
+       "z": "520.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 571",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-80",
+   "label": "Deck sector 4 / base ring (deck bearers)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CUB-4-7040",
+    "FR-VIS-BASE-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CUB-4-7040-R01",
+      "part": "CUB-4-7040",
+      "position": {
+       "x": "735.000",
+       "y": "-735.000",
+       "z": "520.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 571",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-BASE-001-F06",
+      "part": "FR-VIS-BASE-001",
+      "position": {
+       "x": "735.000",
+       "y": "-735.000",
+       "z": "520.000"
+      },
+      "unit": "MilliM",
+      "standard": "DIN 571",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-81",
+   "label": "Deck sector 1 / deck sector 2 (plank joint)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CUB-1-7010",
+    "CUB-2-7020"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CUB-1-7010-R02",
+      "part": "CUB-1-7010",
+      "position": {
+       "x": "0.000",
+       "y": "700.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "CUB-2-7020-R02",
+      "part": "CUB-2-7020",
+      "position": {
+       "x": "0.000",
+       "y": "700.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-82",
+   "label": "Deck sector 2 / deck sector 3 (plank joint)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CUB-2-7020",
+    "CUB-3-7030"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CUB-2-7020-R03",
+      "part": "CUB-2-7020",
+      "position": {
+       "x": "-700.000",
+       "y": "0.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "CUB-3-7030-R02",
+      "part": "CUB-3-7030",
+      "position": {
+       "x": "-700.000",
+       "y": "0.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-83",
+   "label": "Deck sector 3 / deck sector 4 (plank joint)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CUB-3-7030",
+    "CUB-4-7040"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CUB-3-7030-R03",
+      "part": "CUB-3-7030",
+      "position": {
+       "x": "0.000",
+       "y": "-700.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "CUB-4-7040-R02",
+      "part": "CUB-4-7040",
+      "position": {
+       "x": "0.000",
+       "y": "-700.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-84",
+   "label": "Deck sector 4 / deck sector 1 (plank joint)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "CUB-4-7040",
+    "CUB-1-7010"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "CUB-4-7040-R03",
+      "part": "CUB-4-7040",
+      "position": {
+       "x": "700.000",
+       "y": "0.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "CUB-1-7010-R03",
+      "part": "CUB-1-7010",
+      "position": {
+       "x": "700.000",
+       "y": "0.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4017",
+      "diameter": "8.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "100.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-85",
+   "label": "Turning post 1 / rotor ring (post socket)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-POUS-1-001",
+    "FR-VIS-ROTR-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-VIS-POUS-1-001-F01",
+      "part": "FR-VIS-POUS-1-001",
+      "position": {
+       "x": "429.000",
+       "y": "-1035.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-ROTR-001-F08",
+      "part": "FR-VIS-ROTR-001",
+      "position": {
+       "x": "429.000",
+       "y": "-1035.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-86",
+   "label": "Turning post 2 / rotor ring (post socket)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-POUS-2-001",
+    "FR-VIS-ROTR-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-VIS-POUS-2-001-F01",
+      "part": "FR-VIS-POUS-2-001",
+      "position": {
+       "x": "-1035.000",
+       "y": "-429.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-ROTR-001-F09",
+      "part": "FR-VIS-ROTR-001",
+      "position": {
+       "x": "-1035.000",
+       "y": "-429.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-87",
+   "label": "Turning post 3 / rotor ring (post socket)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-POUS-3-001",
+    "FR-VIS-ROTR-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-VIS-POUS-3-001-F01",
+      "part": "FR-VIS-POUS-3-001",
+      "position": {
+       "x": "-429.000",
+       "y": "1035.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-ROTR-001-F10",
+      "part": "FR-VIS-ROTR-001",
+      "position": {
+       "x": "-429.000",
+       "y": "1035.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-88",
+   "label": "Turning post 4 / rotor ring (post socket)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-POUS-4-001",
+    "FR-VIS-ROTR-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "FR-VIS-POUS-4-001-F01",
+      "part": "FR-VIS-POUS-4-001",
+      "position": {
+       "x": "1035.000",
+       "y": "429.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-ROTR-001-F11",
+      "part": "FR-VIS-ROTR-001",
+      "position": {
+       "x": "1035.000",
+       "y": "429.000",
+       "z": "640.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "80.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-89",
+   "label": "Hydraulic motor / planetary reducer (motor flange)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "HMOT-70090",
+    "GETR-70100"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HMOT-70090-B01",
+      "part": "HMOT-70090",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "390.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "GETR-70100-B01",
+      "part": "GETR-70100",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "390.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-90",
+   "label": "Hydraulic motor / manifold (A and B pressure lines)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "HMOT-70090",
+    "VENT-70110"
+   ],
+   "couplings": [
+    [
+     {
+      "id": "HMOT-70090-K01",
+      "part": "HMOT-70090",
+      "position": {
+       "x": "1300.000",
+       "y": "-40.000",
+       "z": "150.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 12,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     },
+     {
+      "id": "VENT-70110-K01",
+      "part": "VENT-70110",
+      "position": {
+       "x": "1300.000",
+       "y": "-40.000",
+       "z": "150.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 12,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     }
+    ],
+    [
+     {
+      "id": "HMOT-70090-K02",
+      "part": "HMOT-70090",
+      "position": {
+       "x": "1300.000",
+       "y": "40.000",
+       "z": "150.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 12,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     },
+     {
+      "id": "VENT-70110-K02",
+      "part": "VENT-70110",
+      "position": {
+       "x": "1300.000",
+       "y": "40.000",
+       "z": "150.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 12,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-91",
+   "label": "Release brake / planetary reducer (brake disc on the reducer shaft)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "BRAK-7050",
+    "GETR-70100"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HL 7050-01",
+      "part": "BRAK-7050",
+      "position": {
+       "x": "0.0000",
+       "y": "0.0000",
+       "z": "15.3543"
+      },
+      "unit": "IN",
+      "standard": "ISO 4762",
+      "diameter": "0.3937",
+      "diameterUnit": "IN",
+      "count": 6,
+      "gripLength": "1.1811",
+      "gripUnit": "IN"
+     },
+     {
+      "id": "GETR-70100-B02",
+      "part": "GETR-70100",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "390.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 6,
+      "gripLength": "30.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-92",
+   "label": "Release brake / manifold (release line, wear sensor)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "BRAK-7050",
+    "VENT-70110"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "PL 7050-01",
+      "part": "BRAK-7050",
+      "position": {
+       "x": "51.1811",
+       "y": "3.9370",
+       "z": "7.8740"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "VENT-70110-X01",
+      "part": "VENT-70110",
+      "position": {
+       "x": "1300.000",
+       "y": "100.000",
+       "z": "200.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ]
+   ],
+   "couplings": [
+    [
+     {
+      "id": "HC 7050-01",
+      "part": "BRAK-7050",
+      "position": {
+       "x": "51.1811",
+       "y": "2.3622",
+       "z": "7.8740"
+      },
+      "unit": "IN",
+      "standard": "ISO 8434-1",
+      "dashSize": 6,
+      "rating": "3000.0000",
+      "ratingUnit": "PSI",
+      "fluid": "HM 32 mineral oil"
+     },
+     {
+      "id": "VENT-70110-K03",
+      "part": "VENT-70110",
+      "position": {
+       "x": "1300.000",
+       "y": "60.000",
+       "z": "200.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 6,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-93",
+   "label": "Manifold / hydraulic power pack (pressure and return hoses)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "VENT-70110",
+    "HPU-7060"
+   ],
+   "couplings": [
+    [
+     {
+      "id": "VENT-70110-K04",
+      "part": "VENT-70110",
+      "position": {
+       "x": "1750.000",
+       "y": "-50.000",
+       "z": "200.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 12,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     },
+     {
+      "id": "HC 7060-01",
+      "part": "HPU-7060",
+      "position": {
+       "x": "68.8976",
+       "y": "-1.9685",
+       "z": "7.8740"
+      },
+      "unit": "IN",
+      "standard": "ISO 8434-1",
+      "dashSize": 12,
+      "rating": "3000.0000",
+      "ratingUnit": "PSI",
+      "fluid": "HM 32 mineral oil"
+     }
+    ],
+    [
+     {
+      "id": "VENT-70110-K05",
+      "part": "VENT-70110",
+      "position": {
+       "x": "1750.000",
+       "y": "50.000",
+       "z": "200.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 8434-1",
+      "dashSize": 16,
+      "rating": "206.800",
+      "ratingUnit": "BAR",
+      "fluid": "HM 32 mineral oil"
+     },
+     {
+      "id": "HC 7060-02",
+      "part": "HPU-7060",
+      "position": {
+       "x": "68.8976",
+       "y": "1.9685",
+       "z": "7.8740"
+      },
+      "unit": "IN",
+      "standard": "ISO 8434-1",
+      "dashSize": 16,
+      "rating": "3000.0000",
+      "ratingUnit": "PSI",
+      "fluid": "HM 32 mineral oil"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-94",
+   "label": "Control post / manifold (solenoid valve loom)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-PCMD-001",
+    "VENT-70110"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-VIS-PCMD-001-J01",
+      "part": "FR-VIS-PCMD-001",
+      "position": {
+       "x": "1400.000",
+       "y": "150.000",
+       "z": "250.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     },
+     {
+      "id": "VENT-70110-X02",
+      "part": "VENT-70110",
+      "position": {
+       "x": "1400.000",
+       "y": "150.000",
+       "z": "250.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     }
+    ],
+    [
+     {
+      "id": "FR-VIS-PCMD-001-J02",
+      "part": "FR-VIS-PCMD-001",
+      "position": {
+       "x": "1450.000",
+       "y": "150.000",
+       "z": "250.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     },
+     {
+      "id": "VENT-70110-X03",
+      "part": "VENT-70110",
+      "position": {
+       "x": "1450.000",
+       "y": "150.000",
+       "z": "250.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     }
+    ],
+    [
+     {
+      "id": "FR-VIS-PCMD-001-J03",
+      "part": "FR-VIS-PCMD-001",
+      "position": {
+       "x": "1500.000",
+       "y": "150.000",
+       "z": "250.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     },
+     {
+      "id": "VENT-70110-X04",
+      "part": "VENT-70110",
+      "position": {
+       "x": "1500.000",
+       "y": "150.000",
+       "z": "250.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-95",
+   "label": "Control post / hydraulic power pack (pump starter, pressure transducer)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-PCMD-001",
+    "HPU-7060"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-VIS-PCMD-001-J04",
+      "part": "FR-VIS-PCMD-001",
+      "position": {
+       "x": "1900.000",
+       "y": "300.000",
+       "z": "500.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 6
+     },
+     {
+      "id": "PL 7060-01",
+      "part": "HPU-7060",
+      "position": {
+       "x": "74.8031",
+       "y": "11.8110",
+       "z": "19.6850"
+      },
+      "unit": "IN",
+      "connectorType": "M23",
+      "pinCount": 6
+     }
+    ],
+    [
+     {
+      "id": "FR-VIS-PCMD-001-J05",
+      "part": "FR-VIS-PCMD-001",
+      "position": {
+       "x": "1900.000",
+       "y": "340.000",
+       "z": "500.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     },
+     {
+      "id": "PL 7060-02",
+      "part": "HPU-7060",
+      "position": {
+       "x": "74.8031",
+       "y": "13.3858",
+       "z": "19.6850"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 4
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-96",
+   "label": "Control post / slewing bearing (slip ring stator connector)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-PCMD-001",
+    "DREH-70020"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-VIS-PCMD-001-J06",
+      "part": "FR-VIS-PCMD-001",
+      "position": {
+       "x": "0.000",
+       "y": "320.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     },
+     {
+      "id": "DREH-70020-X03",
+      "part": "DREH-70020",
+      "position": {
+       "x": "0.000",
+       "y": "320.000",
+       "z": "560.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M23",
+      "pinCount": 12
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-97",
+   "label": "Control post / instrumentation mast (sensor loom)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "FR-VIS-PCMD-001",
+    "INST-7070"
+   ],
+   "pairs": [
+    [
+     {
+      "id": "FR-VIS-PCMD-001-J07",
+      "part": "FR-VIS-PCMD-001",
+      "position": {
+       "x": "-2300.000",
+       "y": "-1700.000",
+       "z": "1000.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 8
+     },
+     {
+      "id": "PL 7070-01",
+      "part": "INST-7070",
+      "position": {
+       "x": "-90.5512",
+       "y": "-66.9291",
+       "z": "39.3701"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 8
+     }
+    ],
+    [
+     {
+      "id": "FR-VIS-PCMD-001-J08",
+      "part": "FR-VIS-PCMD-001",
+      "position": {
+       "x": "-2300.000",
+       "y": "-1660.000",
+       "z": "1000.000"
+      },
+      "unit": "MilliM",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     },
+     {
+      "id": "PL 7070-02",
+      "part": "INST-7070",
+      "position": {
+       "x": "-90.5512",
+       "y": "-65.3543",
+       "z": "39.3701"
+      },
+      "unit": "IN",
+      "connectorType": "M12-A",
+      "pinCount": 5
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-98",
+   "label": "Planetary reducer / slewing bearing (pinion to the inner race)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "GETR-70100",
+    "DREH-70020"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "GETR-70100-B03",
+      "part": "GETR-70100",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "520.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 12,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "DREH-70020-B03",
+      "part": "DREH-70020",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "520.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4762",
+      "diameter": "10.000",
+      "diameterUnit": "MilliM",
+      "count": 12,
+      "gripLength": "40.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "IF-99",
+   "label": "Hydraulic motor / base ring (motor mount)",
+   "toleranceMm": "2.0",
+   "parts": [
+    "HMOT-70090",
+    "FR-VIS-BASE-001"
+   ],
+   "fasteners": [
+    [
+     {
+      "id": "HMOT-70090-B02",
+      "part": "HMOT-70090",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "120.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     },
+     {
+      "id": "FR-VIS-BASE-001-F07",
+      "part": "FR-VIS-BASE-001",
+      "position": {
+       "x": "0.000",
+       "y": "0.000",
+       "z": "120.000"
+      },
+      "unit": "MilliM",
+      "standard": "ISO 4014",
+      "diameter": "12.000",
+      "diameterUnit": "MilliM",
+      "count": 4,
+      "gripLength": "60.000",
+      "gripUnit": "MilliM"
+     }
+    ]
+   ]
+  }
+ ],
+ "sparePlugs": [],
+ "seededDefects": [],
+ "seededReferenceDefects": [],
+ "seededLifecycleDefects": [
+   {
+    "item": "BAUS-70000",
+    "dependency": "VENT-70110",
+    "rule": "lifecycleConflict"
+   },
+   {
+    "item": "FR-VIS-KIT-001",
+    "dependency": "FR-VIS-PCMD-001",
+    "rule": "lifecycleConflict"
+   },
+   {
+    "item": "KIT-7000",
+    "dependency": "INST-7070",
+    "rule": "lifecycleConflict"
+   }
+ ],
+ "seededMeshDefects": [],
+ "extended": {
+  "assemblies": [
+   {
+    "id": "BAUS-70000",
+    "plm": "DE",
+    "name": "Bausatz Luftschraube, Antrieb und Mast",
+    "nameEn": "Aerial screw kit, drive and mast",
+    "kind": "SITE_KIT",
+    "revision": "01",
+    "lifecycle": "Freigegeben"
+   },
+   {
+    "id": "FR-VIS-KIT-001",
+    "plm": "FR",
+    "name": "Kit vis aérienne, rotor et commandes",
+    "nameEn": "Aerial screw kit, rotor and controls",
+    "kind": "SITE_KIT",
+    "revision": "A",
+    "lifecycle": "Publié"
+   },
+   {
+    "id": "CONJ-7000",
+    "plm": "ES",
+    "name": "Conjunto tornillo aéreo, bujes y vela",
+    "nameEn": "Aerial screw kit, hubs and sail",
+    "kind": "SITE_KIT",
+    "revision": 1,
+    "lifecycle": "Liberado"
+   },
+   {
+    "id": "KIT-7000",
+    "plm": "UK",
+    "name": "Aerial screw kit, mast and power",
+    "nameEn": "Aerial screw kit, mast and power",
+    "kind": "SITE_KIT",
+    "revision": "C1",
+    "lifecycle": "Released"
+   }
+  ],
+  "bomLines": [
+   {
+    "parent": "BAUS-70000",
+    "child": "LAUF-70010",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-70000",
+    "child": "DREH-70020",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-70000",
+    "child": "MAST-70030",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-70000",
+    "child": "STRB-1-70040",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-70000",
+    "child": "STRB-2-70050",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-70000",
+    "child": "STRB-3-70060",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-70000",
+    "child": "STRB-4-70070",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-70000",
+    "child": "SEGL-B-70080",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-70000",
+    "child": "HMOT-70090",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-70000",
+    "child": "GETR-70100",
+    "quantity": 1
+   },
+   {
+    "parent": "BAUS-70000",
+    "child": "VENT-70110",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-VIS-KIT-001",
+    "child": "FR-VIS-BASE-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-VIS-KIT-001",
+    "child": "FR-VIS-ROTR-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-VIS-KIT-001",
+    "child": "FR-VIS-MOYU-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-VIS-KIT-001",
+    "child": "FR-VIS-MAT-B-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-VIS-KIT-001",
+    "child": "FR-VIS-COLL-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-VIS-KIT-001",
+    "child": "FR-VIS-VOIL-A-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-VIS-KIT-001",
+    "child": "FR-VIS-POUS-1-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-VIS-KIT-001",
+    "child": "FR-VIS-POUS-2-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-VIS-KIT-001",
+    "child": "FR-VIS-POUS-3-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-VIS-KIT-001",
+    "child": "FR-VIS-POUS-4-001",
+    "quantity": 1
+   },
+   {
+    "parent": "FR-VIS-KIT-001",
+    "child": "FR-VIS-PCMD-001",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-7000",
+    "child": "CUB-1-7010",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-7000",
+    "child": "CUB-2-7020",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-7000",
+    "child": "CUB-3-7030",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-7000",
+    "child": "CUB-4-7040",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-7000",
+    "child": "BRZ-7050",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-7000",
+    "child": "BRZ-7060",
+    "quantity": 1
+   },
+   {
+    "parent": "CONJ-7000",
+    "child": "VELA-D-7070",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-7000",
+    "child": "MAST-7010",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-7000",
+    "child": "SAIL-7020-C",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-7000",
+    "child": "STAY-7030",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-7000",
+    "child": "STAY-7040",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-7000",
+    "child": "BRAK-7050",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-7000",
+    "child": "HPU-7060",
+    "quantity": 1
+   },
+   {
+    "parent": "KIT-7000",
+    "child": "INST-7070",
+    "quantity": 1
+   }
+  ],
+  "externalRefs": []
+ }
+}

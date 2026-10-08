@@ -1,0 +1,46 @@
+{
+  "plm": "UK",
+  "sql": "SELECT cplg_ref, rating, rating_uom FROM (SELECT * FROM hyd_coupling WHERE comp_id IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)) AS hyd_coupling WHERE comp_id = 'ACTR-6190-L' LIMIT 200",
+  "columns": [
+    "cplg_ref",
+    "rating",
+    "rating_uom"
+  ],
+  "rows": [
+    [
+      "HC 6190-01",
+      5000.0,
+      "PSI"
+    ],
+    [
+      "HC 6190-02",
+      3000.0,
+      "PSI"
+    ]
+  ],
+  "rowCount": 2,
+  "ms": 14,
+  "catalogueUsed": [
+    "hyd_coupling.cplg_ref",
+    "hyd_coupling.comp_id",
+    "hyd_coupling.rating",
+    "hyd_coupling.rating_uom"
+  ],
+  "provenance": {
+    "calls": [
+      {
+        "endpoint": "plm-uk",
+        "kind": "rest",
+        "ms": 14
+      }
+    ]
+  },
+  "policy": {
+    "profile": "engineer",
+    "releasable": [
+      "FR",
+      "EU"
+    ],
+    "untagged": []
+  }
+}

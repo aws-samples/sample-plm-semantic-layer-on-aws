@@ -1,0 +1,300 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+.check { display: grid; grid-template-columns: 1fr var(--panel-w); height: 100%; }
+.check-stage { position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+
+/* Tally */
+/* Sticky at the top of the results: the figures and the cells stay while the lists and the detail scroll under them.
+   It spans the panel's padding (top and sides) and sticks at the panel's edge, so nothing scrolled shows above or beside it. */
+.tally {
+  position: sticky; top: -14px; z-index: 2; display: flex; flex-direction: column; gap: 10px;
+  margin: -14px -16px 0; padding: 14px 16px 12px; border-bottom: 1px solid var(--rule); background: var(--paper);
+}
+.tally-figures { display: flex; gap: 22px; align-items: flex-end; }
+.figure { display: flex; align-items: baseline; gap: 5px; }
+.figure-n { font: 600 38px/0.9 var(--font-display); font-variant-numeric: tabular-nums; }
+.figure-label { font: 500 14px/1 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--quiet); }
+.figure.is-pass .figure-n { color: var(--pass); }
+.figure.is-fail .figure-n { color: var(--fail); }
+.figure.is-not-evaluable .figure-n { color: var(--redact); }
+/* Release findings under the tally's figures: counted, never a verdict, so the register of a read figure (hairline, paper), with the legend's phantom glyph. */
+.tally-findings { display: flex; justify-content: flex-end; margin-top: -4px; }
+.tally-findings:empty { display: none; }
+.findings-chip {
+  display: inline-flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 4px 12px; max-width: 100%; text-align: right;
+  font: 500 11.5px/1 var(--font-display); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2);
+  padding: 3px 7px 2px; border: 1px solid var(--rule); border-radius: 2px; background: #fff; cursor: pointer;
+}
+.findings-chip:hover { border-color: var(--ink-2); }
+.findings-chip .swatch { width: 9px; height: 9px; margin-right: -6px; }
+.findings-chip b { font-weight: 600; color: var(--ink); margin-right: 4px; }
+/* One finding per segment, each led by its count; the chip wraps between segments, never inside one. */
+.findings-chip > span { white-space: nowrap; }
+.cells { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 3px; }
+/* With an interface selected the cells fold into one scrollable row, the selected one kept in view; "Show all" opens the grid until the next selection. */
+.cells-wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px 8px; align-items: center; }
+.cells-wrap.is-folded { grid-template-columns: minmax(0, 1fr) auto; }
+.cells-wrap.is-folded .cells { position: relative; display: flex; overflow-x: auto; scrollbar-width: thin; padding: 4px; margin: -4px; scroll-behavior: smooth; }
+.cells-wrap.is-folded .cell { flex: 0 0 34px; }
+.cells-toggle {
+  justify-self: end; background: none; border: 0; padding: 0; cursor: pointer; color: var(--ink-2); white-space: nowrap;
+  font: 600 11px/1 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 2px;
+}
+.cells-toggle:hover { color: var(--ink); }
+.cell {
+  position: relative; overflow: hidden; height: 24px; border: 0; border-radius: 2px; cursor: pointer;
+  font: 600 12px/24px var(--font-mono); color: #fff;
+}
+.cell.is-pass { background: var(--pass); }
+.cell.is-fail { background: var(--fail); }
+.cell.is-not-evaluable { background: var(--hatch); color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--rule); }
+.cell.is-selected { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink); }
+/* A part on the interface carries a release finding: a revision triangle in the corner; the status colour stays the verdict. */
+.cell.has-finding::after { content: ''; position: absolute; top: 0; right: 0; border-style: solid; border-color: transparent; border-right-color: var(--flag); border-width: 0 8px 8px 0; }
+
+/* Failing list: each list scrolls inside its own bound, so the detail below stays within reach. */
+.fail-list { list-style: none; margin: -7px -3px -3px; padding: 3px; display: flex; flex-direction: column; flex-shrink: 0; gap: 4px; overflow-y: auto; scrollbar-width: thin; }
+.fail-list.is-failing { max-height: 258px; }
+.fail-list.is-hidden { max-height: 176px; }
+.fail-row {
+  width: 100%; display: grid; grid-template-columns: 50px 1fr auto; align-items: center; gap: 8px;
+  text-align: left; background: #fff; border: 1px solid var(--fail);
+  padding: 7px 8px; border-radius: 2px; cursor: pointer;
+}
+.fail-row:hover { border-color: var(--ink-2); border-left-color: var(--fail); }
+.fail-row.is-selected { border-color: var(--ink); border-left-color: var(--fail); box-shadow: inset 0 0 0 1px var(--ink); }
+.fail-row.is-not-evaluable, .fail-row.is-not-evaluable:hover, .fail-row.is-not-evaluable.is-selected { border-left-color: var(--redact); }
+.fail-id { font-weight: 600; }
+.fail-label { font-size: 13px; line-height: 1.2; }
+.fail-rules { display: flex; gap: 4px; }
+
+.chip {
+  font: 600 11px/1 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 6px 3px; border-radius: 2px; color: var(--fail); background: var(--fail-bg); white-space: nowrap;
+}
+.chip.is-not-evaluable { color: var(--ink-2); background: var(--hatch); }
+
+/* Release findings, after the interface lists: something a PLM still owes, never a verdict. The flag amber of the untagged note; the phantom's dashed edge as the row's left rule. Scrolled to under the sticky tally. */
+.findings-list { display: flex; flex-direction: column; gap: 12px; border-radius: 2px; box-shadow: 0 0 0 6px transparent; transition: box-shadow 250ms; }
+.findings-list.is-lit { box-shadow: 0 0 0 5px var(--paper), 0 0 0 6.5px var(--flag); }
+.fail-list.is-findings { max-height: 232px; }
+.fail-row.is-finding { border-color: var(--flag); border-left: 2px dashed var(--flag); align-items: start; }
+.fail-row.is-finding:hover { border-color: var(--ink-2); border-left-color: var(--flag); }
+.fail-row.is-finding.is-selected { border-color: var(--ink); border-left-color: var(--flag); }
+.fail-row.is-finding .fail-id { display: flex; flex-direction: column; gap: 2px; padding-top: 1px; }
+.finding-part { display: flex; flex-direction: column; gap: 2px; font-size: 12.5px; line-height: 1.25; }
+.finding-part b { font-family: var(--font-display); letter-spacing: 0.06em; }
+.finding-supplier, .finding-message { font-size: 11.5px; line-height: 1.35; color: var(--ink-2); }
+.chip.is-finding { font-family: var(--font-mono); text-transform: none; letter-spacing: 0; color: var(--flag); background: var(--flag-bg); }
+
+/* External references on a part: the reference rules are findings, so they wear the finding amber, never the fail red. */
+.chip.rule-danglingReference, .chip.rule-staleRevision { color: var(--flag); background: var(--flag-bg); }
+/* A released item over an unreleased one is a finding too: the same amber. */
+.chip.rule-lifecycleConflict { color: var(--flag); background: var(--flag-bg); }
+.part-references { display: flex; flex-direction: column; gap: 2px; font-size: 12px; }
+.part-references ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
+.part-reference { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px; overflow-wrap: anywhere; }
+.references-summary { font-size: 12.5px; color: var(--ink-2); }
+.references-summary .references-failed { color: var(--flag); }
+
+/* Whatever the panel scrolls to, at any depth (a list, a finding, a row of a table), lands under the sticky tally by
+   its measured height, and clear of the panel's foot. */
+.check > .panel { scroll-padding-top: calc(var(--tally-h, 0px) + 12px); scroll-padding-bottom: 12px; }
+/* Detail: a selection scrolls it to just under the sticky tally. */
+.detail { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.detail-head { display: flex; align-items: baseline; gap: 8px; }
+.detail-id { font-size: 15px; font-weight: 600; }
+.detail-label { font: 600 17px/1.1 var(--font-display); letter-spacing: 0.02em; flex: 1; }
+.status { font: 600 12px/1 var(--font-display); letter-spacing: 0.12em; text-transform: uppercase; }
+.status.is-pass { color: var(--pass); }
+.status.is-fail { color: var(--fail); }
+.status.is-not-evaluable { color: var(--redact); }
+.detail-parts { display: flex; flex-direction: column; gap: 2px; font-size: 12.5px; align-items: flex-start; }
+.detail-parts b { font-family: var(--font-display); letter-spacing: 0.06em; }
+/* The export-control tag beside a part: inline text, not the release form that shares its class name. */
+.detail-parts .release { display: inline; margin-left: 6px; padding: 0; border: 0; background: none; color: var(--quiet); font-size: 11px; }
+.detail-parts .release .tagged { color: var(--ink-2); }
+.detail-parts .built-by { display: block; margin-top: 1px; font-size: 11.5px; color: var(--ink-2); }
+.detail-parts .built-by .swatch { width: 9px; height: 9px; }
+/* A part the file index names no file for: flagged like a missing tag, something its PLM still owes. */
+.cad-unpublished { display: inline-flex; align-items: center; font: 600 10.5px/1 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--flag); white-space: nowrap; }
+.cad-unpublished .swatch { width: 9px; height: 9px; margin-right: 5px; }
+.records .cad-unpublished { font-size: 10px; white-space: normal; }
+/* One warning line per part: the mark, then each finding's rule and message flowing after it; in a record cell the finding takes its own line. */
+.part-warning { min-width: 0; font: 400 11.5px/1.35 var(--font-body); color: var(--ink-2); }
+.part-warning .cad-unpublished { vertical-align: 1px; }
+.part-finding .mono { color: var(--flag); font-weight: 600; }
+.cad-unpublished + .part-finding::before { content: ' · '; color: var(--quiet); }
+.records .part-finding { display: block; margin-top: 2px; font: 400 11px/1.3 var(--font-body); color: var(--ink-2); }
+.detail-parts .cad-line { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 10px; margin-top: 3px; }
+.detail-parts .cad-line .btn-release { white-space: normal; text-align: left; font-size: 11px; letter-spacing: 0.06em; line-height: 1.2; padding: 4px 6px; }
+.detail-parts .cad-line .btn-release[aria-expanded="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.detail-parts .release.is-untagged { font: 600 10.5px/1 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--flag); border: 1px solid var(--flag); padding: 2px 5px 1px; border-radius: 2px; }
+
+/* Parts with no tag in atelier_core: a finding against their PLM, never a rule verdict. */
+.untagged {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px;
+  padding: 7px 10px; background: var(--flag-bg); border: 1px solid var(--flag); border-radius: 2px; font-size: 12.5px; color: var(--ink);
+}
+.untagged .flag { margin: 0; background: #fff; }
+.untagged-ids { display: flex; flex-wrap: wrap; gap: 4px 10px; flex-basis: 100%; }
+.untagged-ids b { font-family: var(--font-display); letter-spacing: 0.06em; }
+.detail-parts .is-redacted { background: var(--hatch); color: var(--ink-2); padding: 2px 6px; border-radius: 2px; }
+.message.is-redacted { border-left-color: var(--redact); font-weight: 400; color: var(--ink-2); }
+.finding { display: flex; flex-direction: column; gap: 7px; }
+.finding-head { display: flex; align-items: center; gap: 8px; }
+.shape { color: var(--ink-2); }
+.message {
+  margin: 0; font-size: 14px; line-height: 1.35; font-weight: 500;
+  padding: 8px 10px; background: #fff; border: 1px solid var(--fail);
+}
+
+.records { width: 100%; border-collapse: collapse; font-size: 12px; table-layout: fixed; background: #fff; }
+.records th, .records td { border-bottom: 1px solid var(--rule-2); padding: 3px 6px; text-align: left; vertical-align: baseline; overflow-wrap: anywhere; }
+.records thead th { font: 600 12px/1.2 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--ink); padding-bottom: 5px; }
+.records thead th:first-child { width: 72px; }
+.records tbody th { font-weight: 500; color: var(--quiet); line-height: 1.25; }
+.records tr.is-flagged td, .records tr.is-flagged th { background: var(--fail-bg); color: var(--ink); }
+.records tr.is-flagged td { font-weight: 600; }
+.unit { color: var(--quiet); }
+.is-missing { color: var(--fail); font-weight: 600; }
+.records td.is-redacted { background: var(--hatch); color: var(--ink-2); font-family: var(--font-body); font-size: 11.5px; }
+.records thead th.is-redacted-head { color: var(--redact); }
+.records tbody th .kind-glyph { margin-right: 4px; }
+.th-kind { display: flex; align-items: center; gap: 1px; margin-top: 3px; font: 500 11px/1.2 var(--font-body); letter-spacing: 0; text-transform: none; color: var(--quiet); }
+.kind-glyph { display: inline-flex; width: 16px; height: 16px; vertical-align: -4px; margin-right: 5px; flex-shrink: 0; }
+.kind-glyph svg { display: block; }
+
+/* Class-specific property: value, stored unit, converted value */
+.qty { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 5px; }
+.qty .unit { color: var(--quiet); }
+.qty .conv { color: var(--ink-2); }
+.records tr.is-flagged .qty .conv { color: var(--ink); font-weight: 700; }
+
+.provenance ul { margin: 6px 0 0; padding-left: 16px; font-size: 12.5px; display: flex; flex-direction: column; gap: 3px; }
+.provenance b { font-family: var(--font-display); letter-spacing: 0.06em; }
+
+/* Path strip */
+.path-strip { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 7px 12px 9px; border-top: 1px solid var(--rule); background: var(--paper); }
+.path-head { display: flex; align-items: center; gap: 12px; font-size: 12.5px; }
+.path-request { color: var(--ink); }
+.path-total { margin-left: auto; color: var(--quiet); }
+.path-total b { color: var(--ink); font-size: 13px; }
+.path-calls { list-style: none; margin: 0; padding: 0; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 6px; }
+.hop {
+  min-width: 0; display: grid; grid-template-columns: auto 1fr; gap: 1px 6px; align-items: baseline;
+  padding: 5px 8px; background: #fff; border: 1px solid var(--rule); border-radius: 2px;
+}
+.hop-name { font-weight: 600; font-size: 12px; white-space: nowrap; }
+.hop-ms { font-weight: 600; font-size: 12px; text-align: right; white-space: nowrap; }
+.hop.is-materialized { border-color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--ink-2); }
+.hop.is-validation { background: var(--ink); color: #fff; border-color: var(--ink); }
+.hop.is-validation .hop-name { font: 600 13px/1.2 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; }
+.hop { position: relative; overflow: hidden; }
+.hop-bar { position: absolute; left: 0; bottom: 0; height: 3px; background: var(--ink-2); }
+.hop.is-validation .hop-bar { background: #fff; }
+.hop-figures { grid-column: 1 / -1; color: var(--ink-2); font: 500 12.5px/1.2 var(--font-display); letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hop-kind { grid-column: 1 / -1; font: 600 10.5px/1.3 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--quiet); }
+.hop.is-materialized .hop-kind { color: var(--ink); }
+.hop.is-validation .hop-kind { color: #9fb0bd; }
+.hop.is-validation .hop-figures { color: #cfd8de; }
+/* A source the answer did not ask: present on the path, quiet. */
+.hop.is-idle { background: var(--paper); border-style: dashed; color: var(--quiet); }
+.hop.is-idle .hop-name, .hop.is-idle .hop-ms, .hop.is-idle .hop-figures { color: var(--quiet); font-weight: 500; }
+.hop.is-idle .hop-figures { white-space: normal; line-height: 1.15; }
+
+.triple { display: inline-flex; flex-wrap: wrap; gap: 0 2px; }
+.triple > span + span::before { content: ',\00a0'; color: var(--quiet); font-weight: 400; }
+.triple { gap: 0; }
+.triple .axis-bad { color: var(--fail); }
+.records tr.is-flagged td { font-weight: 400; }
+.records tr.is-flagged .axis-bad { font-weight: 700; }
+
+.records thead th.axes-note { font: 500 11px/1.2 var(--font-mono); letter-spacing: 0; text-transform: none; color: var(--quiet); }
+
+/* The record off the joint plane: named under its header, a rule along its column; the other side stays plain. */
+.th-mark { display: block; margin-top: 3px; font: 600 10px/1.2 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--fail); }
+.records .is-marked { box-shadow: inset 2px 0 0 var(--fail); }
+/* Who may release a correction, when it is not the viewer. */
+.correction-who { font: 400 11px/1.3 var(--font-body); }
+
+/* Suppliers: what the layer knows about the product's purchased items that no site does. The finding amber for the
+   lead-time conflicts; the shared items and the supplier lists in ink, their native words quiet beneath. */
+.purchasing { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.purchasing-figures { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; font-size: 12.5px; color: var(--ink-2); }
+.purchasing-figures b { font: 600 15px/1 var(--font-display); color: var(--ink); margin-right: 3px; }
+.purchasing-sub { margin: 4px 0 0; font: 600 12px/1.2 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.purchasing-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; line-height: 1.25; }
+.purchasing-list li { display: flex; flex-direction: column; gap: 2px; }
+.purchasing-list b { font-family: var(--font-display); letter-spacing: 0.06em; }
+.purchasing-list.is-conflicts li { border-left: 2px dashed var(--flag); padding-left: 8px; }
+.purchasing-native { font-size: 11.5px; line-height: 1.35; color: var(--ink-2); }
+.equivalent-item { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; font-size: 12.5px; }
+.equivalent-value .quiet { margin-right: 3px; font-size: 11.5px; }
+/* One row per member, one column per identifying attribute: the values side by side as each site writes them. */
+.equivalent-members { margin-top: 2px; padding-left: 10px; border-left: 1px solid var(--rule); overflow-x: auto; }
+.equivalent-table { width: 100%; border-collapse: collapse; font-size: 11.5px; line-height: 1.3; }
+.equivalent-table th { padding: 0 8px 2px 0; text-align: left; vertical-align: bottom; font: 600 10px/1.2 var(--font-display); letter-spacing: 0.06em; text-transform: uppercase; color: var(--quiet); }
+.equivalent-table td { padding: 3px 8px 3px 0; vertical-align: top; color: var(--ink-2); }
+.equivalent-table tbody tr + tr td { border-top: 1px solid var(--rule); }
+.equivalent-part { min-width: 96px; }
+.equivalent-part b { margin-right: 3px; color: var(--ink); }
+.equivalent-name { display: block; color: var(--ink); }
+.equivalent-mm { display: block; color: var(--quiet); }
+.purchasing-name { font-size: 12.5px; }
+.purchasing-more summary { cursor: pointer; font: 600 12px/1.2 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.purchasing-more[open] summary { margin-bottom: 6px; }
+.purchasing-more .purchasing-list { max-height: 232px; overflow: auto; }
+
+/* Product findings: the product rules' results, each with the release that answers it. */
+.product-rules { display: flex; flex-direction: column; gap: 8px; }
+.product-rule { display: flex; flex-direction: column; gap: 6px; border-left: 2px dashed var(--flag); padding-left: 8px; }
+.product-rule-head { margin: 0; font-size: 12.5px; line-height: 1.35; }
+.product-rule-head .chip { margin-right: 4px; }
+.product-rule-release { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; align-self: stretch; }
+.product-rule-release > .release, .product-rule-release > .release-field { align-self: stretch; }
+.product-rule-release > .release-field { flex-wrap: nowrap; }
+.release-input.product-part-picker { flex: 1 1 0; min-width: 0; width: 0; font-size: 12px; text-overflow: ellipsis; }
+.purchasing-offers { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 3px; }
+.purchasing .release { margin-top: 2px; }
+
+/* The English name of the labels graph under a part's native name, quiet like the attributes line. */
+.detail-parts .name-en { display: block; margin-top: 1px; font-size: 11.5px; color: var(--quiet); }
+.name-en-lang { margin-right: 5px; font: 600 10px/1 var(--font-display); letter-spacing: 0.1em; color: var(--quiet); }
+.bom-label-en .name-en-lang { font-size: 9.5px; }
+
+/* An equivalence group's state: a proposal of the layer until a user confirms it, then the links graph holds it. */
+.equivalent-state { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; margin-top: 3px; font-size: 11.5px; }
+.equivalent-state .kind-tag { border-color: var(--ink-2); color: var(--ink-2); }
+.equivalent-state .status { font-size: 11px; }
+.equivalent.is-confirmed .equivalent-members { border-left-color: var(--pass); }
+.equivalent-table .name-en { display: block; font-size: 11.5px; color: var(--quiet); }
+
+/* Variants: an option switch per variant group and the option's diff against the default, port by port. */
+.variants { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.variant-group { display: flex; flex-direction: column; gap: 6px; }
+.variant-switch { display: flex; align-items: baseline; gap: 10px; font: 600 13px/1.2 var(--font-display); letter-spacing: 0.04em; }
+.variant-switch select { font: 12.5px var(--font-mono); }
+.variant-selects { margin: 0; font-size: 11.5px; }
+.variant-diff { display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+.variant-figures { display: flex; flex-direction: column; gap: 2px; margin: 0; }
+.variant-figures div { display: flex; gap: 8px; }
+.variant-figures dt { font-family: var(--font-mono); min-width: 9em; }
+.variant-figures dd { margin: 0; color: var(--ink-2); }
+.variant-ports { border-collapse: collapse; width: 100%; }
+.variant-ports th { text-align: left; font: 600 11px/1.2 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); padding: 2px 4px; }
+.variant-ports td { vertical-align: top; padding: 4px; border-top: 1px solid var(--rule); }
+.variant-ports td span { display: block; }
+.variant-ports .chip { display: inline-block; margin-left: 4px; }
+.variant-ports .status { display: inline; }
+.variant-port-name { font-family: var(--font-mono); }
+.variant-change { font: 600 11px/1.3 var(--font-display); letter-spacing: 0.06em; text-transform: uppercase; }
+.variant-port.is-added .variant-change { color: var(--pass); }
+.variant-port.is-removed .variant-change { color: var(--fail); }
+.variant-port.is-changed .variant-change { color: var(--flag); }
+.variant-port.is-not-modelled .variant-change { color: var(--ink-2); }
+.variant-port.is-not-modelled td { background: var(--hatch); }
+.variant-mate { font-family: var(--font-mono); }
+.variant-feature, .variant-differences { font-size: 11px; color: var(--ink-2); }
+.variant-items { margin: 0; font-size: 12px; }

@@ -1,0 +1,860 @@
+{
+   "metadata" : {
+      "dbmsProductName" : "PostgreSQL",
+      "dbmsVersion" : "16.15 (Debian 16.15-1.pgdg13+2)",
+      "driverName" : "PostgreSQL JDBC Driver",
+      "driverVersion" : "42.7.13",
+      "idFactoryType" : "POSTGRESQL",
+      "quotationString" : "\""
+   },
+   "relations" : [
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"padre\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"referencia\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"orden\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"x_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"y_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"z_mm\""
+            },
+            {
+               "datatype" : "numeric(9, 4)",
+               "isNullable" : false,
+               "name" : "\"rx_grados\""
+            },
+            {
+               "datatype" : "numeric(9, 4)",
+               "isNullable" : false,
+               "name" : "\"ry_grados\""
+            },
+            {
+               "datatype" : "numeric(9, 4)",
+               "isNullable" : false,
+               "name" : "\"rz_grados\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"tramo_desde_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"tramo_hasta_mm\""
+            }
+         ],
+         "name" : [
+            "\"posicion_lista_materiales\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"posicion_lista_materiales\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"padre\"",
+                  "\"referencia\"",
+                  "\"orden\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "posicion_lista_materiales_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"cod_acoplamiento\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"cod_pieza\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_x_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_y_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_z_mm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"norma\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"tamano_dash\""
+            },
+            {
+               "datatype" : "numeric(10, 3)",
+               "isNullable" : true,
+               "name" : "\"presion_bar\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"fluido\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"puerto\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"opcion\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"cod_pieza\""
+                  ],
+                  "relation" : [
+                     "\"acoplamiento\""
+                  ]
+               },
+               "name" : "acoplamiento_cod_pieza_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"cod_pieza\""
+                  ],
+                  "relation" : [
+                     "\"pieza\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"acoplamiento\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"acoplamiento\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"cod_acoplamiento\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "acoplamiento_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"ascendiente\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"descendiente\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"profundidad\""
+            }
+         ],
+         "name" : [
+            "\"cierre_lista_materiales\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"cierre_lista_materiales\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"ascendiente\"",
+                  "\"descendiente\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "cierre_lista_materiales_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : false,
+               "name" : "\"id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"pieza\""
+            },
+            {
+               "datatype" : "varchar(160)",
+               "isNullable" : false,
+               "name" : "\"urn\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"cantidad\""
+            },
+            {
+               "datatype" : "varchar(8)",
+               "isNullable" : true,
+               "name" : "\"revision_esperada\""
+            },
+            {
+               "datatype" : "varchar(400)",
+               "isNullable" : true,
+               "name" : "\"nota\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"pieza\""
+                  ],
+                  "relation" : [
+                     "\"referencia_externa\""
+                  ]
+               },
+               "name" : "referencia_externa_pieza_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"cod_pieza\""
+                  ],
+                  "relation" : [
+                     "\"pieza\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"referencia_externa\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"referencia_externa\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "referencia_externa_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"cod_pieza\""
+            },
+            {
+               "datatype" : "varchar(255)",
+               "isNullable" : false,
+               "name" : "\"denominacion\""
+            },
+            {
+               "datatype" : "varchar(512)",
+               "isNullable" : true,
+               "name" : "\"fichero_cad\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"revision\""
+            },
+            {
+               "datatype" : "varchar(32)",
+               "isNullable" : true,
+               "name" : "\"estado\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"masa_kg\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"material\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : false,
+               "name" : "\"tipo\""
+            },
+            {
+               "datatype" : "jsonb",
+               "isNullable" : true,
+               "name" : "\"lista_materiales\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"norma\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"diametro_nominal\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"longitud_nominal\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"unidad_medida\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"numero_dientes\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"modulo_mm\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"clase_articulo\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"diametro_interior\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"seccion\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"compuesto\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"leyenda\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"ancho\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"alto\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"soporte\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"adhesivo\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"ancho_base\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"fondo\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"ancho_contorno\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"material_casco\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"diametro_exterior\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"ancho_seccion\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"diametro_llanta\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"indice_telas\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"diametro_disipador\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"numero_rotores\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"vida_util_meses\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"opcion\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"tramo_desde_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"tramo_hasta_mm\""
+            }
+         ],
+         "name" : [
+            "\"pieza\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"pieza\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"cod_pieza\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "pieza_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"cod_conector\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"cod_pieza\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_x_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_y_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_z_mm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"tipo\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"num_contactos\""
+            },
+            {
+               "datatype" : "bool",
+               "isNullable" : false,
+               "name" : "\"obsoleto\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"puerto\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"opcion\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"cod_pieza\""
+                  ],
+                  "relation" : [
+                     "\"conector\""
+                  ]
+               },
+               "name" : "conector_cod_pieza_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"cod_pieza\""
+                  ],
+                  "relation" : [
+                     "\"pieza\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"conector\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"conector\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"cod_conector\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "conector_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"cod_pieza\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"cod_proveedor\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"referencia_proveedor\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"plazo_dias\""
+            },
+            {
+               "datatype" : "bool",
+               "isNullable" : false,
+               "name" : "\"preferido\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"cod_pieza\""
+                  ],
+                  "relation" : [
+                     "\"pieza_proveedor\""
+                  ]
+               },
+               "name" : "pieza_proveedor_cod_pieza_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"cod_pieza\""
+                  ],
+                  "relation" : [
+                     "\"pieza\""
+                  ]
+               }
+            },
+            {
+               "from" : {
+                  "columns" : [
+                     "\"cod_proveedor\""
+                  ],
+                  "relation" : [
+                     "\"pieza_proveedor\""
+                  ]
+               },
+               "name" : "pieza_proveedor_cod_proveedor_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"cod_proveedor\""
+                  ],
+                  "relation" : [
+                     "\"proveedor\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"pieza_proveedor\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"pieza_proveedor\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "pieza_proveedor_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"cod_remache\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"cod_pieza\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_x_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_y_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_z_mm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"norma\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"diametro_mm\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"cantidad\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"longitud_apriete_mm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"puerto\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"opcion\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"cod_pieza\""
+                  ],
+                  "relation" : [
+                     "\"remache\""
+                  ]
+               },
+               "name" : "remache_cod_pieza_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"cod_pieza\""
+                  ],
+                  "relation" : [
+                     "\"pieza\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"remache\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"remache\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"cod_remache\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "remache_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"cod_proveedor\""
+            },
+            {
+               "datatype" : "varchar(255)",
+               "isNullable" : false,
+               "name" : "\"nombre\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"ciudad\""
+            }
+         ],
+         "name" : [
+            "\"proveedor\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"proveedor\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"cod_proveedor\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "proveedor_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"padre\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"referencia\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"cantidad\""
+            }
+         ],
+         "name" : [
+            "\"linea_lista_materiales\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"linea_lista_materiales\""
+            ]
+         ]
+      }
+   ]
+}

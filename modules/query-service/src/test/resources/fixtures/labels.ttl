@@ -1,0 +1,23 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# The labels graph of the items of purchasing.ttl and bom.ttl, as data/labels.ttl states them: each item's native name in
+# its site's language and, but on a UK item, its English name. fr-cover-set and fr-hinge are releasable to FR only, and
+# uk-spare-screw to UK only: a viewer who may not see them never receives their names.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix frpt: <https://example.com/atelier/fr/part/> .
+@prefix dept: <https://example.com/atelier/de/part/> .
+@prefix ukpt: <https://example.com/atelier/uk/part/> .
+@prefix espt: <https://example.com/atelier/es/part/> .
+
+dept:de-screw skos:prefLabel "Zylinderschraube DIN 912 M3 x 10"@de ; skos:altLabel "Socket head cap screw M3 x 10"@en .
+frpt:fr-screw skos:prefLabel "Vis CHC M3 × 10"@fr ; skos:altLabel "Socket head cap screw M3 x 10"@en .
+ukpt:uk-screw skos:prefLabel "Cap screw, socket head, 0.118 x 0.394 in"@en .
+ukpt:uk-spare-screw skos:prefLabel "Cap screw, socket head, 0.118 x 0.394 in, spares"@en .
+
+dept:de-kit skos:prefLabel "Antriebsbausatz"@de ; skos:altLabel "Drive kit"@en .
+dept:de-gearbox skos:prefLabel "Getriebe"@de ; skos:altLabel "Gearbox"@en .
+dept:de-gear skos:prefLabel "Planetenrad"@de ; skos:altLabel "Planet gear"@en .
+frpt:fr-kit skos:prefLabel "Kit capotage"@fr ; skos:altLabel "Cover kit"@en .
+frpt:fr-cover-set skos:prefLabel "Ensemble capots"@fr ; skos:altLabel "Cover set"@en .
+frpt:fr-hinge skos:prefLabel "Charnière"@fr ; skos:altLabel "Hinge"@en .

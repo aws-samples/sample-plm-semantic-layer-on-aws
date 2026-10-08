@@ -1,0 +1,54 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# External references added to neighbourhood.ttl and bom.ttl for the reference tests, in the shape the parts and
+# reference CONSTRUCTs produce: each reference with the local part that makes it, the URN as stored, the quantity, the
+# expected revision and a note, and the revision and lifecycle word of the parts they point at.
+#   drivetrain  fr-panel  > de-housing (02, ok), de-housing (01, stale revision), de-housing under the FR site code (dangling)
+#               de-gear   > es-frame (2, ok revision but Sustituido: stale), UK/4101 (C1, the British native form: ok)
+#               es-bracket > de-missing (dangling), urn:plm:es:pieza:es-frame (malformed: dangling)
+#               uk-motor  > fr-hinge (A; fr-hinge is releasable to FR only: not evaluable for de-engineer)
+#               fr-hinge  > de-missing (dangling; the reference itself is hidden from de-engineer)
+#   ornithopter / wings: uk-left-root-fitting (IF-05) > de-right-root-fitting (01, at 02: stale), fr-cross-beam-mid
+#               (IF-05) > de-tail-drive (01; LICENSED and Ersetzt: stale for the officer, not evaluable for de-engineer)
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix frpt: <https://example.com/atelier/fr/part/> .
+@prefix dept: <https://example.com/atelier/de/part/> .
+@prefix ukpt: <https://example.com/atelier/uk/part/> .
+@prefix espt: <https://example.com/atelier/es/part/> .
+@prefix prod: <https://example.com/atelier/product/> .
+
+dept:de-housing atelier:revision "02" ; atelier:lifecycleLabel "Freigegeben" .
+espt:es-frame atelier:revision 2 ; atelier:lifecycleLabel "Sustituido" .
+frpt:fr-hinge atelier:revision "A" ; atelier:lifecycleLabel "Publié" .
+dept:de-right-root-fitting atelier:revision "02" ; atelier:lifecycleLabel "Freigegeben" .
+dept:de-tail-drive atelier:revision "01" ; atelier:lifecycleLabel "Ersetzt" .
+
+ukpt:UK-4101 a atelier:Part ; atelier:label "Encoder" ; atelier:partType "PART" ; atelier:revision "C1" ; atelier:lifecycleLabel "Released" ;
+  atelier:cadFile "cad/drivetrain/UK-4101.stp" ; atelier:partOf prod:drivetrain ;
+  atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "UK" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+
+<https://example.com/atelier/fr/ref/XR-0001> a atelier:ExternalReference ; atelier:fromPart frpt:fr-panel ;
+  atelier:remoteUrn "urn:plm:de:part:de-housing" ; atelier:quantity 1.0 ; atelier:expectedRevision "02" ; rdfs:comment "panel screwed to the housing" .
+<https://example.com/atelier/fr/ref/XR-0002> a atelier:ExternalReference ; atelier:fromPart frpt:fr-panel ;
+  atelier:remoteUrn "urn:plm:de:part:de-housing" ; atelier:quantity 1.0 ; atelier:expectedRevision "01" .
+<https://example.com/atelier/fr/ref/XR-0003> a atelier:ExternalReference ; atelier:fromPart frpt:fr-panel ;
+  atelier:remoteUrn "urn:plm:fr:part:de-housing" ; atelier:quantity 1.0 ; atelier:expectedRevision "02" .
+<https://example.com/atelier/fr/ref/XR-0004> a atelier:ExternalReference ; atelier:fromPart frpt:fr-hinge ;
+  atelier:remoteUrn "urn:plm:de:part:de-missing" ; atelier:quantity 2.0 ; atelier:expectedRevision "01" .
+<https://example.com/atelier/de/ref/XR-0001> a atelier:ExternalReference ; atelier:fromPart dept:de-gear ;
+  atelier:remoteUrn "urn:plm:es:part:es-frame" ; atelier:quantity 1.0 ; atelier:expectedRevision "2" .
+<https://example.com/atelier/de/ref/XR-0002> a atelier:ExternalReference ; atelier:fromPart dept:de-gear ;
+  atelier:remoteUrn "urn:plm:uk:part:UK/4101" ; atelier:quantity 1.0 ; atelier:expectedRevision "C1" .
+<https://example.com/atelier/es/ref/XR-0001> a atelier:ExternalReference ; atelier:fromPart espt:es-bracket ;
+  atelier:remoteUrn "urn:plm:de:part:de-missing" ; atelier:quantity 4.0 ; atelier:expectedRevision "01" .
+<https://example.com/atelier/es/ref/XR-0002> a atelier:ExternalReference ; atelier:fromPart espt:es-bracket ;
+  atelier:remoteUrn "urn:plm:es:pieza:es-frame" ; atelier:quantity 1.0 ; atelier:expectedRevision "2" .
+<https://example.com/atelier/uk/ref/XR-0001> a atelier:ExternalReference ; atelier:fromPart ukpt:uk-motor ;
+  atelier:remoteUrn "urn:plm:fr:part:fr-hinge" ; atelier:quantity 2.0 ; atelier:expectedRevision "A" .
+<https://example.com/atelier/uk/ref/XR-0002> a atelier:ExternalReference ; atelier:fromPart ukpt:uk-left-root-fitting ;
+  atelier:remoteUrn "urn:plm:de:part:de-right-root-fitting" ; atelier:quantity 1.0 ; atelier:expectedRevision "01" .
+<https://example.com/atelier/fr/ref/XR-0005> a atelier:ExternalReference ; atelier:fromPart frpt:fr-cross-beam-mid ;
+  atelier:remoteUrn "urn:plm:de:part:de-tail-drive" ; atelier:quantity 1.0 ; atelier:expectedRevision "01" .

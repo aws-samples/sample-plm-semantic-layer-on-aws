@@ -1,0 +1,21 @@
+# Paths semgrep skips. This file replaces semgrep's built-in list, so that list is repeated first.
+node_modules/
+build/
+dist/
+vendor/
+.env/
+.venv/
+.tox/
+*.min.js
+.npm/
+.yarn/
+test/
+tests/
+*_test.go
+.semgrep
+.semgrep_logs/
+# Build output and caches of this repository (also gitignored)
+cdk.out/
+__pycache__/
+# Recorded media, not code
+docs/media/

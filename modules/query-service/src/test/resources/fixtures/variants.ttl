@@ -1,0 +1,199 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+# A product with one variant group, "return" (what returns the arm to its rest), in the shape the sources hold it.
+# The base product is the default option "cord": the ES arm joins the FR frame at its return eye (IF-01) and lock pin
+# (IF-04), the ES pedal at its heel eye (IF-02) and toe eye (IF-05); IF-03 joins the frame and the pedal under every
+# option. The rows the sites hold only for the option "spring" carry its code: the UK spring and the DE anchor block
+# (released to DE only), the frame's spring anchor bore and the pedal's heel eye turned a quarter turn (ES-PEDAL-R05).
+# The options graph is fixtures/variants-options.ttl.
+
+@prefix atelier:  <https://example.com/atelier/ontology#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://example.com/atelier/product/slot> a atelier:Product ; atelier:label "Return slot" .
+<https://example.com/atelier/fr/part/FR-KIT> a atelier:Part ; atelier:label "Kit" ; atelier:partType "ASSEMBLY" ;
+  atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "FR" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/fr/part/FR-KIT> atelier:partOf <https://example.com/atelier/product/slot> .
+<https://example.com/atelier/es/part/ES-KIT> a atelier:Part ; atelier:label "Kit" ; atelier:partType "ASSEMBLY" ;
+  atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "ES" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/es/part/ES-KIT> atelier:partOf <https://example.com/atelier/product/slot> .
+<https://example.com/atelier/uk/part/UK-KIT> a atelier:Part ; atelier:label "Kit" ; atelier:partType "ASSEMBLY" ;
+  atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "UK" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/uk/part/UK-KIT> atelier:partOf <https://example.com/atelier/product/slot> .
+<https://example.com/atelier/de/part/DE-KIT> a atelier:Part ; atelier:label "Bausatz" ; atelier:partType "ASSEMBLY" ;
+  atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime .
+<https://example.com/atelier/de/part/DE-KIT> atelier:partOf <https://example.com/atelier/product/slot> .
+<https://example.com/atelier/fr/part/FR-FRAME> a atelier:Part ; atelier:label "Cadre" ; atelier:partType "PART" ;
+  atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "FR" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime ;
+  atelier:mass <https://example.com/atelier/fr/part/FR-FRAME/mass> .
+<https://example.com/atelier/fr/part/FR-FRAME/mass> a qudt:QuantityValue ; qudt:numericValue 10.000 ; qudt:unit unit:KiloGM .
+<https://example.com/atelier/fr/part/FR-FRAME> atelier:partOf <https://example.com/atelier/product/slot> .
+<https://example.com/atelier/es/part/ES-ARM> a atelier:Part ; atelier:label "Brazo" ; atelier:partType "PART" ;
+  atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "ES" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime ;
+  atelier:mass <https://example.com/atelier/es/part/ES-ARM/mass> .
+<https://example.com/atelier/es/part/ES-ARM/mass> a qudt:QuantityValue ; qudt:numericValue 2.000 ; qudt:unit unit:KiloGM .
+<https://example.com/atelier/es/part/ES-ARM> atelier:partOf <https://example.com/atelier/product/slot> .
+<https://example.com/atelier/es/part/ES-PEDAL> a atelier:Part ; atelier:label "Pedal" ; atelier:partType "PART" ;
+  atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "ES" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime ;
+  atelier:mass <https://example.com/atelier/es/part/ES-PEDAL/mass> .
+<https://example.com/atelier/es/part/ES-PEDAL/mass> a qudt:QuantityValue ; qudt:numericValue 3.000 ; qudt:unit unit:KiloGM .
+<https://example.com/atelier/es/part/ES-PEDAL> atelier:partOf <https://example.com/atelier/product/slot> .
+<https://example.com/atelier/uk/part/UK-SPRING> a atelier:Part ; atelier:label "Return spring" ; atelier:partType "PART" ; atelier:appliesUnderOption <https://example.com/atelier/option/spring> ;
+  atelier:jurisdiction "NONE" ; atelier:releasableTo "ALL" ; atelier:taggedBy "UK" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime ;
+  atelier:mass <https://example.com/atelier/uk/part/UK-SPRING/mass> .
+<https://example.com/atelier/uk/part/UK-SPRING/mass> a qudt:QuantityValue ; qudt:numericValue 4.4092 ; qudt:unit unit:LB .
+<https://example.com/atelier/de/part/DE-ANCHOR> a atelier:Part ; atelier:label "Ankerblock" ; atelier:partType "PART" ; atelier:appliesUnderOption <https://example.com/atelier/option/spring> ;
+  atelier:jurisdiction "NONE" ; atelier:releasableTo "DE" ; atelier:taggedBy "DE" ; atelier:taggedAt "2026-09-01T08:00:00Z"^^xsd:dateTime ;
+  atelier:mass <https://example.com/atelier/de/part/DE-ANCHOR/mass> .
+<https://example.com/atelier/de/part/DE-ANCHOR/mass> a qudt:QuantityValue ; qudt:numericValue 1.500 ; qudt:unit unit:KiloGM .
+<https://example.com/atelier/fr/bomline/FR-KIT/FR-FRAME> a atelier:BomLine ; atelier:parent <https://example.com/atelier/fr/part/FR-KIT> ; atelier:child <https://example.com/atelier/fr/part/FR-FRAME> ; atelier:quantity 1 .
+<https://example.com/atelier/es/bomline/ES-KIT/ES-ARM> a atelier:BomLine ; atelier:parent <https://example.com/atelier/es/part/ES-KIT> ; atelier:child <https://example.com/atelier/es/part/ES-ARM> ; atelier:quantity 2 .
+<https://example.com/atelier/es/bomline/ES-KIT/ES-PEDAL> a atelier:BomLine ; atelier:parent <https://example.com/atelier/es/part/ES-KIT> ; atelier:child <https://example.com/atelier/es/part/ES-PEDAL> ; atelier:quantity 1 .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F01> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/fr/part/FR-FRAME> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:port "return eye" ;
+  atelier:diameter <https://example.com/atelier/fr/fastener/FR-FRAME-F01/diameter> ; atelier:gripLength <https://example.com/atelier/fr/fastener/FR-FRAME-F01/grip> ;
+  atelier:positionX <https://example.com/atelier/fr/fastener/FR-FRAME-F01/position/x> ; atelier:positionY <https://example.com/atelier/fr/fastener/FR-FRAME-F01/position/y> ; atelier:positionZ <https://example.com/atelier/fr/fastener/FR-FRAME-F01/position/z> .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F01/diameter> a qudt:QuantityValue ; qudt:numericValue 10.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F01/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F01/position/x> a qudt:QuantityValue ; qudt:numericValue 100.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F01/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F01/position/z> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R01> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/es/part/ES-ARM> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:diameter <https://example.com/atelier/es/fastener/ES-ARM-R01/diameter> ; atelier:gripLength <https://example.com/atelier/es/fastener/ES-ARM-R01/grip> ;
+  atelier:positionX <https://example.com/atelier/es/fastener/ES-ARM-R01/position/x> ; atelier:positionY <https://example.com/atelier/es/fastener/ES-ARM-R01/position/y> ; atelier:positionZ <https://example.com/atelier/es/fastener/ES-ARM-R01/position/z> .
+<https://example.com/atelier/es/fastener/ES-ARM-R01/diameter> a qudt:QuantityValue ; qudt:numericValue 10.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R01/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R01/position/x> a qudt:QuantityValue ; qudt:numericValue 100.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R01/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R01/position/z> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R01> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/es/part/ES-PEDAL> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:port "heel eye" ;
+  atelier:diameter <https://example.com/atelier/es/fastener/ES-PEDAL-R01/diameter> ; atelier:gripLength <https://example.com/atelier/es/fastener/ES-PEDAL-R01/grip> ;
+  atelier:positionX <https://example.com/atelier/es/fastener/ES-PEDAL-R01/position/x> ; atelier:positionY <https://example.com/atelier/es/fastener/ES-PEDAL-R01/position/y> ; atelier:positionZ <https://example.com/atelier/es/fastener/ES-PEDAL-R01/position/z> .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R01/diameter> a qudt:QuantityValue ; qudt:numericValue 8.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R01/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R01/position/x> a qudt:QuantityValue ; qudt:numericValue 300.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R01/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R01/position/z> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R02> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/es/part/ES-ARM> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:diameter <https://example.com/atelier/es/fastener/ES-ARM-R02/diameter> ; atelier:gripLength <https://example.com/atelier/es/fastener/ES-ARM-R02/grip> ;
+  atelier:positionX <https://example.com/atelier/es/fastener/ES-ARM-R02/position/x> ; atelier:positionY <https://example.com/atelier/es/fastener/ES-ARM-R02/position/y> ; atelier:positionZ <https://example.com/atelier/es/fastener/ES-ARM-R02/position/z> .
+<https://example.com/atelier/es/fastener/ES-ARM-R02/diameter> a qudt:QuantityValue ; qudt:numericValue 8.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R02/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R02/position/x> a qudt:QuantityValue ; qudt:numericValue 300.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R02/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R02/position/z> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F09> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/fr/part/FR-FRAME> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:port "pedal hinge" ;
+  atelier:diameter <https://example.com/atelier/fr/fastener/FR-FRAME-F09/diameter> ; atelier:gripLength <https://example.com/atelier/fr/fastener/FR-FRAME-F09/grip> ;
+  atelier:positionX <https://example.com/atelier/fr/fastener/FR-FRAME-F09/position/x> ; atelier:positionY <https://example.com/atelier/fr/fastener/FR-FRAME-F09/position/y> ; atelier:positionZ <https://example.com/atelier/fr/fastener/FR-FRAME-F09/position/z> .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F09/diameter> a qudt:QuantityValue ; qudt:numericValue 6.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F09/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F09/position/x> a qudt:QuantityValue ; qudt:numericValue 500.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F09/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F09/position/z> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R09> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/es/part/ES-PEDAL> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:diameter <https://example.com/atelier/es/fastener/ES-PEDAL-R09/diameter> ; atelier:gripLength <https://example.com/atelier/es/fastener/ES-PEDAL-R09/grip> ;
+  atelier:positionX <https://example.com/atelier/es/fastener/ES-PEDAL-R09/position/x> ; atelier:positionY <https://example.com/atelier/es/fastener/ES-PEDAL-R09/position/y> ; atelier:positionZ <https://example.com/atelier/es/fastener/ES-PEDAL-R09/position/z> .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R09/diameter> a qudt:QuantityValue ; qudt:numericValue 6.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R09/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R09/position/x> a qudt:QuantityValue ; qudt:numericValue 500.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R09/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R09/position/z> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F04> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/fr/part/FR-FRAME> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:port "lock pin" ;
+  atelier:diameter <https://example.com/atelier/fr/fastener/FR-FRAME-F04/diameter> ; atelier:gripLength <https://example.com/atelier/fr/fastener/FR-FRAME-F04/grip> ;
+  atelier:positionX <https://example.com/atelier/fr/fastener/FR-FRAME-F04/position/x> ; atelier:positionY <https://example.com/atelier/fr/fastener/FR-FRAME-F04/position/y> ; atelier:positionZ <https://example.com/atelier/fr/fastener/FR-FRAME-F04/position/z> .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F04/diameter> a qudt:QuantityValue ; qudt:numericValue 12.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F04/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F04/position/x> a qudt:QuantityValue ; qudt:numericValue 120.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F04/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F04/position/z> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R04> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/es/part/ES-ARM> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:diameter <https://example.com/atelier/es/fastener/ES-ARM-R04/diameter> ; atelier:gripLength <https://example.com/atelier/es/fastener/ES-ARM-R04/grip> ;
+  atelier:positionX <https://example.com/atelier/es/fastener/ES-ARM-R04/position/x> ; atelier:positionY <https://example.com/atelier/es/fastener/ES-ARM-R04/position/y> ; atelier:positionZ <https://example.com/atelier/es/fastener/ES-ARM-R04/position/z> .
+<https://example.com/atelier/es/fastener/ES-ARM-R04/diameter> a qudt:QuantityValue ; qudt:numericValue 12.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R04/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R04/position/x> a qudt:QuantityValue ; qudt:numericValue 120.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R04/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R04/position/z> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R02> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/es/part/ES-PEDAL> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:port "toe eye" ;
+  atelier:diameter <https://example.com/atelier/es/fastener/ES-PEDAL-R02/diameter> ; atelier:gripLength <https://example.com/atelier/es/fastener/ES-PEDAL-R02/grip> ;
+  atelier:positionX <https://example.com/atelier/es/fastener/ES-PEDAL-R02/position/x> ; atelier:positionY <https://example.com/atelier/es/fastener/ES-PEDAL-R02/position/y> ; atelier:positionZ <https://example.com/atelier/es/fastener/ES-PEDAL-R02/position/z> .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R02/diameter> a qudt:QuantityValue ; qudt:numericValue 8.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R02/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R02/position/x> a qudt:QuantityValue ; qudt:numericValue 320.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R02/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R02/position/z> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R05> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/es/part/ES-ARM> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:diameter <https://example.com/atelier/es/fastener/ES-ARM-R05/diameter> ; atelier:gripLength <https://example.com/atelier/es/fastener/ES-ARM-R05/grip> ;
+  atelier:positionX <https://example.com/atelier/es/fastener/ES-ARM-R05/position/x> ; atelier:positionY <https://example.com/atelier/es/fastener/ES-ARM-R05/position/y> ; atelier:positionZ <https://example.com/atelier/es/fastener/ES-ARM-R05/position/z> .
+<https://example.com/atelier/es/fastener/ES-ARM-R05/diameter> a qudt:QuantityValue ; qudt:numericValue 8.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R05/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R05/position/x> a qudt:QuantityValue ; qudt:numericValue 320.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R05/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-ARM-R05/position/z> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F03> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/fr/part/FR-FRAME> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:port "spring anchor" ;
+  atelier:appliesUnderOption <https://example.com/atelier/option/spring> ;
+  atelier:diameter <https://example.com/atelier/fr/fastener/FR-FRAME-F03/diameter> ; atelier:gripLength <https://example.com/atelier/fr/fastener/FR-FRAME-F03/grip> ;
+  atelier:positionX <https://example.com/atelier/fr/fastener/FR-FRAME-F03/position/x> ; atelier:positionY <https://example.com/atelier/fr/fastener/FR-FRAME-F03/position/y> ; atelier:positionZ <https://example.com/atelier/fr/fastener/FR-FRAME-F03/position/z> .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F03/diameter> a qudt:QuantityValue ; qudt:numericValue 10.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F03/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F03/position/x> a qudt:QuantityValue ; qudt:numericValue 150.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F03/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F03/position/z> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/fastener/DE-ANCHOR-B01> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/de/part/DE-ANCHOR> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:diameter <https://example.com/atelier/de/fastener/DE-ANCHOR-B01/diameter> ; atelier:gripLength <https://example.com/atelier/de/fastener/DE-ANCHOR-B01/grip> ;
+  atelier:positionX <https://example.com/atelier/de/fastener/DE-ANCHOR-B01/position/x> ; atelier:positionY <https://example.com/atelier/de/fastener/DE-ANCHOR-B01/position/y> ; atelier:positionZ <https://example.com/atelier/de/fastener/DE-ANCHOR-B01/position/z> .
+<https://example.com/atelier/de/fastener/DE-ANCHOR-B01/diameter> a qudt:QuantityValue ; qudt:numericValue 8.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/fastener/DE-ANCHOR-B01/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/fastener/DE-ANCHOR-B01/position/x> a qudt:QuantityValue ; qudt:numericValue 150.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/fastener/DE-ANCHOR-B01/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/de/fastener/DE-ANCHOR-B01/position/z> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R05> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/es/part/ES-PEDAL> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:port "heel eye" ;
+  atelier:appliesUnderOption <https://example.com/atelier/option/spring> ;
+  atelier:diameter <https://example.com/atelier/es/fastener/ES-PEDAL-R05/diameter> ; atelier:gripLength <https://example.com/atelier/es/fastener/ES-PEDAL-R05/grip> ;
+  atelier:positionX <https://example.com/atelier/es/fastener/ES-PEDAL-R05/position/x> ; atelier:positionY <https://example.com/atelier/es/fastener/ES-PEDAL-R05/position/y> ; atelier:positionZ <https://example.com/atelier/es/fastener/ES-PEDAL-R05/position/z> .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R05/diameter> a qudt:QuantityValue ; qudt:numericValue 8.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R05/grip> a qudt:QuantityValue ; qudt:numericValue 30.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R05/position/x> a qudt:QuantityValue ; qudt:numericValue 300.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R05/position/y> a qudt:QuantityValue ; qudt:numericValue 0.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R05/position/z> a qudt:QuantityValue ; qudt:numericValue 40.000 ; qudt:unit unit:MilliM .
+<https://example.com/atelier/uk/fastener/HL%2001> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/uk/part/UK-SPRING> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:diameter <https://example.com/atelier/uk/fastener/HL%2001/diameter> ; atelier:gripLength <https://example.com/atelier/uk/fastener/HL%2001/grip> ;
+  atelier:positionX <https://example.com/atelier/uk/fastener/HL%2001/position/x> ; atelier:positionY <https://example.com/atelier/uk/fastener/HL%2001/position/y> ; atelier:positionZ <https://example.com/atelier/uk/fastener/HL%2001/position/z> .
+<https://example.com/atelier/uk/fastener/HL%2001/diameter> a qudt:QuantityValue ; qudt:numericValue 0.3937 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/HL%2001/grip> a qudt:QuantityValue ; qudt:numericValue 1.1811 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/HL%2001/position/x> a qudt:QuantityValue ; qudt:numericValue 3.9370 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/HL%2001/position/y> a qudt:QuantityValue ; qudt:numericValue 0.0000 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/HL%2001/position/z> a qudt:QuantityValue ; qudt:numericValue 0.0000 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/HL%2002> a atelier:Fastener ; atelier:onPart <https://example.com/atelier/uk/part/UK-SPRING> ; atelier:fastenerStandard "ISO 2341" ; atelier:fastenerCount 1 ;
+  atelier:diameter <https://example.com/atelier/uk/fastener/HL%2002/diameter> ; atelier:gripLength <https://example.com/atelier/uk/fastener/HL%2002/grip> ;
+  atelier:positionX <https://example.com/atelier/uk/fastener/HL%2002/position/x> ; atelier:positionY <https://example.com/atelier/uk/fastener/HL%2002/position/y> ; atelier:positionZ <https://example.com/atelier/uk/fastener/HL%2002/position/z> .
+<https://example.com/atelier/uk/fastener/HL%2002/diameter> a qudt:QuantityValue ; qudt:numericValue 0.3150 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/HL%2002/grip> a qudt:QuantityValue ; qudt:numericValue 1.1811 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/HL%2002/position/x> a qudt:QuantityValue ; qudt:numericValue 11.8110 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/HL%2002/position/y> a qudt:QuantityValue ; qudt:numericValue 0.0000 ; qudt:unit unit:IN .
+<https://example.com/atelier/uk/fastener/HL%2002/position/z> a qudt:QuantityValue ; qudt:numericValue 1.5748 ; qudt:unit unit:IN .
+<https://example.com/atelier/interface/slot/IF-01> a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/slot> ; atelier:label "Arm / frame (return eye)" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart <https://example.com/atelier/es/part/ES-ARM> , <https://example.com/atelier/fr/part/FR-FRAME> ; atelier:declaresFeature <https://example.com/atelier/es/fastener/ES-ARM-R01> , <https://example.com/atelier/fr/fastener/FR-FRAME-F01> .
+<https://example.com/atelier/es/fastener/ES-ARM-R01> atelier:matesWith <https://example.com/atelier/fr/fastener/FR-FRAME-F01> . <https://example.com/atelier/fr/fastener/FR-FRAME-F01> atelier:matesWith <https://example.com/atelier/es/fastener/ES-ARM-R01> .
+<https://example.com/atelier/interface/slot/IF-02> a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/slot> ; atelier:label "Pedal / arm (heel eye)" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart <https://example.com/atelier/es/part/ES-PEDAL> , <https://example.com/atelier/es/part/ES-ARM> ; atelier:declaresFeature <https://example.com/atelier/es/fastener/ES-PEDAL-R01> , <https://example.com/atelier/es/fastener/ES-ARM-R02> .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R01> atelier:matesWith <https://example.com/atelier/es/fastener/ES-ARM-R02> . <https://example.com/atelier/es/fastener/ES-ARM-R02> atelier:matesWith <https://example.com/atelier/es/fastener/ES-PEDAL-R01> .
+<https://example.com/atelier/interface/slot/IF-03> a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/slot> ; atelier:label "Frame / pedal (hinge)" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart <https://example.com/atelier/fr/part/FR-FRAME> , <https://example.com/atelier/es/part/ES-PEDAL> ; atelier:declaresFeature <https://example.com/atelier/fr/fastener/FR-FRAME-F09> , <https://example.com/atelier/es/fastener/ES-PEDAL-R09> .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F09> atelier:matesWith <https://example.com/atelier/es/fastener/ES-PEDAL-R09> . <https://example.com/atelier/es/fastener/ES-PEDAL-R09> atelier:matesWith <https://example.com/atelier/fr/fastener/FR-FRAME-F09> .
+<https://example.com/atelier/interface/slot/IF-04> a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/slot> ; atelier:label "Frame / arm (lock pin)" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart <https://example.com/atelier/fr/part/FR-FRAME> , <https://example.com/atelier/es/part/ES-ARM> ; atelier:declaresFeature <https://example.com/atelier/fr/fastener/FR-FRAME-F04> , <https://example.com/atelier/es/fastener/ES-ARM-R04> .
+<https://example.com/atelier/fr/fastener/FR-FRAME-F04> atelier:matesWith <https://example.com/atelier/es/fastener/ES-ARM-R04> . <https://example.com/atelier/es/fastener/ES-ARM-R04> atelier:matesWith <https://example.com/atelier/fr/fastener/FR-FRAME-F04> .
+<https://example.com/atelier/interface/slot/IF-05> a atelier:Interface ; atelier:ofProduct <https://example.com/atelier/product/slot> ; atelier:label "Pedal / arm (toe eye)" ; atelier:toleranceMm "2.0"^^xsd:decimal ;
+  atelier:betweenPart <https://example.com/atelier/es/part/ES-PEDAL> , <https://example.com/atelier/es/part/ES-ARM> ; atelier:declaresFeature <https://example.com/atelier/es/fastener/ES-PEDAL-R02> , <https://example.com/atelier/es/fastener/ES-ARM-R05> .
+<https://example.com/atelier/es/fastener/ES-PEDAL-R02> atelier:matesWith <https://example.com/atelier/es/fastener/ES-ARM-R05> . <https://example.com/atelier/es/fastener/ES-ARM-R05> atelier:matesWith <https://example.com/atelier/es/fastener/ES-PEDAL-R02> .

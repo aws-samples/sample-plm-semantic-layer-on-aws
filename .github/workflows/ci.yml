@@ -1,0 +1,113 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# Continuous integration for the sample: every push and pull request builds the web
+# bundle, runs the unit tests of each module, regenerates the R2RML mappings from the
+# JPA annotations and asserts the security gates on a credential-less synth. Nothing
+# here deploys and no job needs a secret; infra/scripts/deploy.sh is the deploy path.
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    name: web (typecheck, lint, build, infra tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run build -w modules/web
+      - run: npm test -w infra
+
+  java:
+    name: java (PLM services, query service)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+      - run: mvn -B test
+        working-directory: modules/plm-services
+      - run: mvn -B test
+        working-directory: modules/query-service
+
+  # The R2RML mappings are generated from the JPA annotations of the four PLM modules
+  # and the Atelier core module. The job regenerates them and fails if the committed
+  # files differ, so a virtual graph cannot drift from the ORM that defines it.
+  mappings:
+    name: R2RML mappings match the JPA annotations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+      - name: Regenerate the mappings
+        working-directory: modules/plm-services
+        run: |
+          mvn -B -q -pl plm-fr,plm-de,plm-uk,plm-es,atelier-core -am compile dependency:build-classpath \
+            -Dmdep.includeScope=runtime -Dmdep.outputFile=target/classpath.txt
+          for pair in plm-fr:fr plm-de:de plm-uk:uk plm-es:es atelier-core:core; do
+            m="${pair%:*}"; code="${pair#*:}"
+            java -cp "$m/target/classes:$(cat "$m/target/classpath.txt")" \
+              atelier.plm.common.r2rml.R2rmlGenerator "$code" "../ontop/mappings/$code.r2rml.ttl"
+          done
+      - run: git diff --exit-code -- modules/ontop/mappings
+
+  agent:
+    name: agent (pytest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: modules/agent/requirements*.txt
+      - run: pip install -r requirements-dev.txt
+        working-directory: modules/agent
+      - run: pytest
+        working-directory: modules/agent
+
+  # The gates run on the exact templates a deploy would ship: the guardrails and their
+  # self-test, the CloudFront behaviours, the security-group descriptions, the ontology
+  # terms and the identifier check. The synth uses a placeholder account whose
+  # availability zones are in infra/cdk.json (context), so it needs no AWS credentials.
+  # The identifier check runs its generic checks (account ids, e-mail addresses, internal
+  # hosts, the generic term list); the organisation-specific term file is not part of the
+  # public repository, so the check is told to go without it.
+  gates:
+    name: gates (synth, guardrails, web behaviours, terms, identifiers)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Synthesize with the placeholder account
+        working-directory: infra
+        run: npx cdk synth -q -o "$RUNNER_TEMP/cdk.out" -c env=prod -c account=111111111111 -c region=eu-west-1 -c semantic=true
+      - run: bash scripts/check-guardrails.test.sh
+      - run: bash scripts/check-guardrails.sh "$RUNNER_TEMP/cdk.out"
+      - run: bash scripts/check-web-behaviours.sh "$RUNNER_TEMP/cdk.out"
+      - run: bash scripts/check-sg-descriptions.sh "$RUNNER_TEMP/cdk.out"
+      - run: python3 scripts/check-ontology-terms.py
+      - run: bash scripts/check-identifiers.sh --without-organisation-terms

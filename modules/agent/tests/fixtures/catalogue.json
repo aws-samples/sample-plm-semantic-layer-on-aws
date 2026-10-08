@@ -1,0 +1,210 @@
+{
+  "plm": "UK",
+  "tables": [
+    {
+      "table": "component",
+      "keyColumn": "comp_id",
+      "columns": [
+        {
+          "name": "comp_id",
+          "type": "text"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "cad_file",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "table": "harness_connector",
+      "keyColumn": "conn_ref",
+      "columns": [
+        {
+          "name": "conn_ref",
+          "type": "text"
+        },
+        {
+          "name": "comp_id",
+          "type": "text"
+        },
+        {
+          "name": "pos_x",
+          "type": "numeric",
+          "unitColumn": "pos_uom"
+        },
+        {
+          "name": "pos_y",
+          "type": "numeric",
+          "unitColumn": "pos_uom"
+        },
+        {
+          "name": "pos_z",
+          "type": "numeric",
+          "unitColumn": "pos_uom"
+        },
+        {
+          "name": "pos_uom",
+          "type": "text",
+          "values": [
+            "IN",
+            "MilliM"
+          ]
+        },
+        {
+          "name": "shell_type",
+          "type": "text"
+        },
+        {
+          "name": "pin_qty",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "table": "fastener",
+      "keyColumn": "fast_ref",
+      "columns": [
+        {
+          "name": "fast_ref",
+          "type": "text"
+        },
+        {
+          "name": "comp_id",
+          "type": "text"
+        },
+        {
+          "name": "pos_x",
+          "type": "numeric",
+          "unitColumn": "pos_uom"
+        },
+        {
+          "name": "pos_y",
+          "type": "numeric",
+          "unitColumn": "pos_uom"
+        },
+        {
+          "name": "pos_z",
+          "type": "numeric",
+          "unitColumn": "pos_uom"
+        },
+        {
+          "name": "pos_uom",
+          "type": "text",
+          "values": [
+            "IN",
+            "MilliM"
+          ]
+        },
+        {
+          "name": "standard",
+          "type": "text"
+        },
+        {
+          "name": "dia",
+          "type": "numeric",
+          "unitColumn": "dia_uom"
+        },
+        {
+          "name": "dia_uom",
+          "type": "text",
+          "values": [
+            "IN",
+            "MilliM"
+          ]
+        },
+        {
+          "name": "qty",
+          "type": "integer"
+        },
+        {
+          "name": "grip",
+          "type": "numeric",
+          "unitColumn": "grip_uom"
+        },
+        {
+          "name": "grip_uom",
+          "type": "text",
+          "values": [
+            "IN",
+            "MilliM"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "hyd_coupling",
+      "keyColumn": "cplg_ref",
+      "columns": [
+        {
+          "name": "cplg_ref",
+          "type": "text"
+        },
+        {
+          "name": "comp_id",
+          "type": "text"
+        },
+        {
+          "name": "pos_x",
+          "type": "numeric",
+          "unitColumn": "pos_uom"
+        },
+        {
+          "name": "pos_y",
+          "type": "numeric",
+          "unitColumn": "pos_uom"
+        },
+        {
+          "name": "pos_z",
+          "type": "numeric",
+          "unitColumn": "pos_uom"
+        },
+        {
+          "name": "pos_uom",
+          "type": "text",
+          "values": [
+            "IN",
+            "MilliM"
+          ]
+        },
+        {
+          "name": "standard",
+          "type": "text"
+        },
+        {
+          "name": "dash",
+          "type": "integer"
+        },
+        {
+          "name": "rating",
+          "type": "numeric",
+          "unitColumn": "rating_uom"
+        },
+        {
+          "name": "rating_uom",
+          "type": "text",
+          "values": [
+            "PSI",
+            "BAR"
+          ]
+        },
+        {
+          "name": "fluid",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "calls": [
+      {
+        "endpoint": "plm-uk",
+        "kind": "rest",
+        "ms": 9
+      }
+    ]
+  }
+}

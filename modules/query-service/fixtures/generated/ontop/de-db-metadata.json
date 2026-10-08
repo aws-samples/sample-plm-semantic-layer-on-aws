@@ -1,0 +1,879 @@
+{
+   "metadata" : {
+      "dbmsProductName" : "PostgreSQL",
+      "dbmsVersion" : "16.15 (Debian 16.15-1.pgdg13+2)",
+      "driverName" : "PostgreSQL JDBC Driver",
+      "driverVersion" : "42.7.13",
+      "idFactoryType" : "POSTGRESQL",
+      "quotationString" : "\""
+   },
+   "relations" : [
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"teil_nr\""
+            },
+            {
+               "datatype" : "varchar(255)",
+               "isNullable" : false,
+               "name" : "\"benennung\""
+            },
+            {
+               "datatype" : "varchar(512)",
+               "isNullable" : true,
+               "name" : "\"cad_datei\""
+            },
+            {
+               "datatype" : "varchar(8)",
+               "isNullable" : true,
+               "name" : "\"revision\""
+            },
+            {
+               "datatype" : "varchar(32)",
+               "isNullable" : true,
+               "name" : "\"status\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"masse_kg\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"werkstoff\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : false,
+               "name" : "\"teileart\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"parent_id\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"menge\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"norm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"nenndurchmesser_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"nennlaenge_mm\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"zaehnezahl\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"modul_mm\""
+            },
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : true,
+               "name" : "\"teileklasse\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"innendurchmesser_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"schnurstaerke_mm\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"mischung\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"beschriftung\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"breite_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"hoehe_mm\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"traegerwerkstoff\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"klebstoff\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"bodenbreite_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"tiefe_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"konturbreite_mm\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"schalenwerkstoff\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"aussendurchmesser_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"querschnittsbreite_mm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"felgendurchmesser_mm\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"lagenzahl\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"waermesenkendurchmesser_mm\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"rotorzahl\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"lagerdauer_monate\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"variante\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"spanne_von_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"spanne_bis_mm\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"parent_id\""
+                  ],
+                  "relation" : [
+                     "\"bauteil\""
+                  ]
+               },
+               "name" : "bauteil_parent_id_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"teil_nr\""
+                  ],
+                  "relation" : [
+                     "\"bauteil\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"bauteil\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"bauteil\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"teil_nr\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "bauteil_pkey"
+            },
+            {
+               "determinants" : [
+                  "\"teil_nr\"",
+                  "\"parent_id\""
+               ],
+               "isPrimaryKey" : false,
+               "name" : "bauteil_teil_nr_parent_id_key"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"stecker_id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"teil_nr\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_x_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_y_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_z_mm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"typ\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"polzahl\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"anschluss\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"variante\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"teil_nr\""
+                  ],
+                  "relation" : [
+                     "\"stecker\""
+                  ]
+               },
+               "name" : "stecker_teil_nr_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"teil_nr\""
+                  ],
+                  "relation" : [
+                     "\"bauteil\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"stecker\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"stecker\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"stecker_id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "stecker_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"parent_id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"teil_nr\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"lfd_nr\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"x_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"y_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 4)",
+               "isNullable" : false,
+               "name" : "\"z_mm\""
+            },
+            {
+               "datatype" : "numeric(9, 4)",
+               "isNullable" : false,
+               "name" : "\"rx_grad\""
+            },
+            {
+               "datatype" : "numeric(9, 4)",
+               "isNullable" : false,
+               "name" : "\"ry_grad\""
+            },
+            {
+               "datatype" : "numeric(9, 4)",
+               "isNullable" : false,
+               "name" : "\"rz_grad\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"spanne_von_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : true,
+               "name" : "\"spanne_bis_mm\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"teil_nr\"",
+                     "\"parent_id\""
+                  ],
+                  "relation" : [
+                     "\"einbaulage\""
+                  ]
+               },
+               "name" : "einbaulage_teil_nr_parent_id_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"teil_nr\"",
+                     "\"parent_id\""
+                  ],
+                  "relation" : [
+                     "\"bauteil\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"einbaulage\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"einbaulage\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"parent_id\"",
+                  "\"teil_nr\"",
+                  "\"lfd_nr\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "einbaulage_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"teil_nr\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"lieferant_id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"lieferanten_teilenummer\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"lieferzeit_tage\""
+            },
+            {
+               "datatype" : "bool",
+               "isNullable" : false,
+               "name" : "\"bevorzugt\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"teil_nr\""
+                  ],
+                  "relation" : [
+                     "\"lieferantenteil\""
+                  ]
+               },
+               "name" : "lieferantenteil_teil_nr_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"teil_nr\""
+                  ],
+                  "relation" : [
+                     "\"bauteil\""
+                  ]
+               }
+            },
+            {
+               "from" : {
+                  "columns" : [
+                     "\"lieferant_id\""
+                  ],
+                  "relation" : [
+                     "\"lieferantenteil\""
+                  ]
+               },
+               "name" : "lieferantenteil_lieferant_id_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"id\""
+                  ],
+                  "relation" : [
+                     "\"lieferant\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"lieferantenteil\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"lieferantenteil\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "lieferantenteil_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"kupplung_id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"teil_nr\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_x_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_y_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_z_mm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"norm\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"dash_groesse\""
+            },
+            {
+               "datatype" : "numeric(10, 3)",
+               "isNullable" : true,
+               "name" : "\"nenndruck_bar\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"fluid\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"anschluss\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"variante\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"teil_nr\""
+                  ],
+                  "relation" : [
+                     "\"hydraulikkupplung\""
+                  ]
+               },
+               "name" : "hydraulikkupplung_teil_nr_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"teil_nr\""
+                  ],
+                  "relation" : [
+                     "\"bauteil\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"hydraulikkupplung\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"hydraulikkupplung\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"kupplung_id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "hydraulikkupplung_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"befestiger_id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"teil_nr\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_x_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_y_mm\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"pos_z_mm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"norm\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"durchmesser_mm\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : true,
+               "name" : "\"anzahl\""
+            },
+            {
+               "datatype" : "numeric(8, 3)",
+               "isNullable" : true,
+               "name" : "\"klemmlaenge_mm\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"anschluss\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : true,
+               "name" : "\"variante\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"teil_nr\""
+                  ],
+                  "relation" : [
+                     "\"befestiger\""
+                  ]
+               },
+               "name" : "befestiger_teil_nr_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"teil_nr\""
+                  ],
+                  "relation" : [
+                     "\"bauteil\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"befestiger\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"befestiger\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"befestiger_id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "befestiger_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(16)",
+               "isNullable" : false,
+               "name" : "\"id\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"teil_nr\""
+            },
+            {
+               "datatype" : "varchar(160)",
+               "isNullable" : false,
+               "name" : "\"urn\""
+            },
+            {
+               "datatype" : "numeric(12, 3)",
+               "isNullable" : false,
+               "name" : "\"menge\""
+            },
+            {
+               "datatype" : "varchar(8)",
+               "isNullable" : true,
+               "name" : "\"erwartete_revision\""
+            },
+            {
+               "datatype" : "varchar(400)",
+               "isNullable" : true,
+               "name" : "\"bemerkung\""
+            }
+         ],
+         "foreignKeys" : [
+            {
+               "from" : {
+                  "columns" : [
+                     "\"teil_nr\""
+                  ],
+                  "relation" : [
+                     "\"externer_verweis\""
+                  ]
+               },
+               "name" : "externer_verweis_teil_nr_fkey",
+               "to" : {
+                  "columns" : [
+                     "\"teil_nr\""
+                  ],
+                  "relation" : [
+                     "\"bauteil\""
+                  ]
+               }
+            }
+         ],
+         "name" : [
+            "\"externer_verweis\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"externer_verweis\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "externer_verweis_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"vorfahr\""
+            },
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"nachfahr\""
+            },
+            {
+               "datatype" : "int4",
+               "isNullable" : false,
+               "name" : "\"tiefe\""
+            }
+         ],
+         "name" : [
+            "\"teilestruktur\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"teilestruktur\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"vorfahr\"",
+                  "\"nachfahr\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "teilestruktur_pkey"
+            }
+         ]
+      },
+      {
+         "columns" : [
+            {
+               "datatype" : "varchar(64)",
+               "isNullable" : false,
+               "name" : "\"id\""
+            },
+            {
+               "datatype" : "varchar(255)",
+               "isNullable" : false,
+               "name" : "\"name\""
+            },
+            {
+               "datatype" : "varchar(120)",
+               "isNullable" : true,
+               "name" : "\"ort\""
+            }
+         ],
+         "name" : [
+            "\"lieferant\""
+         ],
+         "otherNames" : [
+            [
+               "\"public\"",
+               "\"lieferant\""
+            ]
+         ],
+         "uniqueConstraints" : [
+            {
+               "determinants" : [
+                  "\"id\""
+               ],
+               "isPrimaryKey" : true,
+               "name" : "lieferant_pkey"
+            }
+         ]
+      }
+   ]
+}
