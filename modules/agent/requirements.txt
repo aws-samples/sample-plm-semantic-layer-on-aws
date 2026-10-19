@@ -3,5 +3,5 @@ uvicorn==0.54.0
 strands-agents==1.57.1
 ag-ui-strands==0.4.1
 ag-ui-protocol==1.0.0
-mcp==2.1.1
+mcp==2.2.0
 boto3==1.43.105
